@@ -42,6 +42,7 @@ main{max-width:560px;margin:0 auto;padding:12px 16px 24px}
 .tick{position:absolute;left:45%;top:-2px;bottom:-2px;width:2px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.5)}
 .m .win{font:500 9px/1 var(--body);font-style:italic;opacity:.75;margin-top:4px}
 #nar{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;text-align:center;color:#fff;font-style:italic;font-size:1rem;background:linear-gradient(transparent,rgba(0,0,0,.82));opacity:0;transition:opacity .6s;pointer-events:none}
+#fd{position:absolute;inset:0;background:#0b0906;opacity:0;transition:opacity .5s;pointer-events:none}#stc{position:absolute;left:12px;right:12px;top:50%;transform:translateY(-40%);text-align:center;pointer-events:none;opacity:0;transition:opacity .6s,transform .9s;color:#f3ead8;text-shadow:0 2px 10px #000}#stc.on{opacity:1;transform:translateY(-50%)}#stc::before{content:"";position:absolute;left:-12px;right:-12px;top:-30px;bottom:-30px;background:radial-gradient(ellipse at center,rgba(0,0,0,.55),transparent 70%);z-index:-1}#stc .a{font:700 11px/1 var(--body);letter-spacing:.22em;color:#d9b45a;text-transform:uppercase}#stc .b{font:800 22px/1.15 var(--disp);margin-top:7px}
 #lbls{position:absolute;inset:0;pointer-events:none}.tag{position:absolute;transform:translate(-50%,-100%);font:600 9px/1.2 var(--body);padding:1px 5px;border-radius:4px;background:rgba(0,0,0,.6);color:#fff;white-space:nowrap}
 /* cards */
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}
@@ -113,7 +114,7 @@ details.sit summary{list-style:none;cursor:pointer;display:flex;justify-content:
  <div class="phase"><div class="segs" id="segs"></div><div class="plab" id="plab"></div></div>
 </div></header>
 <main>
-<div class="stage"><canvas id="map"></canvas><div id="lbls"></div>
+<div class="stage"><canvas id="map"></canvas><div id="lbls"></div><div id="fd"></div><div id="stc"><div class="a"></div><div class="b"></div></div>
  <div class="meters">
   <div class="m"><div class="mh"><span id="rn">Rome</span><b id="rv"></b></div><div class="track"><div class="fill r" id="rb"></div></div><div class="win">your army’s cohesion</div></div>
   <div class="m"><div class="mh"><span id="en">Enemy</span><b id="ev"></b></div><div class="track"><div class="fill e" id="eb"></div><i class="tick"></i></div><div class="win">break it past the line to win</div></div>
@@ -165,9 +166,10 @@ function start(){
  landing();
 }
 function turn(){
+ let mvg=false;{const ns=stageFor(step);if(ns!==STG){goStage(ns);mvg=ok}}
  const T=B.turns[step],ev=B.decisions[step].event;hud("play");speak(T.h+". "+T.t);
  V.innerHTML=prevNote()+`<div class="card"><div class="kicker"><span>${ev?"⚡ Turn of fortune":"Decision "+(step+1)}</span><span class="cpw">🔭 ${SCN} scout${SCN===1?"":"s"} left</span></div><h2>${T.h}</h2><p>${T.t}</p>${ord(step).map(i=>`<button class="ch" data-i="${i}"><span class="l">${T.c[i].l}</span></button>`).join("")}${scout?"":SCN>0?`<button class="scout" id="sc">🔭 Send scouts (${SCN} of ${SCOUTS} left this battle)</button>`:'<div class="sub" style="margin:10px 0 0;text-align:center">No scouts left this battle.</div>'}</div>`+intel()+sit();
- V.querySelectorAll("button[data-i]").forEach(b=>b.onclick=()=>pick(+b.dataset.i));const sc=$("sc");if(sc)sc.onclick=()=>{SCN--;scout=true;SFX.click();bars();turn()};
+ {const bs=V.querySelectorAll("button[data-i]");bs.forEach(b=>{b.onclick=()=>pick(+b.dataset.i);if(mvg)b.disabled=true});if(mvg)setTimeout(()=>bs.forEach(b=>b.disabled=false),2100)}const sc=$("sc");if(sc)sc.onclick=()=>{SCN--;scout=true;SFX.click();bars();turn()};
 }
 // Choices are shown in a shuffled order that is fixed for each battle, so their position gives nothing away.
 function ord(k){const n=B.turns[k].c.length,a=[...Array(n).keys()];let h=2166136261;for(const ch of B.id+":"+k){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}
@@ -442,7 +444,7 @@ function climax(win){const L=win?B.climax.win:B.climax.lose,K=B.climax.cams.map(
 // ---------- THE FINAL MOMENT: the losing side routs, is surrounded, or is driven into the water ----------
 // climax.anim in a battle file picks the picture: {"win":"rout|encircle|drown","lose":"..."}; default rout.
 let END=null;
-function endAnim(win){if(!ok)return null;const mode=((B.climax.anim||{})[win?"win":"lose"])||"rout",lose=win?"e":"r",TRr=B.terrain.river;
+function endAnim(win){if(!ok)return null;const mode=((B.climax.anim||{})[win?"win":"lose"])||"rout",lose=win?"e":"r",TRr=TF().river;
  const L=Object.keys(UN).filter(id=>U[id].s===lose&&UN[id].a>.3),Wn=Object.keys(UN).filter(id=>U[id].s!==lose&&UN[id].a>.3);if(!L.length)return null;
  let cx=0,cz=0;L.forEach(id=>{cx+=UN[id].g.position.x;cz+=UN[id].g.position.z});cx/=L.length;cz/=L.length;
  const away=lose==="e"?-1:1,rdir=TRr&&TRr.x!=null?(Math.sign(TRr.x)||-1):-1,now=performance.now()/1000;let wt=null;
@@ -470,10 +472,12 @@ let P={},ok=false,tried=false,ren,scene,cam,UN={};const CC=[0,190,245,0,0,-10],C
 const WX=x=>x-200,WZ=y=>y-125;
 // Terrain features in battle files use field coordinates (x 0-400, y 0-250): hills [[x,y,r,height]], lakes [[x,y,rx,ry]],
 // marsh [[x,y,rx,ry]], forests [[x,y,r,trees]], roads [[x1,y1,x2,y2,width]].
-const TF=()=>B&&B.terrain||{};
+let MARCHD=0,CURT=null,STG="start",WORLD=null,GT=null,SEA=false,HEMI=null,SUN=null,WXF=null,WOBJ=null,STGT=[];
+const TF=()=>CURT||B&&B.terrain||{};
 function gh(x,z){const T=TF();if(T.flat&&!T.hills)return 0;let h=T.flat?0:Math.max(0,Math.abs(x)-215)*.35+Math.max(0,-z-160)*.3;
  for(const q of T.hills||[]){const dx=x-WX(q[0]),dz=z-WZ(q[1]),r=q[2];h+=q[3]*Math.exp(-(dx*dx+dz*dz)/(r*r))}
- for(const q of T.lakes||[]){const dx=(x-WX(q[0]))/q[2],dz=(z-WZ(q[1]))/q[3],d=dx*dx+dz*dz;if(d<1.6)h-=4*Math.max(0,1-d/1.6)}return h}
+ for(const q of T.lakes||[]){const dx=(x-WX(q[0]))/q[2],dz=(z-WZ(q[1]))/q[3],d=dx*dx+dz*dz;if(d<1.6)h-=4*Math.max(0,1-d/1.6)}
+ const r=T.river;if(r&&h>0){const hw=(r.w||26)/2,d=r.horizontal?Math.abs(z-((r.y||125)-125)):Math.abs(x-(r.x==null?214:r.x));if(d<hw+14)h*=Math.max(0,Math.min(1,(d-hw)/14))}return h}
 function inWater(x,z){const T=TF();for(const q of T.lakes||[]){const dx=(x-WX(q[0]))/q[2],dz=(z-WZ(q[1]))/q[3];if(dx*dx+dz*dz<1)return true}
  const r=T.river;if(r){if(r.horizontal){if(Math.abs(z-((r.y||125)-125))<(r.w||26)/2)return true}else{const rx=r.x==null?214:r.x;if(Math.abs(x-rx)<(r.w||26)/2+4)return true}}return false}
 function waterTarget(cx,cz){const T=TF();let best=null,bd=1e9;for(const q of T.lakes||[]){const x=WX(q[0]),z=WZ(q[1]),d=Math.hypot(x-cx,z-cz);if(d<bd){bd=d;best=[x,z]}}
@@ -505,21 +509,10 @@ function MODEL(id,u){const flip=u.s!=="r",L=Object.assign({},Rules.models[u.mode
 function initGL(){tried=true;try{
  const cv=$("map"),w=cv.parentNode.clientWidth||360;
  ren=new THREE.WebGLRenderer({canvas:cv,antialias:true});ren.setPixelRatio(Math.min(devicePixelRatio||1,2));ren.setSize(w,w/1.5,false);
- scene=new THREE.Scene();const TR=B.terrain,sky=hx(TR.sky),SEA=!!TR.flat&&!TR.trees;scene.background=skyTex(TR.sky);scene.fog=new THREE.Fog(mixC(TR.sky,"#ffffff",.25),330,760);
+ scene=new THREE.Scene();CURT=B.terrain;STG="start";const TR=B.terrain;SEA=!!TR.flat&&!TR.trees;
  cam=new THREE.PerspectiveCamera(50,1.5,1,1500);cam.position.set(0,190,245);cam.lookAt(0,0,-10);
- const hemi=new THREE.HemisphereLight(0xeaf2ff,0x6b5a3a,.78);scene.add(hemi);
- const sun=new THREE.DirectionalLight(0xffe7c2,.95);sun.position.set(-100,200,100);scene.add(sun);const WXF=weather(TR.weather,hemi,sun);
- const gg=new THREE.PlaneGeometry(700,520,110,82);gg.rotateX(-Math.PI/2);const ps=gg.attributes.position;
- for(let i=0;i<ps.count;i++){const x=ps.getX(i),z=ps.getZ(i),e=gh(x,z);ps.setY(i,e+(e>3?Math.sin(x*.05)*Math.cos(z*.07)*Math.min(4,e*.3):0))}
- gg.computeVertexNormals();
- const GT=groundTex(TR,SEA);scene.add(new THREE.Mesh(gg,new THREE.MeshLambertMaterial({map:GT})));
- if(TR.river){const rh=TR.river.horizontal,rv=new THREE.Mesh(new THREE.PlaneGeometry(rh?700:(TR.river.w||26),rh?(TR.river.w||26):520),new THREE.MeshLambertMaterial({color:hx(TR.river.color||"#4d86a8")}));rv.rotation.x=-Math.PI/2;rv.position.set(rh?0:(TR.river.x==null?214:TR.river.x),.3,rh?(TR.river.y||125)-125:0);scene.add(rv)}
- for(const q of TR.lakes||[]){const lk=new THREE.Mesh(new THREE.CircleGeometry(1,48),new THREE.MeshLambertMaterial({color:hx(TR.lakeColor||"#4a7d9a"),transparent:true,opacity:.92}));lk.rotation.x=-Math.PI/2;lk.scale.set(q[2],q[3],1);lk.position.set(WX(q[0]),.2,WZ(q[1]));scene.add(lk)}
- const tg=new THREE.ConeGeometry(7,20,7),tg2=new THREE.ConeGeometry(5,14,7),trg=new THREE.CylinderGeometry(1,1.3,6,5),trm=new THREE.MeshLambertMaterial({color:0x5a4330}),tms=[0,1,2].map(k=>new THREE.MeshLambertMaterial({color:hx(mixC(TR.tree,k?"#000000":"#9fb06a",k===2?.18:.12))}));
- const TP=[];for(let i=0;i<TR.trees;i++){if(i<TR.trees*.7)TP.push([(i%2?1:-1)*(228+((i*37)%90)),-200+((i*53)%330)]);else TP.push([-200+((i*41)%400),-178-((i*29)%60)])}
- for(const f of TR.forests||[]){let sd=f[0]*7+f[1]*13;const rr=()=>(sd=(sd*16807+11)%2147483647)/2147483647;for(let k=0;k<(f[3]||20);k++){const a=rr()*6.283,d=Math.sqrt(rr())*f[2];TP.push([WX(f[0])+Math.cos(a)*d,WZ(f[1])+Math.sin(a)*d*.8])}}
- for(let i=0;i<TP.length;i++){const[x,z]=TP[i];if(inWater(x,z))continue;
-  const tm=tms[i%3],sc=.75+((i*7)%10)/18,t=new THREE.Group(),a=new THREE.Mesh(tg,tm),b2=new THREE.Mesh(tg2,tm),tr=new THREE.Mesh(trg,trm);a.position.y=13;b2.position.y=22;tr.position.y=3;t.add(a,b2,tr);t.scale.setScalar(sc);t.position.set(x,gh(x,z),z);scene.add(t)}
+ HEMI=new THREE.HemisphereLight(0xeaf2ff,0x6b5a3a,.78);scene.add(HEMI);
+ SUN=new THREE.DirectionalLight(0xffe7c2,.95);SUN.position.set(-100,200,100);scene.add(SUN);setWeather(TR.weather);buildWorld();
  for(const id in U){const u=U[id],g=new THREE.Group(),mat=new THREE.MeshLambertMaterial({vertexColors:true});
   const kd=(Rules.models[u.model]||{}).k,cav=kd==="cav"||kd==="ship",el=kd==="ele";
   const gx=el?22:cav?10:5.5,gz=el?18:kd==="ship"?17:cav?12:6.5;
@@ -539,15 +532,31 @@ function initGL(){tried=true;try{
  (function loop(t){requestAnimationFrame(loop);const T=t/1000;for(let k=0;k<6;k++)CC[k]+=(CT[k]-CC[k])*.025;cam.position.set(CC[0]+Math.sin(T*.25)*(CT[1]>100?14:3),CC[1],CC[2]);cam.lookAt(CC[3],CC[4],CC[5]);
   for(const id in UN){const o=UN[id],g=o.g,dx=o.tx-g.position.x,dz=o.tz-g.position.z,mv=Math.hypot(dx,dz),hit=performance.now()/1000<o.hit;
    g.position.x+=dx*.018;g.position.z+=dz*.018;g.position.y+=(Math.max(0,gh(g.position.x,g.position.z))-g.position.y)*.2;
-   let ry=o.ry||0;if(!o.fleeing&&!(END&&o.ry)&&mv>4&&U[id].model.indexOf("galley")<0){const f=U[id].s==="r"?Math.atan2(-dx,-dz):Math.atan2(dx,dz);if(Math.abs(f)<2.2)ry=f*.9}
+   if(o.march&&mv<3&&!MARCHD)o.march=0;const mr=o.march||0;let ry=o.ry||0;if(!mr&&!o.fleeing&&!(END&&o.ry)&&mv>4&&U[id].model.indexOf("galley")<0){const f=U[id].s==="r"?Math.atan2(-dx,-dz):Math.atan2(dx,dz);if(Math.abs(f)<2.2)ry=f*.9}
    g.rotation.y+=(ry-g.rotation.y)*.05;g.visible=o.a>.3;
-   if(o.fleeing&&END){fleeStep(o,T);o.meshes.forEach(m=>{m.visible=m.userData.rnd<=Math.max(o.k,.5)})}else{o.bend=(o.bend||0)+((hit?1:0)-(o.bend||0))*.04;const bs=(U[id].s==="r"?1:-1)*3.2*o.bend;o.meshes.forEach((m,i)=>{const u=m.userData;m.position.y=u.by+(mv>2?Math.abs(Math.sin(T*9+i))*1.5:0)+(hit?Math.abs(Math.sin(T*14+i*2))*2.2:0);if(u.z0!=null)m.position.z=u.z0+bs*Math.cos(u.xn*Math.PI/2);m.visible=u.rnd<=o.k})}
+   if(o.fleeing&&END){fleeStep(o,T);o.meshes.forEach(m=>{m.visible=m.userData.rnd<=Math.max(o.k,.5)})}else{o.bend=(o.bend||0)+((hit?1:0)-(o.bend||0))*.04;const bs=(U[id].s==="r"?1:-1)*3.2*o.bend;o.meshes.forEach((m,i)=>{const u=m.userData;m.rotation.y+=((mr?-mr*Math.PI/2:0)-m.rotation.y)*.08;m.position.y=u.by+(mv>2?Math.abs(Math.sin(T*9+i))*1.5:0)+(hit?Math.abs(Math.sin(T*14+i*2))*2.2:0);if(u.z0!=null)m.position.z=u.z0+bs*Math.cos(u.xn*Math.PI/2);m.visible=u.rnd<=o.k})}
    o.fx.material.opacity=hit?.28*Math.abs(Math.sin(T*8)):0;if(o.flag)o.flag.rotation.y=Math.sin(T*3+g.position.x)*.35;const dm=o.dust.material,isCav=/cav_/.test(U[id].model),want=hit?.45:mv>2?(isCav?.7:.3):0;dm.size=isCav&&mv>2?16:(SEA?6:12);dm.opacity+=(want-dm.opacity)*.05;o.dust.position.y=(T*6)%6;o.dust.visible=dm.opacity>.02;
    v.set(g.position.x,14+g.position.y,g.position.z).project(cam);o.tag.style.display=g.visible?"block":"none";
    o.tag.style.left=((v.x+1)/2*100)+"%";o.tag.style.top=((1-v.y)/2*100)+"%"}
   if(SEA)GT.offset.x=(T*.004)%1;stepProj();if(WXF)WXF(T);ren.render(scene,cam);if(REC)REC.frame()})(0);
  ok=true}catch(e){ok=false;console.error(e)}}
+// The ground, water and trees for the current terrain (TF()). Rebuilt when the battle moves to a new place (see goStage).
+function buildWorld(){const TR=TF();if(WORLD){scene.remove(WORLD);WORLD.traverse(o=>{if(o.geometry&&o.geometry!==GB)o.geometry.dispose();if(o.material&&o.material.map)o.material.map.dispose()})}const W=new THREE.Group();
+ const gg=new THREE.PlaneGeometry(700,520,110,82);gg.rotateX(-Math.PI/2);const ps=gg.attributes.position;
+ for(let i=0;i<ps.count;i++){const x=ps.getX(i),z=ps.getZ(i),e=gh(x,z);ps.setY(i,e+(e>3?Math.sin(x*.05)*Math.cos(z*.07)*Math.min(4,e*.3):0))}
+ gg.computeVertexNormals();
+ GT=groundTex(TR,SEA);W.add(new THREE.Mesh(gg,new THREE.MeshLambertMaterial({map:GT})));
+ if(TR.river){const rh=TR.river.horizontal,rv=new THREE.Mesh(new THREE.PlaneGeometry(rh?700:(TR.river.w||26),rh?(TR.river.w||26):520),new THREE.MeshLambertMaterial({color:hx(TR.river.color||"#4d86a8")}));rv.rotation.x=-Math.PI/2;rv.position.set(rh?0:(TR.river.x==null?214:TR.river.x),.3,rh?(TR.river.y||125)-125:0);W.add(rv)}
+ for(const q of TR.lakes||[]){const lk=new THREE.Mesh(new THREE.CircleGeometry(1,48),new THREE.MeshLambertMaterial({color:hx(TR.lakeColor||"#4a7d9a"),transparent:true,opacity:.92}));lk.rotation.x=-Math.PI/2;lk.scale.set(q[2],q[3],1);lk.position.set(WX(q[0]),.2,WZ(q[1]));W.add(lk)}
+ const tg=new THREE.ConeGeometry(7,20,7),tg2=new THREE.ConeGeometry(5,14,7),trg=new THREE.CylinderGeometry(1,1.3,6,5),trm=new THREE.MeshLambertMaterial({color:0x5a4330}),tms=[0,1,2].map(k=>new THREE.MeshLambertMaterial({color:hx(mixC(TR.tree,k?"#000000":"#9fb06a",k===2?.18:.12))}));
+ const TP=[];for(let i=0;i<TR.trees;i++){if(i<TR.trees*.7)TP.push([(i%2?1:-1)*(228+((i*37)%90)),-200+((i*53)%330)]);else TP.push([-200+((i*41)%400),-178-((i*29)%60)])}
+ for(const f of TR.forests||[]){let sd=f[0]*7+f[1]*13;const rr=()=>(sd=(sd*16807+11)%2147483647)/2147483647;for(let k=0;k<(f[3]||20);k++){const a=rr()*6.283,d=Math.sqrt(rr())*f[2];TP.push([WX(f[0])+Math.cos(a)*d,WZ(f[1])+Math.sin(a)*d*.8])}}
+ for(let i=0;i<TP.length;i++){const[x,z]=TP[i];if(inWater(x,z))continue;
+  const tm=tms[i%3],sc=.75+((i*7)%10)/18,t=new THREE.Group(),a=new THREE.Mesh(tg,tm),b2=new THREE.Mesh(tg2,tm),tr=new THREE.Mesh(trg,trm);a.position.y=13;b2.position.y=22;tr.position.y=3;t.add(a,b2,tr);t.scale.setScalar(sc);t.position.set(x,gh(x,z),z);W.add(t)}
+ scene.add(W);WORLD=W}
 // ---- weather and time of day (terrain.weather: mist, rain, snow, dust, heat, dusk, night) ----
+function setWeather(w){const TR=TF();if(WOBJ){scene.remove(WOBJ);WOBJ=null}scene.background=skyTex(TR.sky);scene.fog=new THREE.Fog(mixC(TR.sky,"#ffffff",.25),330,760);
+ HEMI.color.setHex(0xeaf2ff);HEMI.intensity=.78;SUN.color.setHex(0xffe7c2);SUN.intensity=.95;SUN.position.set(-100,200,100);WXF=weather(w,HEMI,SUN)}
 function weather(w,hemi,sun){if(!w)return null;const F=(c,n,f)=>{scene.fog=new THREE.Fog(c,n,f)},sky=c=>{scene.background=skyTex(c)};
  if(w==="mist"){F(0xc4cacd,60,380);sky("#b9c1c6");sun.intensity=.55;hemi.intensity=.9}
  if(w==="rain"){F(0x8a949c,120,520);sky("#7d8a94");sun.intensity=.35;hemi.intensity=.75}
@@ -560,7 +569,7 @@ function weather(w,hemi,sun){if(!w)return null;const F=(c,n,f)=>{scene.fog=new T
  const n=P[0],pos=new Float32Array(n*(w==="rain"?6:3));const R=()=>Math.random();
  for(let i=0;i<n;i++){const x=(R()-.5)*640,y=R()*170,z=(R()-.5)*520;if(w==="rain"){pos.set([x,y,z,x+1.5,y-7,z],i*6)}else pos.set([x,y,z],i*3)}
  const g=new THREE.BufferGeometry();g.setAttribute("position",new THREE.BufferAttribute(pos,3));
- const obj=w==="rain"?new THREE.LineSegments(g,new THREE.LineBasicMaterial({color:P[1],transparent:true,opacity:.45})):new THREE.Points(g,new THREE.PointsMaterial({color:P[1],size:P[2],map:DOT(),transparent:true,opacity:w==="dust"?.35:.9,depthWrite:false}));scene.add(obj);
+ const obj=w==="rain"?new THREE.LineSegments(g,new THREE.LineBasicMaterial({color:P[1],transparent:true,opacity:.45})):new THREE.Points(g,new THREE.PointsMaterial({color:P[1],size:P[2],map:DOT(),transparent:true,opacity:w==="dust"?.35:.9,depthWrite:false}));scene.add(obj);WOBJ=obj;
  return T=>{const a=g.attributes.position.array,st=w==="rain"?6:3,fall=w==="rain"?5:w==="snow"?.45:.08;
   for(let i=0;i<n;i++){const o=i*st;let y=a[o+1]-fall;if(w==="dust"){a[o]+=.15}if(y<0){y+=170}a[o+1]=y;if(w==="rain"){a[o+3]=a[o]+1.5;a[o+4]=y-7;a[o+5]=a[o+2]}else if(w==="snow")a[o]+=Math.sin(T+i)*.08;if(a[o]>320)a[o]-=640}
   g.attributes.position.needsUpdate=true}}
@@ -621,7 +630,25 @@ function replayButton(){const b=$("vid");if(!b||!window.MediaRecorder)return;b.s
  if(CLIP)ready();else if(REC){b.disabled=true;CLIPWAIT.push(ready)}else b.style.display="none"}
 function place(){if(!ok)return;for(const id in UN){const o=UN[id],p=P[id];o.tx=WX(p[0]);o.tz=WZ(p[1]);o.a=p[2]==null?1:p[2]}}
 function mapScale(){if(!ok)return;for(const id in UN){const u=U[id];UN[id].k=Math.max(.25,Math.min(1,u.s==="r"?R/100:u.sc?E/100:1))}}
-function resetMap(){endReset();picks=[];CP=CPMAX;SCN=SCOUTS;scout=false;clearTimeout(camT);CT.splice(0,6,0,190,245,0,0,-10);if(!tried)initGL();P={};for(const id in U)P[id]=[U[id].x,U[id].y,U[id].hidden?0:1];place();if(ok)for(const id in UN){UN[id].g.position.set(UN[id].tx,Math.max(0,gh(UN[id].tx,UN[id].tz)),UN[id].tz);UN[id].hit=0}}
+function resetMap(){endReset();if(tried||ok){goStage("start",true);const f=$("fd"),t=$("stc");if(f)f.style.opacity=0;if(t)t.classList.remove("on")}picks=[];CP=CPMAX;SCN=SCOUTS;scout=false;clearTimeout(camT);CT.splice(0,6,0,190,245,0,0,-10);if(!tried)initGL();P={};for(const id in U)P[id]=[U[id].x,U[id].y,U[id].hidden?0:1];place();if(ok)for(const id in UN){UN[id].g.position.set(UN[id].tx,Math.max(0,gh(UN[id].tx,UN[id].tz)),UN[id].tz);UN[id].hit=0}}
+// ---------- MOVING ON: a battle can move to new ground between decisions ----------
+// B.stages = {name:{label,title,terrain,weather,units:{id:[x,y,opacity]},dir:1|-1,cam}}. A decision's "stage" names the place it
+// happens in: a name, or a list [{"if":{...},"s":"name"},{"s":"name"}] so the place can follow earlier choices. "start" is the base terrain.
+function stageFor(k){const d=B.decisions[k]&&B.decisions[k].stage;if(d==null)return STG;if(typeof d==="string")return d;const f=Rules.first(d,S);return f?f.s:STG}
+function stageTerrain(n){if(n==="start")return B.terrain;const st=(B.stages||{})[n]||{},T={};for(const k of["grass","ground","tree","sky","lakeColor","trees"])if(B.terrain[k]!==undefined)T[k]=B.terrain[k];
+ Object.assign(T,typeof st.terrain==="string"?(B.stages[st.terrain]||{}).terrain:st.terrain||{});T.weather="weather" in st?st.weather:B.terrain.weather;return T}
+function goStage(n,instant){STGT.forEach(clearTimeout);STGT=[];MARCHD=0;if(!ok){STG=n;CURT=stageTerrain(n);return}if(n===STG)return;
+ const st=n==="start"?{}:(B.stages||{})[n]||{},dir=st.dir||1,swap=()=>{STG=n;CURT=stageTerrain(n);buildWorld();setWeather(CURT.weather)};
+ if(instant){swap();for(const id in UN)UN[id].march=0;return}
+ const tt=$("stc");tt.querySelector(".a").textContent=st.label||"";tt.querySelector(".b").textContent=st.title||"";tt.classList.add("on");SFX.drums&&SFX.drums();MARCHD=dir;
+ // the army marches off in its direction of travel, the view darkens, and it marches onto the new ground
+ for(const id in UN){const p=P[id];if(U[id].s==="r"&&(p[2]==null||p[2]>.3)){P[id]=[p[0]+dir*200,p[1],p[2]];UN[id].march=dir}}place();CT.splice(0,6,-dir*70,105,190,dir*70,0,25);
+ STGT.push(setTimeout(()=>{$("fd").style.opacity=1},1200));
+ STGT.push(setTimeout(()=>{swap();const nu=st.units||{};
+  for(const id in UN){const o=UN[id],p=(nu[id]||P[id]).slice(),ro=U[id].s==="r"&&(p[2]==null||p[2]>.3);if(ro&&!nu[id])p[0]-=dir*200;P[id]=p;
+   const sx=WX(p[0])-(ro?dir*210:0),sz=WZ(p[1]);o.march=ro?dir:0;o.g.position.set(sx,Math.max(0,gh(sx,sz)),sz);o.hit=0}
+  place();for(let k=0;k<6;k++)CC[k]=[ -dir*90,100,185,-dir*30,0,15][k];CT.splice(0,6,...(st.cam||[dir*20,165,235,0,0,-5]));$("fd").style.opacity=0},1800));
+ STGT.push(setTimeout(()=>tt.classList.remove("on"),4000));STGT.push(setTimeout(()=>{MARCHD=0},2400))}
 const OV=[0,190,245,0,0,-10];
 let camT=0;
 function move(k,i){const m=Rules.moveFor(B,k,i,S);Object.assign(P,m.u);place();if(!ok)return;

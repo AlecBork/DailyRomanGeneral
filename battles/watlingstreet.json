@@ -20,43 +20,53 @@
  "intro": "Somewhere in the English Midlands, perhaps near Mancetter, about AD 60 or 61. You are Gaius Suetonius Paulinus, governor of Britain, with nearly 10,000 men: the Fourteenth Legion, part of the Twentieth and auxiliaries. Boudica, queen of the Iceni, has burned three Roman towns. Ancient writers give her host as 230,000; modern historians think it was far smaller, but still much larger than yours.",
  "debrief": "In reality, after the Iceni and Trinovantes rose and destroyed Camulodunum, Suetonius gave up Londinium, which was burned, as was Verulamium. The Second Legion’s prefect, Poenius Postumus, did not bring his men. Suetonius chose a narrow passage with a wood behind him and a plain in front; the Britons drew up their wagons, with their families, at the back of their army. The legions stood until the Britons were close, threw their pila, then advanced in wedge formation, and the cavalry broke groups that stood. The fleeing Britons were trapped against their wagons; the main account says no quarter was given. Tacitus gives 80,000 British and 400 Roman dead, figures thought exaggerated. Boudica died soon after, by poison in one account and illness in another. The site is unknown. The other choices are what-ifs.",
  "terrain": {
-  "grass": "#6f8f4c",
-  "tree": "#2f4a28",
-  "trees": 90,
-  "hills": [
+  "trees": 50,
+  "river": {
+   "horizontal": true,
+   "y": 40,
+   "w": 40,
+   "color": "#557f92"
+  },
+  "roads": [
    [
-    25,
-    185,
-    60,
-    24
+    0,
+    190,
+    400,
+    190,
+    14
    ],
    [
-    375,
-    185,
+    200,
+    190,
+    200,
     60,
-    24
+    10
+   ]
+  ],
+  "hills": [
+   [
+    340,
+    120,
+    60,
+    8
    ]
   ],
   "forests": [
    [
-    50,
-    222,
-    60,
-    26
+    40,
+    110,
+    40,
+    10
    ],
    [
-    350,
-    222,
-    60,
-    26
-   ],
-   [
-    200,
-    252,
-    140,
-    30
+    360,
+    230,
+    40,
+    10
    ]
-  ]
+  ],
+  "grass": "#6f8f4c",
+  "tree": "#2f4a28"
  },
  "units": {
   "leg": {
@@ -112,7 +122,8 @@
    "side": "enemy",
    "name": "Boudica’s Britons",
    "model": "gaul",
-   "scales": true
+   "scales": true,
+   "hidden": true
   },
   "char": {
    "x": 200,
@@ -121,7 +132,8 @@
    "h": 8,
    "side": "enemy",
    "name": "Chariots",
-   "model": "cav_eastern"
+   "model": "cav_eastern",
+   "hidden": true
   },
   "wag": {
    "x": 200,
@@ -130,7 +142,8 @@
    "h": 8,
    "side": "enemy",
    "name": "Wagons and families",
-   "model": "levy"
+   "model": "levy",
+   "hidden": true
   }
  },
  "potential": [
@@ -429,7 +442,8 @@
      ],
      "cam": "wide"
     }
-   ]
+   ],
+   "stage": "road"
   },
   {
    "title": "The host comes on",
@@ -540,6 +554,17 @@
       }
      ],
      "cam": "wide"
+    }
+   ],
+   "stage": [
+    {
+     "if": {
+      "defile": true
+     },
+     "s": "field"
+    },
+    {
+     "s": "plain"
     }
    ]
   },
@@ -770,5 +795,178 @@
    "text": "This is a woman’s resolve; as for men, they may live and be slaves.",
    "who": "Boudica, as the historian Tacitus has her speak before the battle"
   }
- ]
+ ],
+ "stages": {
+  "road": {
+   "label": "Days later",
+   "title": "North up Watling Street",
+   "dir": 1,
+   "terrain": {
+    "trees": 90,
+    "roads": [
+     [
+      0,
+      195,
+      400,
+      185,
+      14
+     ]
+    ],
+    "hills": [
+     [
+      90,
+      70,
+      70,
+      10
+     ],
+     [
+      320,
+      60,
+      80,
+      12
+     ]
+    ],
+    "forests": [
+     [
+      60,
+      130,
+      40,
+      14
+     ],
+     [
+      340,
+      120,
+      40,
+      14
+     ],
+     [
+      200,
+      245,
+      120,
+      16
+     ]
+    ]
+   }
+  },
+  "plain": {
+   "label": "Weeks later",
+   "title": "The open plain",
+   "dir": 1,
+   "terrain": {
+    "trees": 40,
+    "forests": [
+     [
+      200,
+      252,
+      140,
+      14
+     ]
+    ]
+   },
+   "units": {
+    "bri": [
+     200,
+     80,
+     1
+    ],
+    "char": [
+     200,
+     110,
+     1
+    ],
+    "wag": [
+     200,
+     30,
+     1
+    ]
+   }
+  },
+  "field": {
+   "label": "Weeks later",
+   "title": "The defile, forest behind",
+   "dir": 1,
+   "weather": null,
+   "terrain": {
+    "grass": "#6f8f4c",
+    "tree": "#2f4a28",
+    "trees": 90,
+    "hills": [
+     [
+      25,
+      185,
+      60,
+      24
+     ],
+     [
+      375,
+      185,
+      60,
+      24
+     ]
+    ],
+    "forests": [
+     [
+      50,
+      222,
+      60,
+      26
+     ],
+     [
+      350,
+      222,
+      60,
+      26
+     ],
+     [
+      200,
+      252,
+      140,
+      30
+     ]
+    ]
+   },
+   "units": {
+    "leg": [
+     200,
+     190,
+     1
+    ],
+    "axL": [
+     110,
+     194,
+     1
+    ],
+    "axR": [
+     290,
+     194,
+     1
+    ],
+    "cavL": [
+     50,
+     206,
+     1
+    ],
+    "cavR": [
+     350,
+     206,
+     1
+    ],
+    "bri": [
+     200,
+     80,
+     1
+    ],
+    "char": [
+     200,
+     110,
+     1
+    ],
+    "wag": [
+     200,
+     30,
+     1
+    ]
+   }
+  }
+ }
 }

@@ -20,20 +20,42 @@
  "intro": "The Metaurus in Umbria, in the Second Punic War. You are the consuls Marcus Livius Salinator and Gaius Claudius Nero, with perhaps 37,000 men between you. Hasdrubal, Hannibal’s brother, has crossed the Alps with about 30,000 and means to join Hannibal.",
  "debrief": "In reality, Nero left Hannibal’s front and marched north with about 7,000 picked men, joined Livius at night, and was hidden in the camp. Hasdrubal noticed the extra trumpet signals, withdrew by night, and lost his way. The Romans caught him at the Metaurus. Hasdrubal put the Spaniards on the right with the cavalry, the Ligurians in the centre, the elephants in front, and the Gauls on a hilltop behind a ravine. Nero could not reach the Gauls; he marched behind the Roman line and hit the Carthaginian right in the flank. Hasdrubal charged into the Romans and died. Carthaginian losses are put at 10,000 and Roman at 2,000 in the more sober account; another gives 56,000 and 8,000, which is generally thought inflated. Which consul commanded which wing varies by account. Seeking a way past the ravine is what Nero really did; the other choices are what-ifs.",
  "terrain": {
-  "hills": [
+  "trees": 60,
+  "roads": [
    [
-    90,
-    55,
-    60,
-    24
+    0,
+    215,
+    400,
+    205,
+    14
    ]
   ],
-  "marsh": [
+  "hills": [
    [
-    150,
-    75,
-    18,
-    40
+    60,
+    60,
+    70,
+    14
+   ],
+   [
+    340,
+    60,
+    70,
+    14
+   ]
+  ],
+  "forests": [
+   [
+    200,
+    40,
+    120,
+    14
+   ],
+   [
+    40,
+    140,
+    30,
+    8
    ]
   ]
  },
@@ -82,7 +104,8 @@
    "side": "enemy",
    "name": "Ligurians (centre)",
    "model": "barbarian",
-   "scales": true
+   "scales": true,
+   "hidden": true
   },
   "spa": {
    "x": 320,
@@ -92,7 +115,8 @@
    "side": "enemy",
    "name": "Spaniards (right)",
    "model": "veteran",
-   "scales": true
+   "scales": true,
+   "hidden": true
   },
   "gau": {
    "x": 90,
@@ -102,7 +126,8 @@
    "side": "enemy",
    "name": "Gauls (on the hill)",
    "model": "gaul",
-   "scales": true
+   "scales": true,
+   "hidden": true
   },
   "ele": {
    "x": 200,
@@ -111,7 +136,8 @@
    "h": 10,
    "side": "enemy",
    "name": "Elephants",
-   "model": "elephant"
+   "model": "elephant",
+   "hidden": true
   },
   "hcav": {
    "x": 345,
@@ -120,7 +146,8 @@
    "h": 14,
    "side": "enemy",
    "name": "Carthaginian cavalry",
-   "model": "cav_punic"
+   "model": "cav_punic",
+   "hidden": true
   }
  },
  "potential": [
@@ -424,7 +451,8 @@
      ],
      "cam": "wide"
     }
-   ]
+   ],
+   "stage": "camp"
   },
   {
    "title": "Hasdrubal’s retreat",
@@ -514,7 +542,8 @@
      ],
      "cam": "wide"
     }
-   ]
+   ],
+   "stage": "river"
   },
   {
    "title": "The line of battle",
@@ -613,7 +642,8 @@
      ],
      "cam": "wide"
     }
-   ]
+   ],
+   "stage": "field"
   },
   {
    "title": "Nero’s wheel",
@@ -731,5 +761,207 @@
    "text": "I recognise the fate of Carthage.",
    "who": "Hannibal, when his brother Hasdrubal’s head was thrown into his camp"
   }
- ]
+ ],
+ "stages": {
+  "camp": {
+   "label": "Six days later",
+   "title": "Livius’s camp at Sena",
+   "dir": 1,
+   "weather": "night",
+   "terrain": {
+    "trees": 60,
+    "hills": [
+     [
+      200,
+      200,
+      90,
+      6
+     ]
+    ],
+    "roads": [
+     [
+      0,
+      225,
+      400,
+      225,
+      10
+     ]
+    ],
+    "forests": [
+     [
+      50,
+      120,
+      40,
+      12
+     ],
+     [
+      350,
+      120,
+      40,
+      12
+     ]
+    ]
+   },
+   "units": {
+    "lig": [
+     200,
+     60,
+     1
+    ],
+    "spa": [
+     300,
+     60,
+     1
+    ],
+    "hcav": [
+     350,
+     50,
+     1
+    ]
+   }
+  },
+  "river": {
+   "label": "Before dawn",
+   "title": "Along the Metaurus",
+   "dir": 1,
+   "weather": "mist",
+   "terrain": {
+    "trees": 70,
+    "river": {
+     "horizontal": true,
+     "y": 40,
+     "w": 34
+    },
+    "marsh": [
+     [
+      120,
+      70,
+      50,
+      14
+     ]
+    ],
+    "roads": [
+     [
+      0,
+      120,
+      400,
+      95,
+      10
+     ]
+    ],
+    "forests": [
+     [
+      60,
+      160,
+      40,
+      12
+     ],
+     [
+      340,
+      170,
+      40,
+      12
+     ]
+    ]
+   },
+   "units": {
+    "lig": [
+     250,
+     95,
+     1
+    ],
+    "spa": [
+     340,
+     92,
+     1
+    ],
+    "ele": [
+     180,
+     92,
+     1
+    ],
+    "hcav": [
+     380,
+     80,
+     1
+    ],
+    "gau": [
+     120,
+     98,
+     1
+    ]
+   }
+  },
+  "field": {
+   "label": "Morning",
+   "title": "Hasdrubal turns at bay",
+   "dir": 1,
+   "weather": null,
+   "terrain": {
+    "hills": [
+     [
+      90,
+      55,
+      60,
+      24
+     ]
+    ],
+    "marsh": [
+     [
+      150,
+      75,
+      18,
+      40
+     ]
+    ]
+   },
+   "units": {
+    "liv": [
+     120,
+     192,
+     1
+    ],
+    "cen": [
+     230,
+     194,
+     1
+    ],
+    "ner": [
+     330,
+     208,
+     1
+    ],
+    "rcav": [
+     360,
+     214,
+     1
+    ],
+    "lig": [
+     200,
+     86,
+     1
+    ],
+    "spa": [
+     320,
+     92,
+     1
+    ],
+    "gau": [
+     90,
+     66,
+     1
+    ],
+    "ele": [
+     200,
+     50,
+     1
+    ],
+    "hcav": [
+     345,
+     70,
+     1
+    ]
+   }
+  }
+ }
 }

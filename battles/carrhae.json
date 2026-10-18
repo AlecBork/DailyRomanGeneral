@@ -20,12 +20,38 @@
  "intro": "The plains near Carrhae (Harran) in Upper Mesopotamia, in June. You are Marcus Licinius Crassus, with seven legions, perhaps 28,000 to 35,000 heavy infantry, and 4,000 horse and 4,000 light troops. The Parthian general Surena has only about 10,000 men: some 1,000 armoured cataphracts and 9,000 horse archers, with a train of 1,000 camels.",
  "debrief": "In reality, Crassus refused Armenia’s offer of an easier route and help, and followed the open road east, guided (in one account, betrayed) by Ariamnes. At a stream his officers urged him to camp; he marched on at his son Publius’s urging. The Parthians beat drums, the cataphracts unveiled their armour, and the horse archers shot from out of range while camels brought fresh arrows. The Romans formed a hollow square. Publius led a sortie, was drawn away by a feigned retreat and was killed with his force. At night Crassus retreated toward Carrhae, leaving about 4,000 wounded; the next day he was killed at a parley. About 20,000 Romans died and 10,000 were captured, and the Parthians took the eagles. The two ancient accounts blame Crassus heavily; some modern historians think that is unfair. Attacking the camels, the Armenian road and the night march in order are what-ifs.",
  "terrain": {
-  "flat": true,
-  "grass": "#c7ad78",
-  "ground": "#d2b47c",
-  "tree": "#8c7a4a",
-  "trees": 6,
-  "weather": "heat"
+  "grass": "#9aa463",
+  "ground": "#c9b07a",
+  "tree": "#6f7a3e",
+  "trees": 30,
+  "river": {
+   "x": 60,
+   "w": 46,
+   "color": "#5b8ea0"
+  },
+  "roads": [
+   [
+    90,
+    200,
+    400,
+    190,
+    14
+   ]
+  ],
+  "forests": [
+   [
+    20,
+    60,
+    40,
+    10
+   ],
+   [
+    20,
+    200,
+    40,
+    10
+   ]
+  ]
  },
  "units": {
   "sqF": {
@@ -89,7 +115,8 @@
    "h": 10,
    "side": "enemy",
    "name": "Horse archers",
-   "model": "cav_eastern"
+   "model": "cav_eastern",
+   "hidden": true
   },
   "ha2": {
    "x": 340,
@@ -98,7 +125,8 @@
    "h": 10,
    "side": "enemy",
    "name": "Horse archers",
-   "model": "cav_eastern"
+   "model": "cav_eastern",
+   "hidden": true
   },
   "ha3": {
    "x": 200,
@@ -108,7 +136,8 @@
    "side": "enemy",
    "name": "Horse archers",
    "model": "cav_eastern",
-   "scales": true
+   "scales": true,
+   "hidden": true
   },
   "cat": {
    "x": 200,
@@ -117,7 +146,8 @@
    "h": 14,
    "side": "enemy",
    "name": "Cataphracts",
-   "model": "cav_heavy"
+   "model": "cav_heavy",
+   "hidden": true
   },
   "cam": {
    "x": 360,
@@ -126,7 +156,8 @@
    "h": 10,
    "side": "enemy",
    "name": "Camel train (arrows)",
-   "model": "levy"
+   "model": "levy",
+   "hidden": true
   }
  },
  "potential": [
@@ -456,7 +487,8 @@
      ],
      "cam": "wide"
     }
-   ]
+   ],
+   "stage": "stream"
   },
   {
    "title": "Drums in the desert",
@@ -600,7 +632,8 @@
      ],
      "cam": "clash"
     }
-   ]
+   ],
+   "stage": "field"
   },
   {
    "title": "Publius rides out",
@@ -820,7 +853,8 @@
      ],
      "cam": "high"
     }
-   ]
+   ],
+   "stage": "night"
   },
   {
    "title": "Surena’s offer",
@@ -903,7 +937,8 @@
      ],
      "cam": "wide"
     }
-   ]
+   ],
+   "stage": "town"
   }
  ],
  "sources": [
@@ -912,5 +947,227 @@
    "url": "https://en.wikipedia.org/wiki/Battle_of_Carrhae"
   }
  ],
- "winAt": 50
+ "winAt": 50,
+ "stages": {
+  "stream": {
+   "label": "Days later",
+   "title": "The stream",
+   "dir": 1,
+   "weather": "heat",
+   "terrain": {
+    "flat": true,
+    "grass": "#c7ad78",
+    "ground": "#d2b47c",
+    "tree": "#7d7a3e",
+    "trees": 12,
+    "river": {
+     "horizontal": true,
+     "y": 130,
+     "w": 14,
+     "color": "#4f8296"
+    },
+    "forests": [
+     [
+      120,
+      128,
+      30,
+      6
+     ],
+     [
+      290,
+      132,
+      30,
+      6
+     ]
+    ]
+   },
+   "units": {
+    "ha3": [
+     200,
+     40,
+     1
+    ]
+   }
+  },
+  "night": {
+   "label": "Night",
+   "title": "The road to Carrhae",
+   "dir": 1,
+   "weather": "night",
+   "terrain": {
+    "flat": true,
+    "grass": "#b39a6a",
+    "ground": "#bfa272",
+    "tree": "#6a5f3a",
+    "trees": 6,
+    "roads": [
+     [
+      0,
+      200,
+      400,
+      175,
+      12
+     ]
+    ]
+   },
+   "units": {
+    "ha1": [
+     60,
+     120,
+     0
+    ],
+    "ha2": [
+     340,
+     120,
+     0
+    ],
+    "ha3": [
+     200,
+     80,
+     0
+    ],
+    "cat": [
+     200,
+     50,
+     0
+    ],
+    "cam": [
+     360,
+     30,
+     0
+    ]
+   }
+  },
+  "town": {
+   "label": "Dawn",
+   "title": "Outside the walls of Carrhae",
+   "dir": 1,
+   "weather": "dusk",
+   "terrain": {
+    "flat": true,
+    "grass": "#c2a874",
+    "ground": "#cdb07a",
+    "tree": "#7d7a3e",
+    "trees": 16,
+    "hills": [
+     [
+      200,
+      248,
+      120,
+      6
+     ]
+    ],
+    "roads": [
+     [
+      200,
+      250,
+      200,
+      0,
+      12
+     ]
+    ],
+    "forests": [
+     [
+      90,
+      240,
+      30,
+      8
+     ],
+     [
+      310,
+      240,
+      30,
+      8
+     ]
+    ]
+   },
+   "units": {
+    "ha1": [
+     60,
+     110,
+     1
+    ],
+    "ha2": [
+     340,
+     110,
+     1
+    ],
+    "cat": [
+     200,
+     70,
+     1
+    ]
+   }
+  },
+  "field": {
+   "label": "The next day",
+   "title": "Drums in the desert",
+   "dir": 1,
+   "weather": "heat",
+   "terrain": {
+    "flat": true,
+    "grass": "#c7ad78",
+    "ground": "#d2b47c",
+    "tree": "#8c7a4a",
+    "trees": 6
+   },
+   "units": {
+    "sqF": [
+     200,
+     170,
+     1
+    ],
+    "sqL": [
+     140,
+     200,
+     1
+    ],
+    "sqR": [
+     260,
+     200,
+     1
+    ],
+    "sqB": [
+     200,
+     230,
+     1
+    ],
+    "pub": [
+     200,
+     200,
+     1
+    ],
+    "vel": [
+     200,
+     150,
+     1
+    ],
+    "ha1": [
+     60,
+     120,
+     1
+    ],
+    "ha2": [
+     340,
+     120,
+     1
+    ],
+    "ha3": [
+     200,
+     80,
+     1
+    ],
+    "cat": [
+     200,
+     50,
+     1
+    ],
+    "cam": [
+     360,
+     30,
+     1
+    ]
+   }
+  }
+ }
 }

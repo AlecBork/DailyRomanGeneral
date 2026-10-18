@@ -1,0 +1,611 @@
+{
+ "id": "_template",
+ "name": "Battle of Example",
+ "date": "100 BC",
+ "result": "loss",
+ "loc": {
+  "x": 339,
+  "y": 112,
+  "place": "somewhere near Rome",
+  "short": "Example"
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The enemy",
+  "commander": "the Roman commander",
+  "foe": "the enemy general"
+ },
+ "intro": "One or two sentences: who you command, who you face, and the ground. Use only numbers your fact sheet supports.",
+ "debrief": "What really happened, with the main ancient sources named, and a note where sources disagree.",
+ "terrain": {},
+ "units": {
+  "hast": {
+   "x": 200,
+   "y": 190,
+   "w": 120,
+   "h": 14,
+   "side": "roman",
+   "name": "Legions",
+   "model": "hastati"
+  },
+  "cavL": {
+   "x": 55,
+   "y": 195,
+   "w": 58,
+   "h": 14,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "foe": {
+   "x": 200,
+   "y": 80,
+   "w": 130,
+   "h": 14,
+   "side": "enemy",
+   "name": "Enemy infantry",
+   "model": "barbarian",
+   "scales": true
+  },
+  "ecR": {
+   "x": 345,
+   "y": 75,
+   "w": 58,
+   "h": 14,
+   "side": "enemy",
+   "name": "Enemy cavalry",
+   "model": "cav_eastern"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 4
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "flank": true
+   },
+   "v": 20
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Win line 1.",
+   "Win line 2.",
+   "Win line 3."
+  ],
+  "lose": [
+   "Loss line 1.",
+   "Loss line 2.",
+   "Loss line 3."
+  ],
+  "cams": [
+   [
+    -70,
+    38,
+    -30,
+    0,
+    6,
+    -85
+   ],
+   [
+    60,
+    26,
+    -60,
+    0,
+    6,
+    -85
+   ],
+   [
+    0,
+    70,
+    -20,
+    0,
+    0,
+    -70
+   ]
+  ]
+ },
+ "status": [
+  {
+   "label": "Ground",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Good ground held",
+     "tone": "g"
+    },
+    {
+     "text": "Open ground",
+     "tone": "a"
+    },
+    {
+     "text": "Bad ground",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Unclaimed",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Flank",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Flank covered",
+     "tone": "g"
+    },
+    {
+     "text": "Flank exposed",
+     "tone": "r"
+    },
+    {
+     "text": "Flank thin",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Untested",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Reserve",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Reserve in hand",
+     "tone": "g"
+    },
+    {
+     "text": "Reserve spent",
+     "tone": "r"
+    },
+    {
+     "text": "Reserve partly used",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Intact",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Decision one",
+   "text": "Describe the situation in one or two sentences.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Free hint, shown after a cautious or manoeuvring order."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Precise report for 1 Command Point."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "The best answer",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "set": {
+        "ground": 1
+       },
+       "text": "What happens."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         200,
+         150
+        ]
+       }
+      }
+     ],
+     "cam": [
+      0,
+      60,
+      170,
+      0,
+      5,
+      -20
+     ]
+    },
+    {
+     "label": "A middle answer",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -6,
+       "text": "What happens."
+      }
+     ],
+     "move": [
+      {
+       "u": {}
+      }
+     ],
+     "cam": [
+      0,
+      60,
+      170,
+      0,
+      5,
+      -20
+     ]
+    },
+    {
+     "label": "What history did",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "What happens."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "hast",
+        "foe"
+       ]
+      }
+     ],
+     "cam": [
+      0,
+      60,
+      170,
+      0,
+      5,
+      -20
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Decision two",
+   "text": "Describe the next moment.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hint."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Scout report."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "What history did",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "What happens."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         100,
+         100
+        ]
+       }
+      }
+     ],
+     "cam": [
+      0,
+      60,
+      170,
+      0,
+      5,
+      -20
+     ]
+    },
+    {
+     "label": "The best answer",
+     "quality": 2,
+     "cost": 2,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "ground": true
+       },
+       "r": -3,
+       "e": -16,
+       "set": {
+        "flank": 1
+       },
+       "text": "What happens when an earlier choice paid off."
+      },
+      {
+       "r": -4,
+       "e": -12,
+       "set": {
+        "flank": 1
+       },
+       "text": "What happens otherwise."
+      }
+     ],
+     "move": [
+      {
+       "u": {}
+      }
+     ],
+     "cam": [
+      0,
+      60,
+      170,
+      0,
+      5,
+      -20
+     ]
+    },
+    {
+     "label": "A middle answer",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "What happens."
+      }
+     ],
+     "move": [
+      {
+       "u": {}
+      }
+     ],
+     "cam": [
+      0,
+      60,
+      170,
+      0,
+      5,
+      -20
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Decision three",
+   "text": "Describe the next moment.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hint."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Scout report."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "A middle answer",
+     "quality": 1,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "What happens."
+      }
+     ],
+     "move": [
+      {
+       "u": {}
+      }
+     ],
+     "cam": [
+      0,
+      60,
+      170,
+      0,
+      5,
+      -20
+     ]
+    },
+    {
+     "label": "What history did",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "What happens."
+      }
+     ],
+     "move": [
+      {
+       "u": {}
+      }
+     ],
+     "cam": [
+      0,
+      60,
+      170,
+      0,
+      5,
+      -20
+     ]
+    },
+    {
+     "label": "The best answer",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -16,
+       "text": "What happens."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ecR": [
+         345,
+         110
+        ]
+       },
+       "f": [
+        "ecR"
+       ]
+      }
+     ],
+     "cam": [
+      0,
+      60,
+      170,
+      0,
+      5,
+      -20
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Decision four",
+   "text": "The last decision before the ending. No camera shot is needed here.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hint."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Scout report."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "What history did",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "What happens."
+      }
+     ],
+     "move": [
+      {
+       "u": {}
+      }
+     ]
+    },
+    {
+     "label": "A middle answer",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "What happens."
+      }
+     ],
+     "move": [
+      {
+       "u": {}
+      }
+     ]
+    },
+    {
+     "label": "The best answer",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "if": {
+        "flank": true
+       },
+       "r": -4,
+       "e": -20,
+       "text": "The payoff when the flank held."
+      },
+      {
+       "r": -8,
+       "e": -8,
+       "text": "The weaker result without it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "foe": [
+         200,
+         70
+        ]
+       },
+       "f": [
+        "foe"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

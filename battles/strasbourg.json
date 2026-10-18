@@ -20,29 +20,46 @@
  "intro": "Near Argentoratum (Strasbourg), on a gentle slope among ripe wheat fields, in August. You are Julian, Caesar of the West, with about 13,000 men, including some 3,000 cavalry. The Alamanni under King Chnodomar and his nephew Serapio are said to number 35,000; modern estimates are lower.",
  "debrief": "In reality, Barbatio’s army retreated after an ambush, leaving Julian alone. He refused Chnodomar’s demand to leave Alsace and marched about 21 miles to battle; one account says his men insisted on fighting at once, though they probably rested first. On the right, light infantry among the German horse brought down the cataphracts’ horses, and the armoured cavalry fled into the Roman infantry; Julian rallied it behind the lines. Severus, on the left, held back from the woods until the ambushers came out and were routed. A wedge of Alamannic nobles broke the Roman first line, but the Primani legion and the Batavians in the second line stopped it and counter-attacked, and the Alamanni were squeezed from three sides and fled to the Rhine, where many drowned. About 6,000 Alamanni died on land (8,000 in another account) and 243 Romans. Chnodomar was captured. The other choices are what-ifs.",
  "terrain": {
-  "grass": "#a5a35c",
-  "ground": "#bca46a",
-  "river": {
-   "x": 214,
-   "w": 30
-  },
-  "forests": [
+  "trees": 40,
+  "roads": [
    [
-    45,
-    110,
-    55,
-    24
+    0,
+    200,
+    400,
+    200,
+    14
    ]
   ],
   "hills": [
    [
-    200,
-    70,
-    120,
-    8
+    80,
+    60,
+    80,
+    16
+   ],
+   [
+    320,
+    50,
+    90,
+    18
    ]
   ],
-  "weather": "dusk"
+  "forests": [
+   [
+    200,
+    40,
+    120,
+    18
+   ],
+   [
+    380,
+    150,
+    30,
+    10
+   ]
+  ],
+  "grass": "#a5a35c",
+  "ground": "#bca46a"
  },
  "units": {
   "f1": {
@@ -98,7 +115,8 @@
    "side": "enemy",
    "name": "Alamanni",
    "model": "barbarian",
-   "scales": true
+   "scales": true,
+   "hidden": true
   },
   "acav": {
    "x": 330,
@@ -107,7 +125,8 @@
    "h": 14,
    "side": "enemy",
    "name": "Chnodomar’s horse & light foot",
-   "model": "cav_heavy"
+   "model": "cav_heavy",
+   "hidden": true
   },
   "amb": {
    "x": 50,
@@ -423,7 +442,8 @@
      ],
      "cam": "wide"
     }
-   ]
+   ],
+   "stage": "march"
   },
   {
    "title": "The woods on the left",
@@ -547,7 +567,8 @@
      ],
      "cam": "left"
     }
-   ]
+   ],
+   "stage": "field"
   },
   {
    "title": "The cataphracts break",
@@ -783,5 +804,135 @@
    "title": "Battle of Strasbourg (Wikipedia)",
    "url": "https://en.wikipedia.org/wiki/Battle_of_Strasbourg"
   }
- ]
+ ],
+ "stages": {
+  "march": {
+   "label": "Twenty-one miles",
+   "title": "The long, hot march",
+   "dir": 1,
+   "weather": "heat",
+   "terrain": {
+    "trees": 50,
+    "roads": [
+     [
+      0,
+      195,
+      400,
+      185,
+      14
+     ]
+    ],
+    "hills": [
+     [
+      200,
+      70,
+      120,
+      8
+     ]
+    ],
+    "forests": [
+     [
+      45,
+      110,
+      55,
+      24
+     ],
+     [
+      370,
+      230,
+      30,
+      8
+     ]
+    ],
+    "river": {
+     "x": 214,
+     "w": 30
+    }
+   },
+   "units": {
+    "ala": [
+     200,
+     50,
+     1
+    ],
+    "acav": [
+     330,
+     60,
+     1
+    ]
+   }
+  },
+  "field": {
+   "label": "Afternoon",
+   "title": "The field before the Rhine",
+   "dir": 1,
+   "weather": "dusk",
+   "terrain": {
+    "grass": "#a5a35c",
+    "ground": "#bca46a",
+    "river": {
+     "x": 214,
+     "w": 30
+    },
+    "forests": [
+     [
+      45,
+      110,
+      55,
+      24
+     ]
+    ],
+    "hills": [
+     [
+      200,
+      70,
+      120,
+      8
+     ]
+    ]
+   },
+   "units": {
+    "f1": [
+     200,
+     180,
+     1
+    ],
+    "f2": [
+     200,
+     206,
+     1
+    ],
+    "cat": [
+     340,
+     184,
+     1
+    ],
+    "sev": [
+     60,
+     196,
+     1
+    ],
+    "jul": [
+     200,
+     194,
+     1
+    ],
+    "ala": [
+     200,
+     84,
+     1
+    ],
+    "acav": [
+     330,
+     90,
+     1
+    ],
+    "amb": [
+     50,
+     110,
+     0
+    ]
+   }
+  }
+ }
 }

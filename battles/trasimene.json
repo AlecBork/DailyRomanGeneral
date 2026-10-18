@@ -20,60 +20,53 @@
  "intro": "The north shore of Lake Trasimene in Etruria, on a misty June morning. You are the consul Gaius Flaminius, with some 25,000 men in four legions, pursuing Hannibal. Hannibal’s army has been out of sight for days.",
  "debrief": "In reality, Flaminius marched into the defile along the lake in the mist without sending cavalry scouts. Hannibal’s army lay hidden on the reverse slopes: cavalry to the west behind the column, Gauls in the centre, Africans and Iberians to the east. The Carthaginians fell on the column from three sides and pinned it against the lake. One ancient account says Flaminius was surprised; another says he rallied the troops. About 15,000 Romans were killed, among them Flaminius, and about 6,000 who broke out were forced to surrender the next day to Maharbal. Carthaginian dead are put at 1,500 or 2,500 depending on the account. The numbers and the exact site are uncertain. Scouting, halting at the mouth of the defile and waiting for Servilius are what-ifs.",
  "terrain": {
-  "sky": "#a9b4bb",
-  "lakes": [
+  "sky": "#b9ab9c",
+  "weather": "heat",
+  "trees": 50,
+  "roads": [
    [
-    -30,
-    165,
-    95,
-    170
+    0,
+    200,
+    400,
+    185,
+    12
    ]
   ],
   "hills": [
    [
-    90,
-    70,
-    70,
-    22
-   ],
-   [
-    210,
-    55,
     80,
-    26
+    60,
+    60,
+    10
    ],
    [
     330,
+    50,
     70,
-    70,
-    22
+    12
    ]
   ],
   "forests": [
    [
-    90,
-    40,
-    50,
-    14
+    60,
+    120,
+    35,
+    10
    ],
    [
-    330,
-    40,
-    50,
-    14
-   ]
-  ],
-  "roads": [
+    350,
+    130,
+    35,
+    10
+   ],
    [
-    60,
-    250,
+    200,
+    30,
     120,
-    0,
-    7
+    12
    ]
   ],
-  "lakeColor": "#5d7f94",
-  "weather": "mist"
+  "lakeColor": "#5d7f94"
  },
  "units": {
   "vel": {
@@ -521,7 +514,8 @@
      ],
      "cam": "wide"
     }
-   ]
+   ],
+   "stage": "field"
   },
   {
    "title": "The ambush springs",
@@ -918,5 +912,115 @@
    "url": "https://en.wikipedia.org/wiki/Battle_of_Lake_Trasimene"
   }
  ],
- "winAt": 50
+ "winAt": 50,
+ "stages": {
+  "field": {
+   "label": "At dawn",
+   "title": "The defile by the lake",
+   "dir": 1,
+   "weather": "mist",
+   "terrain": {
+    "sky": "#a9b4bb",
+    "lakes": [
+     [
+      -30,
+      165,
+      95,
+      170
+     ]
+    ],
+    "hills": [
+     [
+      90,
+      70,
+      70,
+      22
+     ],
+     [
+      210,
+      55,
+      80,
+      26
+     ],
+     [
+      330,
+      70,
+      70,
+      22
+     ]
+    ],
+    "forests": [
+     [
+      90,
+      40,
+      50,
+      14
+     ],
+     [
+      330,
+      40,
+      50,
+      14
+     ]
+    ],
+    "roads": [
+     [
+      60,
+      250,
+      120,
+      0,
+      7
+     ]
+    ],
+    "lakeColor": "#5d7f94"
+   },
+   "units": {
+    "vel": [
+     200,
+     176,
+     1
+    ],
+    "leg1": [
+     130,
+     192,
+     1
+    ],
+    "leg2": [
+     270,
+     192,
+     1
+    ],
+    "alr": [
+     200,
+     212,
+     1
+    ],
+    "cav": [
+     200,
+     232,
+     1
+    ],
+    "gau": [
+     150,
+     100,
+     0
+    ],
+    "afr": [
+     330,
+     110,
+     0
+    ],
+    "cav2": [
+     40,
+     60,
+     0
+    ],
+    "lig": [
+     270,
+     100,
+     0
+    ]
+   }
+  }
+ }
 }

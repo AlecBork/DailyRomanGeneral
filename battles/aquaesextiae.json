@@ -20,24 +20,45 @@
  "intro": "Near Aquae Sextiae (Aix-en-Provence) in southern Gaul. You are Gaius Marius, consul for the fourth time, with perhaps 32,000 to 40,000 men in six legions and auxiliaries. The Teutones and Ambrones under Teutobod are a migrating people of perhaps 100,000 warriors, heading for Italy.",
  "debrief": "In reality, Marius stayed in his fortified camp while the Teutones attacked it for three days and were driven off; he refused their challenges, and when one called him out to single combat he offered a gladiator instead. He then shadowed their march, fortifying a camp each night. Near Aquae Sextiae his water-carriers met the Ambrones bathing; the Ligurians charged without orders and Marius brought up the legions, routing them at the river. Before the main battle he hid Claudius Marcellus with 3,000 men in wooded ground and dressed camp servants and pack animals as cavalry. The Romans held the hill, threw their pila and pushed the horde down the slope, and Marcellus struck its rear. Teutobod fled and was later handed over. Enemy dead are put at 100,000 or more; Roman numbers vary by account. The other choices are what-ifs.",
  "terrain": {
-  "grass": "#97a05a",
-  "ground": "#b49c66",
+  "trees": 40,
+  "river": {
+   "x": 330,
+   "w": 44,
+   "color": "#5f8ea6"
+  },
   "hills": [
    [
     200,
-    192,
-    110,
-    20
+    205,
+    70,
+    8
+   ]
+  ],
+  "roads": [
+   [
+    0,
+    150,
+    300,
+    150,
+    10
    ]
   ],
   "forests": [
    [
-    335,
-    25,
-    55,
-    18
+    60,
+    40,
+    50,
+    12
+   ],
+   [
+    380,
+    30,
+    30,
+    8
    ]
-  ]
+  ],
+  "grass": "#97a05a",
+  "ground": "#b49c66"
  },
  "units": {
   "leg": {
@@ -97,7 +118,7 @@
    "scales": true
   },
   "amb": {
-   "x": 320,
+   "x": 250,
    "y": 100,
    "w": 70,
    "h": 14,
@@ -429,7 +450,8 @@
      ],
      "cam": "wide"
     }
-   ]
+   ],
+   "stage": "march"
   },
   {
    "title": "The Ambrones at the river",
@@ -541,7 +563,8 @@
      ],
      "cam": "right"
     }
-   ]
+   ],
+   "stage": "river"
   },
   {
    "title": "The night before the battle",
@@ -628,7 +651,8 @@
      ],
      "cam": "wide"
     }
-   ]
+   ],
+   "stage": "night"
   },
   {
    "title": "The hill",
@@ -746,7 +770,8 @@
      ],
      "cam": "wide"
     }
-   ]
+   ],
+   "stage": "field"
   }
  ],
  "sources": [
@@ -754,5 +779,209 @@
    "title": "Battle of Aquae Sextiae (Wikipedia)",
    "url": "https://en.wikipedia.org/wiki/Battle_of_Aquae_Sextiae"
   }
- ]
+ ],
+ "stages": {
+  "march": {
+   "label": "Six days",
+   "title": "Shadowing the horde",
+   "dir": 1,
+   "terrain": {
+    "trees": 50,
+    "roads": [
+     [
+      0,
+      95,
+      400,
+      80,
+      14
+     ]
+    ],
+    "hills": [
+     [
+      200,
+      210,
+      120,
+      12
+     ]
+    ],
+    "forests": [
+     [
+      50,
+      170,
+      30,
+      8
+     ],
+     [
+      350,
+      160,
+      30,
+      8
+     ],
+     [
+      200,
+      25,
+      160,
+      12
+     ]
+    ]
+   },
+   "units": {
+    "teu": [
+     230,
+     80,
+     1
+    ],
+    "amb": [
+     360,
+     82,
+     1
+    ],
+    "leg": [
+     200,
+     180
+    ],
+    "lig": [
+     320,
+     190
+    ],
+    "cav": [
+     60,
+     196
+    ],
+    "camp": [
+     200,
+     222
+    ]
+   }
+  },
+  "river": {
+   "label": "At Aquae Sextiae",
+   "title": "The Ambrones at the river",
+   "dir": 1,
+   "terrain": {
+    "trees": 50,
+    "river": {
+     "horizontal": true,
+     "y": 108,
+     "w": 26
+    },
+    "hills": [
+     [
+      200,
+      215,
+      110,
+      14
+     ]
+    ],
+    "forests": [
+     [
+      40,
+      60,
+      40,
+      12
+     ],
+     [
+      370,
+      50,
+      40,
+      12
+     ]
+    ]
+   },
+   "units": {
+    "teu": [
+     200,
+     40,
+     0
+    ],
+    "amb": [
+     330,
+     100,
+     1
+    ]
+   }
+  },
+  "night": {
+   "label": "Two days later",
+   "title": "The night before the battle",
+   "dir": 1,
+   "weather": "night",
+   "terrain": "field",
+   "units": {
+    "teu": [
+     200,
+     90,
+     1
+    ],
+    "amb": [
+     320,
+     100,
+     1
+    ]
+   }
+  },
+  "field": {
+   "label": "Dawn",
+   "title": "The hill before the camp",
+   "dir": 1,
+   "weather": null,
+   "terrain": {
+    "grass": "#97a05a",
+    "ground": "#b49c66",
+    "hills": [
+     [
+      200,
+      192,
+      110,
+      20
+     ]
+    ],
+    "forests": [
+     [
+      335,
+      25,
+      55,
+      18
+     ]
+    ]
+   },
+   "units": {
+    "leg": [
+     200,
+     170,
+     1
+    ],
+    "lig": [
+     320,
+     186,
+     1
+    ],
+    "cav": [
+     60,
+     196,
+     1
+    ],
+    "camp": [
+     200,
+     226,
+     1
+    ],
+    "marc": [
+     320,
+     40,
+     0
+    ],
+    "teu": [
+     200,
+     90,
+     1
+    ],
+    "amb": [
+     320,
+     100,
+     1
+    ]
+   }
+  }
+ }
 }
