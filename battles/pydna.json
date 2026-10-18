@@ -1,0 +1,807 @@
+{
+ "id": "pydna",
+ "name": "Battle of Pydna",
+ "date": "168 BC",
+ "result": "win",
+ "loc": {
+  "lat": 40.27,
+  "lon": 22.52,
+  "place": "near Pydna, Macedonia",
+  "short": "Pydna",
+  "x": 467,
+  "y": 141
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Macedon",
+  "commander": "Aemilius Paullus",
+  "foe": "Perseus"
+ },
+ "intro": "A plain near Pydna, in Macedonia, in June. You are the consul Lucius Aemilius Paullus, with perhaps 29,000 to 37,000 men and 22 elephants. King Perseus of Macedon has around 30,000 to 40,000, built around a great phalanx of pikemen and a Guard of 3,000.",
+ "debrief": "In reality, Paullus sent Scipio Nasica over the mountains to turn Perseus’s river line, and Perseus fell back to the plain near Pydna. A lunar eclipse the night before frightened the Macedonians; Paullus sacrificed and waited for good omens. In the afternoon a skirmish (over an escaped animal, in one account) drew both armies in. The allies could not get past the pikes and the Romans fell back over rough ground; the phalanx lost its order on the slope and Paullus sent the legions into the gaps, where the sword and long shield beat the Macedonian kit. The Roman right, with elephants, routed the Macedonian left. Perseus fled with his cavalry, and the Guard of 3,000 fought to the death. Macedonian losses are put at about 20,000 dead and 11,000 captured; the size of each army differs between accounts. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#8f9f58",
+  "hills": [
+   [
+    90,
+    245,
+    80,
+    16
+   ],
+   [
+    310,
+    248,
+    90,
+    18
+   ]
+  ],
+  "weather": "dusk"
+ },
+ "units": {
+  "legC": {
+   "x": 200,
+   "y": 192,
+   "w": 110,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman legions",
+   "model": "legionary"
+  },
+  "alL": {
+   "x": 80,
+   "y": 194,
+   "w": 80,
+   "h": 14,
+   "side": "roman",
+   "name": "Allied infantry",
+   "model": "principes"
+  },
+  "alR": {
+   "x": 320,
+   "y": 194,
+   "w": 80,
+   "h": 14,
+   "side": "roman",
+   "name": "Allied infantry & Ligurians",
+   "model": "auxiliary"
+  },
+  "ele": {
+   "x": 330,
+   "y": 214,
+   "w": 50,
+   "h": 10,
+   "side": "roman",
+   "name": "Elephants (22)",
+   "model": "elephant"
+  },
+  "cavR": {
+   "x": 370,
+   "y": 206,
+   "w": 40,
+   "h": 12,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "cavL": {
+   "x": 30,
+   "y": 206,
+   "w": 40,
+   "h": 12,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "nas": {
+   "x": 40,
+   "y": 232,
+   "w": 50,
+   "h": 10,
+   "side": "roman",
+   "name": "Scipio Nasica’s column",
+   "model": "legionary"
+  },
+  "phal": {
+   "x": 200,
+   "y": 86,
+   "w": 130,
+   "h": 18,
+   "side": "enemy",
+   "name": "Macedonian phalanx",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "agema": {
+   "x": 80,
+   "y": 88,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "The Guard (3,000)",
+   "model": "veteran",
+   "scales": true
+  },
+  "thr": {
+   "x": 320,
+   "y": 92,
+   "w": 70,
+   "h": 12,
+   "side": "enemy",
+   "name": "Thracians & peltasts",
+   "model": "barbarian",
+   "scales": true
+  },
+  "hcav": {
+   "x": 360,
+   "y": 70,
+   "w": 50,
+   "h": 14,
+   "side": "enemy",
+   "name": "Perseus’s cavalry",
+   "model": "cav_eastern"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The maniples push into the gaps.",
+   "The Macedonian left is routed.",
+   "Perseus flees, and Macedon falls."
+  ],
+  "lose": [
+   "The phalanx holds its shape.",
+   "The pikes push you back.",
+   "Perseus keeps his kingdom."
+  ],
+  "cams": [
+   "clash",
+   "rightflank",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "River line",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Turned by the mountain march",
+     "tone": "g"
+    },
+    {
+     "text": "Assault failed",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Perseus holds the Elpeus",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Army",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Rested and steady",
+     "tone": "g"
+    },
+    {
+     "text": "Tired, attacked at once",
+     "tone": "r"
+    },
+    {
+     "text": "In the hills",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Tired from the march",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Phalanx",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Drawn onto rough ground",
+     "tone": "g"
+    },
+    {
+     "text": "Pushing you back",
+     "tone": "r"
+    },
+    {
+     "text": "Unbroken",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "On level ground",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Centre",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Legions inside the gaps",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Stalled on the pikes",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Facing the pikes",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The river line",
+   "text": "Perseus holds a fortified line behind the Elpeus river. A frontal attack would be costly. Your officers suggest other ways.",
+   "intel": {
+    "hint": [
+     {
+      "text": "There are mountain paths west of both armies."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A column sent over the mountains can come down behind Perseus and force him off his line. A feint toward the coast will cover it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send Scipio Nasica over the mountains, with a feint toward the coast",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "set": {
+        "flank": 1
+       },
+       "text": "Nasica’s column marches west and over the mountains by night. Perseus learns of it from a deserter, but his blocking force is routed and he falls back to the plain near Pydna."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "nas": [
+         40,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the river line",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "The legions attack the fortified bank and are thrown back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legC": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "legC",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for the fleet",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -5,
+       "text": "The fleet threatens the coast, but Perseus does not move."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The eclipse",
+   "text": "The night before the battle the moon goes dark. The Macedonians are frightened by it. Your own army is tired from the march, and the phalanx is drawn up on level ground that suits it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The phalanx is fresh and on flat ground. Your men have marched all day."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Eclipses are regular events, and your officers know it. A day’s rest and proper sacrifices calm the men, and the omen works on the enemy, not on you."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Explain the eclipse, sacrifice, and rest the men before fighting",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 4,
+       "e": -8,
+       "set": {
+        "rested": 1
+       },
+       "text": "Your officers tell the men the eclipse is natural. Sacrifices are made until the omens are good. The army rests in its camp in the foothills, while the Macedonians brood on their omen."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack at once while the enemy is shaken",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "Tired legions attack the phalanx on flat ground. The pikes hold."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legC": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "legC",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Withdraw to the hills and wait for him to come",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -7,
+       "text": "You give up the plain. Perseus does not follow."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The phalanx advances",
+   "text": "In the afternoon a skirmish over an escaped animal draws in both armies. The phalanx comes on, pikes levelled. Your allies cannot get past the points.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Rough ground lies behind your line, in the foothills."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A phalanx needs flat ground. Fall back in order onto the broken ground behind you, and it will open gaps as it follows."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fall back slowly in good order onto the rough ground",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "set": {
+        "rough": 1
+       },
+       "text": "Your line gives ground step by step into the foothills. The phalanx follows, and its front begins to buckle on the uneven slope."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legC": [
+         200,
+         205
+        ],
+        "alL": [
+         80,
+         208
+        ],
+        "alR": [
+         320,
+         208
+        ],
+        "phal": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "phal",
+        "legC"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Stand and push against the pikes",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -16,
+       "e": -2,
+       "text": "Your front ranks are spitted on the pikes."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "phal": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "phal",
+        "legC",
+        "alL"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hold the line and let the elephants try the phalanx",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": -7,
+       "text": "The elephants cannot break a wall of pikes."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         240,
+         150
+        ]
+       },
+       "f": [
+        "ele",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Gaps in the pikes",
+   "text": "On the broken ground the phalanx is losing its shape. Gaps are opening between its files.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The phalanx front is ragged."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Small units, maniples and cohorts, can push into every gap and take the phalangites from the side, where their pikes are useless."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the legions into the gaps by maniples",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "rough": true
+       },
+       "r": -4,
+       "e": -22,
+       "text": "Maniples push into every gap. At close quarters the Roman sword and long shield are far better than the Macedonian kit. The phalanx begins to break."
+      },
+      {
+       "r": -10,
+       "e": -8,
+       "text": "There are few gaps to go into, and the attack stalls."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legC": [
+         200,
+         140
+        ],
+        "phal": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "legC",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Wait for the phalanx to tire",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -7,
+       "text": "The phalanx closes its gaps."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Charge the whole line at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -12,
+       "e": -4,
+       "text": "The charge hits the pikes where they are still in order."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legC": [
+         200,
+         130
+        ],
+        "alL": [
+         80,
+         130
+        ]
+       },
+       "f": [
+        "legC",
+        "alL",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The Macedonian left",
+   "text": "On your right, the elephants and cavalry face the Macedonian left and its Thracians. On the far side of the field, the Guard of 3,000 is still fighting.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Perseus’s cavalry on his right has not yet moved."
+     }
+    ],
+    "scout": [
+     {
+      "text": "If your right wing breaks the Macedonian left, it can turn into the flank of the phalanx. Perseus himself may lose heart."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the elephants and cavalry of the right against the Macedonian left",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "flank": true,
+        "rested": true
+       },
+       "r": -2,
+       "e": -22,
+       "text": "The elephants and cavalry rout the Macedonian left and swing into the phalanx. Perseus rides from the field with his cavalry. The Guard fights to the last man."
+      },
+      {
+       "r": -4,
+       "e": -14,
+       "text": "The Macedonian left is routed, and the wing turns on the phalanx."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         320,
+         110
+        ],
+        "cavR": [
+         360,
+         100
+        ],
+        "thr": [
+         330,
+         60,
+         0.4
+        ]
+       },
+       "f": [
+        "ele",
+        "cavR",
+        "thr"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Hold the right and reinforce the centre",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -7,
+       "text": "The centre is stronger, but the Macedonian left is still whole."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Send the right wing to chase Perseus",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -4,
+       "text": "Perseus has a good start. The chase takes the cavalry off the field."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavR": [
+         380,
+         40
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "rightflank"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Pydna (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Pydna"
+  }
+ ]
+}

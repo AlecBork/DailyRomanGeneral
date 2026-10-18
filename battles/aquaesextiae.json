@@ -1,0 +1,758 @@
+{
+ "id": "aquaesextiae",
+ "name": "Battle of Aquae Sextiae",
+ "date": "102 BC",
+ "result": "win",
+ "loc": {
+  "lat": 43.53,
+  "lon": 5.45,
+  "place": "near Aquae Sextiae, southern Gaul",
+  "short": "Aquae Sextiae",
+  "x": 249,
+  "y": 83
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Teutones",
+  "commander": "Marius",
+  "foe": "Teutobod"
+ },
+ "intro": "Near Aquae Sextiae (Aix-en-Provence) in southern Gaul. You are Gaius Marius, consul for the fourth time, with perhaps 32,000 to 40,000 men in six legions and auxiliaries. The Teutones and Ambrones under Teutobod are a migrating people of perhaps 100,000 warriors, heading for Italy.",
+ "debrief": "In reality, Marius stayed in his fortified camp while the Teutones attacked it for three days and were driven off; he refused their challenges, and when one called him out to single combat he offered a gladiator instead. He then shadowed their march, fortifying a camp each night. Near Aquae Sextiae his water-carriers met the Ambrones bathing; the Ligurians charged without orders and Marius brought up the legions, routing them at the river. Before the main battle he hid Claudius Marcellus with 3,000 men in wooded ground and dressed camp servants and pack animals as cavalry. The Romans held the hill, threw their pila and pushed the horde down the slope, and Marcellus struck its rear. Teutobod fled and was later handed over. Enemy dead are put at 100,000 or more; Roman numbers vary by account. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#97a05a",
+  "ground": "#b49c66",
+  "hills": [
+   [
+    200,
+    192,
+    110,
+    20
+   ]
+  ],
+  "forests": [
+   [
+    335,
+    25,
+    55,
+    18
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 170,
+   "w": 130,
+   "h": 16,
+   "side": "roman",
+   "name": "Marius’s legions",
+   "model": "legionary"
+  },
+  "lig": {
+   "x": 320,
+   "y": 186,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Ligurian auxiliaries",
+   "model": "auxiliary"
+  },
+  "cav": {
+   "x": 60,
+   "y": 196,
+   "w": 40,
+   "h": 12,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "camp": {
+   "x": 200,
+   "y": 226,
+   "w": 90,
+   "h": 10,
+   "side": "roman",
+   "name": "Camp servants (as cavalry)",
+   "model": "levy"
+  },
+  "marc": {
+   "x": 320,
+   "y": 40,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Marcellus’s 3,000",
+   "model": "legionary",
+   "hidden": true
+  },
+  "teu": {
+   "x": 200,
+   "y": 90,
+   "w": 150,
+   "h": 18,
+   "side": "enemy",
+   "name": "Teutones",
+   "model": "barbarian",
+   "scales": true
+  },
+  "amb": {
+   "x": 320,
+   "y": 100,
+   "w": 70,
+   "h": 14,
+   "side": "enemy",
+   "name": "Ambrones",
+   "model": "gaul",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Marcellus strikes from the woods.",
+   "The horde is caught between two lines.",
+   "Teutobod’s army is destroyed."
+  ],
+  "lose": [
+   "The horde breaks your line.",
+   "The Teutones march on toward Italy.",
+   "The Alpine passes lie open."
+  ],
+  "cams": [
+   "enemyrear",
+   "clash",
+   "wide"
+  ],
+  "anim": {
+   "win": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "The camp",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Holding the rampart",
+     "tone": "g"
+    },
+    {
+     "text": "Fought on the plain",
+     "tone": "r"
+    },
+    {
+     "text": "A joke at their expense",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Under challenge",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The march",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Shadowing them",
+     "tone": "g"
+    },
+    {
+     "text": "Caught part of the column",
+     "tone": "a"
+    },
+    {
+     "text": "Let them go",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "The horde moves south",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The Ambrones",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Routed at the river",
+     "tone": "g"
+    },
+    {
+     "text": "Re-formed",
+     "tone": "a"
+    },
+    {
+     "text": "Ligurians alone",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "At the river",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Marcellus",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Hidden in the woods",
+     "tone": "g"
+    },
+    {
+     "text": "In the main line",
+     "tone": "a"
+    },
+    {
+     "text": "No plan",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Waiting for orders",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The challenge",
+   "text": "The Teutones and Ambrones arrive at your fortified camp. They jeer at your men and challenge you to fight. One of their chiefs calls you out to single combat.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your army has never fought these people. Many of your men are frightened of them."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Soldiers who watch the enemy from a strong wall for a few days lose their fear of them. Let them break themselves against the rampart."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stay behind the rampart and let them attack it",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 2,
+       "e": -10,
+       "set": {
+        "steady": 1
+       },
+       "text": "For three days the Teutones assault your walls and are driven off by missiles. Your men grow used to their size and their noise."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "teu": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "teu"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "March out and fight them now",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -4,
+       "text": "Your untried men meet the horde on the open plain and are pushed back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "leg",
+        "teu"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Offer a gladiator to fight their champion",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -5,
+       "text": "Your men laugh at the joke, but the horde is unmoved."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The march south",
+   "text": "Giving up on your camp, the horde marches past toward Italy. It takes them six days to pass.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are marching toward Massilia and the Alps."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Shadow them, close but not too close, and build a fortified camp each night. You choose when and where to fight."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Shadow them and fortify a camp each night",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "set": {
+        "shadow": 1
+       },
+       "text": "Your army follows the horde, building a camp every evening on good ground."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack the column on the march",
+     "quality": 1,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -9,
+       "text": "You catch part of the column, but the rest turns on you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "leg",
+        "teu"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Stay in the fort",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": 4,
+       "text": "The horde marches on toward Italy."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Ambrones at the river",
+   "text": "Near Aquae Sextiae your water-carriers stumble on Ambrones bathing in the river. Your Ligurians charge without orders.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Ambrones have been eating and drinking. Many are not armed."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A force caught in disorder at a river can be routed if you strike hard and at once. Bring up the legions behind the Ligurians."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Bring up the legions behind the Ligurians",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "steady": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "The legions throw their pila and charge. The Ambrones, many still half-dressed, are routed and driven back across the river with terrible losses."
+      },
+      {
+       "r": -6,
+       "e": -12,
+       "text": "The Ambrones are routed, but your men are nervous."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lig": [
+         320,
+         130
+        ],
+        "leg": [
+         280,
+         140
+        ],
+        "amb": [
+         330,
+         90
+        ]
+       },
+       "f": [
+        "lig",
+        "leg",
+        "amb"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Recall the Ligurians",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -7,
+       "text": "The Ligurians come back. The Ambrones re-form."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Let the Ligurians fight alone",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "The Ligurians are outnumbered."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lig": [
+         320,
+         130
+        ]
+       },
+       "f": [
+        "lig",
+        "amb"
+       ]
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The night before the battle",
+   "text": "The horde will attack in the morning. The ground in front of your camp rises to a hill, and wooded ravines lie beyond it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "There is wooded ground behind where the enemy will form."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A hidden force in the ravines can strike the enemy rear once the battle is joined. Camp servants and pack animals dressed as cavalry make your army look larger."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hide Claudius Marcellus with 3,000 men in the woods behind the enemy",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "set": {
+        "ambush": 1
+       },
+       "text": "Marcellus leads 3,000 men into the wooded ravines by night. The servants and mules are dressed up to look like cavalry."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "camp": [
+         200,
+         216
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep every man in the main line",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "The line is thick, but there is no surprise."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rest the army and wait",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 2,
+       "e": -5,
+       "text": "The army is rested, but you have no plan for the morning."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The hill",
+   "text": "The Teutones and Ambrones charge uphill at your line. Your men stand in close order on the high ground.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The enemy is charging uphill on uneven ground."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let them come uphill. Throw pila, then fight with swords and shields. Push them down onto the flat when they tire, and the hidden force does the rest."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold the hill, throw pila, then push down",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "ambush": true
+       },
+       "r": -2,
+       "e": -26,
+       "text": "Your line holds through the morning and pushes the horde down the slope. Then Marcellus’s 3,000 burst from the woods into their rear. The horde breaks."
+      },
+      {
+       "r": -6,
+       "e": -14,
+       "text": "Your line holds and pushes the horde down the slope."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ],
+        "teu": [
+         200,
+         110
+        ],
+        "marc": [
+         320,
+         70,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "teu",
+        "marc"
+       ]
+      }
+     ],
+     "cam": "enemyrear"
+    },
+    {
+     "label": "Charge down the hill to meet them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -6,
+       "text": "Your line loses its order on the slope."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "leg",
+        "teu"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Fall back to the camp",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -5,
+       "text": "The horde comes on to your rampart."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         210
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Aquae Sextiae (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Aquae_Sextiae"
+  }
+ ]
+}

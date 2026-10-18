@@ -1,0 +1,789 @@
+{
+ "id": "arausio",
+ "name": "Battle of Arausio",
+ "date": "105 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 44.13,
+  "lon": 4.8,
+  "place": "Arausio, on the Rhône",
+  "short": "Arausio",
+  "x": 240,
+  "y": 73
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Cimbri",
+  "commander": "Mallius Maximus",
+  "foe": "Boiorix"
+ },
+ "intro": "On the Rhône near Arausio (Orange) in southern Gaul, in October. You are the consul Gnaeus Mallius Maximus. Two Roman armies, perhaps 80,000 soldiers and 40,000 auxiliaries and camp followers in all, face the migrating Cimbri and Teutones under Boiorix. The other army belongs to the proconsul Quintus Servilius Caepio, who despises you.",
+ "debrief": "In reality, Caepio refused to serve under Mallius, a new man, and camped across the Rhône; even after the Senate ordered him over, he kept a separate camp. A picket under the legate Scaurus was destroyed and Scaurus executed by Boiorix. On 6 October Caepio attacked the Cimbri camp alone; his army was destroyed and his camp, left almost undefended, was sacked. The Cimbri then fell on Mallius’s shaken army, whose camp had the river at its back. Many fled to the Rhône and drowned in their armour; very few escaped. Ancient figures of 80,000 soldiers and 40,000 followers killed make it Rome’s worst defeat, though the numbers are uncertain. Uniting the command, camping on high ground and fighting a retreat are what-ifs.",
+ "terrain": {
+  "grass": "#8d9b56",
+  "river": {
+   "x": -214,
+   "w": 40
+  },
+  "hills": [
+   [
+    260,
+    30,
+    110,
+    10
+   ]
+  ]
+ },
+ "units": {
+  "mal": {
+   "x": 200,
+   "y": 196,
+   "w": 120,
+   "h": 14,
+   "side": "roman",
+   "name": "Mallius’s legions",
+   "model": "legionary"
+  },
+  "malc": {
+   "x": 360,
+   "y": 210,
+   "w": 40,
+   "h": 12,
+   "side": "roman",
+   "name": "Mallius’s cavalry",
+   "model": "cav_roman"
+  },
+  "cae": {
+   "x": 150,
+   "y": 150,
+   "w": 90,
+   "h": 14,
+   "side": "roman",
+   "name": "Caepio’s army",
+   "model": "legionary"
+  },
+  "aux": {
+   "x": 200,
+   "y": 226,
+   "w": 90,
+   "h": 10,
+   "side": "roman",
+   "name": "Auxiliaries & camp",
+   "model": "auxiliary"
+  },
+  "cim": {
+   "x": 230,
+   "y": 70,
+   "w": 150,
+   "h": 18,
+   "side": "enemy",
+   "name": "Cimbri",
+   "model": "barbarian",
+   "scales": true
+  },
+  "cim2": {
+   "x": 90,
+   "y": 80,
+   "w": 70,
+   "h": 14,
+   "side": "enemy",
+   "name": "Cimbri warband",
+   "model": "gaul",
+   "scales": true
+  },
+  "ccav": {
+   "x": 350,
+   "y": 60,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "Cimbri horsemen",
+   "model": "cav_heavy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Cimbri break on the pila.",
+   "Two Roman armies hold together.",
+   "The road to Italy is barred."
+  ],
+  "lose": [
+   "The Rhône fills with the dead.",
+   "Two Roman armies are destroyed.",
+   "Italy lies open."
+  ],
+  "cams": [
+   "clash",
+   "front",
+   "wide"
+  ],
+  "anim": {
+   "lose": "drown"
+  }
+ },
+ "status": [
+  {
+   "label": "Command",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Split: Caepio ignores you",
+     "tone": "r"
+    },
+    {
+     "text": "United under a shared plan",
+     "tone": "g"
+    },
+    {
+     "text": "Fighting alone",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Two generals at odds",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Camp",
+   "decision": 1,
+   "options": [
+    {
+     "text": "River at your back",
+     "tone": "r"
+    },
+    {
+     "text": "On high ground",
+     "tone": "g"
+    },
+    {
+     "text": "Split across the river",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Choosing ground",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Caepio",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Left to fight alone",
+     "tone": "r"
+    },
+    {
+     "text": "Supported by your army",
+     "tone": "g"
+    },
+    {
+     "text": "Cavalry sent",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Attacking the Cimbri",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Your army",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Pushed to the river",
+     "tone": "r"
+    },
+    {
+     "text": "Formed deep on open ground",
+     "tone": "g"
+    },
+    {
+     "text": "In square",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Facing the Cimbri",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Two armies, two generals",
+   "text": "You are the consul, Mallius Maximus, a new man in a family with no consuls. The proconsul Caepio, a noble, will not serve under you and has camped on the far bank of the Rhône.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Caepio’s army is as large as yours. The Cimbri have just destroyed a picket under your legate Scaurus."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Two armies apart are two armies to beat. Caepio cares about his rank: going to him and offering a joint command may bring him in where an order will not."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Write to the Senate and have him ordered across",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -5,
+       "set": {
+        "split": 1
+       },
+       "text": "The Senate orders Caepio across. He comes, but he keeps his own camp and ignores your orders."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cae": [
+         120,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Go to Caepio’s camp and offer him an equal share of the command",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "united": 1
+       },
+       "text": "Your offer flatters Caepio’s pride. The two armies agree a plan and camp together."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cae": [
+         120,
+         196
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ignore him and fight alone",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "set": {
+        "split": 1
+       },
+       "text": "Caepio stays on the far bank. You face the Cimbri with half the army."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The camp",
+   "text": "You must choose where to camp. The level ground beside the river is easy to fortify, but the river is at its back.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Men in armour cannot swim the Rhône."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A camp with a river behind it has no way out. Higher ground with open country behind it leaves room to retreat."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Camp on the level ground with the river behind you",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "set": {
+        "riverback": 1
+       },
+       "text": "The camp is easy to build, but its back is to the Rhône."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aux": [
+         200,
+         230
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "romanrear"
+    },
+    {
+     "label": "Camp on higher ground with open country behind",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "set": {
+        "high": 1
+       },
+       "text": "The camp stands on a rise, with a line of retreat open behind it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mal": [
+         200,
+         190
+        ],
+        "aux": [
+         200,
+         220
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Split the camp between both banks",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -5,
+       "text": "Two halves, each weaker than the whole."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Caepio attacks alone",
+   "text": "At dawn Caepio leads his army out without telling you and throws it at the Cimbri camp. He wants the victory for himself.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Caepio’s camp is almost empty. The Cimbri are fighting hard."
+     }
+    ],
+    "scout": [
+     {
+      "text": "If his army is beaten alone, yours is next. Marching at once to join him may turn his attack into a battle you can win."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stay in camp: it is his fight",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "united": true
+       },
+       "r": -2,
+       "e": -6,
+       "text": "With the armies united, Caepio’s attack goes in with your support, and the Cimbri are held."
+      },
+      {
+       "r": -10,
+       "e": 4,
+       "text": "The Cimbri beat Caepio’s army and sack his empty camp. Your men watch it happen."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cae": [
+         170,
+         90
+        ],
+        "cim2": [
+         120,
+         110
+        ]
+       },
+       "f": [
+        "cae",
+        "cim2"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "March at once to join Caepio’s attack",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "if": {
+        "united": true
+       },
+       "r": -4,
+       "e": -18,
+       "text": "Both armies strike together. The Cimbri are caught between them."
+      },
+      {
+       "r": -8,
+       "e": -12,
+       "text": "You arrive as Caepio’s men are being pushed back. Together you hold."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mal": [
+         200,
+         120
+        ],
+        "cae": [
+         160,
+         100
+        ]
+       },
+       "f": [
+        "mal",
+        "cae",
+        "cim"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send only the cavalry to support him",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -7,
+       "text": "The cavalry helps, but the infantry is still in camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "malc": [
+         300,
+         110
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The Cimbri turn on you",
+   "text": "Flushed with victory, the Cimbri come on against your army. Your men have seen Caepio’s army destroyed.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men are shaken."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A shaken army that stands where it is, with a river at its back, breaks. One that moves to higher ground has room to fight."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight where you stand",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "high": true
+       },
+       "r": -8,
+       "e": -6,
+       "text": "On the rise your men hold for a time."
+      },
+      {
+       "r": -16,
+       "e": -2,
+       "text": "Your line is pushed back toward the river."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cim": [
+         220,
+         150
+        ]
+       },
+       "f": [
+        "mal",
+        "cim"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "March out to open ground away from the river and form a deep line",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "if": {
+        "high": true
+       },
+       "r": -4,
+       "e": -16,
+       "text": "From the high ground the army forms deep, with room behind it. The Cimbri charge uphill into the pila."
+      },
+      {
+       "r": -8,
+       "e": -8,
+       "text": "The army moves out under pressure, but it forms."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mal": [
+         220,
+         180
+        ],
+        "aux": [
+         220,
+         215
+        ]
+       },
+       "f": [
+        "mal",
+        "cim"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Form a hollow square around the camp",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -10,
+       "e": -7,
+       "text": "The square holds for a while, but cannot move."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The last hour",
+   "text": "Your line is giving way. The Cimbri are pressing hard.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Many of the men are already looking at the river."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Men who run for the river drown. A body that stays together can cut its way out to Arausio."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Every man for himself",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -18,
+       "e": 0,
+       "text": "The army breaks for the Rhône. Men in armour drown in thousands."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mal": [
+         200,
+         235
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "romanrear"
+    },
+    {
+     "label": "Fight a slow retreat in close order toward Arausio",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "high": true
+       },
+       "r": -4,
+       "e": -14,
+       "text": "From the high ground the army withdraws in good order. The Cimbri cannot break it."
+      },
+      {
+       "r": -8,
+       "e": -8,
+       "text": "A body of men stays together and gets away."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mal": [
+         260,
+         200
+        ]
+       },
+       "f": [
+        "mal",
+        "cim"
+       ]
+      }
+     ],
+     "cam": "rear"
+    },
+    {
+     "label": "Make a last charge",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -12,
+       "e": -9,
+       "text": "The charge kills many Cimbri and leaves the army spent."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mal": [
+         220,
+         120
+        ]
+       },
+       "f": [
+        "mal",
+        "cim"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Arausio (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Arausio"
+  }
+ ],
+ "winAt": 50
+}

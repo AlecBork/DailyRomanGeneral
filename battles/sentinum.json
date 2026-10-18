@@ -1,0 +1,1004 @@
+{
+ "id": "sentinum",
+ "name": "Battle of Sentinum",
+ "date": "295 BC",
+ "result": "win",
+ "loc": {
+  "x": 344,
+  "y": 85,
+  "place": "Sentinum, in the Marche",
+  "short": "Sentinum",
+  "lat": 43.43,
+  "lon": 12.86
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The coalition",
+  "commander": "Fabius",
+  "foe": "Gellius Egnatius"
+ },
+ "intro": "The plain of Sentinum, in the Third Samnite War. The consuls Fabius Rullianus and Decius Mus lead four Roman legions and about 20,000 allies, perhaps 40,000 in all. The coalition of Samnites, Senones, Etruscans and Umbrians is larger, though the main ancient account says the number who actually fought was comparable.",
+ "debrief": "In reality, Fabius sent legions to ravage Clusium, which drew the Etruscans and Umbrians home. On the field Fabius held the right defensively, while Decius’s cavalry charged twice and was broken by Senone chariots. Decius devoted himself to the gods and died in the charge; his act rallied the left, which Fabius reinforced. Fabius’s cavalry hit the Samnite flank, and Campanian lancers attacked the Senones from behind. The Romans stormed the Samnite camp and cut off the Senone retreat. Roman losses are given as 8,700; coalition losses as about 25,000 dead and 8,000 captured. Our main ancient source says earlier writers inflated the size of the battle.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    0,
+    150,
+    12
+   ]
+  ]
+ },
+ "units": {
+  "lw": {
+   "x": 90,
+   "y": 192,
+   "w": 100,
+   "h": 14,
+   "side": "roman",
+   "name": "Decius’s wing",
+   "model": "hastati"
+  },
+  "rw": {
+   "x": 310,
+   "y": 192,
+   "w": 100,
+   "h": 14,
+   "side": "roman",
+   "name": "Fabius’s wing",
+   "model": "hastati"
+  },
+  "res": {
+   "x": 200,
+   "y": 226,
+   "w": 90,
+   "h": 12,
+   "side": "roman",
+   "name": "Reserve",
+   "model": "triarii"
+  },
+  "cavL": {
+   "x": 40,
+   "y": 208,
+   "w": 50,
+   "h": 14,
+   "side": "roman",
+   "name": "Decius’s cavalry",
+   "model": "cav_roman"
+  },
+  "cavR": {
+   "x": 360,
+   "y": 208,
+   "w": 50,
+   "h": 14,
+   "side": "roman",
+   "name": "Fabius’s cavalry",
+   "model": "cav_roman"
+  },
+  "lanc": {
+   "x": 290,
+   "y": 236,
+   "w": 40,
+   "h": 12,
+   "side": "roman",
+   "name": "Campanian lancers",
+   "model": "cav_roman"
+  },
+  "sen": {
+   "x": 90,
+   "y": 80,
+   "w": 100,
+   "h": 14,
+   "side": "enemy",
+   "name": "Senones",
+   "model": "gaul",
+   "scales": true
+  },
+  "sam": {
+   "x": 310,
+   "y": 80,
+   "w": 100,
+   "h": 14,
+   "side": "enemy",
+   "name": "Samnites",
+   "model": "barbarian",
+   "scales": true
+  },
+  "chr": {
+   "x": 40,
+   "y": 66,
+   "w": 50,
+   "h": 14,
+   "side": "enemy",
+   "name": "Senone chariots",
+   "model": "cav_eastern"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 7
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Campanian lancers hit the Senones from behind.",
+   "The Senone testudo cracks and the camp is taken.",
+   "The coalition army is broken."
+  ],
+  "lose": [
+   "The Senones hold the field.",
+   "The Samnites reach their camp.",
+   "The coalition marches away undefeated."
+  ],
+  "cams": [
+   "rightflank",
+   "rear",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Etruscans",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Drawn home by the raid",
+     "tone": "g"
+    },
+    {
+     "text": "Camp reinforced, may still come",
+     "tone": "a"
+    },
+    {
+     "text": "Near your camp",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Marching to join the others",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Right wing",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Holding firm, tiring the Samnites",
+     "tone": "g"
+    },
+    {
+     "text": "Both wings engaged",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Facing the Samnites",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Left wing",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Broken by the chariots",
+     "tone": "r"
+    },
+    {
+     "text": "Steady behind javelins",
+     "tone": "g"
+    },
+    {
+     "text": "Cavalry held back",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Facing the Senones",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Left rally",
+   "decision": 4,
+   "options": [
+    {
+     "text": "Rallied by Decius’s sacrifice",
+     "tone": "a"
+    },
+    {
+     "text": "Reinforced and holding",
+     "tone": "g"
+    },
+    {
+     "text": "Withdrawing",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Under pressure",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Omen",
+   "options": [
+    {
+     "text": "Wolf taken as a sign from Mars",
+     "tone": "g"
+    },
+    {
+     "text": "Ranks steady, nothing said",
+     "tone": "a"
+    },
+    {
+     "text": "Ranks hurried, men uneasy",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Omen between the lines",
+    "tone": "n"
+   },
+   "decision": 1
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The coalition’s plan",
+   "text": "Deserters from Clusium reveal the plan. The Samnites and Senones will pin you in the field while the Etruscans and Umbrians storm your camp.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The deserters speak of Etruscan families who have been left undefended."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The Etruscans came on the promise of a quick victory. If their homeland is threatened they will go back. A strong camp guard keeps them out but does not remove them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send legions to ravage Clusium and draw the Etruscans home",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "set": {
+        "divert": 1
+       },
+       "text": "The Etruscans march home to defend their land, and the coalition’s plan falls apart."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "res": [
+         200,
+         232
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Strengthen the camp guard and wait",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "set": {
+        "guard": 1
+       },
+       "text": "The camp is safe, but the coalition is still whole."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March out and strike the Samnites and Senones at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "You strike first, but with the Etruscans still near, your camp is at risk."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lw": [
+         90,
+         150
+        ],
+        "rw": [
+         310,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "A wolf between the lines",
+   "event": true,
+   "text": "As the lines face each other, a wolf chased by a hind runs between the armies. The hind runs to the Gauls, who kill it. The wolf runs through the Roman ranks, which open to let it pass.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Soldiers on both sides are watching the animals. A quick word could turn this one way or the other."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Your men have seen it. The Gauls have killed their animal, and a Roman soldier is already pointing out that the wolf, sacred to Mars, got through unhurt."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Point to the wolf and tell the ranks that Mars’s beast has passed through unharmed",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "divert": true
+       },
+       "r": 4,
+       "e": -10,
+       "q": 2,
+       "text": "The ranks cheer. Word of the raid on Clusium has already spread, and the army fights as if the gods are with it."
+      },
+      {
+       "r": 2,
+       "e": -6,
+       "q": 2,
+       "text": "The ranks cheer and close up. The omen is on your side."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Say nothing and keep the ranks steady",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "q": 1,
+       "text": "The ranks stay steady, but the Gauls make much of their kill."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Order the ranks to close at once and ignore the beasts",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "q": 0,
+       "text": "The order is given harshly and the men shuffle. Some of them are still looking at the dead hind."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The two wings",
+   "text": "Fabius commands the right, facing the Samnites. Decius commands the left, facing the Senones. The two consuls can fight differently.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Senones are fierce but impatient. The Samnites are steady."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Veteran Samnites will wear themselves out attacking a firm defence. The Senones are wild and break more easily when pinned than when pushed."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fabius holds on the right to tire the Samnites; Decius attacks on the left",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "set": {
+        "fabiusholds": 1
+       },
+       "text": "Fabius holds a firm defensive line while Decius presses the Senones."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lw": [
+         90,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Attack hard on both wings at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -6,
+       "text": "Both wings attack at once, and both take heavy losses."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lw": [
+         90,
+         150
+        ],
+        "rw": [
+         310,
+         150
+        ]
+       },
+       "f": [
+        "lw",
+        "rw",
+        "sen",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hold both wings and let the enemy come",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -4,
+       "text": "A cautious line, but the enemy chooses when to fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Decius’s cavalry",
+   "text": "On the left, Decius’s cavalry meets the Senone horse. Behind the Senone horse come their chariots.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Senones keep their chariots behind their cavalry."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Chariots break a cavalry charge that goes in too deep. A single charge that drives off the horse and then withdraws behind the infantry meets the chariots with javelins."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Charge the cavalry twice, then into the infantry",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": -6,
+       "set": {
+        "leftcrisis": 1
+       },
+       "text": "The charge drives the cavalry back, but Senone chariots counter-charge and break Decius’s line."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         90,
+         110
+        ],
+        "chr": [
+         70,
+         130
+        ]
+       },
+       "f": [
+        "cavL",
+        "chr"
+       ]
+      }
+     ],
+     "cam": "leftflank"
+    },
+    {
+     "label": "Charge once, then fall back behind the infantry and meet the chariots with javelins",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "set": {
+        "leftsteady": 1
+       },
+       "text": "The cavalry drives off the Senone horse and withdraws. The chariots run onto javelins and the infantry line."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         70,
+         150
+        ],
+        "chr": [
+         60,
+         130
+        ]
+       },
+       "f": [
+        "cavL",
+        "chr"
+       ]
+      }
+     ],
+     "cam": "leftflank"
+    },
+    {
+     "label": "Keep the cavalry back as a reserve",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -5,
+       "e": -2,
+       "text": "The cavalry is safe, but the Senone horse is free to ride."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "The left wing buckles",
+   "text": "The Senone chariots and infantry are through Decius’s first line. Decius calls for the gods.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Decius’s father devoted himself at Vesuvius in 340 BC, and the army remembers it."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fabius has reserve contingents that can reach the left. If the line is already steadied, a calm reinforcement is better than a sacrifice."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Decius devotes himself to the gods and charges into the enemy",
+     "quality": 1,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": -10,
+       "text": "Decius dies in the charge. The left rallies, and Fabius’s reserves arrive."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lw": [
+         90,
+         120
+        ]
+       },
+       "f": [
+        "lw",
+        "sen"
+       ]
+      }
+     ],
+     "cam": "leftclose"
+    },
+    {
+     "label": "Call up Fabius’s reserve contingents and rally behind the standards",
+     "quality": 2,
+     "cost": 2,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "leftsteady": true
+       },
+       "r": -4,
+       "e": -14,
+       "text": "The reserve arrives on a line that is still intact, and the left holds."
+      },
+      {
+       "r": -8,
+       "e": -10,
+       "text": "The reserve arrives late but rallies the left."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "res": [
+         90,
+         180
+        ]
+       },
+       "f": [
+        "lw",
+        "sen"
+       ]
+      }
+     ],
+     "cam": "leftclose"
+    },
+    {
+     "label": "Pull the left wing back toward the camp",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -14,
+       "e": 2,
+       "text": "The left withdraws, and the Senones follow."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lw": [
+         90,
+         215
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "The right wing",
+   "text": "The Samnites have worn themselves against Fabius’s line. Now is the time to strike.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Samnites are tiring."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cavalry sent around the Samnite flank, with the reserve behind, will break a wing that has spent itself on a firm line."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the cavalry round the Samnite flank and commit the reserve",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "fabiusholds": true
+       },
+       "r": -3,
+       "e": -18,
+       "text": "The Samnites, tired from a day against the firm line, break when the cavalry strikes their flank."
+      },
+      {
+       "r": -8,
+       "e": -10,
+       "text": "The cavalry hits the Samnite flank, but the Samnites are still fresh."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavR": [
+         310,
+         100
+        ],
+        "res": [
+         310,
+         130
+        ],
+        "sam": [
+         320,
+         98
+        ]
+       },
+       "f": [
+        "cavR",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Make a frontal attack on the Samnites",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -6,
+       "text": "The Samnites meet the attack and hold."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "rw": [
+         310,
+         150
+        ],
+        "sam": [
+         310,
+         115
+        ]
+       },
+       "f": [
+        "rw",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Keep holding",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -3,
+       "e": -4,
+       "text": "The line holds, but the chance passes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The camp",
+   "text": "The Samnites are broken. The Senones are still in the field, and their camp lies open.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Senones are forming a testudo."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Lancers hitting the Senones from behind, while the army storms the camp, cuts off their retreat. The Etruscans are gone, if you sent the raid."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the Campanian lancers into the Senones’ rear and storm the camp",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "divert": true
+       },
+       "r": -4,
+       "e": -22,
+       "text": "The lancers hit the Senones from behind as the army storms the camp. There is no retreat."
+      },
+      {
+       "r": -8,
+       "e": -14,
+       "text": "The lancers hit the Senones, but the Etruscans threaten the camp and split your force."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lanc": [
+         100,
+         110
+        ],
+        "sen": [
+         90,
+         90
+        ]
+       },
+       "f": [
+        "lanc",
+        "sen"
+       ]
+      }
+     ],
+     "cam": "rear"
+    },
+    {
+     "label": "Pursue the Samnites only",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The Samnites are driven off, but the Senones escape."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "sam": [
+         310,
+         40,
+         0.4
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Halt and consolidate the line",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The Senones recover and the chance is lost."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Sentinum (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Sentinum"
+  }
+ ]
+}

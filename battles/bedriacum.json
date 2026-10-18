@@ -1,0 +1,900 @@
+{
+ "id": "bedriacum",
+ "name": "Second Battle of Bedriacum",
+ "date": "69 AD",
+ "result": "win",
+ "loc": {
+  "lat": 45.14,
+  "lon": 10.15,
+  "place": "between Bedriacum and Cremona",
+  "short": "Cremona",
+  "x": 309,
+  "y": 55
+ },
+ "names": {
+  "rome": "The Flavians",
+  "enemy": "The Vitellians",
+  "commander": "Antonius Primus",
+  "foe": "the Vitellians"
+ },
+ "intro": "The road between Bedriacum and Cremona in northern Italy, in October of the Year of the Four Emperors. You are Marcus Antonius Primus, leading five Danube legions for Vespasian. The emperor Vitellius’s army is about the same size, but its general Caecina has just been arrested by his own men and it has no commander.",
+ "debrief": "In reality, Antonius met the Vitellian vanguard on the road on 24 October, drove it back to its camp at Cremona and summoned his legions. The leaderless Vitellian army came out and attacked, and the battle went on through the night. The Seventh Legion was badly hurt and briefly lost its eagle; a centurion died recovering it. At dawn the Third Legion, long stationed in Syria, saluted the rising sun; the Vitellians took the cheering for reinforcements from the East and lost heart. Antonius stormed their camp, and Cremona surrendered but was sacked and burned over four days. Losses are put at about 15,000 Flavian and 38,000 Vitellian. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#8f9f58",
+  "flat": true,
+  "trees": 40,
+  "roads": [
+   [
+    200,
+    0,
+    200,
+    260,
+    9
+   ]
+  ],
+  "weather": "night"
+ },
+ "units": {
+  "cav": {
+   "x": 200,
+   "y": 160,
+   "w": 90,
+   "h": 10,
+   "side": "roman",
+   "name": "Antonius’s cavalry",
+   "model": "cav_roman"
+  },
+  "l7": {
+   "x": 110,
+   "y": 194,
+   "w": 80,
+   "h": 14,
+   "side": "roman",
+   "name": "VII Galbiana",
+   "model": "legionary"
+  },
+  "l3": {
+   "x": 290,
+   "y": 194,
+   "w": 80,
+   "h": 14,
+   "side": "roman",
+   "name": "III Gallica",
+   "model": "veteran"
+  },
+  "l13": {
+   "x": 200,
+   "y": 212,
+   "w": 80,
+   "h": 12,
+   "side": "roman",
+   "name": "XIII Gemina & VIII Augusta",
+   "model": "legionary"
+  },
+  "van": {
+   "x": 200,
+   "y": 110,
+   "w": 80,
+   "h": 10,
+   "side": "enemy",
+   "name": "Vitellian vanguard",
+   "model": "cav_roman",
+   "look": {
+    "tn": "#5a6d8c"
+   }
+  },
+  "vit": {
+   "x": 200,
+   "y": 80,
+   "w": 170,
+   "h": 18,
+   "side": "enemy",
+   "name": "Vitellian legions",
+   "model": "legionary",
+   "scales": true,
+   "look": {
+    "tn": "#5a6d8c"
+   }
+  },
+  "camp": {
+   "x": 200,
+   "y": 30,
+   "w": 120,
+   "h": 8,
+   "side": "enemy",
+   "name": "Camp and walls of Cremona",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 6
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Third salutes the sun.",
+   "The Vitellians break for Cremona.",
+   "The road to Rome is open to Vespasian."
+  ],
+  "lose": [
+   "The Vitellians hold the road.",
+   "The Danube legions fall back.",
+   "Vitellius keeps his throne."
+  ],
+  "cams": [
+   "front",
+   "push",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Vanguard",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Driven back, legions summoned",
+     "tone": "g"
+    },
+    {
+     "text": "Following you",
+     "tone": "a"
+    },
+    {
+     "text": "Cavalry caught",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "On the road",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Night",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Holding the road",
+     "tone": "g"
+    },
+    {
+     "text": "Confused",
+     "tone": "r"
+    },
+    {
+     "text": "Withdrawn",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Vitellians coming out",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Seventh Legion",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Steadied",
+     "tone": "g"
+    },
+    {
+     "text": "Falling back",
+     "tone": "r"
+    },
+    {
+     "text": "Left alone",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Hard pressed",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Dawn",
+   "decision": 4,
+   "options": [
+    {
+     "text": "Attacking as they waver",
+     "tone": "g"
+    },
+    {
+     "text": "Resting",
+     "tone": "a"
+    },
+    {
+     "text": "Waiting",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Sun rising",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The engine",
+   "options": [
+    {
+     "text": "Ropes cut by two volunteers",
+     "tone": "g"
+    },
+    {
+     "text": "Out of range",
+     "tone": "a"
+    },
+    {
+     "text": "Assault failed",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Hurling stones",
+    "tone": "n"
+   },
+   "decision": 2
+  }
+ ],
+ "decisions": [
+  {
+   "title": "On the road to Cremona",
+   "text": "It is the Year of the Four Emperors. You are Marcus Antonius Primus, leading the Danube legions for Vespasian against the emperor Vitellius. Riding ahead with your cavalry toward Cremona, you meet the Vitellian vanguard on the road.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your legions are still back at Bedriacum."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hit the vanguard hard and drive it back to its camp, and send word for your legions to come up at once."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Charge the vanguard, drive it back, and summon the legions",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "set": {
+        "summon": 1
+       },
+       "text": "Your cavalry breaks the Vitellian vanguard and chases it back to the camp at Cremona. Riders gallop back to Bedriacum to bring up the legions."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         200,
+         120
+        ],
+        "van": [
+         200,
+         40,
+         0.3
+        ]
+       },
+       "f": [
+        "cav",
+        "van"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Fall back to the legions",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -6,
+       "text": "The vanguard follows you cautiously."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         200,
+         190
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ride on to Cremona alone",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Your cavalry is caught between the vanguard and the camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         200,
+         60
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Night battle",
+   "text": "As darkness falls the whole Vitellian army comes out from Cremona: six legions or more, tired from a long march, with no commander, since their general Caecina has been arrested by his own men.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are many, but leaderless and weary."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A leaderless army attacking at night fights unit by unit. Form your legions astride the road and let them come."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form the legions astride the Via Postumia and hold",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "summon": true
+       },
+       "r": -4,
+       "e": -14,
+       "set": {
+        "formed": 1
+       },
+       "text": "Your legions arrive in time and form across the road. The Vitellians come at them in the dark, unit by unit, with no plan."
+      },
+      {
+       "r": -10,
+       "e": -6,
+       "set": {
+        "formed": 1
+       },
+       "text": "Your line forms late and ragged."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "l7": [
+         110,
+         170
+        ],
+        "l3": [
+         290,
+         170
+        ],
+        "l13": [
+         200,
+         190
+        ],
+        "vit": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "l7",
+        "l3",
+        "vit"
+       ]
+      }
+     ],
+     "cam": "lowfront"
+    },
+    {
+     "label": "Attack them in the dark",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -4,
+       "text": "In the dark, your men can barely tell friend from foe."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "l7": [
+         110,
+         120
+        ]
+       },
+       "f": [
+        "l7",
+        "vit"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Withdraw to Bedriacum",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -6,
+       "text": "The Vitellians follow, but you keep your army."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The great engine",
+   "event": true,
+   "text": "In the dark, an enormous catapult of the Vitellian Sixteenth Legion is hurling huge stones into your packed ranks. Each shot cuts a lane through the line.",
+   "intel": {
+    "hint": [
+     {
+      "text": "In the night battle, friend and foe carry the same kind of shields and use the same watchword."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Two men carrying shields taken from the Vitellian dead could walk up to the engine unrecognised and cut its ropes."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let two volunteers take enemy shields and cut its ropes",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 4,
+       "e": -8,
+       "q": 2,
+       "text": "Two soldiers snatch shields from the Vitellian dead, slip through the dark to the engine and slash its ropes. They are cut down at once, but the great catapult is silent. Their names are not recorded."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Pull the line back out of range",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "q": 1,
+       "text": "Your line edges back, and the Vitellians come on behind the engine."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the engine with a whole cohort",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "q": 0,
+       "text": "The cohort is shot to pieces as it crosses the open ground."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The lost eagle",
+   "text": "In the confusion the Seventh Legion is badly mauled and loses its eagle. A centurion dies winning it back.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Seventh is wavering on your left."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send your reserve to the Seventh before the gap spreads."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send reserve cohorts to steady the Seventh",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "formed": true
+       },
+       "r": -2,
+       "e": -14,
+       "text": "The eagle is won back at the cost of a centurion’s life, and fresh cohorts steady the Seventh. The line holds through the night."
+      },
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The line holds, barely."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "l13": [
+         130,
+         180
+        ]
+       },
+       "f": [
+        "l13",
+        "l7",
+        "vit"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Let the Seventh fall back",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": -6,
+       "text": "A gap opens in your line."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "l7": [
+         110,
+         215
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Counterattack in the centre",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "Your centre runs into the enemy’s strength."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "l13": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "l13",
+        "vit"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The rising sun",
+   "text": "Dawn breaks. The Third Legion, which served long in Syria, turns to the east and salutes the rising sun, as is the custom there. The Vitellians hear the cheering and think help has come from the East.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Vitellians are shaken."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fear is spreading through their ranks. Strike now with your whole line, while they believe a new army has arrived."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack all along the line while they waver",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "formed": true
+       },
+       "r": -2,
+       "e": -20,
+       "text": "The Third’s cheer rolls along your line, and your legions attack as one. The Vitellians, sure that more enemies are coming, break for their camp."
+      },
+      {
+       "r": -4,
+       "e": -12,
+       "text": "The Vitellians give ground."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "l7": [
+         110,
+         110
+        ],
+        "l3": [
+         290,
+         110
+        ],
+        "l13": [
+         200,
+         120
+        ],
+        "vit": [
+         200,
+         60
+        ]
+       },
+       "f": [
+        "l7",
+        "l3",
+        "l13",
+        "vit"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold and rest the men",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 2,
+       "e": -6,
+       "text": "The Vitellians recover their nerve."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for real reinforcements",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": 2,
+       "text": "The moment passes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The camp",
+   "text": "The Vitellians are back in their camp outside Cremona, behind ditch and rampart.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men smell plunder in Cremona beyond."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Storm the camp with shields locked overhead and ladders, before they recover. Keep the men in hand when it falls."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Storm the camp with shields overhead and ladders",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "formed": true
+       },
+       "r": -4,
+       "e": -20,
+       "text": "Your legions storm the rampart under a roof of shields. The camp falls. Cremona surrenders, but your soldiers sack and burn it for four days."
+      },
+      {
+       "r": -8,
+       "e": -12,
+       "text": "The camp falls after a hard fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "l3": [
+         250,
+         50
+        ],
+        "l7": [
+         150,
+         50
+        ],
+        "camp": [
+         200,
+         30,
+         0.4
+        ]
+       },
+       "f": [
+        "l3",
+        "l7",
+        "camp"
+       ]
+      }
+     ],
+     "cam": "push"
+    },
+    {
+     "label": "Besiege the camp",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The Vitellians dig in."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ignore the camp and march on Rome",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "An undefeated army is left behind you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Second Battle of Bedriacum (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Second_Battle_of_Bedriacum"
+  }
+ ]
+}

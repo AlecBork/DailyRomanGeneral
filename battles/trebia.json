@@ -1,0 +1,921 @@
+{
+ "id": "trebia",
+ "name": "Battle of the Trebia",
+ "date": "218 BC",
+ "result": "loss",
+ "loc": {
+  "x": 327,
+  "y": 78,
+  "place": "the River Trebia, near Placentia",
+  "short": "Trebia",
+  "lat": 45.02,
+  "lon": 9.6
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Sempronius Longus",
+  "foe": "Hannibal"
+ },
+ "intro": "A flat plain on the River Trebia in the Po valley, in a cold December. You are the consul Sempronius Longus, with some 16,000 to 18,000 Roman infantry, 20,000 allies and 4,000 cavalry. Hannibal has about 29,000 infantry, many of them Gauls, 11,000 cavalry and around 30 elephants. Your fellow consul Scipio lies wounded.",
+ "debrief": "In reality, Hannibal sent Numidian horsemen to provoke the Romans before dawn. Sempronius led his unfed men across the freezing, chest-deep river and formed up on the plain. Hannibal’s brother Mago lay hidden in a brush-filled watercourse with 1,000 horse and 1,000 foot. The outnumbered Roman cavalry was swept away and the wings were outflanked and attacked from the rear by Mago’s force. The Roman centre broke through the Gauls and about 10,000 men fought their way out to Placentia; most of the rest were killed or drowned. Modern estimates put Roman dead near 20,000. The Roman numbers vary by source, and Scipio’s advice to wait is in the ancient sources but is hard to date. Warming the men first, searching the watercourse and wheeling the centre are what-ifs.",
+ "terrain": {
+  "river": {
+   "x": -214,
+   "w": 26
+  },
+  "marsh": [
+   [
+    345,
+    128,
+    26,
+    46
+   ]
+  ],
+  "forests": [
+   [
+    345,
+    128,
+    26,
+    10
+   ]
+  ],
+  "weather": "snow"
+ },
+ "units": {
+  "vel": {
+   "x": 200,
+   "y": 176,
+   "w": 120,
+   "h": 8,
+   "side": "roman",
+   "name": "Velites",
+   "model": "velites"
+  },
+  "hast": {
+   "x": 200,
+   "y": 192,
+   "w": 130,
+   "h": 12,
+   "side": "roman",
+   "name": "Roman legions",
+   "model": "legionary"
+  },
+  "alL": {
+   "x": 70,
+   "y": 194,
+   "w": 70,
+   "h": 12,
+   "side": "roman",
+   "name": "Allied infantry",
+   "model": "principes"
+  },
+  "alR": {
+   "x": 330,
+   "y": 194,
+   "w": 70,
+   "h": 12,
+   "side": "roman",
+   "name": "Allied infantry",
+   "model": "principes"
+  },
+  "cavL": {
+   "x": 40,
+   "y": 212,
+   "w": 50,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman cavalry",
+   "model": "cav_roman"
+  },
+  "cavR": {
+   "x": 360,
+   "y": 212,
+   "w": 50,
+   "h": 14,
+   "side": "roman",
+   "name": "Allied cavalry",
+   "model": "cav_roman"
+  },
+  "gau": {
+   "x": 200,
+   "y": 82,
+   "w": 90,
+   "h": 14,
+   "side": "enemy",
+   "name": "Gauls (centre)",
+   "model": "gaul",
+   "scales": true
+  },
+  "afr": {
+   "x": 110,
+   "y": 86,
+   "w": 80,
+   "h": 14,
+   "side": "enemy",
+   "name": "African & Iberian infantry",
+   "model": "african",
+   "scales": true
+  },
+  "afr2": {
+   "x": 290,
+   "y": 86,
+   "w": 80,
+   "h": 14,
+   "side": "enemy",
+   "name": "African & Iberian infantry",
+   "model": "african",
+   "scales": true
+  },
+  "num": {
+   "x": 200,
+   "y": 52,
+   "w": 70,
+   "h": 10,
+   "side": "enemy",
+   "name": "Numidian cavalry",
+   "model": "cav_numidian"
+  },
+  "hcl": {
+   "x": 35,
+   "y": 76,
+   "w": 56,
+   "h": 14,
+   "side": "enemy",
+   "name": "Carthaginian cavalry",
+   "model": "cav_punic"
+  },
+  "hcr": {
+   "x": 365,
+   "y": 76,
+   "w": 56,
+   "h": 14,
+   "side": "enemy",
+   "name": "Carthaginian cavalry",
+   "model": "cav_punic"
+  },
+  "ele": {
+   "x": 200,
+   "y": 40,
+   "w": 80,
+   "h": 10,
+   "side": "enemy",
+   "name": "Elephants",
+   "model": "elephant"
+  },
+  "mago": {
+   "x": 345,
+   "y": 128,
+   "w": 50,
+   "h": 14,
+   "side": "enemy",
+   "name": "Mago’s ambush force",
+   "model": "african",
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Carthaginian line is rolled up from the flank.",
+   "Hannibal’s centre cannot hold the wheeling legions.",
+   "The Trebia is yours."
+  ],
+  "lose": [
+   "The wings are gone and the rear is open.",
+   "Hannibal’s horse closes the ring.",
+   "The Trebia runs red."
+  ],
+  "cams": [
+   "rear",
+   "push",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Army",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Wet, cold, hungry",
+     "tone": "r"
+    },
+    {
+     "text": "Fed but cold",
+     "tone": "a"
+    },
+    {
+     "text": "Warm, fed, rested",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Waiting in the cold",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The watercourse",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Unseen",
+     "tone": "r"
+    },
+    {
+     "text": "Ambush force driven out",
+     "tone": "g"
+    },
+    {
+     "text": "Wing extended",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Waiting",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Cavalry",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Swept away by the larger force",
+     "tone": "r"
+    },
+    {
+     "text": "Holding the wings",
+     "tone": "g"
+    },
+    {
+     "text": "Withdrawn",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Outnumbered three to one",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Centre",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Through, wings abandoned",
+     "tone": "r"
+    },
+    {
+     "text": "Wheeling into the flank",
+     "tone": "g"
+    },
+    {
+     "text": "Held up",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Fighting the Gauls",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Rear",
+   "decision": 4,
+   "options": [
+    {
+     "text": "Cutting out toward Placentia",
+     "tone": "a"
+    },
+    {
+     "text": "Fighting the ambush",
+     "tone": "g"
+    },
+    {
+     "text": "Broken and running",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Under pressure",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The dawn provocation",
+   "text": "Before sunrise, Numidian horsemen ride up to your camp and jeer. Across the Trebia, in the cold, the Carthaginians wait. Your men have not eaten.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your fellow consul Scipio is wounded and advises waiting for the winter. Your men are hungry, and the river is swollen and icy."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hannibal wants you to cross. A river in December, crossed by hungry men, is half a battle already won for him. A meal and a fire cost an hour."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the whole army across the river at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "set": {
+        "cold": 1
+       },
+       "text": "The army wades the icy, chest-deep Trebia on empty stomachs. Men come out numb and weak."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         200,
+         150
+        ],
+        "alL": [
+         70,
+         150
+        ],
+        "alR": [
+         330,
+         150
+        ],
+        "cavL": [
+         40,
+         150
+        ],
+        "cavR": [
+         360,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "lowfront"
+    },
+    {
+     "label": "Cross at once, but feed the men a hasty meal first",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -4,
+       "set": {
+        "cold": 0.5
+       },
+       "text": "The men eat standing, then wade across. Better than nothing, but they are still wet and cold when the line forms."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         200,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "lowfront"
+    },
+    {
+     "label": "Stay in camp, warm and feed the men, and answer the Numidians only with velites",
+     "quality": 2,
+     "cost": 2,
+     "style": "C",
+     "fx": [
+      {
+       "r": 4,
+       "e": -8,
+       "set": {
+        "fed": 1
+       },
+       "text": "The velites drive the Numidians off. The army eats and oils itself by the fires. Hannibal’s men stand in the cold and wait."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         200,
+         160
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The ground",
+   "text": "The plain is flat and open, and nothing marks it but a few thickets. A dry watercourse runs across the flat on your right, overgrown with brush and bramble.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The watercourse on the right is deep enough to hide men and thick enough to hide a thousand."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hannibal and his brother Mago chose this plain with care. Look at the watercourse on the right: a detachment of 1,000 horse and 1,000 foot hides there."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Deploy in the usual order and trust the line",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The army forms in the usual order. Nobody looks into the brush."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         200,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Search the watercourse with the velites and set a guard on the right",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "set": {
+        "found": 1
+       },
+       "text": "The velites flush out the hidden men. Hannibal’s trap is blown, and your right is covered."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         335,
+         150
+        ],
+        "mago": [
+         345,
+         128,
+         1
+        ]
+       },
+       "f": [
+        "vel",
+        "mago"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Extend the right wing and thicken the line",
+     "quality": 1,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -4,
+       "text": "The wing is longer, but it still stands with the watercourse beside it and nothing known of it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "alR": [
+         350,
+         194
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The cavalry",
+   "text": "Your 4,000 horse face Hannibal’s 11,000. Behind them stand elephants and Numidians.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Roman cavalry is outnumbered nearly three to one."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Outnumbered horse should not ride out alone. Kept beside the infantry wings and screened by javelin-men, it can still protect the flanks. Sent out alone, it will be ridden down."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Charge the Carthaginian cavalry head on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "set": {
+        "cavlost": 1
+       },
+       "text": "The Roman horse rides out and meets three times its number. It is swept away, and the wings are bare."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         35,
+         100
+        ],
+        "cavR": [
+         365,
+         100
+        ],
+        "hcl": [
+         40,
+         125
+        ],
+        "hcr": [
+         360,
+         125
+        ]
+       },
+       "f": [
+        "cavL",
+        "cavR",
+        "hcl",
+        "hcr"
+       ]
+      }
+     ],
+     "cam": "leftflank"
+    },
+    {
+     "label": "Keep the cavalry close to the wings, screened by the velites",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "fx": [
+      {
+       "r": -3,
+       "e": -12,
+       "set": {
+        "cavheld": 1
+       },
+       "text": "The cavalry stays by the infantry, and the velites cover its front. The Carthaginian horse cannot ride round without taking javelins."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         55,
+         190
+        ],
+        "cavR": [
+         345,
+         190
+        ],
+        "vel": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "vel",
+        "num"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Withdraw the cavalry behind the line",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The cavalry is safe, but the flanks are open to the enemy’s horse."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         55,
+         225
+        ],
+        "cavR": [
+         345,
+         225
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The centre breaks through",
+   "text": "The Roman centre fights its way through the Gauls and elephants, and bursts into open ground behind the Carthaginian line.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your centre is through, and your wings are in trouble."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A centre that breaks through has won its own fight, but not the battle. If it runs on, it leaves the wings behind. If it turns to help them, the Carthaginian line is caught in the flank."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Press straight on and leave the wings to themselves",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The legions press on through the Gauls. They leave their own wings to be rolled up from both ends."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         200,
+         115
+        ],
+        "gau": [
+         200,
+         105
+        ]
+       },
+       "f": [
+        "hast",
+        "gau"
+       ]
+      }
+     ],
+     "cam": "push"
+    },
+    {
+     "label": "Halt, wheel and take the Carthaginian line in the flank",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "if": {
+        "found": true
+       },
+       "r": -3,
+       "e": -22,
+       "text": "With the ambush discovered, your wheel finds the Carthaginian flank open and breaks it."
+      },
+      {
+       "if": {
+        "cavheld": true
+       },
+       "r": -4,
+       "e": -18,
+       "text": "The wheel takes the African line in the flank while your cavalry still holds the wing."
+      },
+      {
+       "r": -10,
+       "e": -8,
+       "text": "You wheel, but Mago’s ambushers and the Numidians are already behind you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         150,
+         105
+        ],
+        "afr": [
+         110,
+         100
+        ]
+       },
+       "f": [
+        "hast",
+        "afr"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold the ground you have won and wait",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -4,
+       "text": "The centre holds its ground, but the Carthaginians finish off the wings."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The last stand",
+   "text": "Mago’s men have struck your rear. The wings have gone. The centre stands alone, in the cold, with a swollen river behind it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Ten thousand men can still get away if they keep together."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A body that keeps in good order and has a firm commander can cut its way out. A body that breaks up will be run down on the plain."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form one body and cut a way to Placentia",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": -6,
+       "text": "About 10,000 men fight their way out, in order, to the walls of Placentia. The rest die on the plain or in the river."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         200,
+         230
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "rear"
+    },
+    {
+     "label": "Turn about and fight the ambush force in your rear",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "if": {
+        "found": true
+       },
+       "r": -4,
+       "e": -22,
+       "text": "Mago’s men have already been cut up. The turn catches the rear of the African line, and it breaks."
+      },
+      {
+       "r": -10,
+       "e": -8,
+       "text": "You turn on the ambush force, but the Numidians and elephants press you from the front."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         260,
+         150
+        ],
+        "mago": [
+         345,
+         128,
+         1
+        ]
+       },
+       "f": [
+        "hast",
+        "mago"
+       ]
+      }
+     ],
+     "cam": "rear"
+    },
+    {
+     "label": "Break up and run for the river and camp",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -18,
+       "e": 0,
+       "text": "The army breaks up and the Carthaginians ride it down on the plain."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         200,
+         240
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "rear"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Trebia (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Trebia"
+  }
+ ],
+ "winAt": 50
+}

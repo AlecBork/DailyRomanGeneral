@@ -1,0 +1,916 @@
+{
+ "id": "carrhae",
+ "name": "Battle of Carrhae",
+ "date": "53 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 36.87,
+  "lon": 39.03,
+  "place": "near Carrhae, Mesopotamia",
+  "short": "Carrhae",
+  "x": 679,
+  "y": 200
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Parthia",
+  "commander": "Crassus",
+  "foe": "Surena"
+ },
+ "intro": "The plains near Carrhae (Harran) in Upper Mesopotamia, in June. You are Marcus Licinius Crassus, with seven legions, perhaps 28,000 to 35,000 heavy infantry, and 4,000 horse and 4,000 light troops. The Parthian general Surena has only about 10,000 men: some 1,000 armoured cataphracts and 9,000 horse archers, with a train of 1,000 camels.",
+ "debrief": "In reality, Crassus refused Armenia’s offer of an easier route and help, and followed the open road east, guided (in one account, betrayed) by Ariamnes. At a stream his officers urged him to camp; he marched on at his son Publius’s urging. The Parthians beat drums, the cataphracts unveiled their armour, and the horse archers shot from out of range while camels brought fresh arrows. The Romans formed a hollow square. Publius led a sortie, was drawn away by a feigned retreat and was killed with his force. At night Crassus retreated toward Carrhae, leaving about 4,000 wounded; the next day he was killed at a parley. About 20,000 Romans died and 10,000 were captured, and the Parthians took the eagles. The two ancient accounts blame Crassus heavily; some modern historians think that is unfair. Attacking the camels, the Armenian road and the night march in order are what-ifs.",
+ "terrain": {
+  "flat": true,
+  "grass": "#c7ad78",
+  "ground": "#d2b47c",
+  "tree": "#8c7a4a",
+  "trees": 6,
+  "weather": "heat"
+ },
+ "units": {
+  "sqF": {
+   "x": 200,
+   "y": 170,
+   "w": 120,
+   "h": 10,
+   "side": "roman",
+   "name": "Legions (front of square)",
+   "model": "legionary"
+  },
+  "sqL": {
+   "x": 140,
+   "y": 200,
+   "w": 10,
+   "h": 60,
+   "side": "roman",
+   "name": "Legions",
+   "model": "legionary"
+  },
+  "sqR": {
+   "x": 260,
+   "y": 200,
+   "w": 10,
+   "h": 60,
+   "side": "roman",
+   "name": "Legions",
+   "model": "legionary"
+  },
+  "sqB": {
+   "x": 200,
+   "y": 230,
+   "w": 120,
+   "h": 10,
+   "side": "roman",
+   "name": "Legions (rear)",
+   "model": "legionary"
+  },
+  "pub": {
+   "x": 200,
+   "y": 200,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Publius’s Gallic horse",
+   "model": "cav_roman"
+  },
+  "vel": {
+   "x": 200,
+   "y": 150,
+   "w": 100,
+   "h": 6,
+   "side": "roman",
+   "name": "Light infantry",
+   "model": "velites"
+  },
+  "ha1": {
+   "x": 60,
+   "y": 120,
+   "w": 60,
+   "h": 10,
+   "side": "enemy",
+   "name": "Horse archers",
+   "model": "cav_eastern"
+  },
+  "ha2": {
+   "x": 340,
+   "y": 120,
+   "w": 60,
+   "h": 10,
+   "side": "enemy",
+   "name": "Horse archers",
+   "model": "cav_eastern"
+  },
+  "ha3": {
+   "x": 200,
+   "y": 80,
+   "w": 90,
+   "h": 10,
+   "side": "enemy",
+   "name": "Horse archers",
+   "model": "cav_eastern",
+   "scales": true
+  },
+  "cat": {
+   "x": 200,
+   "y": 50,
+   "w": 80,
+   "h": 14,
+   "side": "enemy",
+   "name": "Cataphracts",
+   "model": "cav_heavy"
+  },
+  "cam": {
+   "x": 360,
+   "y": 30,
+   "w": 50,
+   "h": 10,
+   "side": "enemy",
+   "name": "Camel train (arrows)",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 6
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Parthians run out of arrows.",
+   "The legions reach rough ground.",
+   "Surena turns away."
+  ],
+  "lose": [
+   "The arrows never stop.",
+   "Crassus is killed at a parley.",
+   "The eagles go to Parthia."
+  ],
+  "cams": [
+   "high",
+   "wide",
+   "wide"
+  ],
+  "anim": {
+   "lose": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Route",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Open plain, far from water",
+     "tone": "r"
+    },
+    {
+     "text": "Armenian hills, with allied horse",
+     "tone": "g"
+    },
+    {
+     "text": "Down the river",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Marching east",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Army",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Tired and thirsty",
+     "tone": "r"
+    },
+    {
+     "text": "Rested by the stream",
+     "tone": "g"
+    },
+    {
+     "text": "Advancing carefully",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Approaching the enemy",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Arrows",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Falling on the square",
+     "tone": "r"
+    },
+    {
+     "text": "Camel train scattered",
+     "tone": "g"
+    },
+    {
+     "text": "Line ridden around",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Parthian archers shooting",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Publius",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Cut off and killed",
+     "tone": "r"
+    },
+    {
+     "text": "Kept with the square",
+     "tone": "g"
+    },
+    {
+     "text": "Back, with losses",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "With the army",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Parley",
+   "options": [
+    {
+     "text": "Crassus rides out",
+     "tone": "r"
+    },
+    {
+     "text": "Refused, marching for the hills",
+     "tone": "g"
+    },
+    {
+     "text": "Officer sent",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Surena offers terms",
+    "tone": "n"
+   },
+   "decision": 5
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The road east",
+   "text": "You are Marcus Licinius Crassus, the richest man in Rome, invading Parthia. King Artavasdes of Armenia offers you 10,000 horse and 30,000 foot if you march through his mountains. An Arab chief, Ariamnes, urges you straight across the plain to catch the Parthians.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Parthian armies are almost all horsemen. Mountains and rough ground do not suit them."
+     }
+    ],
+    "scout": [
+     {
+      "text": "In the hills of Armenia the Parthian horse cannot ride round you, and you gain cavalry of your own. A river line keeps you watered. The open plain is where Surena wants you."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Follow Ariamnes across the open plain",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "set": {
+        "plain": 1
+       },
+       "text": "You march out across the open steppe, far from the river."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "sqF": [
+         200,
+         168
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Take the Armenian road through the mountains, with Artavasdes’s cavalry",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "r": 2,
+       "e": -12,
+       "set": {
+        "armenia": 1
+       },
+       "text": "The army marches through the hills of Armenia, with thousands of Armenian horsemen beside it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March down the Euphrates, keeping to the river",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -7,
+       "set": {
+        "river": 1
+       },
+       "text": "The river keeps you supplied, but the Parthians can still choose where to strike."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The stream",
+   "text": "Your scouts have been wiped out, and a great body of horsemen is close. You reach a small stream. Your officers want to camp here and fight tomorrow. Your son Publius wants to fight now.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The men are hot, thirsty and tired from the march."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Rested men with water behind them fight better. The Parthians will still be there in the morning."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Agree with Publius and march on to fight at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The army eats standing and marches on, hot and tired."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Camp by the stream, water the men, and fight in the morning",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 4,
+       "e": -8,
+       "set": {
+        "rested": 1
+       },
+       "text": "The army camps by the water and rests. In the morning it forms up fresh."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Move on carefully, in battle order",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -5,
+       "text": "You advance slowly, ready to fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Drums in the desert",
+   "text": "The Parthians beat great drums. Their cataphracts throw off their cloaks and their armour flashes. Then the horse archers begin to shoot, from beyond the range of your javelins.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Parthian arrows seem endless. Far behind the horsemen is a long line of camels."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A hollow square cannot be outflanked, but it cannot hit back. The camels carry spare arrows: if they are attacked, the arrows run out."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form a hollow square, twelve cohorts to a side",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "armenia": true
+       },
+       "r": -4,
+       "e": -9,
+       "text": "In the broken Armenian hills the horse archers cannot surround you, and the square holds."
+      },
+      {
+       "r": -10,
+       "e": -5,
+       "text": "The square holds, but the arrows fall on it and the men cannot reply."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ha1": [
+         100,
+         150
+        ],
+        "ha2": [
+         300,
+         150
+        ],
+        "ha3": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "ha1",
+        "ha2",
+        "ha3"
+       ]
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Form the square, and send light troops and horse against the camel train",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "if": {
+        "rested": true
+       },
+       "r": -4,
+       "e": -16,
+       "set": {
+        "camels": 1
+       },
+       "text": "Fresh men run out to the camel train and scatter it. The horse archers start to run short of arrows."
+      },
+      {
+       "r": -8,
+       "e": -10,
+       "set": {
+        "camels": 1
+       },
+       "text": "The raid scatters part of the camel train."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         330,
+         60
+        ],
+        "pub": [
+         340,
+         50
+        ],
+        "cam": [
+         360,
+         30,
+         0.3
+        ]
+       },
+       "f": [
+        "vel",
+        "pub",
+        "cam"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Spread into a battle line to charge them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "The horse archers ride away from your charge and shoot you as you come."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "sqF": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "sqF",
+        "ha3"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Publius rides out",
+   "text": "Your son Publius asks to take 1,300 Gallic horse, 500 archers and eight cohorts out against the horse archers. They seem to be falling back.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The horse archers are retreating in front of the square."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A Parthian retreat is often a trap. A sortie that goes too far from the square will be cut off and destroyed."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let Publius ride out after them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -16,
+       "e": -2,
+       "set": {
+        "publius": 1
+       },
+       "text": "The Parthians fall back, draw Publius far from the square, then turn. The cataphracts close in. Publius and his officers die on a hillside."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pub": [
+         120,
+         60
+        ],
+        "cat": [
+         130,
+         70
+        ]
+       },
+       "f": [
+        "pub",
+        "cat"
+       ]
+      }
+     ],
+     "cam": "leftflank"
+    },
+    {
+     "label": "Keep Publius close, and advance the square slowly toward the hills",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "camels": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "Short of arrows, the horse archers cannot stop the square. It reaches rough ground where the cataphracts cannot charge."
+      },
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The square edges toward the hills under constant arrows."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "sqF": [
+         200,
+         160
+        ],
+        "sqB": [
+         200,
+         220
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Let him go, but only a short way",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -7,
+       "text": "Publius drives back the nearest archers and returns, with losses."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pub": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "pub",
+        "ha3"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Night",
+   "text": "Darkness falls. The Parthians ride off for the night. Thousands of your men are wounded.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Parthians do not fight at night."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A night march in close order, with the wounded carried, can reach the walls of Carrhae or the hills. A disordered flight leaves men to be caught in the morning."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Retreat to Carrhae as best you can, leaving the wounded",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -16,
+       "e": 0,
+       "text": "The army flees in the dark. About 4,000 wounded are left behind and killed in the morning. Four cohorts lose their way and are cut down."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "sqB": [
+         200,
+         240
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "romanrear"
+    },
+    {
+     "label": "March out in close column by night, with the wounded on the carts",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "if": {
+        "camels": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "The column marches through the night in good order and reaches rough ground by dawn. Surena’s army, out of arrows, cannot follow it there."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The column gets away by night, slowly, with the wounded."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "sqF": [
+         230,
+         140
+        ],
+        "sqB": [
+         230,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold the position and dig in",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": -7,
+       "text": "In the morning the arrows begin again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "high"
+    }
+   ]
+  },
+  {
+   "title": "Surena’s offer",
+   "event": true,
+   "text": "At dawn Surena rides up to Carrhae and offers a truce: Rome is to give up everything east of the Euphrates. He invites you to come out and meet him. Your soldiers, exhausted, shout that you must go.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Parthians have already broken one truce on this campaign."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Surena wants the Roman commander in his hands. A meeting in the open, among his horsemen, is a trap. The hills of Armenia are a night’s march away."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ride out to meet Surena",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": 0,
+       "q": 0,
+       "text": "At the meeting a Parthian seizes your horse’s bridle. A scuffle breaks out, and you and your officers are killed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Refuse, and march for the Armenian hills by night",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "q": 2,
+       "text": "You refuse to go out. The army slips away by night toward the hills, where the Parthian horse cannot follow."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send an officer to hear the terms",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "q": 1,
+       "text": "The officer returns with harsh terms, and the men grow angrier."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Carrhae (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Carrhae"
+  }
+ ],
+ "winAt": 50
+}

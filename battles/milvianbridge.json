@@ -1,0 +1,746 @@
+{
+ "id": "milvianbridge",
+ "name": "Battle of the Milvian Bridge",
+ "date": "312 AD",
+ "result": "win",
+ "loc": {
+  "lat": 41.94,
+  "lon": 12.47,
+  "place": "the Milvian Bridge, Rome",
+  "short": "Milvian Bridge",
+  "x": 339,
+  "y": 111
+ },
+ "names": {
+  "rome": "Constantine’s army",
+  "enemy": "Maxentius’s army",
+  "commander": "Constantine",
+  "foe": "Maxentius"
+ },
+ "intro": "At the Milvian Bridge over the Tiber, just north of Rome, on 28 October 312. You are Constantine, with perhaps 20,000 to 25,000 men, having marched from Gaul and won northern Italy. Maxentius, who holds Rome, has about 25,000, including the Praetorian Guard.",
+ "debrief": "In reality, Maxentius left the safety of Rome and drew up his army on the north bank of the Tiber with the river close behind, crossing on a bridge of boats beside the partly demolished stone bridge; an oracle had told him an enemy of the Romans would perish that day. Constantine’s cavalry broke Maxentius’s, and his infantry pushed the enemy back to the river. In the retreat the bridge of boats collapsed; Maxentius drowned, and the Praetorian Guard died where it stood. The famous vision is told differently by different sources: one says Constantine dreamed he should mark a heavenly sign on his soldiers’ shields, another that he saw a cross of light in the sky, and historians doubt parts of both. Constantine entered Rome the next day. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 14,
+   "w": 30
+  },
+  "roads": [
+   [
+    200,
+    250,
+    200,
+    20,
+    8
+   ]
+  ],
+  "hills": [
+   [
+    50,
+    180,
+    60,
+    10
+   ]
+  ]
+ },
+ "units": {
+  "cav": {
+   "x": 320,
+   "y": 190,
+   "w": 60,
+   "h": 14,
+   "side": "roman",
+   "name": "Constantine’s cavalry",
+   "model": "cav_heavy"
+  },
+  "inf": {
+   "x": 170,
+   "y": 196,
+   "w": 150,
+   "h": 16,
+   "side": "roman",
+   "name": "Constantine’s infantry",
+   "model": "legionary"
+  },
+  "mcav": {
+   "x": 320,
+   "y": 92,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "Maxentius’s cavalry",
+   "model": "cav_heavy",
+   "look": {
+    "tn": "#5a6d8c"
+   }
+  },
+  "minf": {
+   "x": 170,
+   "y": 90,
+   "w": 150,
+   "h": 16,
+   "side": "enemy",
+   "name": "Maxentius’s infantry",
+   "model": "legionary",
+   "scales": true,
+   "look": {
+    "tn": "#5a6d8c"
+   }
+  },
+  "prae": {
+   "x": 200,
+   "y": 62,
+   "w": 60,
+   "h": 10,
+   "side": "enemy",
+   "name": "Praetorian Guard",
+   "model": "veteran",
+   "scales": true
+  },
+  "bridge": {
+   "x": 200,
+   "y": 26,
+   "w": 40,
+   "h": 8,
+   "side": "enemy",
+   "name": "The bridge of boats",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The bridge of boats gives way.",
+   "Maxentius drowns in the Tiber.",
+   "Constantine enters Rome."
+  ],
+  "lose": [
+   "Maxentius gets back to Rome.",
+   "The walls of Aurelian hold.",
+   "The West stays divided."
+  ],
+  "cams": [
+   "push",
+   "clash",
+   "wide"
+  ],
+  "anim": {
+   "win": "drown"
+  }
+ },
+ "status": [
+  {
+   "label": "Army",
+   "decision": 0,
+   "options": [
+    {
+     "text": "United under the sign",
+     "tone": "g"
+    },
+    {
+     "text": "Steady",
+     "tone": "a"
+    },
+    {
+     "text": "Uneasy",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Before the battle",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Battle",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Attacking",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Split",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Maxentius out of Rome",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Cavalry",
+   "decision": 2,
+   "options": [
+    {
+     "text": "His horse broken",
+     "tone": "g"
+    },
+    {
+     "text": "Infantry first",
+     "tone": "a"
+    },
+    {
+     "text": "Held back",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Facing his horse",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Infantry",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Pushing them to the river",
+     "tone": "g"
+    },
+    {
+     "text": "Charged",
+     "tone": "a"
+    },
+    {
+     "text": "Let go",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Hard fight",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The sign",
+   "text": "You are Constantine. You have marched from Gaul and won northern Italy. Maxentius holds Rome. The night before the battle, the sources say, you had a dream telling you to mark a heavenly sign on your soldiers’ shields.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your soldiers worship many gods. Morale matters before a battle against the emperor in Rome."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Whatever its origin, a sign on every shield binds the army together under its general."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Mark the sign on the soldiers’ shields",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 4,
+       "e": -8,
+       "set": {
+        "sign": 1
+       },
+       "text": "The sign is painted on the shields. (Accounts disagree on what it was and what you saw.)"
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Make the usual sacrifices",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": 2,
+       "e": -6,
+       "text": "The army is steady."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March on without ceremony",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "The men are uneasy."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Maxentius comes out",
+   "text": "Maxentius could have waited behind the walls of Rome, well stocked with food. Instead he has crossed the Tiber and drawn up his army with the river close behind it. An oracle has told him that ‘an enemy of the Romans’ will die today.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His only way back is a bridge of boats beside the broken stone bridge."
+     }
+    ],
+    "scout": [
+     {
+      "text": "An army with a river at its back has nowhere to go. Attack at once, before he thinks better of it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack at once",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "set": {
+        "attack": 1
+       },
+       "text": "Your army advances down the Via Flaminia toward the Milvian Bridge."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "inf": [
+         170,
+         170
+        ],
+        "cav": [
+         320,
+         165
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for him to come further",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Maxentius stays near the river."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Try to cross the Tiber elsewhere",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Your army is split."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         380,
+         120
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The cavalry",
+   "text": "Your cavalry faces Maxentius’s, in front of his infantry.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your horsemen are veterans of the Rhine."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike first with the cavalry and break his horse; then his infantry is open."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Charge his cavalry first",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "attack": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "Your cavalry charges and breaks Maxentius’s horse, which flees back toward the river."
+      },
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The cavalry fight goes your way."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         320,
+         110
+        ],
+        "mcav": [
+         320,
+         40,
+         0.4
+        ]
+       },
+       "f": [
+        "cav",
+        "mcav"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Lead with the infantry",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The infantry fight is hard and even."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "inf": [
+         170,
+         130
+        ]
+       },
+       "f": [
+        "inf",
+        "minf"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hold the cavalry back",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "His cavalry is free to strike."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Toward the Tiber",
+   "text": "Maxentius’s infantry fights well, but is being pushed back toward the river.",
+   "intel": {
+    "hint": [
+     {
+      "text": "There is little room behind them."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep a steady pressure. Each step back brings them closer to the water and to the narrow bridge."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Press steadily forward",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "sign": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "Your infantry pushes on, step by step. The enemy is pressed toward the Tiber."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The enemy gives ground."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "inf": [
+         170,
+         110
+        ],
+        "minf": [
+         170,
+         60
+        ]
+       },
+       "f": [
+        "inf",
+        "minf"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge to break them at once",
+     "quality": 1,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "The charge breaks some units, but costs you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "inf": [
+         170,
+         80
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Halt and let them go",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": 2,
+       "text": "They escape over the bridge in good order."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The bridge",
+   "text": "Maxentius orders a retreat to Rome. Everyone makes for the bridge of boats. The Praetorian Guard stands to cover them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The bridge of boats is crowded."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Press the Praetorians and the crowd at the bridge. The army cannot all cross at once."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Press on to the bridge",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -16,
+       "text": "The bridge of boats collapses under the crowd. Maxentius is thrown into the Tiber and drowns. The Praetorians die where they stand. Tomorrow you enter Rome."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "inf": [
+         170,
+         60
+        ],
+        "prae": [
+         200,
+         60
+        ],
+        "bridge": [
+         200,
+         20,
+         0.2
+        ]
+       },
+       "f": [
+        "inf",
+        "prae"
+       ]
+      }
+     ],
+     "cam": "push"
+    },
+    {
+     "label": "Let them cross and besiege Rome",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Maxentius gets back behind the walls."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the cavalry round to cut the road",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -4,
+       "text": "The cavalry cannot cross."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         380,
+         40
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "rightflank"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Milvian Bridge (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Milvian_Bridge"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "In this sign, conquer.",
+   "who": "The words Constantine is said to have seen in the sky"
+  }
+ ]
+}

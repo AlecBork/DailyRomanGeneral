@@ -1,0 +1,805 @@
+{
+ "id": "cynoscephalae",
+ "name": "Battle of Cynoscephalae",
+ "date": "197 BC",
+ "result": "win",
+ "loc": {
+  "x": 375,
+  "y": 119,
+  "place": "Cynoscephalae, Thessaly",
+  "short": "Cynoscephalae",
+  "lat": 39.43,
+  "lon": 22.5
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Macedon",
+  "commander": "Flamininus",
+  "foe": "Philip V"
+ },
+ "intro": "The ridges of Cynoscephalae (Dog's Heads) in Thessaly, in the Second Macedonian War. You are Titus Quinctius Flamininus, with about 26,000 men: two legions, Aetolians, Athamanians and elephants. Philip V of Macedon has about 25,500 men, 16,000 of them in the phalanx.",
+ "debrief": "In reality, a skirmish in the fog between scouting parties drew both armies in. Philip's right phalanx charged downhill into the Roman left and drove it back, while Nicanor's left was still arriving in march order. The Roman right, with elephants, broke the Macedonian left. An unnamed tribune led about 20 maniples (some 2,500 men) round to attack the phalanx from behind. Macedonian losses were about 8,000 killed and 5,000 captured; Roman losses 700 to 750. The Aetolians plundered Philip's camp. The details of the terrain are uncertain, and the effect of the fog on the opening skirmish is disputed. Holding back and waiting is a what-if.",
+ "terrain": {
+  "hills": [
+   [
+    250,
+    55,
+    90,
+    26
+   ],
+   [
+    105,
+    60,
+    80,
+    20
+   ],
+   [
+    200,
+    125,
+    55,
+    8
+   ]
+  ],
+  "weather": "mist"
+ },
+ "units": {
+  "vel": {
+   "x": 200,
+   "y": 176,
+   "w": 100,
+   "h": 8,
+   "side": "roman",
+   "name": "Skirmishers",
+   "model": "velites"
+  },
+  "legL": {
+   "x": 120,
+   "y": 192,
+   "w": 100,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman legions (left)",
+   "model": "hastati"
+  },
+  "legR": {
+   "x": 280,
+   "y": 192,
+   "w": 100,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman legions (right)",
+   "model": "hastati"
+  },
+  "ele": {
+   "x": 340,
+   "y": 205,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Elephants",
+   "model": "elephant"
+  },
+  "aet": {
+   "x": 60,
+   "y": 208,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Aetolian horse and foot",
+   "model": "auxiliary"
+  },
+  "cav": {
+   "x": 200,
+   "y": 226,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "phalR": {
+   "x": 250,
+   "y": 88,
+   "w": 110,
+   "h": 16,
+   "side": "enemy",
+   "name": "Phalanx (right)",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "phalL": {
+   "x": 110,
+   "y": 92,
+   "w": 100,
+   "h": 16,
+   "side": "enemy",
+   "name": "Phalanx (left, arriving)",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "pelt": {
+   "x": 200,
+   "y": 62,
+   "w": 70,
+   "h": 10,
+   "side": "enemy",
+   "name": "Light troops",
+   "model": "archer"
+  },
+  "mcav": {
+   "x": 330,
+   "y": 70,
+   "w": 50,
+   "h": 14,
+   "side": "enemy",
+   "name": "Macedonian cavalry",
+   "model": "cav_eastern"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The elephants break the Macedonian left.",
+   "The phalanx is struck in the rear.",
+   "Philip leaves the field."
+  ],
+  "lose": [
+   "The pikes hold the hill.",
+   "The Roman left is driven off.",
+   "Philip’s phalanx keeps the field."
+  ],
+  "cams": [
+   "rightclose",
+   "rear",
+   "wide"
+  ],
+  "anim": {
+   "win": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "The skirmish",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Reinforced with Aetolian horse",
+     "tone": "g"
+    },
+    {
+     "text": "Scouts withdrawn",
+     "tone": "a"
+    },
+    {
+     "text": "Army hurried up",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "In the fog",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The Roman left",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Giving ground slowly",
+     "tone": "a"
+    },
+    {
+     "text": "Broken by the pikes",
+     "tone": "r"
+    },
+    {
+     "text": "Falling back as the right shifts",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Under attack",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The Roman right",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Elephants and legions advancing",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Elephants misplaced",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Facing the Macedonian left",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The phalanx",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Attacked from behind",
+     "tone": "g"
+    },
+    {
+     "text": "Left alone",
+     "tone": "r"
+    },
+    {
+     "text": "Not yet broken",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Pushing downhill",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Fog on the ridge",
+   "text": "Dense fog covers the hills of Thessaly. Neither army knows where the other is. Flamininus sends out a force to look.",
+   "intel": {
+    "hint": [
+     {
+      "text": "A skirmish in the fog has begun, and both sides are calling for help."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Philip did not mean to fight here. He broke camp to move on, and his army is strung out on the road. A reinforcement that arrives in good order can tip a skirmish into a battle."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send in 300 cavalry and 1,000 light troops, then reinforce them with Aetolian horse as the fighting grows",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "skirm": 1
+       },
+       "text": "The skirmish grows. The Aetolian horse arrives and holds the ground until the Roman army is ready."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aet": [
+         60,
+         170
+        ],
+        "vel": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "aet",
+        "vel",
+        "pelt"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Withdraw the scouts and wait for the fog to clear",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The scouts pull back. The fog lifts and Philip has time to bring his army up."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Bring up the whole army at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "The army is pushed up the hill in a hurry. The legions are not in order."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legL": [
+         120,
+         170
+        ],
+        "legR": [
+         280,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Philip's right",
+   "text": "The fog lifts. Philip arrives on the hill with the right of his phalanx and charges downhill into the Roman left.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Roman left is pressed hard by the pikes of the right phalanx."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A phalanx on level ground is hard to break, but it is slow to turn. Give ground on the left and pull your attack to the right."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold the left, then give ground slowly and keep the line unbroken",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "set": {
+        "gave": 1
+       },
+       "text": "The left gives ground step by step and does not break. The phalanx follows, getting further from its own left."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legL": [
+         120,
+         205
+        ]
+       },
+       "f": [
+        "legL",
+        "phalR"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Stand firm on the left and take the charge",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "The pikes pour downhill and drive the left back in disorder."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legL": [
+         120,
+         215
+        ]
+       },
+       "f": [
+        "legL",
+        "phalR"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Shift the weight of the army to the right at once",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "set": {
+        "shift": 1
+       },
+       "text": "The Roman right moves out to strike the enemy’s unready left, while the left falls back slowly."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legR": [
+         280,
+         160
+        ],
+        "legL": [
+         120,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Nicanor's left",
+   "text": "Philip's left wing under Nicanor is still arriving piecemeal along the ridge. It has no time to form.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Macedonian left is still in march order, climbing the hill."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The Roman right is facing the Macedonian left, which is not in battle order. The elephants will frighten what the legions cannot."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the elephants and the right wing against the Macedonian left",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "gave": true
+       },
+       "r": -4,
+       "e": -22,
+       "text": "The elephants and the right break the Macedonian left before it can form. The Macedonian right has been drawn too far ahead."
+      },
+      {
+       "if": {
+        "shift": true
+       },
+       "r": -4,
+       "e": -20,
+       "text": "Your right is already in place. The elephants and legions break the Macedonian left."
+      },
+      {
+       "r": -8,
+       "e": -10,
+       "text": "You break the left, but the Macedonian right is still dangerously far ahead."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         300,
+         120
+        ],
+        "legR": [
+         280,
+         125
+        ],
+        "phalL": [
+         110,
+         95
+        ]
+       },
+       "f": [
+        "ele",
+        "legR",
+        "phalL"
+       ]
+      }
+     ],
+     "cam": "rightclose"
+    },
+    {
+     "label": "Hold the right and wait for the left to settle",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -4,
+       "text": "The Macedonian left forms in the meantime."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Move the elephants to the centre",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The elephants’ charge is wasted on the strongest part of the line."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         200,
+         120
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The tribune",
+   "text": "The Roman right has won, but the Macedonian right phalanx is still pushing the Roman left. An unnamed tribune watches.",
+   "intel": {
+    "hint": [
+     {
+      "text": "A tribune in the Roman right sees the back of the Macedonian phalanx."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A phalanx cannot turn. Its rear is open, and 20 maniples, about 2,500 men, can reach it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Detach 20 maniples to attack the phalanx from behind",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "shift": true
+       },
+       "r": -2,
+       "e": -26,
+       "text": "The tribune’s 20 maniples strike the phalanx from behind. It cannot turn."
+      },
+      {
+       "r": -4,
+       "e": -22,
+       "text": "The 20 maniples hit the phalanx in the rear, and it begins to break up."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legR": [
+         250,
+         125
+        ]
+       },
+       "f": [
+        "legR",
+        "phalR"
+       ]
+      }
+     ],
+     "cam": "rear"
+    },
+    {
+     "label": "Continue the pursuit of the Macedonian left",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "The right wing runs on and leaves the Roman left to fight alone."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legR": [
+         280,
+         70
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "push"
+    },
+    {
+     "label": "Reinforce the left from the centre",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "The left holds, but the phalanx is not broken."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "The camp",
+   "text": "The phalanx breaks. Philip rides off. His camp lies open, and the Aetolians are the nearest.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Aetolians are making for the Macedonian camp."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Aetolian horse and foot plunder before they pursue. The legions can finish the job first."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pursue the phalanx with the legions, let the Aetolians plunder the camp",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "The legions kill about 8,000 and take 5,000 prisoners. Roman losses are about 700. The Aetolians plunder the camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legR": [
+         280,
+         80
+        ],
+        "legL": [
+         120,
+         85
+        ],
+        "phalR": [
+         250,
+         60,
+         0.4
+        ]
+       },
+       "f": [
+        "legR",
+        "legL"
+       ]
+      }
+     ],
+     "cam": "push"
+    },
+    {
+     "label": "Hold the line and let the phalanx go",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -4,
+       "text": "The Macedonians retire in order."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the Aetolians to pursue",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -4,
+       "text": "The Aetolians stop to loot."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Cynoscephalae (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Cynoscephalae"
+  }
+ ]
+}

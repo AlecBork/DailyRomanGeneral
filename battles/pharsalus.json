@@ -1,0 +1,885 @@
+{
+ "id": "pharsalus",
+ "name": "Battle of Pharsalus",
+ "date": "48 BC",
+ "result": "win",
+ "loc": {
+  "lat": 39.3,
+  "lon": 22.38,
+  "place": "the plain of Pharsalus, Thessaly",
+  "short": "Pharsalus",
+  "x": 465,
+  "y": 158
+ },
+ "names": {
+  "rome": "Caesar’s army",
+  "enemy": "The Pompeians",
+  "commander": "Caesar",
+  "foe": "Pompey"
+ },
+ "intro": "The plain of Pharsalus in Thessaly, in August, during the civil war. You are Julius Caesar, with about 22,000 veteran legionaries and 1,000 cavalry. Pompey the Great, defender of the Senate, has perhaps 36,000 to 45,000 legionaries and 5,000 to 7,000 cavalry under Labienus.",
+ "debrief": "In reality, Pompey came down from his hill as Caesar’s army was about to march off, and Caesar accepted battle. The river Enipeus covered one flank. Pompey massed his cavalry on his left to sweep round Caesar’s right and ordered his infantry to stand still and receive the charge. Caesar thinned his lines to match Pompey’s front and hid a fourth line of cohorts behind his right, told to thrust their pila at the horsemen’s faces. Caesar’s veterans halted short of the enemy to catch their breath before charging. When Labienus’s cavalry drove back Caesar’s horse, the fourth line charged and routed it; Caesar’s cavalry and third line then rolled up Pompey’s left, and Pompey fled to his camp and then to Egypt, where he was killed. Caesar claims to have lost only about 200 men; another account gives 1,200, and Pompeian losses are put at 6,000 to 15,000 dead and 24,000 captured. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#9aa25a",
+  "river": {
+   "x": -214,
+   "w": 20
+  },
+  "hills": [
+   [
+    260,
+    0,
+    120,
+    16
+   ],
+   [
+    200,
+    255,
+    120,
+    10
+   ]
+  ]
+ },
+ "units": {
+  "ant": {
+   "x": 80,
+   "y": 192,
+   "w": 80,
+   "h": 14,
+   "side": "roman",
+   "name": "Antony’s left",
+   "model": "legionary"
+  },
+  "dom": {
+   "x": 200,
+   "y": 194,
+   "w": 100,
+   "h": 14,
+   "side": "roman",
+   "name": "Domitius’s centre",
+   "model": "legionary"
+  },
+  "x": {
+   "x": 320,
+   "y": 192,
+   "w": 70,
+   "h": 14,
+   "side": "roman",
+   "name": "Tenth Legion (right)",
+   "model": "veteran"
+  },
+  "cav": {
+   "x": 370,
+   "y": 204,
+   "w": 40,
+   "h": 12,
+   "side": "roman",
+   "name": "Caesar’s horse",
+   "model": "cav_roman"
+  },
+  "four": {
+   "x": 330,
+   "y": 226,
+   "w": 60,
+   "h": 10,
+   "side": "roman",
+   "name": "Hidden fourth line",
+   "model": "veteran",
+   "hidden": true
+  },
+  "pL": {
+   "x": 310,
+   "y": 84,
+   "w": 90,
+   "h": 16,
+   "side": "enemy",
+   "name": "Pompey’s left",
+   "model": "legionary",
+   "scales": true,
+   "look": {
+    "tn": "#5a6d8c"
+   }
+  },
+  "pC": {
+   "x": 200,
+   "y": 86,
+   "w": 100,
+   "h": 16,
+   "side": "enemy",
+   "name": "Pompey’s centre",
+   "model": "legionary",
+   "scales": true,
+   "look": {
+    "tn": "#5a6d8c"
+   }
+  },
+  "pR": {
+   "x": 80,
+   "y": 84,
+   "w": 80,
+   "h": 16,
+   "side": "enemy",
+   "name": "Pompey’s right",
+   "model": "legionary",
+   "scales": true,
+   "look": {
+    "tn": "#5a6d8c"
+   }
+  },
+  "lab": {
+   "x": 360,
+   "y": 70,
+   "w": 70,
+   "h": 16,
+   "side": "enemy",
+   "name": "Labienus’s cavalry (6,000)",
+   "model": "cav_eastern"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 6
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Pompey’s cavalry flees for the hills.",
+   "His left wing is rolled up.",
+   "Pompey flees the field."
+  ],
+  "lose": [
+   "Labienus’s horse is behind you.",
+   "Pompey’s line holds.",
+   "Caesar’s cause is lost."
+  ],
+  "cams": [
+   "rightflank",
+   "clash",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Battle",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Accepted",
+     "tone": "g"
+    },
+    {
+     "text": "Marching off",
+     "tone": "a"
+    },
+    {
+     "text": "Waiting in camp",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Pompey on the plain",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Line",
+   "decision": 1,
+   "options": [
+    {
+     "text": "River-anchored, matching his front",
+     "tone": "g"
+    },
+    {
+     "text": "Deep but overlapped",
+     "tone": "a"
+    },
+    {
+     "text": "Both flanks open",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Forming up",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Reserve",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Hidden behind the right",
+     "tone": "g"
+    },
+    {
+     "text": "In the front line",
+     "tone": "a"
+    },
+    {
+     "text": "With the baggage",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Spare cohorts",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Infantry",
+   "decision": 4,
+   "options": [
+    {
+     "text": "Charged with breath to spare",
+     "tone": "g"
+    },
+    {
+     "text": "Blown",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Advancing",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Crastinus",
+   "options": [
+    {
+     "text": "Leading the first charge",
+     "tone": "g"
+    },
+    {
+     "text": "In the line",
+     "tone": "a"
+    },
+    {
+     "text": "Sent to the rear",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Asks to lead",
+    "tone": "n"
+   },
+   "decision": 2
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Pompey comes down",
+   "text": "For days Pompey has stayed on his hill. This morning your army was about to march off, when his army came down onto the plain. He has twice your infantry and six times your cavalry.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men are veterans of Gaul. His are many and fresh."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pompey has offered battle on the plain at last. Your veterans are at their best in an open fight; if you march off, the chance may not come again."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Turn the army round and accept battle",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 2,
+       "e": -11,
+       "text": "Caesar halts the march. ‘We must put off our march and think of battle, as we have always wanted,’ he says. The army turns to face Pompey."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March on as planned",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "You march away. Pompey follows, and the chance passes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stay in camp and wait for him to come closer",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": 4,
+       "text": "Pompey will not attack your camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The line",
+   "text": "The river Enipeus covers your left. Pompey’s line is deeper and longer. Most of his cavalry, with his archers and slingers, is massed on his left, facing your right.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Pompey means his cavalry to sweep round your right flank."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Anchor your left on the river and thin your lines to match his frontage. Your right needs special care."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Anchor on the river and thin the lines to six deep to match his front",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "set": {
+        "line": 1
+       },
+       "text": "Your cohorts stretch to match Pompey’s line, the river on your left, the Tenth on your right."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ant": [
+         80,
+         192
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep the lines deep and accept a shorter front",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Your line is solid, but Pompey overlaps both ends of it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Move your whole army away from the river",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Your left is now open as well as your right."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ant": [
+         110,
+         192
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Crastinus",
+   "event": true,
+   "text": "Gaius Crastinus, a veteran centurion who once led the first cohort of the Tenth, steps forward. He asks to open the attack with 120 volunteers. ‘General,’ he says, ‘today I will earn your thanks, alive or dead.’",
+   "intel": {
+    "hint": [
+     {
+      "text": "The men around Crastinus are cheering."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Veterans follow a man like Crastinus anywhere. A first charge led by him will put heart into the whole line, though he may not survive it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let Crastinus and his volunteers lead the first charge",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 3,
+       "e": -8,
+       "q": 2,
+       "text": "Crastinus runs forward at the head of his volunteers, and the whole line follows him with a roar. He will be found among the dead, killed by a sword thrust to the face."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Keep him in his place in the line",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "q": 1,
+       "text": "Crastinus obeys. The line advances steadily, without his fire."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send him back to guard the camp",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "q": 0,
+       "text": "The veterans grumble as their best centurion is sent to the rear."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The fourth line",
+   "text": "You have a few cohorts to spare from your third line.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His cavalry will come at your right. Your own horse is too few to stop it."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Six cohorts, hidden behind your right wing, can meet the cavalry when it comes. Told to thrust their pila into the riders’ faces, not throw them, they will panic young aristocrats on horseback."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form a hidden fourth line of cohorts behind the right, to thrust pila at the riders’ faces",
+     "quality": 2,
+     "cost": 2,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "four": 1
+       },
+       "text": "Six cohorts slip behind your right wing, out of sight. They are told to use their pila as spears, at the horsemen’s faces."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "four": [
+         330,
+         224,
+         0
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "rightclose"
+    },
+    {
+     "label": "Put the cohorts in the front line",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "The front is thicker, but nothing is held back for the cavalry."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Put them with the baggage",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "They are safe and useless."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The charge",
+   "text": "Pompey’s infantry has been ordered to stand still and wait for your charge, hoping your men will tire running the long gap. Your line begins to advance.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Pompey’s men are not moving."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Veterans know what to do: halt short of the enemy, catch their breath and dress the ranks, then charge the last stretch and throw."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let the men halt short, catch their breath, and then charge",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "line": true
+       },
+       "r": -4,
+       "e": -16,
+       "text": "Your veterans see the trick. They halt, get their breath, dress the line, then charge, throw their pila and draw swords. Pompey’s line is pushed back."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "Your line charges home."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ant": [
+         80,
+         130
+        ],
+        "dom": [
+         200,
+         130
+        ],
+        "x": [
+         320,
+         130
+        ]
+       },
+       "f": [
+        "ant",
+        "dom",
+        "x",
+        "pL",
+        "pC",
+        "pR"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge straight across the gap",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -4,
+       "text": "Your men arrive blown and ragged."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "dom": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "dom",
+        "pC"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Halt and let them come to you",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Neither side moves."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Labienus’s cavalry",
+   "text": "Labienus leads the Pompeian cavalry forward. It drives your horse back and begins to sweep round your right wing.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The cavalry is swinging round the Tenth."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Now is the moment: reveal the fourth line, then send in the third line and your rallied horse against Pompey’s exposed left."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Unleash the fourth line, then send in the third line against Pompey’s left",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "four": true
+       },
+       "r": -2,
+       "e": -24,
+       "text": "The fourth line charges the horsemen, thrusting at their faces. They panic and flee for the hills. Caesar’s horse wheels round Pompey’s left, the third line goes in, and Pompey’s army breaks. Pompey flees to his camp, and then from it."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "Your right is pushed back, but holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "four": [
+         350,
+         170,
+         1
+        ],
+        "lab": [
+         380,
+         60,
+         0.4
+        ],
+        "cav": [
+         360,
+         120
+        ],
+        "pL": [
+         320,
+         60
+        ]
+       },
+       "f": [
+        "four",
+        "lab",
+        "x",
+        "pL"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Pull the Tenth back to face the cavalry",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The cavalry is held off, but your line bends."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "x": [
+         320,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Ignore the cavalry and push the infantry on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -16,
+       "e": -2,
+       "text": "Labienus’s horse falls on your rear."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lab": [
+         340,
+         230
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "romanrear"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Pharsalus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Pharsalus"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "They would have it so.",
+   "who": "Caesar, looking over the Pompeian dead"
+  },
+  {
+   "text": "Today, general, I will earn your thanks, alive or dead.",
+   "who": "The centurion Crastinus, before the first charge"
+  }
+ ]
+}

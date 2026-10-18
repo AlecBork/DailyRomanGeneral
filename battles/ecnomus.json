@@ -1,0 +1,896 @@
+{
+ "id": "ecnomus",
+ "name": "Battle of Cape Ecnomus",
+ "date": "256 BC",
+ "result": "win",
+ "loc": {
+  "x": 347,
+  "y": 201,
+  "place": "off southern Sicily",
+  "short": "Ecnomus",
+  "lat": 37.05,
+  "lon": 13.9
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Regulus and Manlius",
+  "foe": "Hamilcar and Hanno"
+ },
+ "intro": "Off southern Sicily, in the First Punic War. You are the consuls Regulus and Manlius. The main ancient account gives 330 Roman warships against 350 Carthaginian, with about 140,000 men aboard the Roman fleet by one modern estimate. Many historians doubt the figures but accept them as the best available.",
+ "debrief": "In reality, the Romans sailed in a wedge of four squadrons with the transports in tow. Hamilcar’s centre feigned a retreat and the consuls pursued, opening a gap. The Carthaginian wings bypassed the centre and attacked the squadrons behind; Squadron III cast off its tows and retreated to shallow water, where it made a stand facing the sea. The centre fight was decided when the Carthaginian second squadron lost heart and fled. The consuls returned on the signal, Manlius attacked the Carthaginian left and Regulus attacked Hanno’s squadron; about fifty ships were trapped against the shore and surrendered. Carthage lost 30 ships sunk and 64 captured; Rome lost 24 ships. The site is a modern convention, since no ancient account names Cape Ecnomus.",
+ "terrain": {
+  "ground": "#3d6f94",
+  "grass": "#34668c",
+  "sky": "#b9d4e4",
+  "trees": 0,
+  "flat": true
+ },
+ "units": {
+  "s1": {
+   "x": 150,
+   "y": 140,
+   "w": 70,
+   "h": 17,
+   "side": "roman",
+   "name": "Squadron I",
+   "model": "galley_roman"
+  },
+  "s2": {
+   "x": 250,
+   "y": 140,
+   "w": 70,
+   "h": 17,
+   "side": "roman",
+   "name": "Squadron II",
+   "model": "galley_roman"
+  },
+  "s3": {
+   "x": 200,
+   "y": 188,
+   "w": 110,
+   "h": 17,
+   "side": "roman",
+   "name": "Squadron III (with transports)",
+   "model": "galley_roman"
+  },
+  "s4": {
+   "x": 200,
+   "y": 228,
+   "w": 150,
+   "h": 17,
+   "side": "roman",
+   "name": "Squadron IV",
+   "model": "galley_roman"
+  },
+  "c1": {
+   "x": 70,
+   "y": 78,
+   "w": 100,
+   "h": 17,
+   "side": "enemy",
+   "name": "Carthaginian left",
+   "model": "galley_punic",
+   "scales": true
+  },
+  "c2": {
+   "x": 200,
+   "y": 52,
+   "w": 100,
+   "h": 17,
+   "side": "enemy",
+   "name": "Hamilcar’s centre",
+   "model": "galley_punic",
+   "scales": true
+  },
+  "c3": {
+   "x": 330,
+   "y": 52,
+   "w": 100,
+   "h": 17,
+   "side": "enemy",
+   "name": "Hanno’s right",
+   "model": "galley_punic",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 6
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Carthaginian left is pinned against the shore.",
+   "Ship after ship strikes its colours.",
+   "The Roman fleet holds the sea."
+  ],
+  "lose": [
+   "The Carthaginian wings close around the squadrons.",
+   "The transports burn.",
+   "The Roman fleet is scattered."
+  ],
+  "cams": [
+   "leftflank",
+   "clash",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Formation",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Compact wedge, transports in tow",
+     "tone": "g"
+    },
+    {
+     "text": "Single thin line",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Fleets closing",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Centre",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Chasing Hamilcar, gap opening",
+     "tone": "a"
+    },
+    {
+     "text": "Wedge holding",
+     "tone": "g"
+    },
+    {
+     "text": "One squadron out",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Enemy centre pulling back",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Squadron III",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Tows cut, fighting",
+     "tone": "g"
+    },
+    {
+     "text": "Rammed, transports lost",
+     "tone": "r"
+    },
+    {
+     "text": "Fled to shallows",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Towing transports",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Shore",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Standing in the shallows",
+     "tone": "g"
+    },
+    {
+     "text": "Surrounded at sea",
+     "tone": "r"
+    },
+    {
+     "text": "Rejoined the rear",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Under pressure",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The fleets close",
+   "text": "The Roman fleet is 330 warships carrying about 26,000 legionaries, with transports. The Carthaginians have 350 ships in a single line. You are the consuls Regulus and Manlius.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Carthaginian ships are faster and better handled than yours. You have the corvus and the legions."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Your fleet is heavy with the corvus and slow. A tight wedge protects the transports and keeps the squadrons close. A single line spreads you thin."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Sail in a compact wedge: consuls at the point, transports in tow, the rear squadron line abreast",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -6,
+       "set": {
+        "wedge": 1
+       },
+       "text": "The wedge holds together, with the transports safe in the middle."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "s1": [
+         150,
+         120
+        ],
+        "s2": [
+         250,
+         120
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Form a single line like the Carthaginians",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "set": {
+        "line": 1
+       },
+       "text": "Your line is thin, and the transports are exposed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "s3": [
+         200,
+         170
+        ],
+        "s4": [
+         200,
+         215
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep the fleet together and wait for them to close",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -4,
+       "text": "You wait, but Hamilcar chooses the moment."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Hamilcar’s retreat",
+   "text": "The Carthaginian centre turns and pulls back. If you follow, your point squadrons will open a gap from those behind.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Carthaginian centre is retreating too neatly."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A retreat that keeps its shape is a trap. The Carthaginian wings are free to sweep round the Roman centre if it chases."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pursue with the leading squadrons",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "set": {
+        "pursued": 1
+       },
+       "text": "Your leading squadrons chase the centre, leaving a gap between them and the squadrons behind."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "s1": [
+         150,
+         80
+        ],
+        "s2": [
+         250,
+         80
+        ],
+        "c2": [
+         200,
+         25
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold the wedge and refuse the bait",
+     "quality": 2,
+     "cost": 2,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "set": {
+        "closed": 1
+       },
+       "text": "You refuse the bait. The Carthaginian centre must come back to fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c2": [
+         200,
+         70
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send only one squadron after the retreating ships",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -5,
+       "text": "One squadron follows, and the rest hold."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "s1": [
+         150,
+         90
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The wings strike",
+   "text": "The Carthaginian wings sweep round your centre. Squadron III is encumbered by its tows, and Squadron IV is under attack from Hanno’s right.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Carthaginian wings are making for the squadrons that tow the transports."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A squadron that casts off its tows can fight. One that keeps them will be rammed."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Squadron III casts off its tows and fights; IV turns to meet Hanno",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "set": {
+        "cast": 1
+       },
+       "text": "Squadron III cuts the tows and fights. Squadron IV turns to meet Hanno’s ships."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c1": [
+         120,
+         170
+        ],
+        "c3": [
+         280,
+         220
+        ],
+        "s3": [
+         200,
+         190
+        ]
+       },
+       "f": [
+        "s3",
+        "c1",
+        "s4",
+        "c3"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Keep towing and fight with the point squadrons only",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "The towed squadron is rammed and the transports are lost."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c1": [
+         120,
+         175
+        ],
+        "c3": [
+         280,
+         225
+        ]
+       },
+       "f": [
+        "s3",
+        "c1"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Squadron III runs for the shallows at once",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -4,
+       "text": "Squadron III runs for shelter, but leaves the transports."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "s3": [
+         200,
+         235
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The shallows",
+   "text": "Squadron III is hard pressed. It can make a stand in shallow water, facing the sea, where it cannot be rammed from behind.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Carthaginian left is crowding Squadron III against the shore."
+     }
+    ],
+    "scout": [
+     {
+      "text": "In shallow water a squadron faces one way only, and the corvus can still catch ships that come to ram."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form in the shallows facing the sea",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -6,
+       "set": {
+        "shallows": 1
+       },
+       "text": "The squadron stands with its back to the shore. The Carthaginian left cannot get behind it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "s3": [
+         200,
+         205
+        ],
+        "c1": [
+         120,
+         160
+        ]
+       },
+       "f": [
+        "s3",
+        "c1"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge into the Carthaginian squadron at sea",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -4,
+       "text": "The squadron charges out of its shelter and is surrounded."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "s3": [
+         150,
+         150
+        ],
+        "c1": [
+         120,
+         150
+        ]
+       },
+       "f": [
+        "s3",
+        "c1"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Fall back to rejoin the rear squadron",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "You rejoin Squadron IV, but the Carthaginian left is free."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "s3": [
+         200,
+         230
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The centre decides",
+   "text": "In the centre, the main fleets are locked together. The corvus can pin a ship and let your legionaries cross.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Carthaginian ships avoid the corvus by attacking from the side and rear."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The corvus makes a sea fight into a land fight. Ramming plays to the Carthaginians’ strength; boarding plays to yours."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Board with the corvus and fight on the decks",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "closed": true
+       },
+       "r": -6,
+       "e": -18,
+       "text": "The corvus pins the Carthaginian ships and your legionaries storm across. The second squadron loses heart and flees."
+      },
+      {
+       "r": -8,
+       "e": -14,
+       "text": "The corvus pins the Carthaginian ships and your legionaries storm across. After a long fight the second squadron gives way."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "s1": [
+         150,
+         95
+        ],
+        "s2": [
+         250,
+         95
+        ],
+        "c2": [
+         200,
+         70
+        ]
+       },
+       "f": [
+        "s1",
+        "s2",
+        "c2"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Try to ram, as they do",
+     "quality": 0,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -4,
+       "text": "Your heavy ships are too slow to ram, and you give up your best weapon."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "s1": [
+         150,
+         100
+        ],
+        "s2": [
+         250,
+         100
+        ]
+       },
+       "f": [
+        "s1",
+        "c2"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Keep the corvus raised and manoeuvre",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "You manoeuvre against faster ships and lose the advantage."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The turn",
+   "text": "The Carthaginian centre has fled. The consuls can return on the signal to help the squadrons behind.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Carthaginian left is still at large near the shore."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The Carthaginian left is pressed against the shore by Squadron III. Hit it from the sea side and it cannot flee."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Return on the signal and trap the Carthaginian left against the shore",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "shallows": true
+       },
+       "r": -4,
+       "e": -24,
+       "text": "Squadron III holds the shore while the consuls hit the Carthaginian left from the sea. About fifty ships surrender."
+      },
+      {
+       "r": -8,
+       "e": -14,
+       "text": "The consuls return and hit the Carthaginian left, but it escapes along the shore."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "s1": [
+         120,
+         150
+        ],
+        "s2": [
+         280,
+         200
+        ],
+        "c1": [
+         80,
+         175
+        ]
+       },
+       "f": [
+        "s1",
+        "c1"
+       ]
+      }
+     ],
+     "cam": "leftflank"
+    },
+    {
+     "label": "Finish the centre and wait",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -6,
+       "text": "You wait, and the Carthaginians pull out."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase the fleeing centre",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "You chase ships you cannot catch while your squadrons fight alone."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "s1": [
+         150,
+         60
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Cape Ecnomus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Cape_Ecnomus"
+  }
+ ]
+}

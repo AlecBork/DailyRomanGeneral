@@ -1,0 +1,976 @@
+{
+ "id": "bagradas",
+ "name": "Battle of the Bagradas River",
+ "date": "255 BC",
+ "result": "loss",
+ "loc": {
+  "x": 308,
+  "y": 204,
+  "place": "the plain near Tunis",
+  "short": "Tunis",
+  "lat": 36.85,
+  "lon": 10.0
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Regulus",
+  "foe": "Xanthippus"
+ },
+ "intro": "An open plain near Tunis, in the First Punic War. You are the consul Regulus with 15,000 infantry and 500 cavalry. The Carthaginians, led in the field by the Spartan Xanthippus, have 12,000 infantry, 4,000 cavalry and 100 elephants.",
+ "debrief": "In reality, the Carthaginians fought on level ground that suited their cavalry and elephants. Regulus massed his legionaries in a deep, dense centre, with a short front. The Roman cavalry was swept away, and part of the Roman left overlapped the elephants and routed the Carthaginian right, but the pursuers left the battle. The rest of the infantry struggled with the elephants and were attacked from the rear by the returning cavalry. Xanthippus then ordered the phalanx forward, and most Romans were killed in their packed formation. About 13,000 Romans died, about 2,000 escaped to Aspis, and Regulus was captured with about 500 men. Carthaginian records were destroyed in 146 BC, so the account rests mainly on a Greek historian, whom modern historians largely accept. Holding broken ground and the lane and wide-line tactics are what-ifs.",
+ "terrain": {
+  "ground": "#c9b27a",
+  "grass": "#a89a5a",
+  "hills": [
+   [
+    30,
+    240,
+    60,
+    14
+   ],
+   [
+    370,
+    240,
+    60,
+    14
+   ]
+  ]
+ },
+ "units": {
+  "vel": {
+   "x": 200,
+   "y": 172,
+   "w": 120,
+   "h": 8,
+   "side": "roman",
+   "name": "Velites",
+   "model": "velites"
+  },
+  "leg": {
+   "x": 200,
+   "y": 192,
+   "w": 100,
+   "h": 16,
+   "side": "roman",
+   "name": "Roman legions",
+   "model": "legionary"
+  },
+  "alL": {
+   "x": 65,
+   "y": 192,
+   "w": 70,
+   "h": 14,
+   "side": "roman",
+   "name": "Latin allies",
+   "model": "principes"
+  },
+  "alR": {
+   "x": 335,
+   "y": 192,
+   "w": 70,
+   "h": 14,
+   "side": "roman",
+   "name": "Allied infantry",
+   "model": "principes"
+  },
+  "cavL": {
+   "x": 35,
+   "y": 212,
+   "w": 40,
+   "h": 14,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "cavR": {
+   "x": 365,
+   "y": 212,
+   "w": 40,
+   "h": 14,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "ele": {
+   "x": 200,
+   "y": 118,
+   "w": 170,
+   "h": 10,
+   "side": "enemy",
+   "name": "Elephants (100)",
+   "model": "elephant"
+  },
+  "phal": {
+   "x": 200,
+   "y": 72,
+   "w": 110,
+   "h": 14,
+   "side": "enemy",
+   "name": "Citizen phalanx",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "mL": {
+   "x": 75,
+   "y": 76,
+   "w": 70,
+   "h": 14,
+   "side": "enemy",
+   "name": "Sicilian veterans",
+   "model": "african",
+   "scales": true
+  },
+  "mR": {
+   "x": 325,
+   "y": 76,
+   "w": 70,
+   "h": 14,
+   "side": "enemy",
+   "name": "Mercenaries",
+   "model": "african",
+   "scales": true
+  },
+  "cL": {
+   "x": 40,
+   "y": 66,
+   "w": 50,
+   "h": 14,
+   "side": "enemy",
+   "name": "Cavalry",
+   "model": "cav_numidian"
+  },
+  "cR": {
+   "x": 360,
+   "y": 66,
+   "w": 50,
+   "h": 14,
+   "side": "enemy",
+   "name": "Cavalry",
+   "model": "cav_numidian"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 6
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Your columns reach the hills with the army intact.",
+   "The Carthaginian phalanx cannot catch them.",
+   "Xanthippus is left holding an empty plain."
+  ],
+  "lose": [
+   "The phalanx closes on the packed Romans.",
+   "Regulus and a handful break out and are run down.",
+   "Few reach Aspis."
+  ],
+  "cams": [
+   "leftflank",
+   "clash",
+   "wide"
+  ],
+  "anim": {
+   "lose": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Ground",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Open plain, Xanthippus’s choice",
+     "tone": "r"
+    },
+    {
+     "text": "Broken ground, raiding",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting for recruits",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Carthage offers battle",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Formation",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Deep, dense centre",
+     "tone": "r"
+    },
+    {
+     "text": "Wide line, cavalry on both ends",
+     "tone": "g"
+    },
+    {
+     "text": "One flank anchored",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Outnumbered in cavalry",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Elephants",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Frightened by the noise",
+     "tone": "a"
+    },
+    {
+     "text": "Trampling your front ranks",
+     "tone": "r"
+    },
+    {
+     "text": "Running through the lanes",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "A hundred in the front",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Left wing",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Chasing to the enemy camp",
+     "tone": "r"
+    },
+    {
+     "text": "Wheeling on the phalanx",
+     "tone": "g"
+    },
+    {
+     "text": "Holding",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Overlapping the elephants",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Where to fight",
+   "text": "Carthage has hired the Spartan Xanthippus, who wants a battle on open ground. You have 15,000 infantry and only 500 cavalry. You were told to wear Carthage down by raids.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Carthaginians have many elephants and cavalry. Open ground favours both."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Elephants and cavalry are weak on broken ground. Raids and local recruits fit your orders; a battle on the plain fits Xanthippus."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Advance onto the open plain and offer battle",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "set": {
+        "plain": 1
+       },
+       "text": "You march onto a level plain, exactly where the Carthaginian cavalry and elephants are strongest."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         185
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "lowfront"
+    },
+    {
+     "label": "Hold the broken ground at the edge of the plain and raid, refusing battle on the level",
+     "quality": 2,
+     "cost": 2,
+     "style": "C",
+     "fx": [
+      {
+       "r": 2,
+       "e": -8,
+       "set": {
+        "rough": 1
+       },
+       "text": "The Carthaginians must come to you across rough ground, which slows their elephants and cavalry."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         196
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send for recruits from the rebelling towns, and delay",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -3,
+       "set": {
+        "recruits": 1
+       },
+       "text": "More men arrive, but the Carthaginians gain time too."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Your formation",
+   "text": "Your 500 horse are outnumbered eight to one. A deep centre is strong against the phalanx but short on the flanks.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Carthaginian cavalry will sweep round a short front."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A deep, dense centre has a short front and open flanks. A wider, shallower line with the cavalry guarding the ends keeps the flanks covered."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Mass the legions in a deep centre to break the phalanx",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -4,
+       "set": {
+        "dense": 1
+       },
+       "text": "The legions form a deep, dense centre. The front is short."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         180
+        ],
+        "alL": [
+         65,
+         170
+        ],
+        "alR": [
+         335,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Keep a wider, shallower line with the cavalry guarding both ends",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "set": {
+        "wide": 1
+       },
+       "text": "The line is longer, with cavalry on each flank."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "alL": [
+         55,
+         192
+        ],
+        "alR": [
+         345,
+         192
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Anchor one flank on rough ground",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -5,
+       "e": -6,
+       "set": {
+        "anchor": 1
+       },
+       "text": "One flank is covered, but the other is open."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "alR": [
+         345,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The elephants",
+   "text": "A hundred elephants stand in front of the Carthaginian centre. Behind them come the phalanx and the cavalry.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The elephants are in a single line, with no infantry in front of them."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Elephants follow open lanes. Beating shields frightens them, but lanes and javelins turn them aside."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Advance, banging swords on shields to deter the elephants",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": -6,
+       "set": {
+        "noise": 1
+       },
+       "text": "The noise frightens some elephants, but most come on."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         200,
+         150
+        ],
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge the elephants head-on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -18,
+       "e": -3,
+       "text": "The elephants trample the front ranks."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         200,
+         180
+        ],
+        "leg": [
+         200,
+         165
+        ]
+       },
+       "f": [
+        "leg",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Open lanes in the maniples and use the velites against the elephants",
+     "quality": 2,
+     "cost": 2,
+     "style": "C",
+     "fx": [
+      {
+       "r": -5,
+       "e": -12,
+       "set": {
+        "lanes": 1
+       },
+       "text": "The elephants run through the lanes and the velites harry them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         200,
+         200
+        ],
+        "vel": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "vel",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The left wing overlaps",
+   "text": "On your left, part of the line overlaps the elephants and routs the Carthaginian right. The pursuers run toward the enemy camp.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Carthaginian right is in flight."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pursuers who run to the camp are out of the battle. Brought back, they can strike the phalanx’s flank."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let the allies pursue the routed right wing to its camp",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -6,
+       "set": {
+        "chase": 1
+       },
+       "text": "The pursuit takes your best men out of the battle."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "alL": [
+         40,
+         60
+        ],
+        "mR": [
+         325,
+         50,
+         0.5
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Recall them and wheel against the phalanx’s flank",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "if": {
+        "wide": true
+       },
+       "r": -4,
+       "e": -16,
+       "text": "Your line is wide enough to turn. The allies hit the phalanx in the flank."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The allies wheel, but your dense centre cannot keep up."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "alL": [
+         100,
+         110
+        ],
+        "phal": [
+         200,
+         100
+        ]
+       },
+       "f": [
+        "alL",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "leftflank"
+    },
+    {
+     "label": "Hold them in place",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -3,
+       "e": -5,
+       "text": "They hold, but the chance passes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "The cavalry returns",
+   "text": "The Carthaginian cavalry, having swept your horse away, comes back against your rear and flanks.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Dust rises on both flanks and behind."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A rear guard facing the cavalry costs fighting strength in front. Pressing on leaves the rear open."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Press on and break the phalanx before the cavalry arrives",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -16,
+       "e": -4,
+       "set": {
+        "pinned": 1
+       },
+       "text": "You press forward, but the cavalry hits your rear and flanks."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cL": [
+         100,
+         160
+        ],
+        "cR": [
+         300,
+         160
+        ],
+        "leg": [
+         200,
+         125
+        ]
+       },
+       "f": [
+        "cL",
+        "cR",
+        "leg"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Form a rear guard to face the cavalry",
+     "quality": 2,
+     "cost": 2,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "wide": true
+       },
+       "r": -5,
+       "e": -12,
+       "text": "The wider line has the depth to turn a rear rank about. The cavalry cannot ride in."
+      },
+      {
+       "r": -8,
+       "e": -8,
+       "text": "The rear guard turns the cavalry, but the front is weakened."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cL": [
+         100,
+         170
+        ],
+        "cR": [
+         300,
+         170
+        ]
+       },
+       "f": [
+        "cL",
+        "cR"
+       ]
+      }
+     ],
+     "cam": "rear"
+    },
+    {
+     "label": "Withdraw toward the hills in good order",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "You pull back and keep the army together, but lose the field."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         220
+        ],
+        "alL": [
+         65,
+         220
+        ],
+        "alR": [
+         335,
+         220
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The phalanx",
+   "text": "Xanthippus orders the phalanx forward against the packed Romans, with elephants and cavalry pressing in.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The phalanx is advancing in step."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A packed army cannot fight in all directions. Two columns can break out through a weaker screen toward the hills."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stand and receive the phalanx where you are",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -22,
+       "e": -2,
+       "text": "The packed Romans are slaughtered where they stand."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "phal": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "phal",
+        "leg"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Break out in two columns toward the hills",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -12,
+       "text": "Two columns cut through the weaker screen and reach the foothills, hurting the Carthaginians as they go."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         225
+        ],
+        "alL": [
+         65,
+         225
+        ],
+        "alR": [
+         335,
+         225
+        ]
+       },
+       "f": [
+        "leg"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Form a hollow square",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -10,
+       "e": -6,
+       "text": "The square holds for a time, but it cannot move."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "phal",
+        "leg"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Bagradas River, 255 BC (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Tunis_(255_BC)"
+  }
+ ],
+ "winAt": 50
+}

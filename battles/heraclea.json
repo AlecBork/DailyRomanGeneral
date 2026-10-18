@@ -1,0 +1,977 @@
+{
+ "id": "heraclea",
+ "name": "Battle of Heraclea",
+ "date": "280 BC",
+ "result": "loss",
+ "loc": {
+  "x": 392,
+  "y": 142,
+  "place": "the Siris river, Lucania",
+  "short": "Heraclea",
+  "lat": 40.21,
+  "lon": 16.68
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Pyrrhus’s army",
+  "commander": "Laevinus",
+  "foe": "Pyrrhus"
+ },
+ "intro": "A plain by the river Siris in Lucania, southern Italy. You are the consul Laevinus, with at least 40,000 infantry and 2,400 cavalry. Pyrrhus of Epirus has an estimated 25,000 to 35,000 men, with 20 war elephants kept in reserve and a heavy phalanx.",
+ "debrief": "In reality, the Romans crossed the Siris at dawn and their cavalry drove off the Greek scouts. Pyrrhus’s cavalry then disrupted the Roman formation. The phalanx and the legions fought to a standstill through seven attacks each. Pyrrhus swapped armour with a bodyguard who was killed, and a rumour of his death wavered his line until he rode out bareheaded. He then committed his elephants against the Roman cavalry, which fled and broke the legion, and the Thessalian cavalry completed the rout. The Romans retreated across the river. Casualties differ by account: about 7,000 Roman dead and 4,000 Greek in one, about 15,000 and 13,000 in another. A rested army, re-formed legions and javelin fire on the elephants are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 132,
+   "w": 18
+  },
+  "hills": [
+   [
+    200,
+    20,
+    140,
+    12
+   ]
+  ]
+ },
+ "units": {
+  "vel": {
+   "x": 200,
+   "y": 172,
+   "w": 110,
+   "h": 8,
+   "side": "roman",
+   "name": "Velites",
+   "model": "velites"
+  },
+  "leg": {
+   "x": 200,
+   "y": 192,
+   "w": 110,
+   "h": 16,
+   "side": "roman",
+   "name": "Roman legions",
+   "model": "legionary"
+  },
+  "alL": {
+   "x": 70,
+   "y": 192,
+   "w": 70,
+   "h": 14,
+   "side": "roman",
+   "name": "Latin allies",
+   "model": "principes"
+  },
+  "alR": {
+   "x": 330,
+   "y": 192,
+   "w": 70,
+   "h": 14,
+   "side": "roman",
+   "name": "Allied infantry",
+   "model": "principes"
+  },
+  "cavL": {
+   "x": 50,
+   "y": 214,
+   "w": 56,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman cavalry",
+   "model": "cav_roman"
+  },
+  "cavR": {
+   "x": 350,
+   "y": 214,
+   "w": 56,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman cavalry",
+   "model": "cav_roman"
+  },
+  "phal": {
+   "x": 200,
+   "y": 70,
+   "w": 120,
+   "h": 14,
+   "side": "enemy",
+   "name": "Phalanx",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "pelt": {
+   "x": 200,
+   "y": 98,
+   "w": 110,
+   "h": 8,
+   "side": "enemy",
+   "name": "Peltasts & archers",
+   "model": "archer"
+  },
+  "ital": {
+   "x": 330,
+   "y": 74,
+   "w": 70,
+   "h": 14,
+   "side": "enemy",
+   "name": "Italiot allies",
+   "model": "levy",
+   "scales": true
+  },
+  "thL": {
+   "x": 50,
+   "y": 76,
+   "w": 56,
+   "h": 14,
+   "side": "enemy",
+   "name": "Thessalian cavalry",
+   "model": "cav_eastern"
+  },
+  "thR": {
+   "x": 350,
+   "y": 76,
+   "w": 56,
+   "h": 14,
+   "side": "enemy",
+   "name": "Macedonian cavalry",
+   "model": "cav_eastern"
+  },
+  "ele": {
+   "x": 200,
+   "y": 30,
+   "w": 90,
+   "h": 10,
+   "side": "enemy",
+   "name": "Elephants (20)",
+   "model": "elephant"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 6
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Your hollow line turns the Thessalian horse away.",
+   "Pyrrhus’s phalanx is pinned between the river and your legions.",
+   "The Greeks give up the field."
+  ],
+  "lose": [
+   "The Thessalian cavalry rides down the legions.",
+   "The Romans stream back across the Siris.",
+   "Pyrrhus holds the field."
+  ],
+  "cams": [
+   "rightflank",
+   "clash",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Crossing",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Crossed at dawn, cavalry first",
+     "tone": "a"
+    },
+    {
+     "text": "Several fords, bank held",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting for the other consul",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Pyrrhus holds the far bank",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Formation",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Ragged after pressing on",
+     "tone": "r"
+    },
+    {
+     "text": "Re-formed on the bank",
+     "tone": "g"
+    },
+    {
+     "text": "Cavalry screened off",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Crossing under cavalry attack",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Infantry",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Allies wrapping the phalanx",
+     "tone": "g"
+    },
+    {
+     "text": "Stalemate, seven charges each",
+     "tone": "a"
+    },
+    {
+     "text": "Waiting for the phalanx",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Lines of equal length",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Elephants",
+   "decision": 4,
+   "options": [
+    {
+     "text": "Horses broken by the elephants",
+     "tone": "r"
+    },
+    {
+     "text": "Driven off by javelins",
+     "tone": "g"
+    },
+    {
+     "text": "Passing through the gaps",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Held in reserve",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The river",
+   "text": "Pyrrhus holds the far bank of the Siris. Light infantry screen the fords, and he is waiting for allied reinforcements.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Pyrrhus is waiting for allies to reach him."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pyrrhus has not yet got all his allies. A crossing with the far bank cleared first costs less than a rushed one, but time favours him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cross at dawn with the cavalry first, to drive off the scouts",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -4,
+       "set": {
+        "crossed": 1
+       },
+       "text": "Your cavalry crosses first and drives off the scouts and the light infantry on the flanks."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         50,
+         150
+        ],
+        "cavR": [
+         350,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "lowfront"
+    },
+    {
+     "label": "Cross at several fords at once, with velites holding the far bank first",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "r": -3,
+       "e": -8,
+       "set": {
+        "ford": 1
+       },
+       "text": "Velites clear the far bank at several points, and the legions cross in order."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         200,
+         140
+        ],
+        "leg": [
+         200,
+         160
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for the other consul’s army before crossing",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": 6,
+       "set": {
+        "wait": 1
+       },
+       "text": "More men would help, but Pyrrhus uses the time to gather his allies."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The cavalry clash",
+   "text": "Pyrrhus sends his cavalry against your crossing force. It strikes, disrupts the Roman formation, and withdraws.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Greek cavalry strikes and withdraws. It is trying to draw you on."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A formation broken by the crossing needs to be re-formed on the bank before the phalanx arrives. Pressing on across the bank in disorder is what the Greek horse wants."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Press on across the bank without re-forming",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": -4,
+       "text": "The legions press on, but the formation is ragged when the phalanx arrives."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ],
+        "alL": [
+         70,
+         125
+        ],
+        "alR": [
+         330,
+         125
+        ]
+       },
+       "f": [
+        "thL",
+        "thR"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Re-form the legions on the bank before the phalanx arrives",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -3,
+       "e": -8,
+       "set": {
+        "formed": 1
+       },
+       "text": "The legions re-form in good order on the bank."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Screen the cavalry behind the velites and keep it away from the Greek horse",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -6,
+       "text": "The velites screen the front. The Greek horse is kept at bay, but your own cavalry is out of the fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         50,
+         225
+        ],
+        "cavR": [
+         350,
+         225
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Phalanx against legion",
+   "text": "The two infantry lines are about the same length, but the phalanx is deeper. Neither can win head-on.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The phalanx is deeper than your line, so it has more weight but less reach."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Rotating fresh maniples keeps your men fresh, and sending the allies round the phalanx’s flank uses your numbers. A pure frontal clash is a stalemate."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Rotate fresh maniples and send the allied wings round the phalanx’s flank",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "if": {
+        "formed": true
+       },
+       "r": -5,
+       "e": -14,
+       "text": "The allied wings overlap the phalanx while the legions pin it. The phalanx is stretched."
+      },
+      {
+       "r": -8,
+       "e": -8,
+       "text": "The allies wrap the phalanx, but the ragged centre cannot pin it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "alL": [
+         90,
+         130
+        ],
+        "alR": [
+         310,
+         130
+        ]
+       },
+       "f": [
+        "leg",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Keep attacking the phalanx head-on",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": -8,
+       "text": "Seven charges each way. Neither side breaks."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         130
+        ],
+        "phal": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "leg",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Pull back a little and let the phalanx come to you",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "The phalanx advances, but it also tires."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         172
+        ]
+       },
+       "f": [
+        "leg",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The rumour",
+   "text": "Pyrrhus swaps armour with a bodyguard, who is killed. A rumour runs along the Greek line that Pyrrhus has fallen.",
+   "intel": {
+    "hint": [
+     {
+      "text": "There is wavering in the Greek line."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A shaken line breaks if you hit it at once. If your own line is ragged, the chance is spent before you can use it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold position",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "You hold, and Pyrrhus rides out bareheaded to show he lives. The line recovers."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Throw the legions in at once while the Greek line wavers",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "if": {
+        "formed": true
+       },
+       "r": -6,
+       "e": -16,
+       "text": "Your formed legions surge forward as the phalanx shakes."
+      },
+      {
+       "r": -10,
+       "e": -8,
+       "text": "The charge hits, but your own line is too ragged to exploit it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         115
+        ],
+        "phal": [
+         200,
+         100
+        ]
+       },
+       "f": [
+        "leg",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Shout along the line that Pyrrhus is dead",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -3,
+       "e": -6,
+       "text": "The rumour spreads, but Pyrrhus is soon seen alive."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The elephants",
+   "text": "Pyrrhus brings up twenty elephants against your cavalry. Your horses have never met them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Pyrrhus is holding something back at the rear."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Horses panic at the smell and the noise of elephants. Velites and allied javelins can drive them off, but only if the cavalry stays out of the way."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Charge the elephants with the cavalry",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -18,
+       "e": -2,
+       "set": {
+        "cavbroken": 1
+       },
+       "text": "The horses bolt from the unfamiliar smell and trumpeting, and trample your own flank."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         90,
+         150
+        ],
+        "ele": [
+         100,
+         110
+        ],
+        "cavR": [
+         310,
+         150
+        ]
+       },
+       "f": [
+        "cavL",
+        "cavR",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "leftflank"
+    },
+    {
+     "label": "Pull the cavalry back and let the velites and allies hurl javelins at the elephants",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -12,
+       "text": "The elephants lumber into a storm of javelins. Without horses to scare, they falter."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         50,
+         230
+        ],
+        "cavR": [
+         350,
+         230
+        ],
+        "ele": [
+         200,
+         98
+        ],
+        "vel": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "vel",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Open gaps in the line and let the elephants through",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "The elephants pass through the gaps with some damage."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         200,
+         160
+        ]
+       },
+       "f": [
+        "ele"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The Thessalians",
+   "text": "With the cavalry gone or the legions shaken, the Thessalian cavalry rides at the legions’ flank.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Thessalian cavalry is gathering on the flank."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A hollow line with the river behind it can face cavalry on three sides. Fighting on in disorder gives the horse its victory."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Keep fighting where you stand",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -20,
+       "e": -2,
+       "text": "The Thessalians hit the disordered legions. The rout begins."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "thL": [
+         80,
+         170
+        ],
+        "thR": [
+         320,
+         170
+        ]
+       },
+       "f": [
+        "thL",
+        "thR",
+        "leg"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Form a hollow line with the river at your back",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "cavbroken": true
+       },
+       "r": -10,
+       "e": -6,
+       "text": "With the cavalry broken the hollow line is hurt, but it holds."
+      },
+      {
+       "r": -6,
+       "e": -12,
+       "text": "The hollow line turns the Thessalians back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         170
+        ],
+        "thL": [
+         80,
+         160
+        ],
+        "thR": [
+         320,
+         160
+        ]
+       },
+       "f": [
+        "thL",
+        "thR"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Fall back across the river in good order",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "You cross the Siris and keep most of the army, but give up the field."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         230
+        ],
+        "alL": [
+         70,
+         230
+        ],
+        "alR": [
+         330,
+         230
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Heraclea (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Heraclea"
+  }
+ ],
+ "winAt": 50
+}

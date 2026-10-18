@@ -1,0 +1,774 @@
+{
+ "id": "watlingstreet",
+ "name": "Battle of Watling Street",
+ "date": "61 AD",
+ "result": "win",
+ "loc": {
+  "lat": 52.57,
+  "lon": -1.53,
+  "place": "the English Midlands",
+  "short": "Watling St.",
+  "x": 159,
+  "y": -75
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Boudica’s Britons",
+  "commander": "Suetonius Paulinus",
+  "foe": "Boudica"
+ },
+ "intro": "Somewhere in the English Midlands, perhaps near Mancetter, about AD 60 or 61. You are Gaius Suetonius Paulinus, governor of Britain, with nearly 10,000 men: the Fourteenth Legion, part of the Twentieth and auxiliaries. Boudica, queen of the Iceni, has burned three Roman towns. Ancient writers give her host as 230,000; modern historians think it was far smaller, but still much larger than yours.",
+ "debrief": "In reality, after the Iceni and Trinovantes rose and destroyed Camulodunum, Suetonius gave up Londinium, which was burned, as was Verulamium. The Second Legion’s prefect, Poenius Postumus, did not bring his men. Suetonius chose a narrow passage with a wood behind him and a plain in front; the Britons drew up their wagons, with their families, at the back of their army. The legions stood until the Britons were close, threw their pila, then advanced in wedge formation, and the cavalry broke groups that stood. The fleeing Britons were trapped against their wagons; the main account says no quarter was given. Tacitus gives 80,000 British and 400 Roman dead, figures thought exaggerated. Boudica died soon after, by poison in one account and illness in another. The site is unknown. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#6f8f4c",
+  "tree": "#2f4a28",
+  "trees": 90,
+  "hills": [
+   [
+    25,
+    185,
+    60,
+    24
+   ],
+   [
+    375,
+    185,
+    60,
+    24
+   ]
+  ],
+  "forests": [
+   [
+    50,
+    222,
+    60,
+    26
+   ],
+   [
+    350,
+    222,
+    60,
+    26
+   ],
+   [
+    200,
+    252,
+    140,
+    30
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 190,
+   "w": 90,
+   "h": 16,
+   "side": "roman",
+   "name": "Legio XIV & XX",
+   "model": "legionary"
+  },
+  "axL": {
+   "x": 110,
+   "y": 194,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Auxiliaries",
+   "model": "auxiliary"
+  },
+  "axR": {
+   "x": 290,
+   "y": 194,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Auxiliaries",
+   "model": "auxiliary"
+  },
+  "cavL": {
+   "x": 50,
+   "y": 206,
+   "w": 40,
+   "h": 12,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "cavR": {
+   "x": 350,
+   "y": 206,
+   "w": 40,
+   "h": 12,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "bri": {
+   "x": 200,
+   "y": 80,
+   "w": 220,
+   "h": 20,
+   "side": "enemy",
+   "name": "Boudica’s Britons",
+   "model": "gaul",
+   "scales": true
+  },
+  "char": {
+   "x": 200,
+   "y": 110,
+   "w": 80,
+   "h": 8,
+   "side": "enemy",
+   "name": "Chariots",
+   "model": "cav_eastern"
+  },
+  "wag": {
+   "x": 200,
+   "y": 30,
+   "w": 240,
+   "h": 8,
+   "side": "enemy",
+   "name": "Wagons and families",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The wedges drive into the host.",
+   "The Britons are trapped at their wagons.",
+   "The province is saved."
+  ],
+  "lose": [
+   "The host pours round your flanks.",
+   "The legions are swallowed.",
+   "Britain is lost to Rome."
+  ],
+  "cams": [
+   "clash",
+   "enemyrear",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Londinium",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Abandoned, army saved",
+     "tone": "g"
+    },
+    {
+     "text": "Defended and lost",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting for help",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "In Boudica’s path",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Ground",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Narrow defile, woods behind",
+     "tone": "g"
+    },
+    {
+     "text": "Open plain",
+     "tone": "r"
+    },
+    {
+     "text": "Hilltop camp",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Choosing a field",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The line",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Standing firm, pila thrown",
+     "tone": "g"
+    },
+    {
+     "text": "Charged out",
+     "tone": "r"
+    },
+    {
+     "text": "Pulled back",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Waiting",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Assault",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Wedges driving in",
+     "tone": "g"
+    },
+    {
+     "text": "Holding",
+     "tone": "a"
+    },
+    {
+     "text": "Auxiliaries alone",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Britons checked",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Londinium",
+   "text": "You are Gaius Suetonius Paulinus, governor of Britain. While you were in Anglesey, the Iceni and Trinovantes rose under Queen Boudica and burned Camulodunum. You have reached Londinium with your cavalry ahead of your legions. The legion in the south-west will not come.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Londinium has no walls and no garrison. Boudica’s host is huge."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Defending an open town with a handful of men loses the town and the army. Saving the army saves the province."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Give up Londinium and fall back to join your legions",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "set": {
+        "army": 1
+       },
+       "text": "You march out of Londinium, taking those who can follow. The town is burned behind you, but you keep the army whole."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold Londinium with what you have",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -16,
+       "e": 0,
+       "text": "Your small force is overwhelmed in the streets."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for the Second Legion",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -6,
+       "text": "Its prefect still does not come."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The ground",
+   "text": "You have about 10,000 men: the Fourteenth Legion, part of the Twentieth, and auxiliaries. You must choose where to fight a host many times your size.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Britons fight as a great crowd, and want open ground."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A narrow valley with forest behind you and steep sides cannot be outflanked, and opens onto a plain where the Britons must crowd together."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form in a narrow defile with forest behind and a plain in front",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "set": {
+        "defile": 1
+       },
+       "text": "Your army forms in a narrow gap with woods at its back. The Britons will have to come at you across the open plain, and only a few at a time can reach your line."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         186
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight on the open plain",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": 0,
+       "text": "The host wraps round both your flanks."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fortify a hilltop camp",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The Britons surround the hill and wait."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The host comes on",
+   "text": "The Britons pour across the plain, their families watching from wagons drawn up behind. Boudica drives along their ranks in her chariot with her daughters.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are coming on in a great crowd, without order."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Stand still in the defile until they are close, then throw your javelins in volleys into the packed mass."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stand still and throw your pila when they are close",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "defile": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "Your line stands still in the defile until the mass is close, then throws volley after volley of pila into it."
+      },
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Your pila thin the front ranks."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "bri": [
+         200,
+         130
+        ],
+        "char": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "bri"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge out to meet them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -4,
+       "text": "Your line leaves the defile and is swallowed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "bri"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Pull back deeper into the woods",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -6,
+       "text": "The Britons fill the mouth of the valley."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The wedge",
+   "text": "The Britons’ charge has been checked by the pila. Their front ranks are a tangle.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Britons are packed so tight they can barely raise their arms."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Now go forward in wedge formation, legions and auxiliaries alike, and drive into the packed mass."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Advance in wedge formation",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "defile": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "The legions and auxiliaries burst forward in wedges and drive deep into the crowded Britons."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The wedge pushes them back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ],
+        "axL": [
+         130,
+         130
+        ],
+        "axR": [
+         270,
+         130
+        ],
+        "bri": [
+         200,
+         80
+        ]
+       },
+       "f": [
+        "leg",
+        "axL",
+        "axR",
+        "bri"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hold the line",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The Britons recover and come on again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Send the auxiliaries alone",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -4,
+       "text": "The auxiliaries are too few."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "axL": [
+         130,
+         130
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "The wagons",
+   "text": "The Britons break and try to flee, but their own wagons block the way out.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your cavalry is still fresh on both wings."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send the cavalry in with lances against any group that still stands, and the rout is complete."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the cavalry in with lances to break any group that stands",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -16,
+       "text": "The cavalry rides in and breaks every group that tries to stand. Trapped against their wagons, the Britons are cut down. Boudica dies soon afterwards, by poison in one account, by illness in another."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         110,
+         80
+        ],
+        "cavR": [
+         290,
+         80
+        ],
+        "bri": [
+         200,
+         50
+        ]
+       },
+       "f": [
+        "cavL",
+        "cavR",
+        "bri"
+       ]
+      }
+     ],
+     "cam": "enemyrear"
+    },
+    {
+     "label": "Let them escape",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Much of the host gets away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Pursue with the legions alone",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -4,
+       "text": "The legions lose their order."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         80
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "push"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Watling Street (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Watling_Street"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "This is a woman’s resolve; as for men, they may live and be slaves.",
+   "who": "Boudica, as the historian Tacitus has her speak before the battle"
+  }
+ ]
+}

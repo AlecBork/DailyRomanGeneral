@@ -1,0 +1,922 @@
+{
+ "id": "trasimene",
+ "name": "Battle of Lake Trasimene",
+ "date": "217 BC",
+ "result": "loss",
+ "loc": {
+  "x": 333,
+  "y": 92,
+  "place": "Lake Trasimene, Etruria",
+  "short": "Trasimene",
+  "lat": 43.2,
+  "lon": 12.08
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Flaminius",
+  "foe": "Hannibal"
+ },
+ "intro": "The north shore of Lake Trasimene in Etruria, on a misty June morning. You are the consul Gaius Flaminius, with some 25,000 men in four legions, pursuing Hannibal. Hannibal’s army has been out of sight for days.",
+ "debrief": "In reality, Flaminius marched into the defile along the lake in the mist without sending cavalry scouts. Hannibal’s army lay hidden on the reverse slopes: cavalry to the west behind the column, Gauls in the centre, Africans and Iberians to the east. The Carthaginians fell on the column from three sides and pinned it against the lake. One ancient account says Flaminius was surprised; another says he rallied the troops. About 15,000 Romans were killed, among them Flaminius, and about 6,000 who broke out were forced to surrender the next day to Maharbal. Carthaginian dead are put at 1,500 or 2,500 depending on the account. The numbers and the exact site are uncertain. Scouting, halting at the mouth of the defile and waiting for Servilius are what-ifs.",
+ "terrain": {
+  "sky": "#a9b4bb",
+  "lakes": [
+   [
+    -30,
+    165,
+    95,
+    170
+   ]
+  ],
+  "hills": [
+   [
+    90,
+    70,
+    70,
+    22
+   ],
+   [
+    210,
+    55,
+    80,
+    26
+   ],
+   [
+    330,
+    70,
+    70,
+    22
+   ]
+  ],
+  "forests": [
+   [
+    90,
+    40,
+    50,
+    14
+   ],
+   [
+    330,
+    40,
+    50,
+    14
+   ]
+  ],
+  "roads": [
+   [
+    60,
+    250,
+    120,
+    0,
+    7
+   ]
+  ],
+  "lakeColor": "#5d7f94",
+  "weather": "mist"
+ },
+ "units": {
+  "vel": {
+   "x": 200,
+   "y": 176,
+   "w": 100,
+   "h": 8,
+   "side": "roman",
+   "name": "Velites",
+   "model": "velites"
+  },
+  "leg1": {
+   "x": 130,
+   "y": 192,
+   "w": 110,
+   "h": 12,
+   "side": "roman",
+   "name": "Roman legions",
+   "model": "legionary"
+  },
+  "leg2": {
+   "x": 270,
+   "y": 192,
+   "w": 110,
+   "h": 12,
+   "side": "roman",
+   "name": "Roman legions",
+   "model": "legionary"
+  },
+  "alr": {
+   "x": 200,
+   "y": 212,
+   "w": 120,
+   "h": 12,
+   "side": "roman",
+   "name": "Allied contingents",
+   "model": "principes"
+  },
+  "cav": {
+   "x": 200,
+   "y": 232,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "gau": {
+   "x": 150,
+   "y": 100,
+   "w": 90,
+   "h": 14,
+   "side": "enemy",
+   "name": "Gauls on the slope",
+   "model": "gaul",
+   "scales": true,
+   "hidden": true
+  },
+  "afr": {
+   "x": 330,
+   "y": 110,
+   "w": 80,
+   "h": 14,
+   "side": "enemy",
+   "name": "Africans & Iberians",
+   "model": "african",
+   "scales": true,
+   "hidden": true
+  },
+  "cav2": {
+   "x": 40,
+   "y": 60,
+   "w": 70,
+   "h": 14,
+   "side": "enemy",
+   "name": "Carthaginian cavalry",
+   "model": "cav_punic",
+   "hidden": true
+  },
+  "lig": {
+   "x": 270,
+   "y": 100,
+   "w": 60,
+   "h": 10,
+   "side": "enemy",
+   "name": "Balearic slingers & Ligurians",
+   "model": "archer",
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Gauls give way on the slope.",
+   "The road east is open.",
+   "Hannibal’s ambush has failed."
+  ],
+  "lose": [
+   "The lake fills with armour.",
+   "The road is closed.",
+   "Hannibal’s men fall on the survivors."
+  ],
+  "cams": [
+   "rightflank",
+   "front",
+   "wide"
+  ],
+  "anim": {
+   "lose": "drown"
+  }
+ },
+ "status": [
+  {
+   "label": "Pursuit",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Marching blind and alone",
+     "tone": "r"
+    },
+    {
+     "text": "Scouts ahead",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting for the second army",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Following Hannibal",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The defile",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Column on the shore road",
+     "tone": "r"
+    },
+    {
+     "text": "Hills searched",
+     "tone": "g"
+    },
+    {
+     "text": "Army in battle order",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Entering the defile",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The ambush",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Caught in column",
+     "tone": "r"
+    },
+    {
+     "text": "Charging the centre",
+     "tone": "g"
+    },
+    {
+     "text": "Falling back",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Under attack",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The fight",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Fighting where they stand",
+     "tone": "r"
+    },
+    {
+     "text": "Driving east",
+     "tone": "g"
+    },
+    {
+     "text": "In square",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Fighting on",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The pursuit",
+   "text": "Hannibal has slipped past your army into Etruria, burning farms to draw you on. Your officers urge caution. The countryside is burning.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your colleague Servilius is coming up with his army and 4,000 cavalry."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hannibal is trying to goad you into a fight before your colleague arrives. Waiting would bring a second army, but the smoke on the horizon is hard to ignore."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March after Hannibal at once with your own army",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "set": {
+        "rushed": 1
+       },
+       "text": "You march at once, alone and fast, with no cavalry scouts sent ahead."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg1": [
+         130,
+         185
+        ],
+        "leg2": [
+         270,
+         185
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "March, but send cavalry ahead to scout the hills",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "scouted": 1
+       },
+       "text": "Your cavalry rides ahead and reports the hills. You are no longer marching blind."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         200,
+         120
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for Servilius and the second army",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -4,
+       "set": {
+        "servilius": 1
+       },
+       "text": "The wait costs you the chance to catch Hannibal on the move, but you march with more men."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The defile",
+   "text": "At dawn the army enters the narrow strip between the hills and the lake. A heavy mist lies on the water. The column is long.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The mist hides the hills. Nobody can say who stands on the slopes."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The slopes above the road are crowded with Hannibal’s men. A column in a narrow place can only be caught in a mist. A halt at the entrance, with the velites sent up the hill, costs time but shows what waits."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Lead the column straight in",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The column follows the road along the shore, strung out in the mist."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg1": [
+         110,
+         190
+        ],
+        "leg2": [
+         290,
+         190
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "lowfront"
+    },
+    {
+     "label": "Halt at the mouth and send the velites up the slopes",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "if": {
+        "scouted": true
+       },
+       "r": -2,
+       "e": -14,
+       "set": {
+        "warned": 1
+       },
+       "text": "Your scouts already know. The velites find the Gauls and Africans lying on the reverse slopes, and the trap is open to you."
+      },
+      {
+       "r": -3,
+       "e": -8,
+       "set": {
+        "warned": 1
+       },
+       "text": "The velites find men on the slopes. You know now what waits, but the Carthaginians know you do."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "vel"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Deploy the army in battle order before entering",
+     "quality": 1,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "r": -3,
+       "e": -4,
+       "set": {
+        "formed": 1
+       },
+       "text": "The army forms into lines. It moves slowly, but it is not a column."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg1": [
+         110,
+         185
+        ],
+        "leg2": [
+         290,
+         185
+        ],
+        "alr": [
+         200,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The ambush springs",
+   "text": "Trumpets blow from every hillside. Hannibal’s army comes down on three sides. The lake is on your fourth.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The enemy is on the hills ahead, on your flank and behind you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A column surprised in a defile cannot form line in time. But a force that was already in line, or that had warning, can face the slope."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form a line along the shore where you stand",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "warned": true
+       },
+       "r": -8,
+       "e": -4,
+       "text": "You have been warned, and the line forms quickly, but it is still a thin line."
+      },
+      {
+       "r": -14,
+       "e": -2,
+       "text": "The column tries to deploy in the narrow strip. The men are caught in marching order."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg1": [
+         110,
+         170
+        ],
+        "leg2": [
+         290,
+         170
+        ],
+        "gau": [
+         150,
+         120,
+         1
+        ],
+        "afr": [
+         330,
+         130,
+         1
+        ],
+        "cav2": [
+         40,
+         110,
+         1
+        ]
+       },
+       "f": [
+        "gau",
+        "afr",
+        "cav2"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge uphill into the Gauls in the centre",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "fx": [
+      {
+       "if": {
+        "warned": true
+       },
+       "r": -6,
+       "e": -22,
+       "text": "Your charge hits the Gauls before they are ready. The Carthaginian centre staggers."
+      },
+      {
+       "if": {
+        "formed": true
+       },
+       "r": -8,
+       "e": -18,
+       "text": "Your army is already in lines and charges the centre."
+      },
+      {
+       "r": -14,
+       "e": -6,
+       "text": "The charge is made by men still in column, and it is a weak one."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg1": [
+         150,
+         130
+        ],
+        "gau": [
+         150,
+         115,
+         1
+        ],
+        "afr": [
+         330,
+         130,
+         1
+        ],
+        "cav2": [
+         40,
+         110,
+         1
+        ]
+       },
+       "f": [
+        "leg1",
+        "gau"
+       ]
+      }
+     ],
+     "cam": "push"
+    },
+    {
+     "label": "Fall back toward the entrance of the defile",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "You fall back, but the cavalry is already behind you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg1": [
+         110,
+         215
+        ],
+        "leg2": [
+         290,
+         215
+        ],
+        "cav2": [
+         40,
+         160,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "rear"
+    }
+   ]
+  },
+  {
+   "title": "Flaminius rallies",
+   "text": "Livy says Flaminius is calm and rallies the men. Polybius says he is taken by surprise. The fighting goes on for three hours.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Flaminius is among the standards. Men fight where they stand."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The enemy cannot hold every point at once. Fighting for the east end of the shore, where the road leaves the defile, may open a way out."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight where you stand and hold the line",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The line holds for three hours, but the enemy presses on every side. The strip of shore is too narrow."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg1",
+        "leg2"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Drive the vanguard east to open the road out",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "fx": [
+      {
+       "if": {
+        "warned": true
+       },
+       "r": -4,
+       "e": -22,
+       "text": "The vanguard hits the Africans and Iberians before they have closed the exit. The road opens."
+      },
+      {
+       "r": -10,
+       "e": -10,
+       "text": "The vanguard fights its way to the east end, but Hannibal’s men are already closing it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg2": [
+         340,
+         125
+        ],
+        "afr": [
+         330,
+         115,
+         1
+        ]
+       },
+       "f": [
+        "leg2",
+        "afr"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Form a square with the standards in the middle",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "The square holds longer than a line, but it cannot move."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg1": [
+         160,
+         190
+        ],
+        "leg2": [
+         240,
+         190
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Flaminius dies",
+   "text": "A Gaulish horseman kills Flaminius. The army loses its head, and the lake lies behind it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Men in armour plunge into the lake. Some are drowned."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A group under a firm officer can still break out. The rest are lost if they run for the water."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let the men fight on, each unit as it is",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -16,
+       "e": 0,
+       "text": "Without a general, the army fights unit by unit. Thousands plunge into the lake. About 15,000 are killed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg1": [
+         110,
+         230
+        ],
+        "leg2": [
+         290,
+         230
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "rear"
+    },
+    {
+     "label": "Rally round the senior tribune and fight your way out",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "warned": true
+       },
+       "r": -4,
+       "e": -16,
+       "text": "A strong body forces the road east and holds it. The enemy cannot stop it."
+      },
+      {
+       "r": -10,
+       "e": -6,
+       "text": "About 6,000 break out, but Maharbal’s cavalry surrounds them the next day."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg2": [
+         340,
+         120
+        ],
+        "alr": [
+         340,
+         150
+        ]
+       },
+       "f": [
+        "leg2",
+        "afr"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Offer terms",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "There is no one to offer terms to. The Carthaginians continue."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Lake Trasimene (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Lake_Trasimene"
+  }
+ ],
+ "winAt": 50
+}

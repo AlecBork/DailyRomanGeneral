@@ -1,0 +1,1430 @@
+{
+ "id": "cannae",
+ "name": "Battle of Cannae",
+ "date": "216 BC",
+ "result": "loss",
+ "loc": {
+  "x": 386,
+  "y": 123,
+  "place": "Cannae, Apulia, southern Italy",
+  "short": "Cannae",
+  "lat": 41.31,
+  "lon": 16.13
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Varro",
+  "foe": "Hannibal"
+ },
+ "intro": "Near Cannae in Apulia, beside the river Aufidus. You command Rome’s largest army: about 80,000 infantry and 6,000 cavalry, by the main ancient account. Hannibal has about 40,000 infantry and 10,000 cavalry, and his horse is much stronger. Your colleague Paullus wanted to avoid this ground, but today the command is yours.",
+ "debrief": "In reality, the Romans formed on open ground with the wind and dust in their faces, in a deep, packed formation. Hannibal’s Gallic and Spanish cavalry beat the Roman horse by the river, then the allied horse. His Gauls and Spaniards gave ground in a crescent while his African infantry wheeled in on both flanks and his cavalry closed the ring from behind. Rome lost tens of thousands (ancient accounts range from about 45,000 infantry killed to about 70,000 dead), and Paullus died. Numbers vary by source, and who commanded on the day is disputed. Waiting a day, turning the line against the wind, and a wide formation are what-ifs, not things the Romans did.",
+ "terrain": {
+  "river": {
+   "x": 214,
+   "w": 26
+  },
+  "hills": [
+   [
+    60,
+    20,
+    60,
+    10
+   ]
+  ],
+  "weather": "dust"
+ },
+ "units": {
+  "vel": {
+   "x": 200,
+   "y": 158,
+   "w": 120,
+   "h": 8,
+   "side": "roman",
+   "name": "Velites",
+   "model": "velites"
+  },
+  "hast": {
+   "x": 200,
+   "y": 178,
+   "w": 110,
+   "h": 20,
+   "side": "roman",
+   "name": "Roman legions",
+   "model": "hastati"
+  },
+  "prin": {
+   "x": 200,
+   "y": 200,
+   "w": 110,
+   "h": 20,
+   "side": "roman",
+   "name": "Allied infantry",
+   "model": "principes"
+  },
+  "tri": {
+   "x": 200,
+   "y": 222,
+   "w": 100,
+   "h": 12,
+   "side": "roman",
+   "name": "Triarii",
+   "model": "triarii"
+  },
+  "cavL": {
+   "x": 55,
+   "y": 190,
+   "w": 58,
+   "h": 14,
+   "side": "roman",
+   "name": "Allied cavalry",
+   "model": "cav_roman"
+  },
+  "cavR": {
+   "x": 345,
+   "y": 190,
+   "w": 58,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman cavalry",
+   "model": "cav_roman"
+  },
+  "gau": {
+   "x": 200,
+   "y": 112,
+   "w": 110,
+   "h": 12,
+   "side": "enemy",
+   "name": "Gauls & Spaniards",
+   "model": "gaul",
+   "scales": true
+  },
+  "afL": {
+   "x": 105,
+   "y": 96,
+   "w": 70,
+   "h": 12,
+   "side": "enemy",
+   "name": "Africans",
+   "model": "african",
+   "scales": true
+  },
+  "afR": {
+   "x": 295,
+   "y": 96,
+   "w": 70,
+   "h": 12,
+   "side": "enemy",
+   "name": "Africans",
+   "model": "african",
+   "scales": true
+  },
+  "ecL": {
+   "x": 55,
+   "y": 72,
+   "w": 58,
+   "h": 14,
+   "side": "enemy",
+   "name": "Numidians",
+   "model": "cav_numidian"
+  },
+  "ecR": {
+   "x": 345,
+   "y": 72,
+   "w": 58,
+   "h": 14,
+   "side": "enemy",
+   "name": "Heavy cavalry",
+   "model": "cav_heavy"
+  }
+ },
+ "moveRules": [
+  {
+   "if": {
+    "cavlost": true
+   },
+   "u": {
+    "cavR": [
+     345,
+     150,
+     0
+    ]
+   }
+  }
+ ],
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 7
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "if": {
+    "wings": {
+     "gte": 1
+    }
+   },
+   "v": 24
+  },
+  {
+   "if": {
+    "wings": true
+   },
+   "v": 14
+  },
+  {
+   "v": 5
+  }
+ ],
+ "climax": {
+  "win": [
+   "Hasdrubal’s cavalry rides into a rear line of spears.",
+   "The African wheel stalls and the ring cannot close.",
+   "Hannibal’s army breaks. The field is Rome’s."
+  ],
+  "lose": [
+   "Hasdrubal’s cavalry rides into your rear.",
+   "The Africans close in. The ring is shut.",
+   "Night falls on a field of Roman dead."
+  ],
+  "cams": [
+   [
+    80,
+    40,
+    175,
+    0,
+    6,
+    100
+   ],
+   [
+    -90,
+    30,
+    160,
+    0,
+    6,
+    95
+   ],
+   [
+    0,
+    90,
+    190,
+    0,
+    0,
+    40
+   ]
+  ],
+  "anim": {
+   "lose": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Ground",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Open plain, wind and sun against you",
+     "tone": "r"
+    },
+    {
+     "text": "Camps guarded, a day lost",
+     "tone": "a"
+    },
+    {
+     "text": "Wind and dust at your back",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Open plain beside the Aufidus",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Cavalry",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Beaten on the river flank",
+     "tone": "r"
+    },
+    {
+     "text": "Held by javelin support",
+     "tone": "g"
+    },
+    {
+     "text": "Withdrawn, flanks open",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Hannibal has far more horse",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Formation",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Wide front, triarii on the wings",
+     "tone": "g"
+    },
+    {
+     "text": "Deep column packing together",
+     "tone": "r"
+    },
+    {
+     "text": "Standing and waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Deep legions awaiting orders",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Centre",
+   "decision": 4,
+   "options": [
+    {
+     "text": "Halted, line dressed",
+     "tone": "a"
+    },
+    {
+     "text": "Pushing into the crescent",
+     "tone": "r"
+    },
+    {
+     "text": "Advancing in step, reserves ready",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Gauls and Spaniards in a forward crescent",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Flanks",
+   "decision": 5,
+   "options": [
+    {
+     "text": "Breaking out toward Canusium",
+     "tone": "a"
+    },
+    {
+     "text": "Africans closing in",
+     "tone": "r"
+    },
+    [
+     {
+      "if": {
+       "rear": {
+        "gte": 1
+       }
+      },
+      "text": "Outer maniples turned out",
+      "tone": "g"
+     },
+     {
+      "text": "Turning late, line strained",
+      "tone": "a"
+     }
+    ]
+   ],
+   "default": {
+    "text": "African infantry waiting on both wings",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Deserters",
+   "options": [
+    {
+     "text": "Sent behind the line, still armed",
+     "tone": "r"
+    },
+    {
+     "text": "Searched, daggers found",
+     "tone": "g"
+    },
+    {
+     "text": "Turned away",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Numidians ride up",
+    "tone": "n"
+   },
+   "decision": 1
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The ground",
+   "text": "Hannibal waits on the open plain beside the Aufidus. His Numidian horsemen raid your water parties, and your army is eager to fight. Paullus wants to avoid open ground, but today is your day to command.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Deserters say Hannibal wants this open plain: his cavalry is stronger here, and the wind is at his back."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The Volturnus blows dust from the south-east into the face of anyone drawn up on the plain facing it, and the flat ground suits his heavy cavalry. Numidians are raiding your water parties. Guarding the water, or shifting the line, changes the odds."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form on the open plain as the army demands",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "set": {
+        "open": 1
+       },
+       "text": "Your legions deploy on flat ground that favours Hannibal’s cavalry. The wind and dust blow into your faces."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ecL": [
+         95,
+         100
+        ],
+        "ecR": [
+         305,
+         100
+        ]
+       }
+      }
+     ],
+     "cam": [
+      0,
+      60,
+      170,
+      0,
+      5,
+      -20
+     ]
+    },
+    {
+     "label": "Wait a day; guard the water parties with infantry",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "set": {
+        "water": 1
+       },
+       "text": "The raids are beaten off and the men drink, but a day is lost and Hannibal’s riders keep probing."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         330,
+         168
+        ]
+       }
+      }
+     ],
+     "cam": [
+      60,
+      35,
+      120,
+      130,
+      5,
+      43
+     ]
+    },
+    {
+     "label": "Shift your line so the wind and dust are at your back",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "r": 3,
+       "e": -6,
+       "set": {
+        "wind": 1
+       },
+       "text": "Hannibal has to redeploy. Now the dust blows toward his men and the sun is no longer in your eyes."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         60,
+         186
+        ],
+        "cavR": [
+         340,
+         186
+        ],
+        "prin": [
+         200,
+         198
+        ]
+       }
+      }
+     ],
+     "cam": [
+      -80,
+      50,
+      150,
+      0,
+      5,
+      50
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Deserters at the lines",
+   "event": true,
+   "text": "About 500 Numidian horsemen ride up to your line with their shields reversed. They say they have deserted Hannibal and want to fight for Rome.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The riders are all Numidians, and nobody has searched them."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Your scouts see long knives under their tunics. Deserters in the middle of a campaign who come in a body, armed and mounted, rarely come to change sides."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Disarm them of spear and shield, and send them to the rear",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "q": 0,
+       "text": "The Numidians put down their shields and spears and ride behind your line. When the fighting starts, they draw knives hidden under their tunics and cut at your rear."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "rear"
+    },
+    {
+     "label": "Surround them and search every man",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "q": 2,
+       "text": "Your troopers surround them and strip-search every man. Long knives come out of the tunics. The ambush is dead before it begins."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "rear"
+    },
+    {
+     "label": "Turn them away",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "q": 1,
+       "text": "You send them back to Hannibal. They keep their knives for another day, and are not at your back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "rear"
+    }
+   ]
+  },
+  {
+   "title": "The cavalry fight",
+   "text": "Your Roman cavalry on the right is pinned against the river, facing Hasdrubal’s heavy Gallic and Spanish horse. Your allied cavalry on the left faces the Numidians. Hannibal has far more cavalry than you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hannibal has put his Gallic and Spanish heavy horse against the river, where your cavalry is cramped."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Polybius gives him about 10,000 horse against your 6,000. A head-on charge by the river will probably lose the wing. Javelin men beside the cavalry would slow them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Charge the enemy horse head-on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "set": {
+        "cavlost": 1
+       },
+       "text": "Your riders are beaten in a cramped fight against the river, many of them dismounting. Your right flank is now open."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavR": [
+         335,
+         100
+        ],
+        "cavL": [
+         70,
+         104
+        ],
+        "ecR": [
+         335,
+         86
+        ]
+       },
+       "f": [
+        "cavR",
+        "ecR"
+       ]
+      }
+     ],
+     "cam": [
+      210,
+      40,
+      50,
+      135,
+      5,
+      -29
+     ]
+    },
+    {
+     "label": "Support the river cavalry with velites and hold the line",
+     "quality": 2,
+     "cost": 2,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -6,
+       "set": {
+        "wings": 1
+       },
+       "text": "Javelins and cavalry together hold the river flank. Hasdrubal’s riders cannot break through quickly."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         335,
+         150
+        ],
+        "cavR": [
+         335,
+         122
+        ],
+        "cavL": [
+         70,
+         122
+        ],
+        "ecR": [
+         335,
+         104
+        ]
+       },
+       "f": [
+        "cavR",
+        "ecR",
+        "vel"
+       ]
+      }
+     ],
+     "cam": [
+      205,
+      42,
+      70,
+      135,
+      5,
+      -5
+     ]
+    },
+    {
+     "label": "Pull both cavalry wings back as a reserve",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "set": {
+        "wings": 0.5
+       },
+       "text": "Your horse survives, but the flanks are open and Hannibal does not need to hurry."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         130,
+         205
+        ],
+        "cavR": [
+         270,
+         205
+        ],
+        "ecL": [
+         95,
+         110
+        ],
+        "ecR": [
+         305,
+         110
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": [
+      0,
+      90,
+      260,
+      0,
+      0,
+      70
+     ]
+    }
+   ]
+  },
+  {
+   "title": "The formation",
+   "text": "Your army is far larger than Hannibal’s, but the ground is narrow. Your officers want the maniples packed close and the column deep.",
+   "intel": {
+    "hint": [
+     {
+      "if": {
+       "cavlost": true
+      },
+      "text": "Your army is far larger. The danger is not numbers, but a column that jams. Your right flank is already open."
+     },
+     {
+      "text": "Your army is far larger. The danger is not numbers, but a column that jams."
+     }
+    ],
+    "scout": [
+     {
+      "text": "His front is no wider than yours despite your numbers. A deep column hits the Gauls hard but loses room to fight. A wider front gives him less to wrap around."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Widen the front; space the maniples and put triarii on the flanks",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "set": {
+        "wide": 1
+       },
+       "text": "Your line is longer and thinner. The crescent cannot easily wrap it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         200,
+         172
+        ],
+        "prin": [
+         110,
+         176
+        ],
+        "tri": [
+         290,
+         176
+        ],
+        "vel": [
+         200,
+         148
+        ]
+       }
+      }
+     ],
+     "cam": [
+      0,
+      45,
+      170,
+      0,
+      5,
+      40
+     ]
+    },
+    {
+     "label": "Keep the deep, narrow column to punch through the centre",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "set": {
+        "deep": 1
+       },
+       "text": "The mass hits the centre hard, but the legions pack together and lose room to fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         200,
+         160
+        ],
+        "prin": [
+         200,
+         181
+        ],
+        "tri": [
+         200,
+         203
+        ],
+        "vel": [
+         200,
+         140
+        ]
+       }
+      }
+     ],
+     "cam": [
+      0,
+      40,
+      150,
+      0,
+      5,
+      25
+     ]
+    },
+    {
+     "label": "Hold where you are and let Hannibal come",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -3,
+       "e": -6,
+       "set": {
+        "hold": 1
+       },
+       "text": "A steady line, but you give up the initiative. His crescent bulges forward unopposed."
+      }
+     ],
+     "move": [
+      {
+       "u": {}
+      }
+     ],
+     "cam": [
+      0,
+      70,
+      220,
+      0,
+      0,
+      40
+     ]
+    }
+   ]
+  },
+  {
+   "title": "The crescent gives way",
+   "text": "Hannibal’s Gauls and Spaniards fall back step by step. The enemy centre looks as if it is breaking.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hannibal’s centre bulges forward in a crescent and may give ground. His Africans stand at the ends, not yet engaged."
+     }
+    ],
+    "scout": [
+     {
+      "if": {
+       "wide": true
+      },
+      "text": "The crescent will retreat step by step. Chasing it packs your army tighter. Your wide front can follow in order."
+     },
+     {
+      "text": "The crescent will retreat step by step. Chasing it packs your army tighter. A packed column will be drawn into a wedge."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Halt and dress the line; refuse to follow the retreat",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "cavlost": true
+       },
+       "r": -10,
+       "e": -3,
+       "text": "With your right flank open, standing still lets his cavalry work freely."
+      },
+      {
+       "r": -3,
+       "e": -6,
+       "set": {
+        "halt": 1
+       },
+       "text": "The crescent holds its shape. Hannibal gains time, but you are not drawn in."
+      }
+     ],
+     "move": [
+      {
+       "u": {}
+      }
+     ],
+     "cam": [
+      0,
+      60,
+      190,
+      0,
+      0,
+      20
+     ]
+    },
+    {
+     "label": "Pursue: the Gauls and Spaniards are breaking",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "deep": true
+       },
+       "r": -20,
+       "e": -6,
+       "set": {
+        "wedge": 1
+       },
+       "text": "The packed column surges forward into a wedge. The Africans on both ends begin to close."
+      },
+      {
+       "r": -10,
+       "e": -10,
+       "text": "You push forward, but your line stretches as it chases."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         200,
+         122
+        ],
+        "prin": [
+         200,
+         144
+        ],
+        "gau": [
+         200,
+         106
+        ]
+       },
+       "f": [
+        "hast",
+        "gau"
+       ]
+      }
+     ],
+     "cam": [
+      -40,
+      38,
+      100,
+      0,
+      6,
+      -12
+     ]
+    },
+    {
+     "label": "Advance in step; keep two rear lines back to face the Africans",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "wide": true
+       },
+       "r": -6,
+       "e": -12,
+       "set": {
+        "rear": 1
+       },
+       "text": "Your wide front moves in order. The rear lines are ready for the African wings."
+      },
+      {
+       "r": -12,
+       "e": -8,
+       "set": {
+        "rear": 0.5
+       },
+       "text": "Your column is too packed to peel off reserves in time."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         200,
+         130
+        ],
+        "gau": [
+         200,
+         106
+        ],
+        "tri": [
+         200,
+         188
+        ]
+       },
+       "f": [
+        "hast",
+        "gau"
+       ]
+      }
+     ],
+     "cam": [
+      40,
+      40,
+      90,
+      0,
+      6,
+      -15
+     ]
+    }
+   ]
+  },
+  {
+   "title": "The African wheel",
+   "text": "Hannibal’s African infantry, at both ends of his line, begin to swing inward against your flanks.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The African infantry at both ends are beginning to wheel inward."
+     }
+    ],
+    "scout": [
+     {
+      "if": {
+       "rear": {
+        "gte": 1
+       }
+      },
+      "text": "Your rear lines can face the Africans as they swing in. Turning outward closes the gap before the ring forms."
+     },
+     {
+      "if": {
+       "wide": true
+      },
+      "text": "Your wide front has some room to turn, but you have little in reserve."
+     },
+     {
+      "text": "Your column is packed. Turning it outward will be slow and costly."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Break out toward Canusium on the one open side",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -12,
+       "e": 2,
+       "set": {
+        "retreat": 1
+       },
+       "text": "A fighting withdrawal saves part of the army, but the day is lost."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hast": [
+         160,
+         205
+        ],
+        "prin": [
+         240,
+         215
+        ]
+       }
+      }
+     ],
+     "cam": [
+      0,
+      90,
+      250,
+      0,
+      0,
+      50
+     ]
+    },
+    {
+     "label": "Keep fighting forward; the centre is nearly through",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -26,
+       "e": -4,
+       "text": "The ring closes around the centre."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "afL": [
+         130,
+         120
+        ],
+        "afR": [
+         270,
+         120
+        ]
+       },
+       "f": [
+        "afL",
+        "afR",
+        "hast"
+       ]
+      }
+     ],
+     "cam": [
+      0,
+      150,
+      120,
+      0,
+      0,
+      -10
+     ]
+    },
+    {
+     "label": "Turn the outer maniples and triarii outward to meet the Africans",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "fx": [
+      {
+       "if": {
+        "rear": {
+         "gte": 1
+        }
+       },
+       "r": -6,
+       "e": -14,
+       "set": {
+        "turned": 1
+       },
+       "text": "Your reserves face the Africans. The ring cannot close behind you."
+      },
+      {
+       "if": {
+        "wide": true
+       },
+       "r": -9,
+       "e": -10,
+       "set": {
+        "turned": 0.5
+       },
+       "text": "The wide line bends, but it holds."
+      },
+      {
+       "r": -18,
+       "e": -7,
+       "text": "Too late. The army is already packed too tightly to turn."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "afL": [
+         110,
+         140
+        ],
+        "afR": [
+         290,
+         140
+        ],
+        "prin": [
+         120,
+         160
+        ],
+        "tri": [
+         280,
+         160
+        ]
+       },
+       "f": [
+        "afL",
+        "afR",
+        "prin",
+        "tri"
+       ]
+      }
+     ],
+     "cam": [
+      0,
+      70,
+      130,
+      0,
+      5,
+      5
+     ]
+    }
+   ]
+  },
+  {
+   "title": "The rear",
+   "text": "Hasdrubal’s cavalry has beaten your allied horse and is riding round to your rear.",
+   "intel": {
+    "hint": [
+     {
+      "if": {
+       "wings": {
+        "gte": 1
+       }
+      },
+      "text": "Part of your cavalry survived on the flank."
+     },
+     {
+      "if": {
+       "wings": true
+      },
+      "text": "Your cavalry was kept back and is passive."
+     },
+     {
+      "text": "Your cavalry is gone."
+     }
+    ],
+    "scout": [
+     {
+      "if": {
+       "wings": {
+        "gte": 1
+       }
+      },
+      "text": "Hasdrubal’s horse is coming round your rear. Your surviving cavalry and a formed rear line can stop the ring closing."
+     },
+     {
+      "if": {
+       "wings": true
+      },
+      "text": "Hasdrubal’s horse is coming round your rear. Your cavalry is passive, but a rear line can still hold."
+     },
+     {
+      "text": "Hasdrubal’s horse is coming round your rear. With no cavalry left, little stands in their way."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form the triarii and any spare horse into a rear line",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "if": {
+        "wings": {
+         "gte": 1
+        }
+       },
+       "r": -4,
+       "e": -22,
+       "text": "Hasdrubal’s riders crash into a wall of spears. The ring cannot close, and the Africans are caught between your lines."
+      },
+      {
+       "if": {
+        "wings": true
+       },
+       "r": -8,
+       "e": -16,
+       "text": "Your rear line holds, but without much cavalry to help it."
+      },
+      {
+       "r": -14,
+       "e": -5,
+       "text": "With your cavalry gone, there is little to meet them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ecL": [
+         150,
+         245
+        ],
+        "ecR": [
+         250,
+         245
+        ],
+        "tri": [
+         200,
+         236
+        ]
+       },
+       "f": [
+        "tri",
+        "ecL",
+        "ecR"
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Charge to break out through the weakest point",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -8,
+       "text": "A costly breakout. Part of the army escapes, but the field is lost."
+      }
+     ],
+     "move": [
+      {
+       "u": {}
+      }
+     ]
+    },
+    {
+     "label": "Stand and fight where you are",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -20,
+       "e": -3,
+       "text": "The ring closes and the Romans are cut down where they stand."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ecL": [
+         130,
+         245
+        ],
+        "ecR": [
+         270,
+         245
+        ]
+       },
+       "f": [
+        "hast"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Cannae (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Cannae"
+  },
+  {
+   "title": "Livy 22 and Polybius 3 on Cannae (John Clare)",
+   "url": "https://johndclare.net/AncientHistory/Hannibal_Sources6.html"
+  },
+  {
+   "title": "Varro (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Gaius_Terentius_Varro"
+  }
+ ],
+ "winAt": 50,
+ "quotes": [
+  {
+   "text": "You know how to win a victory, Hannibal; you do not know how to use one.",
+   "who": "Maharbal, Hannibal’s cavalry commander, after the battle"
+  }
+ ]
+}

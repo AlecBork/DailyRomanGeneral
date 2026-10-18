@@ -1,0 +1,320 @@
+{
+ "start": "2026-10-17",
+ "battles": [
+  {
+   "id": "zama",
+   "name": "Zama",
+   "date": "202 BC",
+   "lat": 36.13,
+   "lon": 9.4,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "cannae",
+   "name": "Cannae",
+   "date": "216 BC",
+   "lat": 41.31,
+   "lon": 16.13,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "allia",
+   "name": "Allia",
+   "date": "387 BC",
+   "lat": 42.02,
+   "lon": 12.53,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "sentinum",
+   "name": "Sentinum",
+   "date": "295 BC",
+   "lat": 43.43,
+   "lon": 12.86,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "heraclea",
+   "name": "Heraclea",
+   "date": "280 BC",
+   "lat": 40.21,
+   "lon": 16.68,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "ecnomus",
+   "name": "Cape Ecnomus",
+   "date": "256 BC",
+   "lat": 37.05,
+   "lon": 13.9,
+   "result": "win",
+   "naval": true
+  },
+  {
+   "id": "bagradas",
+   "name": "Bagradas River",
+   "date": "255 BC",
+   "lat": 36.85,
+   "lon": 10,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "trebia",
+   "name": "Trebia",
+   "date": "218 BC",
+   "lat": 45.02,
+   "lon": 9.6,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "trasimene",
+   "name": "Trasimene",
+   "date": "217 BC",
+   "lat": 43.2,
+   "lon": 12.08,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "metaurus",
+   "name": "Metaurus",
+   "date": "207 BC",
+   "lat": 43.73,
+   "lon": 12.83,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "ilipa",
+   "name": "Ilipa",
+   "date": "206 BC",
+   "lat": 37.52,
+   "lon": -5.98,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "cynoscephalae",
+   "name": "Cynoscephalae",
+   "date": "197 BC",
+   "lat": 39.43,
+   "lon": 22.5,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "magnesia",
+   "name": "Magnesia",
+   "date": "190 BC",
+   "lat": 38.62,
+   "lon": 27.43,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "pydna",
+   "name": "Pydna",
+   "date": "168 BC",
+   "lat": 40.27,
+   "lon": 22.52,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "arausio",
+   "name": "Arausio",
+   "date": "105 BC",
+   "lat": 44.13,
+   "lon": 4.8,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "aquaesextiae",
+   "name": "Aquae Sextiae",
+   "date": "102 BC",
+   "lat": 43.53,
+   "lon": 5.45,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "vercellae",
+   "name": "Vercellae",
+   "date": "101 BC",
+   "lat": 45.32,
+   "lon": 8.42,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "carrhae",
+   "name": "Carrhae",
+   "date": "53 BC",
+   "lat": 36.87,
+   "lon": 39.03,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "gergovia",
+   "name": "Gergovia",
+   "date": "52 BC",
+   "lat": 45.71,
+   "lon": 3.12,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "alesia",
+   "name": "Alesia",
+   "date": "52 BC",
+   "lat": 47.54,
+   "lon": 4.5,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "pharsalus",
+   "name": "Pharsalus",
+   "date": "48 BC",
+   "lat": 39.3,
+   "lon": 22.38,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "philippi",
+   "name": "Philippi",
+   "date": "42 BC",
+   "lat": 41.01,
+   "lon": 24.25,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "actium",
+   "name": "Actium",
+   "date": "31 BC",
+   "lat": 38.95,
+   "lon": 20.73,
+   "result": "win",
+   "naval": true
+  },
+  {
+   "id": "teutoburg",
+   "name": "Teutoburg Forest",
+   "date": "9 AD",
+   "lat": 52.41,
+   "lon": 8.13,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "idistaviso",
+   "name": "Idistaviso",
+   "date": "16 AD",
+   "lat": 52.22,
+   "lon": 9.15,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "watlingstreet",
+   "name": "Watling Street",
+   "date": "61 AD",
+   "lat": 52.57,
+   "lon": -1.53,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "monsgraupius",
+   "name": "Mons Graupius",
+   "date": "83 AD",
+   "lat": 57.29,
+   "lon": -2.52,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "bedriacum",
+   "name": "Bedriacum",
+   "date": "69 AD",
+   "lat": 45.14,
+   "lon": 10.15,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "strasbourg",
+   "name": "Strasbourg",
+   "date": "357 AD",
+   "lat": 48.61,
+   "lon": 7.69,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "adrianople",
+   "name": "Adrianople",
+   "date": "378 AD",
+   "lat": 41.68,
+   "lon": 26.56,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "telamon",
+   "name": "Telamon",
+   "date": "225 BC",
+   "lat": 42.55,
+   "lon": 11.13,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "asculum",
+   "name": "Asculum",
+   "date": "279 BC",
+   "lat": 41.21,
+   "lon": 15.56,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "bibracte",
+   "name": "Bibracte",
+   "date": "58 BC",
+   "lat": 46.92,
+   "lon": 4.04,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "thapsus",
+   "name": "Thapsus",
+   "date": "46 BC",
+   "lat": 35.62,
+   "lon": 11.05,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "milvianbridge",
+   "name": "Milvian Bridge",
+   "date": "312 AD",
+   "lat": 41.94,
+   "lon": 12.47,
+   "result": "win",
+   "naval": false
+  }
+ ]
+}

@@ -1,0 +1,764 @@
+{
+ "id": "vercellae",
+ "name": "Battle of Vercellae",
+ "date": "101 BC",
+ "result": "win",
+ "loc": {
+  "lat": 45.32,
+  "lon": 8.42,
+  "place": "the Raudine Plain, northern Italy",
+  "short": "Vercellae",
+  "x": 287,
+  "y": 52
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Cimbri",
+  "commander": "Marius",
+  "foe": "Boiorix"
+ },
+ "intro": "The Raudine Plain in northern Italy, at the end of July. You are Gaius Marius, consul for the fifth time, with your colleague Catulus: about 52,000 men in all. The Cimbri under Boiorix have crossed the Alps, perhaps 120,000 warriors or more with their families and wagons.",
+ "debrief": "In reality, the Cimbri asked for land for themselves and the Teutones; Marius said the Teutones already had land, given by Rome, and showed the envoys their captive kings. Boiorix offered battle and let the Romans choose the place. The Romans formed facing west, so that the morning sun and the wind-blown dust were in the Cimbri’s faces. The Cimbri horse swung away in what may have been a feint; Sulla’s cavalry then drove it back into the Cimbri infantry. Catulus’s centre advanced with pila and swords, the wings closed in, and the Cimbri, suffering in the heat, were driven back onto their wagons; Boiorix died fighting. The site is disputed (traditionally near Vercelli; some argue for the Po delta). Roman losses are put at a few hundred to a thousand, and Cimbri losses at 65,000 to well over 100,000. Marius and Catulus later quarrelled over the credit. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#a4a45e",
+  "ground": "#c0a46c",
+  "roads": [
+   [
+    0,
+    140,
+    400,
+    150,
+    6
+   ]
+  ],
+  "weather": "dust"
+ },
+ "units": {
+  "marL": {
+   "x": 80,
+   "y": 192,
+   "w": 80,
+   "h": 14,
+   "side": "roman",
+   "name": "Marius’s wing",
+   "model": "legionary"
+  },
+  "cat": {
+   "x": 200,
+   "y": 194,
+   "w": 100,
+   "h": 14,
+   "side": "roman",
+   "name": "Catulus’s centre",
+   "model": "hastati"
+  },
+  "marR": {
+   "x": 310,
+   "y": 192,
+   "w": 70,
+   "h": 14,
+   "side": "roman",
+   "name": "Marius’s wing",
+   "model": "legionary"
+  },
+  "sul": {
+   "x": 370,
+   "y": 206,
+   "w": 40,
+   "h": 14,
+   "side": "roman",
+   "name": "Sulla’s cavalry",
+   "model": "cav_roman"
+  },
+  "cim": {
+   "x": 200,
+   "y": 80,
+   "w": 170,
+   "h": 20,
+   "side": "enemy",
+   "name": "Cimbri",
+   "model": "barbarian",
+   "scales": true
+  },
+  "ccav": {
+   "x": 300,
+   "y": 56,
+   "w": 80,
+   "h": 14,
+   "side": "enemy",
+   "name": "Cimbri horsemen (15,000)",
+   "model": "cav_heavy"
+  },
+  "wag": {
+   "x": 200,
+   "y": 30,
+   "w": 180,
+   "h": 8,
+   "side": "enemy",
+   "name": "Wagon laager",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Cimbri are driven onto their wagons.",
+   "Boiorix falls with his nobles.",
+   "The Cimbri are destroyed."
+  ],
+  "lose": [
+   "The great square holds.",
+   "The Cimbri break your line.",
+   "Italy lies open to the north."
+  ],
+  "cams": [
+   "front",
+   "rightflank",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Diplomacy",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Envoys shaken, you choose the ground",
+     "tone": "g"
+    },
+    {
+     "text": "Seen as weak",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Envoys in camp",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The field",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Sun and wind at your back",
+     "tone": "g"
+    },
+    {
+     "text": "In the hills",
+     "tone": "a"
+    },
+    {
+     "text": "Their choice",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Choosing ground",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The line",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Held firm",
+     "tone": "g"
+    },
+    {
+     "text": "Broken by pursuit",
+     "tone": "r"
+    },
+    {
+     "text": "Wing turned",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Facing the Cimbri",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Cavalry",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Cimbri horse driven back",
+     "tone": "g"
+    },
+    {
+     "text": "In reserve",
+     "tone": "a"
+    },
+    {
+     "text": "Far from the fight",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "On the right",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The envoys",
+   "text": "Cimbri envoys come to your camp. They demand land for themselves and for their kin, the Teutones.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Teutones were destroyed at Aquae Sextiae last year. Their kings are your prisoners."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Showing the envoys their captured kings will shake the Cimbri and make their king hurry to fight on your terms."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Tell them their kin already have land, and show them the captive Teutonic kings",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 2,
+       "e": -8,
+       "set": {
+        "choose": 1
+       },
+       "text": "Marius says the Teutones already have land, given them by Rome. Then he shows the envoys their kings in chains. Boiorix offers battle and lets you choose the place and day."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer them land to settle",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": 4,
+       "text": "The Senate will never agree. The Cimbri take it as weakness."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send them away without an answer",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -5,
+       "text": "The Cimbri stay where they are and wait."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The field",
+   "text": "Boiorix leaves the choice of ground to you. It is high summer. The Cimbri come from the north and have never fought in Italian heat.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Raudine Plain is dry and dusty. The sun will rise behind you if you face west."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Face west on the open plain: the morning sun is in their eyes and the wind carries your dust into their faces. Form first and let them come."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form on the open plain facing west, with the sun and wind at your back",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "choose": true
+       },
+       "r": -2,
+       "e": -14,
+       "set": {
+        "sun": 1
+       },
+       "text": "The army forms early, facing west. The morning sun flashes on your helmets and the wind blows your dust into the Cimbri’s faces."
+      },
+      {
+       "r": -2,
+       "e": -8,
+       "set": {
+        "sun": 1
+       },
+       "text": "You form on the plain, but the Cimbri have chosen their own hour."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cat": [
+         200,
+         192
+        ],
+        "marL": [
+         80,
+         190
+        ],
+        "marR": [
+         310,
+         190
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight in the hills where the cavalry cannot ride",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -7,
+       "text": "The hills slow the Cimbri horse, but they also break up your line."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let them come where they like",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The Cimbri choose ground that suits them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The horsemen turn",
+   "text": "The Cimbri come on in a huge square, their 15,000 horsemen in front. Suddenly the horsemen swing to your right, as if to retreat or to ride round.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Some of your legionaries are starting to run after them."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A feigned retreat is the oldest trick there is. Men who chase it lose their formation and are cut down by the next wave."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold the line and let no one pursue",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "sun": true
+       },
+       "r": -2,
+       "e": -12,
+       "set": {
+        "held": 1
+       },
+       "text": "The officers hold the ranks. The Cimbri, dazzled by the sun, cannot tell where your line is weak."
+      },
+      {
+       "r": -4,
+       "e": -8,
+       "set": {
+        "held": 1
+       },
+       "text": "The ranks hold."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ccav": [
+         360,
+         90
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Let the legions pursue the fleeing horse",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -16,
+       "e": -2,
+       "text": "The pursuers break ranks and the Cimbri infantry falls on them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "marR": [
+         330,
+         120
+        ],
+        "cim": [
+         260,
+         120
+        ]
+       },
+       "f": [
+        "marR",
+        "cim"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Wheel the right wing to face them",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -7,
+       "text": "The wing turns, but a gap opens beside it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "marR": [
+         330,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Sulla’s cavalry",
+   "text": "On the far right, your cavalry under Lucius Cornelius Sulla faces the Cimbri horse as it swings round.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Cimbri horsemen are bunched up after their turn."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cavalry that hits bunched horsemen from the flank can drive them back into their own infantry."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Sulla charges and drives the horsemen back into their own infantry",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "held": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "Sulla’s horse crashes into the Cimbri cavalry and drives it back into its own infantry. The great square is thrown into chaos."
+      },
+      {
+       "r": -4,
+       "e": -12,
+       "text": "Sulla drives the horsemen back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "sul": [
+         330,
+         90
+        ],
+        "ccav": [
+         260,
+         70
+        ]
+       },
+       "f": [
+        "sul",
+        "ccav",
+        "cim"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Keep the cavalry in reserve",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -7,
+       "text": "The Cimbri horse re-forms."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Send the cavalry round to the wagons",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -4,
+       "text": "Sulla’s horse is far from the fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "sul": [
+         380,
+         30
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "rear"
+    }
+   ]
+  },
+  {
+   "title": "Heat and iron",
+   "text": "The Cimbri infantry is in disorder and suffering in the heat. Catulus’s centre faces the mass of them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Cimbri are tiring in the heat."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pila first, then swords at close quarters. Let the wings close on both flanks, and drive them back onto their own wagons."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Advance the centre with pila and swords, and close the wings on both flanks",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "held": true,
+        "sun": true
+       },
+       "r": -2,
+       "e": -22,
+       "text": "The pila fall, the swords come out, and the wings close in. The Cimbri are driven back against their wagons. Boiorix and his nobles die fighting."
+      },
+      {
+       "r": -4,
+       "e": -14,
+       "text": "The Cimbri are driven back toward their wagons."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cat": [
+         200,
+         120
+        ],
+        "marL": [
+         110,
+         110
+        ],
+        "marR": [
+         290,
+         110
+        ],
+        "cim": [
+         200,
+         60
+        ]
+       },
+       "f": [
+        "cat",
+        "marL",
+        "marR",
+        "cim"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Charge the whole army straight ahead",
+     "quality": 1,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -11,
+       "text": "The charge hits the mass head-on."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cat": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "cat",
+        "cim"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Wait for the heat to finish them",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The Cimbri recover their order."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Vercellae (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Vercellae"
+  }
+ ]
+}

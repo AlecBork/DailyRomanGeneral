@@ -1,0 +1,816 @@
+{
+ "id": "ilipa",
+ "name": "Battle of Ilipa",
+ "date": "206 BC",
+ "result": "win",
+ "loc": {
+  "x": 300,
+  "y": 153,
+  "place": "Ilipa, southern Spain",
+  "short": "Ilipa",
+  "lat": 37.52,
+  "lon": -5.98
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Scipio Africanus",
+  "foe": "Hasdrubal Gisco"
+ },
+ "intro": "A hillside in southern Spain, in the Second Punic War. You are Scipio, with perhaps 48,000 men, about half of them Iberian allies. The Carthaginians under Hasdrubal Gisco and Mago have some 74,000 and 32 elephants, by the main ancient account.",
+ "debrief": "In reality, the two armies drew up in the same order for several days. On the day of the battle Scipio reversed his order, putting the legions on the wings and the Iberians in the centre. At dawn he sent his velites and cavalry against the Carthaginian camp, catching the Carthaginians before they had breakfasted. The velites were placed between the legions and the cavalry to meet the elephants. The Iberian centre was held back while the wings wheeled and took the Carthaginians in the flank. The Carthaginians fled to their camp, and a storm stopped the pursuit. Accounts put Roman losses at about 7,000 and Carthaginian at over 48,000, though one gives the armies as nearly equal in size, and the exact site is uncertain. Several of the choices here are the real ones, others are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    10,
+    170,
+    22
+   ],
+   [
+    200,
+    250,
+    160,
+    10
+   ]
+  ]
+ },
+ "units": {
+  "vel": {
+   "x": 200,
+   "y": 176,
+   "w": 110,
+   "h": 8,
+   "side": "roman",
+   "name": "Velites",
+   "model": "velites"
+  },
+  "legL": {
+   "x": 110,
+   "y": 192,
+   "w": 100,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman legions (left)",
+   "model": "hastati"
+  },
+  "legR": {
+   "x": 290,
+   "y": 192,
+   "w": 100,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman legions (right)",
+   "model": "hastati"
+  },
+  "ibe": {
+   "x": 200,
+   "y": 196,
+   "w": 110,
+   "h": 14,
+   "side": "roman",
+   "name": "Iberian allies (centre)",
+   "model": "levy"
+  },
+  "cavL": {
+   "x": 40,
+   "y": 208,
+   "w": 50,
+   "h": 14,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "cavR": {
+   "x": 360,
+   "y": 208,
+   "w": 50,
+   "h": 14,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_numidian"
+  },
+  "afr": {
+   "x": 200,
+   "y": 82,
+   "w": 120,
+   "h": 14,
+   "side": "enemy",
+   "name": "Carthaginian African infantry (centre)",
+   "model": "african",
+   "scales": true
+  },
+  "ibeE": {
+   "x": 90,
+   "y": 84,
+   "w": 80,
+   "h": 14,
+   "side": "enemy",
+   "name": "Iberians",
+   "model": "veteran",
+   "scales": true
+  },
+  "ibeE2": {
+   "x": 310,
+   "y": 84,
+   "w": 80,
+   "h": 14,
+   "side": "enemy",
+   "name": "Iberians",
+   "model": "veteran",
+   "scales": true
+  },
+  "ele": {
+   "x": 200,
+   "y": 50,
+   "w": 90,
+   "h": 10,
+   "side": "enemy",
+   "name": "Elephants (32)",
+   "model": "elephant"
+  },
+  "cavE": {
+   "x": 40,
+   "y": 66,
+   "w": 50,
+   "h": 14,
+   "side": "enemy",
+   "name": "Carthaginian cavalry",
+   "model": "cav_punic"
+  },
+  "cavE2": {
+   "x": 360,
+   "y": 66,
+   "w": 50,
+   "h": 14,
+   "side": "enemy",
+   "name": "Numidian cavalry",
+   "model": "cav_numidian"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The wings meet behind the Carthaginian centre.",
+   "The Africans are held in the middle and cut up.",
+   "Hasdrubal’s army is smashed."
+  ],
+  "lose": [
+   "The Africans hold the centre.",
+   "The wings are thrown back.",
+   "The Carthaginians keep the field."
+  ],
+  "cams": [
+   "front",
+   "push",
+   "wide"
+  ],
+  "anim": {
+   "win": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Deployment",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Same as before",
+     "tone": "a"
+    },
+    {
+     "text": "Order reversed at dawn",
+     "tone": "g"
+    },
+    {
+     "text": "Declined",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Facing the Carthaginians",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Dawn",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Raid on a fasting camp",
+     "tone": "g"
+    },
+    {
+     "text": "Fought after they had eaten",
+     "tone": "a"
+    },
+    {
+     "text": "In camp",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Waiting",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Elephants",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Velites cover the gap",
+     "tone": "g"
+    },
+    {
+     "text": "Cavalry charge",
+     "tone": "r"
+    },
+    {
+     "text": "Legions alone",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "In front of the enemy centre",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The wings",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Wheeling onto the flanks",
+     "tone": "g"
+    },
+    {
+     "text": "Even advance",
+     "tone": "r"
+    },
+    {
+     "text": "Held",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Engaged",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Deployment",
+   "text": "For several days the two armies have drawn up in the same order: the Romans in the centre, the Iberian allies on the wings, and the Carthaginians in the centre of theirs. Scipio has watched the habit.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hasdrubal Gisco always puts his best troops in his centre, and always at the same hour."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The enemy has watched you, too. Their best troops, the Africans, are in the centre. Your best troops are the legions. A change at the right moment gets the legions onto the weaker troops."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Deploy as on the previous days",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "The armies face each other in the old order. The Carthaginians feel secure."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Reverse the order at dawn: legions on the wings, Iberians in the centre",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "reversed": 1
+       },
+       "text": "At dawn the legions form on the wings and the Iberians in the centre. The enemy sees nothing until the line is formed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legL": [
+         75,
+         192
+        ],
+        "legR": [
+         325,
+         192
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Decline battle again",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Nothing happens. The Carthaginians grow bolder."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Dawn",
+   "text": "Hasdrubal's army has not yet eaten. His men are in camp, finishing breakfast, and their horse are not saddled.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Carthaginians feed their troops in the morning and arm afterwards."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A force that attacks before the enemy has eaten and armed himself fights men who are tired, hungry and in disorder. The velites and cavalry are the right arm for it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send velites and cavalry to hit the Carthaginian camp before they have eaten",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "reversed": true
+       },
+       "r": -2,
+       "e": -18,
+       "set": {
+        "raid": 1
+       },
+       "text": "The Carthaginians are caught fasting and unarmed, and hurry into a line in disorder."
+      },
+      {
+       "r": -4,
+       "e": -12,
+       "set": {
+        "raid": 1
+       },
+       "text": "The raid catches the Carthaginians breakfasting, but they are not yet surprised by the line."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         200,
+         120
+        ],
+        "cavL": [
+         60,
+         100
+        ],
+        "cavR": [
+         340,
+         100
+        ]
+       },
+       "f": [
+        "vel",
+        "cavL",
+        "cavR",
+        "afr"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait until the Carthaginians have formed and then advance",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -4,
+       "text": "The Carthaginians have eaten and formed. The advance meets them in good order."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold in camp",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": 0,
+       "text": "Nothing happens."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The elephants",
+   "text": "The Carthaginians hold 32 elephants in front of the centre, and horse on the wings. Your own light troops must keep the elephants out of your line.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The elephants will advance with the Carthaginian line."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Light troops in the gap between the legions and the cavalry can throw javelins at elephants as they come. Spread out, the elephants are less dangerous."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Place the velites between the legions and the cavalry to meet the elephants",
+     "quality": 2,
+     "cost": 2,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "ele": 1
+       },
+       "text": "The velites loose javelins at the elephants as they come. The animals panic and run back on the Carthaginian lines."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "vel",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge the elephants with the cavalry",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The cavalry meets the elephants head on, and the horses shy."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         60,
+         100
+        ],
+        "cavR": [
+         340,
+         100
+        ]
+       },
+       "f": [
+        "cavL",
+        "cavR",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hold the elephants with the legions only",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -4,
+       "text": "The legions can stand, but they are disordered."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The wings wheel",
+   "text": "Your Iberian centre has not been ordered forward. On the wings the legions advance, and the Carthaginian line is slow to react.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Iberian centre is the weakest part of your line."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The Africans in the centre are the best of the Carthaginian army, and they are not where they can fight. Slowing the Iberian centre while the wings wheel in turns the line into a fork."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold back the centre while the wings wheel in on the enemy flanks",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "reversed": true,
+        "raid": true
+       },
+       "r": -2,
+       "e": -24,
+       "text": "The wings wheel on the enemy flanks while the Africans, in the centre, are held off from fighting. The Carthaginian line is rolled up."
+      },
+      {
+       "r": -6,
+       "e": -14,
+       "text": "The wings wheel in, but the enemy is better prepared."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legL": [
+         150,
+         110
+        ],
+        "legR": [
+         250,
+         110
+        ],
+        "ibe": [
+         200,
+         196
+        ]
+       },
+       "f": [
+        "legL",
+        "legR",
+        "ibeE",
+        "ibeE2"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Advance the whole line evenly",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -4,
+       "text": "The whole line advances and meets the Africans in the centre."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ibe": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "ibe",
+        "afr"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hold the line and let the Carthaginians come",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "The enemy comes on, but not in good order."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Pursuit",
+   "text": "The Carthaginian line has broken. They run for their camp, in the hills. A rainstorm breaks.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Carthaginians are running for the hills."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A beaten army in the hills can recover. One that is pursued to its camp cannot."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pursue to the camp and cut off the retreat",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "The Romans pursue the Carthaginians to their camp. A storm halts the final blow, but the army is broken."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         200,
+         100
+        ],
+        "legL": [
+         110,
+         100
+        ],
+        "legR": [
+         290,
+         100
+        ]
+       },
+       "f": [
+        "legL",
+        "legR"
+       ]
+      }
+     ],
+     "cam": "push"
+    },
+    {
+     "label": "Halt to re-form the line",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -4,
+       "text": "The Carthaginians reach the hills and reform."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the cavalry only",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -6,
+       "text": "The cavalry harries the retreat, but the infantry escapes."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         60,
+         60
+        ],
+        "cavR": [
+         340,
+         60
+        ]
+       },
+       "f": [
+        "cavL",
+        "cavR"
+       ]
+      }
+     ],
+     "cam": "push"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Ilipa (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Ilipa"
+  }
+ ]
+}

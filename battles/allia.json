@@ -1,0 +1,835 @@
+{
+ "id": "allia",
+ "name": "Battle of the Allia",
+ "date": "387 BC",
+ "result": "loss",
+ "loc": {
+  "x": 339,
+  "y": 107,
+  "place": "the Allia, north of Rome",
+  "short": "Allia",
+  "lat": 42.02,
+  "lon": 12.53
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Gauls",
+  "commander": "Sulpicius",
+  "foe": "Brennus"
+ },
+ "intro": "At the confluence of the Tiber and the Allia brook, about 16 km north of Rome. A Senone Gallic army under Brennus is marching on the city. Ancient writers give the Roman army as 24,000 to 40,000; modern scholars disagree widely on both sides, from a few thousand each to a Gaulish army much larger than yours.",
+ "debrief": "In reality, the Romans fought without making a camp or rampart or taking the auspices. They stretched their wings to avoid being outflanked, thinning the centre, and put their reserves on a hill on the right. Brennus took the hill for a trap and attacked it first. The left wing threw down its arms and ran for the Tiber, where men in armour drowned; survivors fled to Veii or to Rome, and the Gauls entered the city. The date is uncertain (traditionally 390 BC; 387 BC on the chronology most modern historians prefer), the numbers are unreliable, and some historians doubt how destructive the sack was. The anchored line, rested army and central reserve are what-ifs, not things the Romans did.",
+ "terrain": {
+  "river": {
+   "x": -214,
+   "w": 26
+  },
+  "hills": [
+   [
+    345,
+    150,
+    48,
+    16
+   ]
+  ]
+ },
+ "units": {
+  "lw": {
+   "x": 70,
+   "y": 192,
+   "w": 70,
+   "h": 14,
+   "side": "roman",
+   "name": "Left wing",
+   "model": "legionary"
+  },
+  "cn": {
+   "x": 200,
+   "y": 196,
+   "w": 100,
+   "h": 14,
+   "side": "roman",
+   "name": "Centre",
+   "model": "legionary"
+  },
+  "rw": {
+   "x": 330,
+   "y": 192,
+   "w": 70,
+   "h": 14,
+   "side": "roman",
+   "name": "Right wing",
+   "model": "legionary"
+  },
+  "res": {
+   "x": 200,
+   "y": 226,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Reserve",
+   "model": "auxiliary"
+  },
+  "gl": {
+   "x": 90,
+   "y": 88,
+   "w": 70,
+   "h": 14,
+   "side": "enemy",
+   "name": "Gauls",
+   "model": "gaul",
+   "scales": true
+  },
+  "gc": {
+   "x": 200,
+   "y": 80,
+   "w": 110,
+   "h": 14,
+   "side": "enemy",
+   "name": "Senone warband",
+   "model": "gaul",
+   "scales": true
+  },
+  "gr": {
+   "x": 310,
+   "y": 88,
+   "w": 70,
+   "h": 14,
+   "side": "enemy",
+   "name": "Gauls",
+   "model": "gaul",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Gauls recoil from the steady line.",
+   "Brennus finds no weak point and falls back.",
+   "Rome is spared the sack."
+  ],
+  "lose": [
+   "The left wing dissolves into the river.",
+   "Brennus’s warriors pour toward Rome.",
+   "The road to the city lies open."
+  ],
+  "cams": [
+   "right",
+   "clash",
+   "wide"
+  ],
+  "anim": {
+   "lose": "drown"
+  }
+ },
+ "status": [
+  {
+   "label": "Preparation",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Rushed, no camp, no auspices",
+     "tone": "r"
+    },
+    {
+     "text": "Camp built, time lost",
+     "tone": "a"
+    },
+    {
+     "text": "Rested, auspices taken",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "The Gauls are close",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Line",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Compact, wings bent back",
+     "tone": "a"
+    },
+    {
+     "text": "Wings stretched, centre thin",
+     "tone": "r"
+    },
+    {
+     "text": "Anchored on river and hill",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Gauls longer than your line",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Reserve",
+   "decision": 2,
+   "options": [
+    {
+     "text": "On the hill, a tempting target",
+     "tone": "r"
+    },
+    {
+     "text": "Behind the centre, ready",
+     "tone": "g"
+    },
+    {
+     "text": "In the front rank",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Held in hand",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Left wing",
+   "decision": 4,
+   "options": [
+    {
+     "text": "Withdrawing in order",
+     "tone": "a"
+    },
+    {
+     "text": "Steadied by the reserve",
+     "tone": "g"
+    },
+    {
+     "text": "Broken and running",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Holding",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Before the battle",
+   "text": "The Senones are marching on Rome and are close. Your army has marched fast and is tired. Your officers want to deploy at once.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your priests say the omens have not been read. Fighting on the open ground leaves nothing behind you to rally on."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The Gauls are not in battle order yet. A rested army that has taken the auspices fights better, and ground with a river on one side and a hill on the other shortens the front you must hold."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form up at once, with no camp and no auspices",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "set": {
+        "rushed": 1
+       },
+       "text": "The army deploys in haste, with no rampart to fall back on and the sacrifices unmade."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cn": [
+         200,
+         190
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "lowfront"
+    },
+    {
+     "label": "Dig a camp and wait behind the rampart",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 2,
+       "e": -2,
+       "set": {
+        "camp": 1
+       },
+       "text": "A rampart gives you a place to rally, but it costs time and the Gauls may simply march on Rome."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "res": [
+         200,
+         236
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "lowfront"
+    },
+    {
+     "label": "Take the auspices, rest the men, then deploy between the Tiber and the hill",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "r": 3,
+       "e": -8,
+       "set": {
+        "prep": 1
+       },
+       "text": "The men rest and the sacrifices are made. The army forms with the river on its left and a hill on its right."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lw": [
+         70,
+         186
+        ],
+        "rw": [
+         330,
+         186
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Frontage",
+   "text": "The Gauls are the longer line. If your wings are too short they will be wrapped. If you stretch them, the centre thins.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your tribunes are worried the Gauls will wrap both wings."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A line anchored on the river and the hill cannot be wrapped, and it can be kept deep. A line stretched out to match the Gauls will be thin in the centre."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold a compact line and bend the wings back",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -6,
+       "text": "The line is compact, but the wings are bent back and the enemy gets round them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lw": [
+         70,
+         196
+        ],
+        "rw": [
+         330,
+         196
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Stretch the wings to match the Gauls, thinning the centre",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "set": {
+        "thin": 1
+       },
+       "text": "Your wings reach out to match the enemy, but the centre is thin."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lw": [
+         70,
+         186
+        ],
+        "rw": [
+         330,
+         186
+        ],
+        "cn": [
+         200,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Anchor the left on the Tiber and the right on the hill; keep the line deep",
+     "quality": 2,
+     "cost": 2,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "set": {
+        "anchored": 1
+       },
+       "text": "The river and the hill guard your flanks. The line is short but deep."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cn": [
+         200,
+         190
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The reserve",
+   "text": "You have picked men in hand. Where they stand will decide how Brennus reads your line.",
+   "intel": {
+    "hint": [
+     {
+      "text": "A force on the hill looks like an ambush to a careful enemy. A force behind the line looks like nothing."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Brennus is cautious about tricks. A force on the hill on your right will draw his first attack. A reserve behind the centre can reach either wing."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Put the reserve on the hill on the right",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -4,
+       "set": {
+        "hillres": 1
+       },
+       "text": "The reserve climbs the hill. Brennus takes it for a trap and prepares to hit it first."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "res": [
+         345,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Keep it behind the centre, ready for either wing",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -3,
+       "e": -10,
+       "set": {
+        "reserve": 1
+       },
+       "text": "The reserve waits behind the centre where it can reach either wing."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "res": [
+         200,
+         232
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Put it in the front rank to stiffen the centre",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "The centre is stiff, but you have nothing left in hand."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "res": [
+         200,
+         176
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Brennus attacks",
+   "text": "The Gauls come on with a roar. Brennus looks for the weak point in your line.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Gauls are strung out as they come off their start line."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The Gauls are charging in loose order. A counter-charge that hits them as they arrive can shake them, if your line is deep and your flanks are covered."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stand where you are and let them come",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "thin": true,
+        "hillres": true
+       },
+       "r": -22,
+       "e": -3,
+       "text": "Brennus takes the hill first, and your thin line begins to give way."
+      },
+      {
+       "r": -12,
+       "e": -4,
+       "text": "The Gauls crash into you and your line bends but holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "gc": [
+         200,
+         120
+        ],
+        "gl": [
+         90,
+         125
+        ],
+        "gr": [
+         310,
+         125
+        ]
+       },
+       "f": [
+        "cn",
+        "gc"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Counter-charge as they arrive, while they are strung out",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "fx": [
+      {
+       "if": {
+        "anchored": true
+       },
+       "r": -8,
+       "e": -18,
+       "text": "Your deep, anchored line meets them as they arrive. The charge breaks the front of the warband."
+      },
+      {
+       "if": {
+        "reserve": true
+       },
+       "r": -10,
+       "e": -14,
+       "text": "Your charge catches the Gauls loose. The reserve behind you is ready to follow."
+      },
+      {
+       "r": -16,
+       "e": -6,
+       "text": "The charge meets a stronger line than you expected and stalls."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "gc": [
+         200,
+         115
+        ],
+        "gl": [
+         90,
+         125
+        ],
+        "gr": [
+         310,
+         125
+        ],
+        "cn": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "cn",
+        "gc"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Fall back a step to the river bank and close up",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "You close up with the Tiber behind you, but give ground."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lw": [
+         70,
+         205
+        ],
+        "cn": [
+         200,
+         205
+        ],
+        "rw": [
+         330,
+         205
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "The left wing wavers",
+   "text": "On the left, men begin to throw down their arms. The Tiber is behind them, and men in armour cannot swim.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The left wing is looking back over its shoulder."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Men in armour drown in the Tiber if the left runs. A steady officer in the front rank and a reserve in hand can stop the panic."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Order the left to withdraw along the bank in good order",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "The left falls back in order. It is not routed, but it is out of the fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lw": [
+         70,
+         210
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Send the reserve to the left and put the officers in the front rank",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "reserve": true
+       },
+       "r": -4,
+       "e": -18,
+       "text": "The reserve steadies the left, and the Gauls are held and pushed back. They have no heart to press on."
+      },
+      {
+       "r": -8,
+       "e": -8,
+       "text": "The officers hold the front rank, but without a reserve the left is still shaky."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "res": [
+         70,
+         196
+        ],
+        "gl": [
+         90,
+         110
+        ]
+       },
+       "f": [
+        "lw",
+        "gl"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Hold the centre and right; the left must look after itself",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -16,
+       "e": -2,
+       "text": "The left runs for the river. Men in armour drown, and the centre is exposed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lw": [
+         70,
+         235
+        ],
+        "gl": [
+         90,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Allia (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Allia"
+  }
+ ],
+ "winAt": 50,
+ "quotes": [
+  {
+   "text": "Vae victis! Woe to the conquered!",
+   "who": "Brennus, as the Romans paid their ransom after the sack of Rome"
+  }
+ ]
+}

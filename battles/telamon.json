@@ -1,0 +1,806 @@
+{
+ "id": "telamon",
+ "name": "Battle of Telamon",
+ "date": "225 BC",
+ "result": "win",
+ "loc": {
+  "lat": 42.55,
+  "lon": 11.13,
+  "place": "Telamon, on the coast of Etruria",
+  "short": "Telamon",
+  "x": 321,
+  "y": 101
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Gauls",
+  "commander": "Aemilius Papus",
+  "foe": "Concolitanus and Aneroestes"
+ },
+ "intro": "Near Telamon on the coast of Etruria. You are the consul Lucius Aemilius Papus, following a great Gallic army north with its plunder, perhaps 50,000 foot and 20,000 horse. Your colleague Gaius Atilius Regulus is marching south toward it from Pisae. Between you, the Romans have far more men.",
+ "debrief": "In reality, the Gallic army found itself between two consular armies. Regulus sent cavalry to seize a hill above the road; the Gauls contested it, and Regulus was killed in the cavalry fight, but Papus’s horsemen helped win the hill. The Gauls formed up facing both ways, with wagons and chariots on the wings and the naked Gaesatae at the rear facing Papus. Roman velites showered the Gaesatae with javelins; some charged wildly and died, others fell back in disorder. The Insubres, Boii and Taurisci held the hastati and principes, until the Roman cavalry charged down from the hill into their flank. About 40,000 Gauls were killed and 10,000 captured, including King Concolitanus; Aneroestes escaped and killed himself. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    330,
+    40,
+    60,
+    22
+   ]
+  ],
+  "lakes": [
+   [
+    -40,
+    120,
+    70,
+    140
+   ]
+  ],
+  "roads": [
+   [
+    60,
+    0,
+    60,
+    250,
+    7
+   ]
+  ]
+ },
+ "units": {
+  "pap": {
+   "x": 200,
+   "y": 206,
+   "w": 140,
+   "h": 14,
+   "side": "roman",
+   "name": "Papus’s army",
+   "model": "hastati"
+  },
+  "vel": {
+   "x": 200,
+   "y": 186,
+   "w": 140,
+   "h": 8,
+   "side": "roman",
+   "name": "Velites",
+   "model": "velites"
+  },
+  "reg": {
+   "x": 200,
+   "y": 30,
+   "w": 130,
+   "h": 12,
+   "side": "roman",
+   "name": "Regulus’s army",
+   "model": "principes"
+  },
+  "rcav": {
+   "x": 330,
+   "y": 50,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Regulus’s cavalry",
+   "model": "cav_roman"
+  },
+  "pcav": {
+   "x": 60,
+   "y": 214,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Papus’s cavalry",
+   "model": "cav_roman"
+  },
+  "gae": {
+   "x": 200,
+   "y": 150,
+   "w": 120,
+   "h": 12,
+   "side": "enemy",
+   "name": "Gaesatae (naked)",
+   "model": "gaul",
+   "scales": true
+  },
+  "ins": {
+   "x": 200,
+   "y": 118,
+   "w": 130,
+   "h": 14,
+   "side": "enemy",
+   "name": "Insubres",
+   "model": "gaul",
+   "scales": true
+  },
+  "boi": {
+   "x": 200,
+   "y": 80,
+   "w": 130,
+   "h": 12,
+   "side": "enemy",
+   "name": "Boii & Taurisci",
+   "model": "barbarian",
+   "scales": true
+  },
+  "gcav": {
+   "x": 320,
+   "y": 70,
+   "w": 50,
+   "h": 12,
+   "side": "enemy",
+   "name": "Gallic horse",
+   "model": "cav_heavy"
+  },
+  "wag": {
+   "x": 40,
+   "y": 115,
+   "w": 30,
+   "h": 60,
+   "side": "enemy",
+   "name": "Wagons & chariots",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The cavalry charges down the hill.",
+   "The Gauls are crushed between two armies.",
+   "The Gallic invasion is over."
+  ],
+  "lose": [
+   "The Gauls break out to the north.",
+   "The plunder train escapes.",
+   "Etruria burns again."
+  ],
+  "cams": [
+   "rightflank",
+   "clash",
+   "wide"
+  ],
+  "anim": {
+   "win": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "The hill",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Regulus’s horse riding for it",
+     "tone": "g"
+    },
+    {
+     "text": "No one",
+     "tone": "a"
+    },
+    {
+     "text": "Papus alone",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Above the road",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Hill fight",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Won by the cavalry",
+     "tone": "g"
+    },
+    {
+     "text": "Lost",
+     "tone": "r"
+    },
+    {
+     "text": "Infantry stuck",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Cavalry fighting",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Gaesatae",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Shot up by the velites",
+     "tone": "g"
+    },
+    {
+     "text": "Fighting the legions",
+     "tone": "a"
+    },
+    {
+     "text": "Untouched",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Naked and fierce",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Gallic line",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Sagging",
+     "tone": "g"
+    },
+    {
+     "text": "Resting",
+     "tone": "a"
+    },
+    {
+     "text": "Tangled",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Holding",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Two armies",
+   "text": "A huge Gallic army, laden with plunder, is marching north up the coast of Etruria, with your army, under the consul Papus, behind it. Unknown to the Gauls, the other consul, Regulus, has landed at Pisae and is marching south straight toward them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "A hill overlooks the road where the Gauls are marching."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Whoever holds the hill controls the field. Seize it with cavalry before the Gauls realise there is a second Roman army."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Regulus sends his cavalry to seize the hill above the road",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "hill": 1
+       },
+       "text": "Regulus’s horsemen ride for the hill. The Gauls, thinking only Papus is behind them, send their own horse and light troops to take it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "rcav": [
+         330,
+         45
+        ]
+       },
+       "f": [
+        "rcav",
+        "gcav"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Both armies hang back and shadow the Gauls",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -6,
+       "text": "The Gauls march on with their plunder."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Papus attacks the rearguard at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Papus attacks alone and the Gauls turn on him."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pap": [
+         200,
+         180
+        ]
+       },
+       "f": [
+        "pap",
+        "gae"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The fight for the hill",
+   "text": "On the hill the cavalry fight is fierce. Regulus is killed, and his head is carried to the Gallic kings. The Gauls now know there are two Roman armies, and form up facing both ways.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Papus’s cavalry is idle behind his line."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The hill must not be lost. Papus’s cavalry, sent up to help, can win it and then look down on the whole Gallic army."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Papus sends his cavalry up the hill to win it",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "hill": true
+       },
+       "r": -4,
+       "e": -14,
+       "set": {
+        "high": 1
+       },
+       "text": "Papus’s horsemen ride to the hill and, with Regulus’s men, drive the Gallic cavalry away. The Romans hold the high ground."
+      },
+      {
+       "r": -6,
+       "e": -8,
+       "set": {
+        "high": 1
+       },
+       "text": "The hill is won at last."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pcav": [
+         320,
+         60
+        ],
+        "gcav": [
+         360,
+         20,
+         0.3
+        ]
+       },
+       "f": [
+        "pcav",
+        "rcav",
+        "gcav"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Leave the hill and form the infantry",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -6,
+       "text": "The Gallic horse keeps the hill."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send infantry up the hill",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The infantry toils up the slope and is ridden down."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pap": [
+         300,
+         100
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "rightflank"
+    }
+   ]
+  },
+  {
+   "title": "The naked Gaesatae",
+   "text": "At the back of the Gallic army, facing your legions, stand the Gaesatae: mercenaries from beyond the Alps, fighting naked, with small shields, wearing gold torques.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their shields are narrow and they have no armour."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Javelins from the velites will find naked men behind small shields. Let the skirmishers work before the legions close."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the velites forward to shower them with javelins",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "set": {
+        "gae": 1
+       },
+       "text": "Volley after volley of javelins falls on the Gaesatae. Some charge the skirmishers in fury and are cut down; others fall back into their own lines and spread disorder."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         200,
+         165
+        ]
+       },
+       "f": [
+        "vel",
+        "gae"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge the legions straight in",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -4,
+       "text": "The Gaesatae meet the charge with reckless courage."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pap": [
+         200,
+         165
+        ]
+       },
+       "f": [
+        "pap",
+        "gae"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hold and wait",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -6,
+       "text": "The Gauls hold their ground."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Celtic line holds",
+   "text": "The Insubres take the front. The Gauls fight hard, holding the hastati and then the principes, but they are packed between two armies.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Gauls cannot retreat. They are surrounded on two sides."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep the pressure on with fresh lines. The Gauls are tiring."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Feed in hastati, then principes, to keep the pressure on",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "gae": true
+       },
+       "r": -4,
+       "e": -16,
+       "text": "Fresh Roman lines press the Gauls from both sides. Their ranks, already disordered, begin to sag."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The Gauls are pressed from both sides."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pap": [
+         200,
+         170
+        ],
+        "reg": [
+         200,
+         55
+        ],
+        "ins": [
+         200,
+         118
+        ]
+       },
+       "f": [
+        "pap",
+        "reg",
+        "ins",
+        "boi"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Pull back to reform",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The Gauls take a breath too."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Throw the whole army in at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -4,
+       "text": "The lines become tangled."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Down from the hill",
+   "text": "Your cavalry holds the hill above the Gallic flank. Their own horse has fled.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Gallic flank below the hill is open."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A charge down the hill into the flank of exhausted infantry will finish it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Charge down from the hill into the Gallic flank",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "high": true
+       },
+       "r": -2,
+       "e": -22,
+       "text": "The cavalry thunders down the hill into the flank of the Gallic infantry. Caught between two armies, they are cut down where they stand. Concolitanus is captured; Aneroestes escapes and kills himself."
+      },
+      {
+       "r": -4,
+       "e": -12,
+       "text": "The cavalry strikes the flank."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pcav": [
+         280,
+         100
+        ],
+        "rcav": [
+         300,
+         110
+        ],
+        "boi": [
+         200,
+         90
+        ]
+       },
+       "f": [
+        "pcav",
+        "rcav",
+        "boi",
+        "ins"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Hold the cavalry on the hill",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The infantry grinds on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the cavalry after the plunder",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The cavalry is busy with the loot."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pcav": [
+         40,
+         100
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Telamon (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Telamon"
+  }
+ ]
+}

@@ -1,0 +1,748 @@
+{
+ "id": "actium",
+ "name": "Battle of Actium",
+ "date": "31 BC",
+ "result": "win",
+ "loc": {
+  "lat": 38.95,
+  "lon": 20.73,
+  "place": "off Actium, western Greece",
+  "short": "Actium",
+  "x": 444,
+  "y": 164
+ },
+ "names": {
+  "rome": "Octavian’s fleet",
+  "enemy": "Antony and Cleopatra",
+  "commander": "Agrippa",
+  "foe": "Antony"
+ },
+ "intro": "The sea off Actium in western Greece, at the mouth of the Ambracian Gulf. You are Marcus Agrippa, admiral of Octavian, with a fleet of lighter, faster ships and well-fed crews. Mark Antony and Cleopatra have a fleet of heavier ships, some of them giants with towers and bronze rams, but many short of men. Accounts of each fleet range from about 250 to 500 ships.",
+ "debrief": "In reality, Agrippa took ports on Antony’s supply route, including Methone, and blockaded the gulf; Antony’s camp suffered disease and desertion, and he could not man all his ships. On 2 September Antony’s fleet came out. Octavian’s ships stayed out of range until Antony had to attack, and the fighting went on all afternoon without a decision. Cleopatra’s squadron then raised sail and broke out to the open sea, and Antony followed in a smaller ship; many ships burned from firebrands by nightfall. One modern view holds that the escape was Antony’s plan all along. Antony lost over 5,000 men and many ships taken or sunk; within days his army went over to Octavian. Charging the giants and chasing Cleopatra are what-ifs.",
+ "terrain": {
+  "ground": "#3d6f94",
+  "grass": "#34668c",
+  "sky": "#b9d4e4",
+  "trees": 0,
+  "flat": true
+ },
+ "units": {
+  "agr": {
+   "x": 80,
+   "y": 190,
+   "w": 90,
+   "h": 16,
+   "side": "roman",
+   "name": "Agrippa’s wing",
+   "model": "galley_roman"
+  },
+  "arr": {
+   "x": 200,
+   "y": 196,
+   "w": 100,
+   "h": 16,
+   "side": "roman",
+   "name": "Arruntius’s centre",
+   "model": "galley_roman"
+  },
+  "lur": {
+   "x": 320,
+   "y": 190,
+   "w": 90,
+   "h": 16,
+   "side": "roman",
+   "name": "Lurius’s wing",
+   "model": "galley_roman"
+  },
+  "ant": {
+   "x": 90,
+   "y": 90,
+   "w": 100,
+   "h": 20,
+   "side": "enemy",
+   "name": "Antony’s heavy ships",
+   "model": "galley_greek",
+   "scales": true
+  },
+  "oct": {
+   "x": 200,
+   "y": 86,
+   "w": 90,
+   "h": 20,
+   "side": "enemy",
+   "name": "Antony’s centre",
+   "model": "galley_greek",
+   "scales": true
+  },
+  "sos": {
+   "x": 310,
+   "y": 90,
+   "w": 90,
+   "h": 20,
+   "side": "enemy",
+   "name": "Sosius’s wing",
+   "model": "galley_greek",
+   "scales": true
+  },
+  "cle": {
+   "x": 200,
+   "y": 40,
+   "w": 70,
+   "h": 14,
+   "side": "enemy",
+   "name": "Cleopatra’s squadron",
+   "model": "galley_punic"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Antony’s ships burn.",
+   "Cleopatra’s sails vanish to the south.",
+   "The world belongs to Octavian."
+  ],
+  "lose": [
+   "Antony’s line holds.",
+   "Your light ships are smashed.",
+   "Antony keeps the sea."
+  ],
+  "cams": [
+   "clash",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Blockade",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Supplies cut, disease in his camp",
+     "tone": "g"
+    },
+    {
+     "text": "Assault failed",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Antony in the gulf",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Opening",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Out of range, waiting",
+     "tone": "g"
+    },
+    {
+     "text": "Rammed by giants",
+     "tone": "r"
+    },
+    {
+     "text": "Feint ignored",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Fleets face each other",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Northern wing",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Drawing his line out",
+     "tone": "g"
+    },
+    {
+     "text": "Crushed",
+     "tone": "r"
+    },
+    {
+     "text": "Holding",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Under attack",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The giants",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Burning",
+     "tone": "g"
+    },
+    {
+     "text": "Battered",
+     "tone": "a"
+    },
+    {
+     "text": "Re-formed",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Afloat",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The blockade",
+   "text": "Antony and Cleopatra have gathered their fleet and army in the Ambracian Gulf. You are Agrippa, Octavian’s admiral. Your fleet is smaller in ships but faster and better crewed.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Antony’s supplies come by sea from Egypt and the East."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take the ports on his supply route and hold the sea outside the gulf, and his army will starve and sicken while yours waits."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Seize his supply ports and blockade the gulf",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "set": {
+        "blockade": 1
+       },
+       "text": "You storm Methone and other ports on Antony’s supply route and close the sea. Malaria and desertion spread through his crowded camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack his fleet inside the gulf",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -16,
+       "e": -2,
+       "text": "Your ships force the narrow strait and are rammed by the heavy ships waiting inside."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "arr": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "arr",
+        "oct"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Wait at sea for him to come out",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -6,
+       "text": "He waits too, and his supplies still get through."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Antony comes out",
+   "text": "On 2 September Antony’s fleet rows out of the strait and forms a line. His ships are huge, with bronze-armoured rams and towers full of archers and catapults.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His big ships are hard to board and hard to ram, but they are slow."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Close in and his towers will shatter your light ships. Hold off out of range, and he must come to you or sit in the swell."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold your line out of range and make him come to you",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "set": {
+        "patient": 1
+       },
+       "text": "Your fleet hangs back beyond his missile range. By noon Antony has to move first."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge at once and ram",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "Your Liburnians bounce off bronze-armoured bows and are smashed by stones from the towers."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "arr": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "arr",
+        "oct"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Feint toward the strait",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -6,
+       "text": "Antony does not take the bait."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Stretching the line",
+   "text": "Antony attacks your northern wing with his biggest ships. You are on that wing.",
+   "intel": {
+    "hint": [
+     {
+      "text": "As Antony’s wing follows yours north, a gap is opening in his centre."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Extend your wing north, making him stretch to follow. His line thins and his centre opens."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Extend your wing north, drawing his line out",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "patient": true
+       },
+       "r": -2,
+       "e": -14,
+       "set": {
+        "gap": 1
+       },
+       "text": "Your wing slides north and Antony’s heavy ships follow. His centre thins, and a gap opens."
+      },
+      {
+       "r": -4,
+       "e": -8,
+       "set": {
+        "gap": 1
+       },
+       "text": "His line stretches."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "agr": [
+         40,
+         170
+        ],
+        "ant": [
+         50,
+         100
+        ],
+        "oct": [
+         200,
+         80
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Hold your ground and fight his big ships head-on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The great ships crush your squadron."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ant": [
+         80,
+         150
+        ]
+       },
+       "f": [
+        "agr",
+        "ant"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Fall back toward the rest of the fleet",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Your line closes up but he keeps his shape."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Swarming the giants",
+   "text": "All afternoon the fleets fight. Antony’s big ships cannot catch yours, and yours cannot sink his.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your crews are fresh and your ships fast."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Gang up: three or four light ships on each giant, grapple it with the harpax, hurl fire, and board it from every side."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Swarm each big ship with several of yours, grapple and throw fire",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "gap": true,
+        "blockade": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "Your ships swarm the half-manned giants, grapple them and fling firebrands. One by one they begin to burn."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "You set some of his ships alight."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "agr": [
+         80,
+         110
+        ],
+        "arr": [
+         200,
+         110
+        ],
+        "oct": [
+         200,
+         90
+        ]
+       },
+       "f": [
+        "agr",
+        "arr",
+        "ant",
+        "oct"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Keep shooting from range",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "His ships are battered but still afloat."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Break off and regroup",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": 2,
+       "text": "Antony re-forms."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Cleopatra’s sails",
+   "text": "Suddenly Cleopatra’s squadron, in Antony’s rear, raises its sails and drives through the gap in his centre for the open sea. Antony follows her in a small ship.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The wind has turned. Her ships are fast under sail."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let her go. The fleet left behind, leaderless and burning, is the prize. Its army ashore will follow."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let the fugitives go and close on the fleet left behind",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "gap": true
+       },
+       "r": -2,
+       "e": -22,
+       "text": "You let the sails go and close on the rest. By nightfall Antony’s fleet is burning or surrendering, and within days his army goes over to Octavian."
+      },
+      {
+       "r": -4,
+       "e": -14,
+       "text": "Much of Antony’s fleet is taken."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cle": [
+         200,
+         0,
+         0.2
+        ],
+        "agr": [
+         80,
+         100
+        ],
+        "lur": [
+         320,
+         100
+        ]
+       },
+       "f": [
+        "agr",
+        "lur",
+        "sos"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase Cleopatra with your fastest ships",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "The chase scatters your fleet, and part of Antony’s gets away."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "arr": [
+         200,
+         40
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send half after her",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Neither half does its job well."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "arr": [
+         200,
+         60
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Actium (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Actium"
+  }
+ ]
+}

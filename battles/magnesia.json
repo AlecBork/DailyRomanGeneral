@@ -1,0 +1,943 @@
+{
+ "id": "magnesia",
+ "name": "Battle of Magnesia",
+ "date": "190 BC",
+ "result": "win",
+ "loc": {
+  "lat": 38.62,
+  "lon": 27.43,
+  "place": "the plain of Magnesia, Asia Minor",
+  "short": "Magnesia",
+  "x": 530,
+  "y": 169
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Seleucids",
+  "commander": "Lucius Scipio",
+  "foe": "Antiochus III"
+ },
+ "intro": "A plain near Magnesia-by-Sipylus in western Asia Minor, in winter. You are the consul Lucius Cornelius Scipio, with about 30,000 men and 16 elephants; Eumenes of Pergamon leads your right. Antiochus the Great has some 72,000 by the ancient count (modern estimates go as low as 50,000), with 54 elephants, scythed chariots, camel archers and heavy cataphract cavalry.",
+ "debrief": "In reality, the Romans moved into a plain bounded by the Phrygios and Hermos rivers, which cramped the Seleucid cavalry. Eumenes sent archers, slingers and javelin men against the scythed chariots, which panicked and fled back into the camel archers and cataphracts behind them; his cavalry then charged and broke the Seleucid left. On the other wing Antiochus’s charge drove the Roman left back to its camp, where the tribune Marcus Aemilius Lepidus and the camp guard rallied it, and Antiochus’s cavalry spent itself there. The phalanx held its ground, but missiles panicked the elephants standing among its units and the formation broke. The date may be December 190 or January 189 BC. Ancient casualty figures (53,000 Seleucid dead, 349 Roman) are thought greatly exaggerated; modern estimates are nearer 10,000 Seleucid dead. Assaulting the camp, waiting and charging the pikes are what-ifs.",
+ "terrain": {
+  "grass": "#9a9a58",
+  "ground": "#b9a067",
+  "river": {
+   "x": -214,
+   "w": 22
+  },
+  "hills": [
+   [
+    200,
+    0,
+    160,
+    10
+   ]
+  ],
+  "weather": "rain"
+ },
+ "units": {
+  "vel": {
+   "x": 200,
+   "y": 174,
+   "w": 130,
+   "h": 8,
+   "side": "roman",
+   "name": "Archers & light infantry",
+   "model": "velites"
+  },
+  "legL": {
+   "x": 120,
+   "y": 192,
+   "w": 90,
+   "h": 14,
+   "side": "roman",
+   "name": "Domitius’s wing",
+   "model": "hastati"
+  },
+  "cen": {
+   "x": 230,
+   "y": 194,
+   "w": 90,
+   "h": 14,
+   "side": "roman",
+   "name": "Scipio’s legions",
+   "model": "principes"
+  },
+  "eum": {
+   "x": 340,
+   "y": 200,
+   "w": 60,
+   "h": 14,
+   "side": "roman",
+   "name": "Eumenes’s cavalry",
+   "model": "cav_roman"
+  },
+  "cavL": {
+   "x": 40,
+   "y": 206,
+   "w": 40,
+   "h": 12,
+   "side": "roman",
+   "name": "Roman horse",
+   "model": "cav_roman"
+  },
+  "res": {
+   "x": 200,
+   "y": 232,
+   "w": 60,
+   "h": 10,
+   "side": "roman",
+   "name": "Camp guard & elephants",
+   "model": "auxiliary"
+  },
+  "phal": {
+   "x": 200,
+   "y": 78,
+   "w": 120,
+   "h": 16,
+   "side": "enemy",
+   "name": "Phalanx & elephants",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "ele": {
+   "x": 200,
+   "y": 58,
+   "w": 100,
+   "h": 8,
+   "side": "enemy",
+   "name": "Elephants (54)",
+   "model": "elephant"
+  },
+  "chr": {
+   "x": 330,
+   "y": 108,
+   "w": 60,
+   "h": 8,
+   "side": "enemy",
+   "name": "Scythed chariots",
+   "model": "cav_eastern"
+  },
+  "catL": {
+   "x": 340,
+   "y": 78,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "Seleucus’s cataphracts",
+   "model": "cav_eastern"
+  },
+  "catR": {
+   "x": 55,
+   "y": 76,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "Antiochus’s cataphracts",
+   "model": "cav_eastern"
+  },
+  "light": {
+   "x": 300,
+   "y": 90,
+   "w": 60,
+   "h": 10,
+   "side": "enemy",
+   "name": "Galatians & mercenaries",
+   "model": "archer",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 6
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Missiles drive the elephants mad.",
+   "The phalanx breaks from within.",
+   "Antiochus flees to Sardis."
+  ],
+  "lose": [
+   "The pikes stand firm.",
+   "Antiochus’s horse is in your rear.",
+   "The Seleucid army holds the field."
+  ],
+  "cams": [
+   "front",
+   "rightflank",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Ground",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Plain between the rivers",
+     "tone": "g"
+    },
+    {
+     "text": "Camp assault failed",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Facing the Seleucid camp",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Chariots",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Stampeded back into their own lines",
+     "tone": "g"
+    },
+    {
+     "text": "Cutting into your horse",
+     "tone": "r"
+    },
+    {
+     "text": "Passed through the lanes",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "In front of the enemy left",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Enemy left",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Broken by Eumenes",
+     "tone": "g"
+    },
+    {
+     "text": "Re-forming",
+     "tone": "a"
+    },
+    {
+     "text": "Cavalry caught out",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Facing Eumenes",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Your left",
+   "decision": 4,
+   "options": [
+    {
+     "text": "Rallied at the camp",
+     "tone": "g"
+    },
+    {
+     "text": "Helped from the centre",
+     "tone": "a"
+    },
+    {
+     "text": "Abandoned",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Under attack",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Weather",
+   "options": [
+    {
+     "text": "Advancing in the drizzle",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting for clear skies",
+     "tone": "a"
+    },
+    {
+     "text": "Back in camp",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Mist and rain",
+    "tone": "n"
+   },
+   "decision": 1
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Choosing the ground",
+   "text": "For days the armies have faced each other. Antiochus has far more cavalry than you, and a strong camp. You cannot stay long: your supplies are thin and a new consul may soon replace you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The plain to your front is enclosed on three sides by the Phrygios and Hermos rivers."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Ground with rivers on its flanks cramps the Seleucid horse. Storming the fortified camp would be costly, and waiting starves you."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Move into the river-bounded plain to cramp the enemy cavalry",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "plain": 1
+       },
+       "text": "The army camps inside the horseshoe of the rivers. Antiochus’s great mass of cavalry has less room to ride round you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legL": [
+         120,
+         186
+        ],
+        "cen": [
+         230,
+         188
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the Seleucid camp",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "The legions attack the ramparts and are thrown back with losses."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cen": [
+         230,
+         140
+        ]
+       },
+       "f": [
+        "cen"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for Antiochus to attack you",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -5,
+       "text": "Antiochus waits too. Your grain runs short."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Mist and drizzle",
+   "event": true,
+   "text": "The morning is dark and wet. A mist hangs over the plain and a fine drizzle falls. You can barely see the far end of the Seleucid line.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Much of Antiochus’s army fights with bows, slings and javelins."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The damp has slackened the bowstrings, slings and javelin thongs of the Seleucid light troops. Your legionaries, who fight hand to hand, hardly feel it. The mist also hides how long his line is."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Advance now, while the damp spoils their bows and slings",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "q": 2,
+       "text": "Your line advances through the drizzle. The Seleucid archers and slingers find their strings slack and their slings sodden."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for the mist to lift",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "q": 1,
+       "text": "The sky clears slowly, and with it the Seleucid bowstrings dry."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Pull back to the camp until the weather changes",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": 2,
+       "q": 0,
+       "text": "Your men march back to camp. Antiochus takes it for fear."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The scythed chariots",
+   "text": "Scythed chariots and camel-borne archers stand in front of the Seleucid left. Behind them wait the cataphracts.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The chariot horses are not armoured, and the chariots need a clear run to do harm."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Archers, slingers and javelin men can stampede the chariot horses before they reach your line. Panicked chariots will run back into their own cavalry."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send archers, slingers and javelin men to shower the chariots",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "set": {
+        "chariots": 1
+       },
+       "text": "Missiles strike the horses from all sides. The chariots wheel in panic and plough back into the camel archers and cataphracts behind them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         320,
+         130
+        ],
+        "chr": [
+         330,
+         90
+        ]
+       },
+       "f": [
+        "vel",
+        "chr"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Charge the chariots with Eumenes’s cavalry",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The scythes cut into your horses before they can close."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eum": [
+         330,
+         120
+        ]
+       },
+       "f": [
+        "eum",
+        "chr"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Open lanes in the line and let them through",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -7,
+       "text": "The chariots pass through the lanes, but the cataphracts behind them are untouched."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The Seleucid left wavers",
+   "text": "The chariots have thrown the Seleucid left into confusion. Eumenes’s cavalry is ready, and the Galatians and mercenaries beside the phalanx are shaken.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The enemy left is in disorder."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A charge now, before the cataphracts recover, can sweep the whole left wing away and bare the flank of the phalanx."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Eumenes charges the disordered left with all his cavalry",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "chariots": true
+       },
+       "r": -2,
+       "e": -18,
+       "set": {
+        "leftgone": 1
+       },
+       "text": "Eumenes crashes into the disordered horsemen. The cataphracts flee for their camp, and the Galatians and mercenaries beside the phalanx give way."
+      },
+      {
+       "r": -8,
+       "e": -8,
+       "text": "The charge goes in against cavalry that has had time to re-form, and the fight is hard."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eum": [
+         340,
+         90
+        ],
+        "catL": [
+         360,
+         50,
+         0.4
+        ],
+        "light": [
+         310,
+         70
+        ]
+       },
+       "f": [
+        "eum",
+        "catL",
+        "light"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Wait for the infantry to come up",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -7,
+       "text": "The moment passes. The cataphracts re-form."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Send the cavalry round behind the phalanx",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "The cavalry rides wide and is caught by the cataphracts."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eum": [
+         360,
+         40
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "rightflank"
+    }
+   ]
+  },
+  {
+   "title": "Antiochus charges",
+   "text": "On the other wing Antiochus himself leads his cataphracts and guard against your left. The legions there are driven back toward the camp.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your left is falling back on the camp, where a guard of 2,000 and a tribune named Lepidus wait."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Antiochus is a fine cavalryman but a poor general: once he is in your camp he is out of the battle. The camp guard can rally the fugitives there."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Rally the left at the camp with the camp guard",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "leftgone": true
+       },
+       "r": -4,
+       "e": -14,
+       "set": {
+        "rally": 1
+       },
+       "text": "The tribune Lepidus and the camp guard rally the fugitives at the rampart. Antiochus’s horsemen are stuck at the camp, far from where their king is needed."
+      },
+      {
+       "r": -8,
+       "e": -8,
+       "set": {
+        "rally": 1
+       },
+       "text": "The left rallies at the camp, but the Seleucid line is still whole."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "legL": [
+         120,
+         222
+        ],
+        "res": [
+         110,
+         226
+        ],
+        "catR": [
+         80,
+         200
+        ]
+       },
+       "f": [
+        "res",
+        "catR"
+       ]
+      }
+     ],
+     "cam": "romanrear"
+    },
+    {
+     "label": "Send infantry from the centre to save the left",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -7,
+       "text": "The left is helped, but the centre is weaker against the phalanx."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cen": [
+         170,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Let the left go and attack the phalanx at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "Antiochus’s horse rides on round your rear."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "catR": [
+         120,
+         240
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "romanrear"
+    }
+   ]
+  },
+  {
+   "title": "The phalanx",
+   "text": "The phalanx, 16,000 strong with elephants in the gaps, stands like a wall. Its left flank is bare. It begins to withdraw in good order.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The elephants inside the phalanx are restless."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pikes win head-on. Missiles at a distance are another matter, and frightened elephants inside the formation will break it from within."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Bombard the phalanx with missiles and do not close",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "leftgone": true,
+        "rally": true
+       },
+       "r": -2,
+       "e": -24,
+       "text": "Arrows and sling stones pour into the elephants. They panic and break the phalanx from inside. The phalangites drop their pikes and run."
+      },
+      {
+       "r": -4,
+       "e": -14,
+       "text": "The missiles shake the phalanx and its elephants grow wild."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         200,
+         120
+        ],
+        "cen": [
+         220,
+         140
+        ],
+        "ele": [
+         200,
+         70,
+         0.4
+        ]
+       },
+       "f": [
+        "vel",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Charge the pikes head-on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -16,
+       "e": -4,
+       "text": "The legions run onto the pikes and are thrown back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cen": [
+         220,
+         110
+        ]
+       },
+       "f": [
+        "cen",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Let them withdraw",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -7,
+       "text": "The phalanx withdraws in good order to its camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Magnesia (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Magnesia"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "Quite enough for the Romans, however greedy they are.",
+   "who": "Hannibal, asked by Antiochus whether his splendid army would be enough"
+  }
+ ]
+}

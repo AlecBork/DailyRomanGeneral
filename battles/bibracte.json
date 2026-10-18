@@ -1,0 +1,722 @@
+{
+ "id": "bibracte",
+ "name": "Battle of Bibracte",
+ "date": "58 BC",
+ "result": "win",
+ "loc": {
+  "lat": 46.92,
+  "lon": 4.04,
+  "place": "near Bibracte, central Gaul",
+  "short": "Bibracte",
+  "x": 231,
+  "y": 24
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Helvetii",
+  "commander": "Caesar",
+  "foe": "Divico"
+ },
+ "intro": "Near Bibracte in central Gaul, in June 58 BC, the first great battle of Caesar’s Gallic War. You are Julius Caesar, with six legions and about 4,000 allied cavalry. The Helvetii are migrating west with their families and wagons; Caesar claims 92,000 fighting men, modern estimates range from 12,000 to about 50,000.",
+ "debrief": "In reality, short of grain, Caesar turned toward the Aeduan town of Bibracte; the Helvetii followed and attacked his rearguard. Caesar sent his cavalry to delay them and formed four veteran legions in three lines on a hillside, with the two new legions and the allies on top. The Helvetii advanced in close order behind their shields; Roman pila halted them and the legions charged downhill, driving them back. The Boii and Tulingi, about 15,000 strong, then struck the Roman flank, and Caesar turned his third line to face them while the first two pressed on. The fighting at the Helvetii wagons went on into the night, and the baggage and children of their leader Orgetorix were taken. Caesar’s figures for the Helvetii are disputed. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    215,
+    130,
+    22
+   ],
+   [
+    200,
+    10,
+    120,
+    14
+   ]
+  ],
+  "forests": [
+   [
+    30,
+    230,
+    40,
+    10
+   ],
+   [
+    370,
+    230,
+    40,
+    10
+   ]
+  ]
+ },
+ "units": {
+  "l4": {
+   "x": 200,
+   "y": 170,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Four veteran legions",
+   "model": "legionary"
+  },
+  "top": {
+   "x": 200,
+   "y": 212,
+   "w": 120,
+   "h": 12,
+   "side": "roman",
+   "name": "XI & XII and allies (hilltop)",
+   "model": "principes"
+  },
+  "cav": {
+   "x": 340,
+   "y": 140,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "hel": {
+   "x": 200,
+   "y": 80,
+   "w": 170,
+   "h": 18,
+   "side": "enemy",
+   "name": "Helvetii",
+   "model": "gaul",
+   "scales": true
+  },
+  "boi": {
+   "x": 360,
+   "y": 90,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "Boii & Tulingi",
+   "model": "barbarian",
+   "scales": true,
+   "hidden": true
+  },
+  "wag": {
+   "x": 200,
+   "y": 26,
+   "w": 180,
+   "h": 10,
+   "side": "enemy",
+   "name": "Wagon train and families",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Helvetii are driven to their wagons.",
+   "The laager falls in the night.",
+   "The migration is over."
+  ],
+  "lose": [
+   "The Boii break your flank.",
+   "The Helvetii march on west.",
+   "Gaul is not yours yet."
+  ],
+  "cams": [
+   "front",
+   "rightflank",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Supplies",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Turning to Bibracte for grain",
+     "tone": "g"
+    },
+    {
+     "text": "Marching hungry",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Grain running out",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Formation",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Formed on the hillside",
+     "tone": "g"
+    },
+    {
+     "text": "Fighting in column",
+     "tone": "r"
+    },
+    {
+     "text": "Rearguard mauled",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Under attack",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Helvetii",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Driven back across the plain",
+     "tone": "g"
+    },
+    {
+     "text": "At your line",
+     "tone": "a"
+    },
+    {
+     "text": "Slope lost",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Advancing uphill",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Flank",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Third line facing them",
+     "tone": "g"
+    },
+    {
+     "text": "Halted",
+     "tone": "a"
+    },
+    {
+     "text": "Hit hard",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Exposed",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Short of grain",
+   "text": "You are Julius Caesar, governor of Gaul, shadowing the migrating Helvetii. Your grain has run low. The Aedui have not sent what they promised. Bibracte, their chief town, is a day’s march away.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Dumnorix of the Aedui is said to be delaying the grain."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A hungry army cannot fight. Turn toward Bibracte to feed the men, even if it means breaking contact."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Turn toward Bibracte to get grain",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 2,
+       "e": -8,
+       "set": {
+        "fed": 1
+       },
+       "text": "The army turns off toward Bibracte. The Helvetii, thinking you are retreating, turn to follow and attack."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep after the Helvetii, hungry",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The men march on empty stomachs."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Halt and wait for the Aedui",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -6,
+       "text": "The Helvetii get away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Rearguard",
+   "text": "The Helvetii fall on your rearguard. You need time to form the army.",
+   "intel": {
+    "hint": [
+     {
+      "text": "There is a hill nearby."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send the cavalry to hold them off while the legions form on the hillside: veterans in three lines on the slope, the new legions and allies on top."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cavalry holds them while the legions form on the hillside",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "hill": 1
+       },
+       "text": "Your cavalry delays the Helvetii. The four veteran legions form three lines on the slope; the two new legions and the allies hold the top with the baggage."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         340,
+         110
+        ],
+        "l4": [
+         200,
+         172
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Turn and fight on the march",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The army fights in column, in disorder."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hurry on to Bibracte",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "The rearguard is mauled."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The shield wall",
+   "text": "The Helvetii come uphill in a dense mass behind a wall of overlapping shields.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their shields overlap."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pila thrown into overlapping shields pin them together. Then charge downhill with swords."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Throw pila, then charge downhill",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "hill": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "The pila punch through the shield wall and pin shields together. Men throw them away and fight unprotected. The legions charge downhill and drive the Helvetii back across the plain."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The pila break up their wall."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "l4": [
+         200,
+         120
+        ],
+        "hel": [
+         200,
+         70
+        ]
+       },
+       "f": [
+        "l4",
+        "hel"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Wait for them to reach you",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The shield wall reaches your line intact."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge before they are close",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "You lose the slope’s advantage."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "l4": [
+         200,
+         100
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Attack on the flank",
+   "text": "As your lines follow the Helvetii, the Boii and Tulingi, about 15,000 strong, arrive and strike your exposed right flank.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your third line is behind the first two."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Turn the third line round to face the new threat, while the first two press on."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Turn the third line to face them",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "hill": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "Your third line wheels to meet the Boii and Tulingi while the first two keep driving the Helvetii."
+      },
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The flank is held, just."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "boi": [
+         360,
+         100,
+         1
+        ],
+        "top": [
+         330,
+         150
+        ]
+       },
+       "f": [
+        "boi",
+        "top"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Halt the whole army",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The Helvetii regroup."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ignore them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -16,
+       "e": 0,
+       "text": "The Boii crash into your flank."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "boi": [
+         330,
+         150,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "rightflank"
+    }
+   ]
+  },
+  {
+   "title": "The wagons",
+   "text": "The Helvetii have fallen back to their wagons, where their families are. They fight on from behind them into the night.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The fighting goes on in the dark."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Storm the wagon laager; once it falls, the Helvetii cannot go on."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Storm the wagons",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -14,
+       "text": "The fighting at the wagons lasts into the night. At last the laager falls, with the Helvetii baggage. A son and daughter of Orgetorix are captured."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "l4": [
+         200,
+         50
+        ],
+        "wag": [
+         200,
+         20,
+         0.4
+        ]
+       },
+       "f": [
+        "l4",
+        "wag"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for daylight",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The Helvetii slip away in the night."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Surround them and starve them",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "Your own grain is still short."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Bibracte (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Bibracte"
+  }
+ ]
+}

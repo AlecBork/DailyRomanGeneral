@@ -1,0 +1,798 @@
+{
+ "id": "idistaviso",
+ "name": "Battle of Idistaviso",
+ "date": "16 AD",
+ "result": "win",
+ "loc": {
+  "lat": 52.22,
+  "lon": 9.15,
+  "place": "the Weser, northern Germany",
+  "short": "Idistaviso",
+  "x": 296,
+  "y": -69
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Germans",
+  "commander": "Germanicus",
+  "foe": "Arminius"
+ },
+ "intro": "On the river Weser in northern Germany, seven years after Varus’s legions were destroyed. You are Germanicus, with eight legions, auxiliaries, cavalry and allied Germans, at least 60,000 men. Arminius and his uncle Inguiomerus lead a coalition of tribes, its size unknown.",
+ "debrief": "In reality, Germanicus sent his cavalry across the Weser at separate fords; the Batavian chief Chariovalda charged too far, was lured into a ring of woods and killed. Warned of a night attack, Germanicus went through the camp in disguise, wearing an animal skin, to hear what his men were saying; a German rider’s offer to deserters only angered the legions. At Idistaviso, a plain between the river and the hills with forest behind, eight eagles were seen flying toward the woods, and Germanicus told the army to follow the Roman birds. His cavalry struck the flank and rear of the Cherusci on the hills while the infantry advanced, and the Germans broke. Arminius, wounded, smeared his face with his own blood and broke out; some said Chauci auxiliaries recognised him and let him go. The slaughter lasted until nightfall. The exact site is unknown, between Minden and Hameln. Holding the cavalry at the bank, like the other choices, is a what-if.",
+ "terrain": {
+  "grass": "#6f8a4c",
+  "tree": "#2f4a28",
+  "trees": 110,
+  "river": {
+   "x": -214,
+   "w": 30
+  },
+  "hills": [
+   [
+    320,
+    45,
+    95,
+    26
+   ]
+  ],
+  "forests": [
+   [
+    260,
+    0,
+    170,
+    36
+   ],
+   [
+    380,
+    80,
+    40,
+    12
+   ]
+  ]
+ },
+ "units": {
+  "aux": {
+   "x": 200,
+   "y": 170,
+   "w": 120,
+   "h": 10,
+   "side": "roman",
+   "name": "Gallic & German auxiliaries",
+   "model": "auxiliary"
+  },
+  "arch": {
+   "x": 200,
+   "y": 182,
+   "w": 100,
+   "h": 6,
+   "side": "roman",
+   "name": "Archers",
+   "model": "archer"
+  },
+  "leg": {
+   "x": 200,
+   "y": 198,
+   "w": 120,
+   "h": 14,
+   "side": "roman",
+   "name": "Four legions & guard",
+   "model": "legionary"
+  },
+  "cavL": {
+   "x": 40,
+   "y": 196,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Best cavalry",
+   "model": "cav_roman"
+  },
+  "ste": {
+   "x": 360,
+   "y": 206,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Stertinius’s squadrons",
+   "model": "cav_roman"
+  },
+  "cher": {
+   "x": 320,
+   "y": 60,
+   "w": 80,
+   "h": 14,
+   "side": "enemy",
+   "name": "Cherusci on the hills",
+   "model": "barbarian",
+   "scales": true
+  },
+  "gp": {
+   "x": 150,
+   "y": 90,
+   "w": 120,
+   "h": 14,
+   "side": "enemy",
+   "name": "Germans on the plain",
+   "model": "barbarian",
+   "scales": true
+  },
+  "arm": {
+   "x": 300,
+   "y": 40,
+   "w": 40,
+   "h": 10,
+   "side": "enemy",
+   "name": "Arminius",
+   "model": "cav_heavy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Cherusci are caught on their hill.",
+   "The Germans run for the river.",
+   "Varus is avenged."
+  ],
+  "lose": [
+   "The Cherusci charge down.",
+   "The legions are thrown back.",
+   "Arminius holds the Weser."
+  ],
+  "cams": [
+   "enemyrear",
+   "push",
+   "wide"
+  ],
+  "anim": {
+   "win": "drown"
+  }
+ },
+ "status": [
+  {
+   "label": "The Weser",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Crossed, Chariovalda lost",
+     "tone": "g"
+    },
+    {
+     "text": "Legions in the current",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting for bridges",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Germans across the river",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The army",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Sure of its general",
+     "tone": "g"
+    },
+    {
+     "text": "Untested",
+     "tone": "a"
+    },
+    {
+     "text": "Uneasy",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Night before battle",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The advance",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Following the eagles",
+     "tone": "g"
+    },
+    {
+     "text": "Holding",
+     "tone": "a"
+    },
+    {
+     "text": "Legions unscreened",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Facing Idistaviso",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Cherusci",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Caught on their hill",
+     "tone": "g"
+    },
+    {
+     "text": "Charging down",
+     "tone": "r"
+    },
+    {
+     "text": "Holding the slope",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "On the heights",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The Weser",
+   "text": "You are Germanicus, come to avenge Varus. The Germans under Arminius are drawn up across the river Weser. You have no bridges yet.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The river is fast. Arminius likes to fight from cover."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cavalry sent across the fords at separate points can secure a bank. A force that charges deep into the far side may be lured into a trap."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send cavalry across the fords at several points",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -6,
+       "set": {
+        "bank": 1
+       },
+       "text": "Your cavalry crosses at several fords. On one, the Batavian chief Chariovalda charges too far, is lured into a ring of woods and killed, but the bank is won."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         60,
+         150
+        ],
+        "ste": [
+         340,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Throw the legions across at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "The legions struggle in the current under a hail of javelins."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Cross at several fords, and forbid any charge beyond the bank",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -1,
+       "e": -10,
+       "set": {
+        "bank": 1
+       },
+       "text": "The cavalry seizes the far bank at several fords and halts there. Chariovalda is held back, and the Batavians are spared the ambush in the woods."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The night",
+   "text": "A deserter warns of a night attack. Your officers swear the men are loyal. You want to know what the soldiers really think.",
+   "intel": {
+    "hint": [
+     {
+      "text": "German riders are calling across the lines, offering deserters land and wives."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hearing the men yourself tells you more than any report. Steady soldiers who know their general are ready for a night attack."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Go among the tents in disguise, with an animal skin over your shoulders",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 4,
+       "e": -8,
+       "set": {
+        "morale": 1
+       },
+       "text": "You slip through the camp in a hunter’s skin and hear your men praising you. When a German rider calls out offers to deserters, the legions vow to take his tribe’s wives and land instead. The night attack finds them ready."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Trust your officers’ reports",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The officers say all is well."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Double the guard and say nothing",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "The men are tired and uneasy in the morning."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Eight eagles",
+   "text": "The field of Idistaviso lies between the river and a line of hills, with forest behind. The Germans hold the plain and the forest edge; the Cherusci are on the heights. As your army moves up, eight eagles fly toward the woods.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The men are watching the birds."
+     }
+    ],
+    "scout": [
+     {
+      "text": "An omen like this, seized at once, fires an army. Advance now with your auxiliaries and archers in front, and follow the birds."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cry ‘Follow the Roman birds!’ and advance at once",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "morale": true
+       },
+       "r": -2,
+       "e": -16,
+       "set": {
+        "advance": 1
+       },
+       "text": "‘Follow the Roman birds, the true gods of the legions!’ The army surges forward behind its auxiliaries and archers."
+      },
+      {
+       "r": -4,
+       "e": -10,
+       "set": {
+        "advance": 1
+       },
+       "text": "The army advances."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aux": [
+         200,
+         130
+        ],
+        "arch": [
+         200,
+         145
+        ],
+        "leg": [
+         200,
+         165
+        ]
+       },
+       "f": [
+        "aux",
+        "gp"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold and let them come down",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "The Germans stay on their ground."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the legions first",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "The legions go in without a screen."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "gp"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Cavalry on the flanks",
+   "text": "Your infantry is engaged on the plain. The Cherusci on the hills are about to charge down.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their flank and rear are open on the far side of the hills."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Your best cavalry at the Cheruscan flank and Stertinius’s squadrons round to their rear will catch them as they charge."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send your best cavalry at their flank and Stertinius round to their rear",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "advance": true,
+        "bank": true
+       },
+       "r": -2,
+       "e": -20,
+       "text": "Your cavalry hits the Cherusci in flank and rear just as your infantry presses the plain. The German columns run in opposite directions, leaving the Cherusci stranded on their hill."
+      },
+      {
+       "r": -4,
+       "e": -12,
+       "text": "The cavalry strikes their flank."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         260,
+         70
+        ],
+        "ste": [
+         360,
+         30
+        ],
+        "cher": [
+         320,
+         80
+        ]
+       },
+       "f": [
+        "cavL",
+        "ste",
+        "cher"
+       ]
+      }
+     ],
+     "cam": "enemyrear"
+    },
+    {
+     "label": "Keep the cavalry to guard the river",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The Cherusci charge down unopposed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cher": [
+         300,
+         120
+        ]
+       },
+       "f": [
+        "cher",
+        "aux"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge the hill with the legions",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The legions labour up the slope into the Cherusci charge."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         300,
+         100
+        ]
+       },
+       "f": [
+        "leg",
+        "cher"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Arminius breaks out",
+   "text": "Arminius, wounded, rides at your Raetian, Vindelician and Gallic cohorts to break out. His face is smeared with his own blood so that no one will know him.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The beaten Germans are making for the river and the forest."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Arminius may get away, but his army need not. Drive the fugitives into the river and the trees and pursue until dark."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pursue the beaten army into the river and the forest until nightfall",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "Arminius and Inguiomerus escape, but their army is destroyed: many drown in the Weser, others are shot down from the trees. The slaughter goes on until dark."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         80
+        ],
+        "cavL": [
+         260,
+         40
+        ],
+        "gp": [
+         150,
+         40,
+         0.3
+        ]
+       },
+       "f": [
+        "leg",
+        "gp"
+       ]
+      }
+     ],
+     "cam": "push"
+    },
+    {
+     "label": "Hunt for Arminius alone",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "He escapes anyway, and much of his army with him."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         300,
+         40
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Halt and hold the field",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The Germans slip away into the forest."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Idistaviso (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Idistaviso"
+  },
+  {
+   "title": "Tacitus, Annals 2.11-18",
+   "url": "https://sacred-texts.com/cla/tac/a02010.htm"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "Follow the Roman birds, the true gods of the legions!",
+   "who": "Germanicus, as eagles flew toward the woods"
+  }
+ ]
+}

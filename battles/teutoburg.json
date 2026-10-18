@@ -1,0 +1,923 @@
+{
+ "id": "teutoburg",
+ "name": "Battle of the Teutoburg Forest",
+ "date": "9 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 52.41,
+  "lon": 8.13,
+  "place": "Kalkriese, northern Germany",
+  "short": "Teutoburg",
+  "x": 283,
+  "y": -72
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Germans",
+  "commander": "Varus",
+  "foe": "Arminius"
+ },
+ "intro": "The forests and marshes of northern Germany in September. You are Publius Quinctilius Varus, governor of Germany, with three legions (XVII, XVIII and XIX), auxiliaries and camp followers: perhaps 15,000 legionaries and 4,500 auxiliaries. Your trusted officer Arminius, a Cheruscan noble and Roman citizen, has secretly united the tribes against you.",
+ "debrief": "In reality, Segestes warned Varus that Arminius was plotting, but Varus did not believe him. Arminius invented a revolt and suggested a shorter route through unfamiliar country, then left to gather his men. In the forest the column stretched to 15 or 20 km, and warriors attacked along its length in heavy rain. Varus built a fortified camp; the Romans then marched by night and were led into a trap at the foot of Kalkriese Hill, where the road ran about 100 metres wide between woods and a great bog, blocked by a turf wall. Attacks on the wall failed; Numonius Vala rode off with the cavalry and was killed; Varus killed himself. Some 15,000 to 20,000 Romans died, and the eagles of three legions were lost; their numbers were never used again. The site at Kalkriese is supported by excavation. Arresting Arminius, the known road and burning the wagons are what-ifs.",
+ "terrain": {
+  "grass": "#5f7d45",
+  "ground": "#6d6a46",
+  "tree": "#2f4a28",
+  "trees": 160,
+  "hills": [
+   [
+    60,
+    55,
+    85,
+    26
+   ]
+  ],
+  "marsh": [
+   [
+    330,
+    70,
+    90,
+    45
+   ]
+  ],
+  "forests": [
+   [
+    60,
+    125,
+    55,
+    28
+   ],
+   [
+    340,
+    140,
+    50,
+    22
+   ],
+   [
+    200,
+    15,
+    130,
+    30
+   ],
+   [
+    60,
+    230,
+    50,
+    14
+   ],
+   [
+    340,
+    235,
+    50,
+    14
+   ]
+  ],
+  "weather": "rain"
+ },
+ "units": {
+  "c1": {
+   "x": 80,
+   "y": 170,
+   "w": 90,
+   "h": 8,
+   "side": "roman",
+   "name": "Legio XVII (column)",
+   "model": "legionary"
+  },
+  "c2": {
+   "x": 200,
+   "y": 180,
+   "w": 90,
+   "h": 8,
+   "side": "roman",
+   "name": "Legio XVIII (column)",
+   "model": "legionary"
+  },
+  "c3": {
+   "x": 320,
+   "y": 190,
+   "w": 90,
+   "h": 8,
+   "side": "roman",
+   "name": "Legio XIX (column)",
+   "model": "legionary"
+  },
+  "bag": {
+   "x": 200,
+   "y": 206,
+   "w": 140,
+   "h": 8,
+   "side": "roman",
+   "name": "Baggage & followers",
+   "model": "levy"
+  },
+  "val": {
+   "x": 340,
+   "y": 226,
+   "w": 40,
+   "h": 10,
+   "side": "roman",
+   "name": "Vala’s cavalry",
+   "model": "cav_roman"
+  },
+  "g1": {
+   "x": 60,
+   "y": 120,
+   "w": 60,
+   "h": 10,
+   "side": "enemy",
+   "name": "Germans in the trees",
+   "model": "barbarian",
+   "scales": true,
+   "hidden": true
+  },
+  "g2": {
+   "x": 340,
+   "y": 130,
+   "w": 60,
+   "h": 10,
+   "side": "enemy",
+   "name": "Germans in the trees",
+   "model": "barbarian",
+   "scales": true,
+   "hidden": true
+  },
+  "arm": {
+   "x": 200,
+   "y": 60,
+   "w": 120,
+   "h": 12,
+   "side": "enemy",
+   "name": "Arminius’s warriors",
+   "model": "barbarian",
+   "scales": true,
+   "hidden": true
+  },
+  "wall": {
+   "x": 200,
+   "y": 90,
+   "w": 170,
+   "h": 6,
+   "side": "enemy",
+   "name": "Kalkriese wall",
+   "model": "levy",
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The legions break out of the forest.",
+   "Arminius’s trap closes on nothing.",
+   "Germany stays Roman."
+  ],
+  "lose": [
+   "The wall holds, and the trees fill with warriors.",
+   "Varus falls on his sword.",
+   "Three eagles are lost."
+  ],
+  "cams": [
+   "front",
+   "high",
+   "wide"
+  ],
+  "anim": {
+   "lose": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Arminius",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Trusted",
+     "tone": "r"
+    },
+    {
+     "text": "Under arrest",
+     "tone": "g"
+    },
+    {
+     "text": "Watched",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Your trusted officer",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Route",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Into the forest",
+     "tone": "r"
+    },
+    {
+     "text": "On the known road",
+     "tone": "g"
+    },
+    {
+     "text": "One legion detached",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Marching to winter quarters",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Column",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Camped, wagons lost",
+     "tone": "a"
+    },
+    {
+     "text": "Closed up, wagons burned",
+     "tone": "g"
+    },
+    {
+     "text": "Scattered in the trees",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Strung out",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Night",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Led into the trap",
+     "tone": "r"
+    },
+    {
+     "text": "Falling back in order",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Surrounded",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "A warning",
+   "text": "You are Publius Quinctilius Varus, governor of Germany, with three legions. Segestes, a German noble, comes to you at dinner. He says Arminius, your trusted officer, is plotting against you, and he begs you to arrest them both, himself included.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Segestes hates Arminius, who married his daughter against his will."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A man who asks to be arrested himself is not just settling a grudge. Arresting Arminius would take the head off any plot."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Dismiss the warning as a family quarrel",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "You thank Segestes and do nothing. Arminius keeps your trust."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Arrest Arminius and Segestes and hold them until autumn",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "arrest": 1
+       },
+       "text": "You arrest both men. The leaders of the rising have lost their head, and the tribes hesitate."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep Arminius close and double the scouts",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -7,
+       "set": {
+        "watch": 1
+       },
+       "text": "Arminius stays with you, under watch, but his allies are not."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The shorter road",
+   "text": "A revolt has broken out among the Angrivarii, on your way back to winter quarters. Arminius suggests a shorter route through their land, and leaves to gather his men.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The new route runs through forest and marsh you do not know."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The known road to the Rhine is longer but open, and has your own forts along it. Let the revolt wait for spring."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Take Arminius’s shorter road",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "set": {
+        "forest": 1
+       },
+       "text": "You turn off the known road into the forest, with Cherusci guides Arminius has left you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c1": [
+         60,
+         160
+        ],
+        "c3": [
+         340,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep to the known road to winter quarters",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 2,
+       "e": -10,
+       "set": {
+        "road": 1
+       },
+       "text": "The army marches home by the known road, past your own forts."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send one legion to deal with the revolt",
+     "quality": 1,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -5,
+       "text": "One legion goes alone into unknown country."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c3": [
+         360,
+         160
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Rain and javelins",
+   "text": "Deep in the forest the column has stretched to 15 or 20 km. Then, in pouring rain, warriors appear along its whole length, throw javelins, and vanish.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The wagons and the camp followers are the weakest part of the column."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Burn the wagons, put the followers in the middle and close the column up into a fighting formation, or you will be bled to death a mile at a time."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Halt and build a fortified camp for the night",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "road": true
+       },
+       "r": -2,
+       "e": -9,
+       "text": "On the open road the attacks are only raids, and the camp is safe."
+      },
+      {
+       "r": -8,
+       "e": -7,
+       "text": "The camp is made in the rain. The column has lost men and many wagons."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "g1": [
+         80,
+         140,
+         1
+        ],
+        "g2": [
+         320,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "g1",
+        "g2",
+        "bag"
+       ]
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Burn the wagons, close up the column and march in fighting order",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "fx": [
+      {
+       "if": {
+        "road": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "Without the wagons the legions close up and march in fighting order. The raiders find no weak point."
+      },
+      {
+       "r": -4,
+       "e": -12,
+       "set": {
+        "tight": 1
+       },
+       "text": "The column closes up into a fighting formation, leaving the baggage burning."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "bag": [
+         200,
+         190,
+         0.3
+        ],
+        "c1": [
+         150,
+         180
+        ],
+        "c3": [
+         250,
+         180
+        ],
+        "g1": [
+         80,
+         140,
+         1
+        ],
+        "g2": [
+         320,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "c1",
+        "c3",
+        "g1",
+        "g2"
+       ]
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Charge into the trees after them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "Legionaries crashing into the forest are cut off and killed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c2": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "c2",
+        "g1"
+       ]
+      }
+     ],
+     "cam": "high"
+    }
+   ]
+  },
+  {
+   "title": "The night march",
+   "text": "The camp is surrounded. Your officers want to break out by night.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Germans know the forest. Your guides have disappeared."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The way you came is the way you know. A path forward into the unknown, in the dark, is the path the enemy has chosen."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March on by night along the guides’ route",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "road": true
+       },
+       "r": -4,
+       "e": -4,
+       "text": "On the known road the night march is hard but safe."
+      },
+      {
+       "r": -10,
+       "e": 0,
+       "set": {
+        "trap": 1
+       },
+       "text": "In the dark the column is led into a narrow gap between a hill and a great bog, and a wall of turf blocks the way."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c1": [
+         120,
+         120
+        ],
+        "c2": [
+         200,
+         120
+        ],
+        "c3": [
+         280,
+         120
+        ],
+        "wall": [
+         200,
+         90,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Fall back the way you came, in close order, scouts first",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "tight": true
+       },
+       "r": -2,
+       "e": -14,
+       "text": "The tight column marches back along its own track and reaches open ground at dawn."
+      },
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The column turns back along its track."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c1": [
+         80,
+         200
+        ],
+        "c2": [
+         200,
+         200
+        ],
+        "c3": [
+         320,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stay in camp and wait for help",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -5,
+       "text": "No help is coming soon."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "high"
+    }
+   ]
+  },
+  {
+   "title": "The wall",
+   "text": "The road narrows to about 100 metres between a wooded hill and a great bog. A long wall of turf blocks it, and the Germans are behind it and in the trees above.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your cavalry commander, Numonius Vala, is looking toward the rear."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Everything at one point of the wall, with the cavalry held to cover the rear, gives a chance. Attacking along the whole wall, or letting the cavalry ride off, gives none."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack along the whole wall as you come up",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "trap": true
+       },
+       "r": -20,
+       "e": 0,
+       "text": "The attacks fail against the wall. Vala rides off with the cavalry and is caught and killed. The Germans pour out of the trees. Varus falls on his sword."
+      },
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The wall holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c1": [
+         120,
+         100
+        ],
+        "c2": [
+         200,
+         100
+        ],
+        "val": [
+         380,
+         240,
+         0.3
+        ],
+        "arm": [
+         200,
+         60,
+         1
+        ]
+       },
+       "f": [
+        "c1",
+        "c2",
+        "wall",
+        "arm"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Mass everything at one point, cavalry held to guard the rear",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "if": {
+        "tight": true
+       },
+       "r": -4,
+       "e": -18,
+       "text": "The massed legions burst through one stretch of the wall and out onto open ground beyond."
+      },
+      {
+       "r": -8,
+       "e": -10,
+       "text": "You break through one stretch of the wall."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c2": [
+         200,
+         100
+        ],
+        "val": [
+         300,
+         200
+        ],
+        "wall": [
+         200,
+         90,
+         0.4
+        ],
+        "arm": [
+         200,
+         60,
+         1
+        ]
+       },
+       "f": [
+        "c2",
+        "wall",
+        "arm"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Turn back into the forest",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -12,
+       "e": -5,
+       "text": "The forest is full of Germans."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c1": [
+         80,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "high"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Teutoburg Forest (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Teutoburg_Forest"
+  }
+ ],
+ "winAt": 50,
+ "quotes": [
+  {
+   "text": "Quintilius Varus, give me back my legions!",
+   "who": "The emperor Augustus, on hearing the news"
+  }
+ ]
+}

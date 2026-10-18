@@ -1,0 +1,735 @@
+{
+ "id": "metaurus",
+ "name": "Battle of the Metaurus",
+ "date": "207 BC",
+ "result": "win",
+ "loc": {
+  "x": 350,
+  "y": 88,
+  "place": "the River Metaurus, Umbria",
+  "short": "Metaurus",
+  "lat": 43.73,
+  "lon": 12.83
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Claudius Nero and Livius Salinator",
+  "foe": "Hasdrubal Barca"
+ },
+ "intro": "The Metaurus in Umbria, in the Second Punic War. You are the consuls Marcus Livius Salinator and Gaius Claudius Nero, with perhaps 37,000 men between you. Hasdrubal, Hannibal’s brother, has crossed the Alps with about 30,000 and means to join Hannibal.",
+ "debrief": "In reality, Nero left Hannibal’s front and marched north with about 7,000 picked men, joined Livius at night, and was hidden in the camp. Hasdrubal noticed the extra trumpet signals, withdrew by night, and lost his way. The Romans caught him at the Metaurus. Hasdrubal put the Spaniards on the right with the cavalry, the Ligurians in the centre, the elephants in front, and the Gauls on a hilltop behind a ravine. Nero could not reach the Gauls; he marched behind the Roman line and hit the Carthaginian right in the flank. Hasdrubal charged into the Romans and died. Carthaginian losses are put at 10,000 and Roman at 2,000 in the more sober account; another gives 56,000 and 8,000, which is generally thought inflated. Which consul commanded which wing varies by account. Seeking a way past the ravine is what Nero really did; the other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    90,
+    55,
+    60,
+    24
+   ]
+  ],
+  "marsh": [
+   [
+    150,
+    75,
+    18,
+    40
+   ]
+  ]
+ },
+ "units": {
+  "liv": {
+   "x": 120,
+   "y": 192,
+   "w": 110,
+   "h": 14,
+   "side": "roman",
+   "name": "Livius’s wing",
+   "model": "hastati"
+  },
+  "cen": {
+   "x": 230,
+   "y": 194,
+   "w": 70,
+   "h": 14,
+   "side": "roman",
+   "name": "Porcius’s centre",
+   "model": "hastati"
+  },
+  "ner": {
+   "x": 330,
+   "y": 208,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Nero’s picked men",
+   "model": "legionary"
+  },
+  "rcav": {
+   "x": 360,
+   "y": 214,
+   "w": 50,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman cavalry",
+   "model": "cav_roman"
+  },
+  "lig": {
+   "x": 200,
+   "y": 86,
+   "w": 90,
+   "h": 14,
+   "side": "enemy",
+   "name": "Ligurians (centre)",
+   "model": "barbarian",
+   "scales": true
+  },
+  "spa": {
+   "x": 320,
+   "y": 92,
+   "w": 90,
+   "h": 14,
+   "side": "enemy",
+   "name": "Spaniards (right)",
+   "model": "veteran",
+   "scales": true
+  },
+  "gau": {
+   "x": 90,
+   "y": 66,
+   "w": 80,
+   "h": 14,
+   "side": "enemy",
+   "name": "Gauls (on the hill)",
+   "model": "gaul",
+   "scales": true
+  },
+  "ele": {
+   "x": 200,
+   "y": 50,
+   "w": 80,
+   "h": 10,
+   "side": "enemy",
+   "name": "Elephants",
+   "model": "elephant"
+  },
+  "hcav": {
+   "x": 345,
+   "y": 70,
+   "w": 50,
+   "h": 14,
+   "side": "enemy",
+   "name": "Carthaginian cavalry",
+   "model": "cav_punic"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Nero’s men come down on the Spaniards’ flank.",
+   "Hasdrubal charges into the Roman line and dies.",
+   "The second army never reaches Hannibal."
+  ],
+  "lose": [
+   "The ravine holds Nero back.",
+   "Hasdrubal’s line holds.",
+   "The Alps road is open."
+  ],
+  "cams": [
+   "rightflank",
+   "front",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Nero",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Marching north with picked men",
+     "tone": "g"
+    },
+    {
+     "text": "Still in the south",
+     "tone": "r"
+    },
+    {
+     "text": "Marching slowly with the whole army",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Watching Hannibal",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The camp",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Double army hidden",
+     "tone": "g"
+    },
+    {
+     "text": "New camp seen",
+     "tone": "r"
+    },
+    {
+     "text": "Resting a day",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Waiting",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Hasdrubal",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Caught at the river",
+     "tone": "g"
+    },
+    {
+     "text": "Found a ford",
+     "tone": "a"
+    },
+    {
+     "text": "Escaping",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Retreating in the dark",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Battle line",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Attacking the Spaniards",
+     "tone": "g"
+    },
+    {
+     "text": "Even advance",
+     "tone": "a"
+    },
+    {
+     "text": "Waiting",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Drawn up",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Nero’s march",
+   "text": "Hannibal sits in the south and Hasdrubal, his brother, has crossed the Alps with a second army. The consul Livius faces him in the north. Nero is watching Hannibal.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Nero’s eyes are on Hannibal’s camp. A letter from Hasdrubal to Hannibal has just been captured."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The captured letter shows where Hasdrubal is going. A small, picked force can march north faster than a whole army, and Hannibal will not know it has gone."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Leave the camp, leave a skeleton force, and march north with 7,000 picked men",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "nero": 1
+       },
+       "text": "Nero slips away at night with picked men. Hannibal’s camp is still full of fires, and he does not see the march."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ner": [
+         330,
+         222
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stay in the south and send the news to the Senate",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": 0,
+       "text": "The Senate hears the news. Livius still faces Hasdrubal alone."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March north with the whole army",
+     "quality": 1,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -4,
+       "text": "The march is slow, and Hannibal follows. The campaign comes up the road behind you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ner": [
+         330,
+         222
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The joining",
+   "text": "Nero reaches Livius’s camp by night. His men are tired from six days on the road. There is not room in the camp.",
+   "intel": {
+    "hint": [
+     {
+      "text": "If the double force is noticed, Hasdrubal will not fight."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hasdrubal will not fight a double army. Put the new men in the tents of the old, and the Carthaginians count the same camp."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Quarter the new men in the existing tents and keep the camp unchanged",
+     "quality": 2,
+     "cost": 2,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "set": {
+        "hidden": 1
+       },
+       "text": "The new men are tucked into the tents of the old. The camp looks the same from the outside."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Build a new camp beside the old one",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The new camp is seen at once. Hasdrubal counts and begins to doubt."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let Nero’s men rest a day and attack the next",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -4,
+       "text": "The men are rested, but a day is a day."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Hasdrubal’s retreat",
+   "text": "Hasdrubal hears a second trumpet and sees thinner dust. Suspicious, he breaks camp by night and retreats. His guides desert him in the dark.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hasdrubal is retreating in the dark, and his guides have gone."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A general who is lost on the bank of a river in the dark can be forced to fight. If you pursue, you may catch him before he finds a ford."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pursue at once with cavalry and light troops",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -3,
+       "e": -14,
+       "set": {
+        "caught": 1
+       },
+       "text": "Your light troops and cavalry find the Carthaginians at the Metaurus, lost and unable to find a ford."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "rcav": [
+         345,
+         130
+        ]
+       },
+       "f": [
+        "rcav",
+        "hcav"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for dawn and pursue in good order",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -4,
+       "text": "The army follows at dawn, in good order. Hasdrubal has found a ford."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let him go and shadow him",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Hasdrubal reaches the Alps road. The Senate is not pleased."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The line of battle",
+   "text": "Hasdrubal forms on rough ground: Spaniards on the right with the cavalry, Ligurians in the centre, elephants in front, and the Gauls on a hilltop on the left behind a ravine.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Gauls on the hill are hard to reach. The Spaniards on the right are good troops."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The Gauls cannot easily join the fight from their hilltop. Strike the Spaniards on the right with your strength, and the Gauls will be left out."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack the Spaniards on their right with Nero’s picked men",
+     "quality": 2,
+     "cost": 2,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "set": {
+        "spain": 1
+       },
+       "text": "Nero’s men are fresh and picked. They hit the Spaniards hard on the right."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ner": [
+         320,
+         115
+        ]
+       },
+       "f": [
+        "ner",
+        "spa"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Advance the whole line evenly",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "The whole line advances and meets the whole of Hasdrubal’s. Nothing is decided."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "liv": [
+         120,
+         170
+        ],
+        "cen": [
+         230,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hold the line and let the Carthaginians come",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Hasdrubal chooses to wait too, and the day passes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Nero’s wheel",
+   "text": "Nero cannot reach the Gauls on the hill, and the ravine blocks him. His men are idle while the centre and left fight on.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Nero’s men cannot reach the Gauls. The ravine is in the way."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A column that marches behind its own line, rather than across the ravine, can come out on the flank of the enemy’s right."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Take the picked men behind the Roman line and hit the Carthaginian right in the flank",
+     "quality": 2,
+     "cost": 2,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "spain": true,
+        "caught": true
+       },
+       "r": -2,
+       "e": -26,
+       "text": "Nero’s men come out on the flank and rear of the Spaniards. The Carthaginian line is rolled up from the right."
+      },
+      {
+       "r": -4,
+       "e": -16,
+       "text": "Nero’s men hit the flank. The Carthaginian right is shaken."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ner": [
+         330,
+         95
+        ]
+       },
+       "f": [
+        "ner",
+        "spa"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Send him up the ravine at the Gauls",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The picked men struggle up the broken ground, tired and in disorder."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ner": [
+         90,
+         110
+        ]
+       },
+       "f": [
+        "ner",
+        "gau"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Keep him in reserve behind the line",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -4,
+       "text": "The reserve is safe, but there is nothing for it to do."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Metaurus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Metaurus"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "I recognise the fate of Carthage.",
+   "who": "Hannibal, when his brother Hasdrubal’s head was thrown into his camp"
+  }
+ ]
+}

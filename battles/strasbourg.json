@@ -1,0 +1,787 @@
+{
+ "id": "strasbourg",
+ "name": "Battle of Strasbourg",
+ "date": "357 AD",
+ "result": "win",
+ "loc": {
+  "lat": 48.61,
+  "lon": 7.69,
+  "place": "Argentoratum, on the Rhine",
+  "short": "Strasbourg",
+  "x": 277,
+  "y": -5
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Alamanni",
+  "commander": "Julian",
+  "foe": "Chnodomar"
+ },
+ "intro": "Near Argentoratum (Strasbourg), on a gentle slope among ripe wheat fields, in August. You are Julian, Caesar of the West, with about 13,000 men, including some 3,000 cavalry. The Alamanni under King Chnodomar and his nephew Serapio are said to number 35,000; modern estimates are lower.",
+ "debrief": "In reality, Barbatio’s army retreated after an ambush, leaving Julian alone. He refused Chnodomar’s demand to leave Alsace and marched about 21 miles to battle; one account says his men insisted on fighting at once, though they probably rested first. On the right, light infantry among the German horse brought down the cataphracts’ horses, and the armoured cavalry fled into the Roman infantry; Julian rallied it behind the lines. Severus, on the left, held back from the woods until the ambushers came out and were routed. A wedge of Alamannic nobles broke the Roman first line, but the Primani legion and the Batavians in the second line stopped it and counter-attacked, and the Alamanni were squeezed from three sides and fled to the Rhine, where many drowned. About 6,000 Alamanni died on land (8,000 in another account) and 243 Romans. Chnodomar was captured. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#a5a35c",
+  "ground": "#bca46a",
+  "river": {
+   "x": 214,
+   "w": 30
+  },
+  "forests": [
+   [
+    45,
+    110,
+    55,
+    24
+   ]
+  ],
+  "hills": [
+   [
+    200,
+    70,
+    120,
+    8
+   ]
+  ],
+  "weather": "dusk"
+ },
+ "units": {
+  "f1": {
+   "x": 200,
+   "y": 180,
+   "w": 140,
+   "h": 10,
+   "side": "roman",
+   "name": "First line",
+   "model": "legionary"
+  },
+  "f2": {
+   "x": 200,
+   "y": 206,
+   "w": 120,
+   "h": 10,
+   "side": "roman",
+   "name": "Primani & Batavi (second line)",
+   "model": "veteran"
+  },
+  "cat": {
+   "x": 340,
+   "y": 184,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Cataphracts",
+   "model": "cav_heavy"
+  },
+  "sev": {
+   "x": 60,
+   "y": 196,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Severus’s division",
+   "model": "legionary"
+  },
+  "jul": {
+   "x": 200,
+   "y": 194,
+   "w": 20,
+   "h": 6,
+   "side": "roman",
+   "name": "Julian & 200 guards",
+   "model": "cav_roman"
+  },
+  "ala": {
+   "x": 200,
+   "y": 84,
+   "w": 180,
+   "h": 18,
+   "side": "enemy",
+   "name": "Alamanni",
+   "model": "barbarian",
+   "scales": true
+  },
+  "acav": {
+   "x": 330,
+   "y": 90,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "Chnodomar’s horse & light foot",
+   "model": "cav_heavy"
+  },
+  "amb": {
+   "x": 50,
+   "y": 110,
+   "w": 50,
+   "h": 12,
+   "side": "enemy",
+   "name": "Ambush in the woods",
+   "model": "barbarian",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Primani throw back the wedge.",
+   "The Alamanni flee to the Rhine.",
+   "Chnodomar is captured."
+  ],
+  "lose": [
+   "The wedge breaks the second line.",
+   "The Roman army is split.",
+   "Gaul is open to the Alamanni."
+  ],
+  "cams": [
+   "clash",
+   "push",
+   "wide"
+  ],
+  "anim": {
+   "win": "drown"
+  }
+ },
+ "status": [
+  {
+   "label": "Campaign",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Marching to battle",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Raiding away",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Alamanni in Alsace",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The men",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Rested and fed",
+     "tone": "g"
+    },
+    {
+     "text": "Exhausted",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting a day",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "After a long march",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Left",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Ambush routed",
+     "tone": "g"
+    },
+    {
+     "text": "Lost in the woods",
+     "tone": "r"
+    },
+    {
+     "text": "Flank open",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Woods ahead",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Right",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Cavalry rallied",
+     "tone": "g"
+    },
+    {
+     "text": "Infantry alone",
+     "tone": "a"
+    },
+    {
+     "text": "Guard lost",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Cavalry engaged",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Alone in Alsace",
+   "text": "You are Julian, Caesar of the West. The Alamanni under King Chnodomar have crossed the Rhine in strength. Your colleague Barbatio, who was to trap them from the south, has retreated after an ambush. Chnodomar demands that you leave Alsace.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You have about 13,000 men. The Alamanni are said to have 35,000."
+     }
+    ],
+    "scout": [
+     {
+      "text": "The Alamanni are gathered in one place for once. Strike before they disperse, or the harvest will be lost and the army may grumble."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March out and offer battle",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "set": {
+        "march": 1
+       },
+       "text": "You refuse Chnodomar’s demand and march at dawn from Saverne toward his camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait in your forts for reinforcements",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -7,
+       "text": "The Alamanni plunder the countryside."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Raid across the Rhine instead",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "While you are gone, the Alamanni ravage Alsace."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "A long march",
+   "text": "After a hot march of 21 miles your army sees the Alamanni at midday. Your officers and men want to fight at once.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The men are tired, but eager."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Rest the men, give them food and water, and fight in the afternoon. Eager troops lose their edge if kept waiting too long, but tired ones lose battles."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Rest and feed the men, then fight in the afternoon",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 4,
+       "e": -10,
+       "set": {
+        "rested": 1
+       },
+       "text": "The army halts, eats and drinks, then forms up. Their eagerness has not cooled."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack straight off the march",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The men arrive at the enemy line exhausted."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "f1": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "f1",
+        "ala"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Make camp and fight tomorrow",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -7,
+       "text": "The men grumble, and the Alamanni strengthen their position."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The woods on the left",
+   "text": "On your left, beyond the Strasbourg road, is a wood. Something is moving in it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Severus’s division faces the woods."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Warriors in the woods want your left to charge in after them. Severus should hold his ground and let them come out."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Have Severus hold his ground and wait for them to come out",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "rested": true
+       },
+       "r": -2,
+       "e": -12,
+       "set": {
+        "left": 1
+       },
+       "text": "Severus holds his division still. At last the ambushers come out of the trees and are routed."
+      },
+      {
+       "r": -4,
+       "e": -8,
+       "set": {
+        "left": 1
+       },
+       "text": "Severus holds, and the ambush fails."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "amb": [
+         50,
+         130,
+         1
+        ],
+        "sev": [
+         70,
+         180
+        ]
+       },
+       "f": [
+        "sev",
+        "amb"
+       ]
+      }
+     ],
+     "cam": "leftclose"
+    },
+    {
+     "label": "Send Severus into the woods",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "Among the trees, the ambushers have the advantage."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "sev": [
+         50,
+         120
+        ],
+        "amb": [
+         50,
+         110,
+         1
+        ]
+       },
+       "f": [
+        "sev",
+        "amb"
+       ]
+      }
+     ],
+     "cam": "leftclose"
+    },
+    {
+     "label": "Pull Severus back",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -7,
+       "text": "Your left flank is open."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "sev": [
+         60,
+         220
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "The cataphracts break",
+   "text": "Your cataphracts charge on the right. Light infantry hidden among the German horsemen stab their horses from below. The armoured cavalry panics and flees back into your infantry.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Cornuti and Brachiati are letting the fleeing horse through their ranks."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Ride over yourself, rally the cavalry behind the infantry, and send it back in once it has its nerve again."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ride over and rally the cavalry behind the infantry",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "left": true
+       },
+       "r": -4,
+       "e": -12,
+       "set": {
+        "right": 1
+       },
+       "text": "You gallop to the fleeing horsemen with your guard and rally them behind the infantry. The German cavalry cannot get round your right."
+      },
+      {
+       "r": -8,
+       "e": -6,
+       "set": {
+        "right": 1
+       },
+       "text": "The cavalry rallies."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cat": [
+         320,
+         220
+        ],
+        "jul": [
+         320,
+         210
+        ],
+        "acav": [
+         330,
+         130
+        ]
+       },
+       "f": [
+        "acav",
+        "f1"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Let them go and close the line",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -7,
+       "text": "Your right is held by infantry alone."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Charge with your own guard",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "Your 200 guards are swallowed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "jul": [
+         330,
+         130
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The wedge",
+   "text": "The Alamanni nobles, in a great wedge, break through the centre of your first line and charge on toward the second.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The second line holds the Primani legion and the Batavians, your best troops."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let the second line stop the wedge and counter-charge. The first line’s wings hold, and the Alamanni will be squeezed from three sides."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "The Primani and Batavians meet the wedge and counter-charge",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "right": true,
+        "left": true
+       },
+       "r": -2,
+       "e": -24,
+       "text": "The Primani and Batavians stop the wedge dead and drive it back. Your lines close in from three sides. The Alamanni break and flee to the Rhine, where many drown. Chnodomar is caught in a wood by the river."
+      },
+      {
+       "r": -6,
+       "e": -14,
+       "text": "The wedge is stopped and thrown back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "f2": [
+         200,
+         170
+        ],
+        "ala": [
+         200,
+         120
+        ],
+        "f1": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "f2",
+        "ala"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Pull the first line back to the second",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": -9,
+       "text": "The lines merge, but lose their shape."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "f1": [
+         200,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Send the cavalry against the wedge",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The cavalry crashes into your own infantry."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cat": [
+         220,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Strasbourg (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Strasbourg"
+  }
+ ]
+}

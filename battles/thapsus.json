@@ -1,0 +1,774 @@
+{
+ "id": "thapsus",
+ "name": "Battle of Thapsus",
+ "date": "46 BC",
+ "result": "win",
+ "loc": {
+  "lat": 35.62,
+  "lon": 11.05,
+  "place": "Thapsus, Africa",
+  "short": "Thapsus",
+  "x": 320,
+  "y": 222
+ },
+ "names": {
+  "rome": "Caesar’s army",
+  "enemy": "The Republicans",
+  "commander": "Caesar",
+  "foe": "Metellus Scipio"
+ },
+ "intro": "Outside Thapsus in Africa (modern Tunisia), in the civil war. You are Julius Caesar, with about 60,000 to 70,000 men in twelve legions. Metellus Scipio and King Juba of Numidia have about 90,000, including 60 elephants, and have come along a narrow strip between a salt marsh and the sea to relieve the town.",
+ "debrief": "In reality, Caesar split his Fifth Legion and posted it behind both wings to meet the elephants, with archers and slingers on the flanks. A trumpeter of the Seventh sounded the advance without orders and Caesar ordered the whole line forward (one account says he had just had an epileptic fit). On the right, archers panicked the elephants, which trampled their own troops; on the left, the Fifth stood and drove them back into Scipio’s line with pila and trumpets. Scipio’s army broke, the camps were overrun, and Caesar’s men killed many who tried to surrender, despite his orders. About 10,000 of Scipio’s men died and nearly 1,000 of Caesar’s. It was the last great use of war elephants in the West. The other choices are what-ifs.",
+ "terrain": {
+  "lakes": [
+   [
+    -30,
+    130,
+    80,
+    150
+   ]
+  ],
+  "marsh": [
+   [
+    30,
+    40,
+    60,
+    40
+   ]
+  ],
+  "river": null,
+  "grass": "#a6a05c",
+  "ground": "#c4aa70"
+ },
+ "units": {
+  "x": {
+   "x": 320,
+   "y": 192,
+   "w": 70,
+   "h": 14,
+   "side": "roman",
+   "name": "VII & X (right)",
+   "model": "veteran"
+  },
+  "cen": {
+   "x": 200,
+   "y": 194,
+   "w": 90,
+   "h": 14,
+   "side": "roman",
+   "name": "XIII & XIV (centre)",
+   "model": "legionary"
+  },
+  "lft": {
+   "x": 80,
+   "y": 192,
+   "w": 70,
+   "h": 14,
+   "side": "roman",
+   "name": "VIII & IX (left)",
+   "model": "legionary"
+  },
+  "v5a": {
+   "x": 80,
+   "y": 214,
+   "w": 40,
+   "h": 10,
+   "side": "roman",
+   "name": "Fifth Legion (half)",
+   "model": "veteran"
+  },
+  "v5b": {
+   "x": 320,
+   "y": 214,
+   "w": 40,
+   "h": 10,
+   "side": "roman",
+   "name": "Fifth Legion (half)",
+   "model": "veteran"
+  },
+  "arch": {
+   "x": 320,
+   "y": 172,
+   "w": 60,
+   "h": 6,
+   "side": "roman",
+   "name": "Archers & slingers",
+   "model": "archer"
+  },
+  "opt": {
+   "x": 200,
+   "y": 84,
+   "w": 170,
+   "h": 16,
+   "side": "enemy",
+   "name": "Scipio’s legions",
+   "model": "legionary",
+   "scales": true,
+   "look": {
+    "tn": "#5a6d8c"
+   }
+  },
+  "eL": {
+   "x": 70,
+   "y": 110,
+   "w": 50,
+   "h": 10,
+   "side": "enemy",
+   "name": "Elephants",
+   "model": "elephant"
+  },
+  "eR": {
+   "x": 330,
+   "y": 110,
+   "w": 50,
+   "h": 10,
+   "side": "enemy",
+   "name": "Elephants",
+   "model": "elephant"
+  },
+  "camp": {
+   "x": 200,
+   "y": 30,
+   "w": 120,
+   "h": 8,
+   "side": "enemy",
+   "name": "Scipio’s camp",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The elephants trample their own lines.",
+   "Scipio’s army breaks.",
+   "Africa is Caesar’s."
+  ],
+  "lose": [
+   "The elephants break your wings.",
+   "Scipio relieves Thapsus.",
+   "The Republicans hold Africa."
+  ],
+  "cams": [
+   "right",
+   "push",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Elephants",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Fifth Legion ready",
+     "tone": "g"
+    },
+    {
+     "text": "Wings thin",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "On Scipio’s wings",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Advance",
+   "decision": 1,
+   "options": [
+    {
+     "text": "General advance",
+     "tone": "g"
+    },
+    {
+     "text": "Right held back",
+     "tone": "a"
+    },
+    {
+     "text": "Right alone",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Armies facing",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Right",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Elephants stampeding back",
+     "tone": "g"
+    },
+    {
+     "text": "Cavalry refuses",
+     "tone": "r"
+    },
+    {
+     "text": "Holding",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Elephants moving",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Left",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Fifth turns them back",
+     "tone": "g"
+    },
+    {
+     "text": "Falling back",
+     "tone": "a"
+    },
+    {
+     "text": "Trampled",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Elephants charging",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Facing the elephants",
+   "text": "You are Julius Caesar, besieging Thapsus in Africa. Metellus Scipio and King Juba have come to relieve it with about 90,000 men and 60 elephants, which stand on the wings of their line.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your Fifth Legion has been training against elephants brought over for the purpose."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Split the Fifth Legion and post it behind both wings, ready to meet the elephants. Archers and slingers on the flanks."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Post the Fifth Legion behind both wings, with archers and slingers on the flanks",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "fifth": 1
+       },
+       "text": "The Fifth is divided into two and placed behind each wing. Slingers and archers cover the flanks."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "v5a": [
+         80,
+         212
+        ],
+        "v5b": [
+         320,
+         212
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Mass every legion in the centre",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The wings are thin where the elephants will come."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for him to attack your siege lines",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -6,
+       "text": "Scipio digs in."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The trumpeter",
+   "text": "The armies stand facing each other. Suddenly a trumpeter of the Seventh Legion sounds the advance without orders, and your right wing surges forward.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The men are eager. Scipio’s army is tired after a day’s march."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Holding back an eager army now could cost more than letting it go. Order the whole line forward with them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Order a general advance",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "set": {
+        "advance": 1
+       },
+       "text": "Seeing the right surge forward, Caesar gives the signal for the whole line. (One account says he had just suffered an epileptic fit.)"
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "x": [
+         320,
+         150
+        ],
+        "cen": [
+         200,
+         155
+        ],
+        "lft": [
+         80,
+         155
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Try to halt the right wing",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The centurions hold most men back, with difficulty."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Let the right go alone",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The right goes in unsupported."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "x": [
+         320,
+         140
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Elephants on the right",
+   "text": "Opposite your right, the elephants begin to move.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your archers and slingers are in position."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Volleys of arrows and sling stones will panic the elephants and send them back into their own lines."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Shower the elephants with arrows and sling stones",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "advance": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "The missiles strike the elephants. They panic, turn and trample their own troops. Scipio’s left begins to break."
+      },
+      {
+       "r": -4,
+       "e": -12,
+       "text": "The elephants are driven back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "arch": [
+         320,
+         140
+        ],
+        "eR": [
+         330,
+         80,
+         0.5
+        ]
+       },
+       "f": [
+        "arch",
+        "eR",
+        "opt"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Charge them with cavalry",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The horses will not face them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Hold and wait",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The elephants come on."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eR": [
+         320,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Elephants on the left",
+   "text": "On your left the other elephants charge. The light troops and cavalry move aside, leaving the five cohorts of the Fifth to face them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Fifth has trained for this."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let the Fifth stand: pila, swords and trumpets will turn the beasts back onto Scipio’s right."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "The Fifth stands and drives them back with pila and trumpets",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "fifth": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "The cohorts of the Fifth stand their ground, hurling pila and blaring trumpets. The elephants wheel round and crash back into Scipio’s right. (A soldier who fought an elephant there became a legend.)"
+      },
+      {
+       "r": -8,
+       "e": -6,
+       "text": "The elephants break into your left."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "v5a": [
+         80,
+         180
+        ],
+        "eL": [
+         70,
+         90,
+         0.5
+        ]
+       },
+       "f": [
+        "v5a",
+        "eL"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Fall back",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -6,
+       "text": "Your left gives ground."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Counter-charge with the whole left",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The elephants trample the front ranks."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lft": [
+         80,
+         120
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "The camps",
+   "text": "Scipio’s line is breaking. His men run for their camps.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your cavalry is free."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send the cavalry to overrun the fortified camp before they can rally there."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Storm the camps with cavalry and legions",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "Your cavalry outrides the fugitives and overruns the camp. Scipio’s army is destroyed. Caesar orders the surrendering men spared, but his soldiers cut them down anyway."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "x": [
+         250,
+         50
+        ],
+        "cen": [
+         200,
+         60
+        ],
+        "camp": [
+         200,
+         20,
+         0.3
+        ]
+       },
+       "f": [
+        "x",
+        "cen",
+        "camp"
+       ]
+      }
+     ],
+     "cam": "push"
+    },
+    {
+     "label": "Halt and let them surrender",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Many surrender; many more escape."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Pursue only with the infantry",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -4,
+       "text": "They rally at their camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "push"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Thapsus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Thapsus"
+  }
+ ]
+}

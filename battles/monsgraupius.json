@@ -1,0 +1,776 @@
+{
+ "id": "monsgraupius",
+ "name": "Battle of Mons Graupius",
+ "date": "83 AD",
+ "result": "win",
+ "loc": {
+  "lat": 57.29,
+  "lon": -2.52,
+  "place": "north-east Scotland",
+  "short": "Mons Graupius",
+  "x": 147,
+  "y": -157
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Caledonians",
+  "commander": "Agricola",
+  "foe": "Calgacus"
+ },
+ "intro": "A hill in north-east Scotland, perhaps Bennachie in Aberdeenshire, in AD 83 or 84. You are Gnaeus Julius Agricola, governor of Britain, with about 8,000 auxiliary infantry, 3,000 cavalry and your legions: perhaps 17,000 to 30,000 men in all. The Caledonian tribes under Calgacus are said to number over 30,000.",
+ "debrief": "In reality, Agricola sent his fleet ahead to raid the coast and marched on the Caledonians’ granaries, forcing them to fight. He put his auxiliaries in front, cavalry on the wings, and held the legions back before the camp; the legions did not fight. After an exchange of missiles, Batavian and Tungrian cohorts closed in and cut down the Caledonians on the lower slopes. Caledonians from the summit tried to outflank the Romans and were themselves outflanked by Roman cavalry. The Caledonians fled into the woods. Tacitus, Agricola’s son-in-law and the only source, gives 10,000 Caledonian and 360 Roman dead, and his account may flatter Agricola; the speech he gives Calgacus is probably invented, and the site is unknown. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#6e8a4e",
+  "ground": "#857a56",
+  "tree": "#2f4a28",
+  "trees": 70,
+  "hills": [
+   [
+    200,
+    35,
+    160,
+    36
+   ],
+   [
+    330,
+    25,
+    60,
+    12
+   ]
+  ],
+  "forests": [
+   [
+    200,
+    -5,
+    190,
+    34
+   ]
+  ]
+ },
+ "units": {
+  "aux": {
+   "x": 200,
+   "y": 182,
+   "w": 140,
+   "h": 12,
+   "side": "roman",
+   "name": "8,000 auxiliaries",
+   "model": "auxiliary"
+  },
+  "bat": {
+   "x": 200,
+   "y": 166,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Batavians & Tungrians",
+   "model": "veteran"
+  },
+  "leg": {
+   "x": 200,
+   "y": 222,
+   "w": 120,
+   "h": 12,
+   "side": "roman",
+   "name": "Legions (in reserve)",
+   "model": "legionary"
+  },
+  "cavL": {
+   "x": 50,
+   "y": 190,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "cavR": {
+   "x": 350,
+   "y": 190,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "res": {
+   "x": 380,
+   "y": 226,
+   "w": 40,
+   "h": 10,
+   "side": "roman",
+   "name": "Four reserve squadrons",
+   "model": "cav_roman"
+  },
+  "cal": {
+   "x": 200,
+   "y": 70,
+   "w": 200,
+   "h": 18,
+   "side": "enemy",
+   "name": "Caledonians on the slopes",
+   "model": "barbarian",
+   "scales": true
+  },
+  "char": {
+   "x": 200,
+   "y": 120,
+   "w": 90,
+   "h": 8,
+   "side": "enemy",
+   "name": "Chariots",
+   "model": "cav_eastern"
+  },
+  "top": {
+   "x": 330,
+   "y": 40,
+   "w": 80,
+   "h": 12,
+   "side": "enemy",
+   "name": "Caledonians on the summit",
+   "model": "barbarian",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Batavians climb the hill.",
+   "The summit force is scattered.",
+   "Calgacus’s army vanishes."
+  ],
+  "lose": [
+   "The summit force is in your rear.",
+   "The auxiliaries break.",
+   "The far north stays free."
+  ],
+  "cams": [
+   "clash",
+   "rightflank",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Campaign",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Caledonians forced to battle",
+     "tone": "g"
+    },
+    {
+     "text": "Lost in the glens",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Enemy in the hills",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Line",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Auxiliaries front, legions held back",
+     "tone": "g"
+    },
+    {
+     "text": "Legions front",
+     "tone": "a"
+    },
+    {
+     "text": "Thin everywhere",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Forming up",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The slope",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Batavians climbing",
+     "tone": "g"
+    },
+    {
+     "text": "Missile duel",
+     "tone": "a"
+    },
+    {
+     "text": "Cavalry stuck",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Facing the hill",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The summit",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Outflanked by your horse",
+     "tone": "g"
+    },
+    {
+     "text": "Held by the legions",
+     "tone": "a"
+    },
+    {
+     "text": "In your rear",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Caledonians watching",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Bringing them to battle",
+   "text": "You are Gnaeus Julius Agricola, governor of Britain, far in the north of Scotland. The Caledonians avoid battle and melt into the hills.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their winter food is in their granaries, and their coasts are open to your fleet."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send the fleet ahead to raid the coast, and march on their harvest. They must fight or starve."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the fleet along the coast and march on their granaries",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "forced": 1
+       },
+       "text": "Your fleet raids along the coast, spreading alarm, and your army marches on the harvest. The Caledonian tribes gather at Mons Graupius to fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase them into the hills",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Your columns tire themselves in the glens."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Build forts and wait",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -7,
+       "text": "The tribes stay in the hills."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The line of battle",
+   "text": "Over 30,000 Caledonians stand on the slopes of the hill, their chariots on the flat ground in front. You have about 8,000 auxiliary infantry, 3,000 cavalry and the legions.",
+   "intel": {
+    "hint": [
+     {
+      "text": "A victory won by auxiliaries costs no Roman citizens’ blood."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Put the auxiliaries in front and keep the legions back before the camp, ready if needed. The cavalry on the wings."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Put the auxiliaries in front and hold the legions back in reserve",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 2,
+       "e": -8,
+       "set": {
+        "reserve": 1
+       },
+       "text": "The 8,000 auxiliaries form the front line, the cavalry on the wings. The legions stand back before the camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         226
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Put the legions in front",
+     "quality": 1,
+     "cost": 1,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -7,
+       "text": "A strong line, but nothing held back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         170
+        ],
+        "aux": [
+         200,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Spread your line wide to match theirs",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Your line is thin everywhere."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aux": [
+         200,
+         182
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Batavians",
+   "text": "After an exchange of missiles you can send your toughest auxiliaries, the Batavian and Tungrian swordsmen, up the slope.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Caledonians carry long swords and small shields, useless at close quarters."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Close in fast with short swords and shield bosses, where long swords cannot swing."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the Batavians and Tungrians in to fight hand to hand",
+     "quality": 2,
+     "cost": 1,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "reserve": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "The Batavians and Tungrians close in, punching with their shield bosses and stabbing. They cut down the Caledonians on the lower slopes and climb on."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The swordsmen push up the lower slopes."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "bat": [
+         200,
+         110
+        ],
+        "cal": [
+         200,
+         80
+        ],
+        "char": [
+         200,
+         130,
+         0.3
+        ]
+       },
+       "f": [
+        "bat",
+        "cal",
+        "char"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Keep exchanging missiles",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -9,
+       "text": "The chariots wheel about the plain."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge with the cavalry uphill",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The horses flounder on the slope."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cavL": [
+         100,
+         100
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "The summit",
+   "text": "The Caledonians on the summit, so far idle, start down around your flank to take your army from behind.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Four squadrons of cavalry are still in reserve."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send the reserve squadrons against them as they come down, and they will be the ones outflanked."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the four reserve squadrons against them",
+     "quality": 2,
+     "cost": 1,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "forced": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "The four reserve squadrons ride into the flank of the descending Caledonians and scatter them."
+      },
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The reserve squadrons stop them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "res": [
+         330,
+         90
+        ],
+        "top": [
+         330,
+         60
+        ]
+       },
+       "f": [
+        "res",
+        "top"
+       ]
+      }
+     ],
+     "cam": "rightflank"
+    },
+    {
+     "label": "Commit the legions",
+     "quality": 1,
+     "cost": 1,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -11,
+       "text": "The legions stop them, at the cost of your reserve."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         300,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Ignore them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "They fall on your rear."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "top": [
+         300,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "romanrear"
+    }
+   ]
+  },
+  {
+   "title": "The woods",
+   "text": "The Caledonians break and run for the woods behind the hill. Some turn and ambush your pursuers.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The woods are thick and dark."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pursue, but search the woods in close order: cohorts round the edges, and dismounted cavalry where the trees are thick."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pursue in close order, surrounding and searching the woods",
+     "quality": 2,
+     "cost": 1,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "Your cohorts surround the woods and search them in close order. About 10,000 Caledonians are killed; the rest scatter, and by morning your scouts can find no army at all."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aux": [
+         200,
+         60
+        ],
+        "cal": [
+         200,
+         20,
+         0.3
+        ]
+       },
+       "f": [
+        "aux",
+        "cal"
+       ]
+      }
+     ],
+     "cam": "push"
+    },
+    {
+     "label": "Pursue at once, every man for himself",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -4,
+       "text": "Scattered pursuers are ambushed among the trees."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aux": [
+         200,
+         40
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "push"
+    },
+    {
+     "label": "Halt at the edge of the woods",
+     "quality": 1,
+     "cost": 1,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -9,
+       "text": "The Caledonians slip away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Mons Graupius (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Mons_Graupius"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "They make a desert and call it peace.",
+   "who": "Calgacus, in the speech the historian Tacitus gives him"
+  }
+ ]
+}
