@@ -53,6 +53,8 @@ function moveFor(B,k,i,S){
 // ---- playing a battle -------------------------------------------------------
 // State: {S:{flags}, R, E, CP, step, picks:[], quals:[]}
 function newState(B){return{S:{},R:100,E:100,CP:B.cpMax||10,step:0,picks:[],quals:[]}}
+// Apply choice i of the current decision. The square colour is the choice's quality, one step worse if the enemy
+// punished the same kind of move twice in a row, so the share grid matches what happened.
 // Apply choice i of the current decision. nr/ne are the day's noise (the game passes seeded noise).
 function step(B,st,i,nr,ne){
  const d=B.decisions[st.step],c=d.choices[i],x=outcome(c,st.S);
@@ -61,7 +63,7 @@ function step(B,st,i,nr,ne){
  const prev=st.step>0?B.decisions[st.step-1].choices[st.picks[st.step-1]].style:null;
  if(prev&&prev===c.style){
   if(c.style==="A"){dr-=8;pen="A"}else if(c.style==="C"){de+=8;pen="C"}else{de+=5;dr-=3;pen="M"}}
- st.R+=dr;st.E+=de;st.CP-=c.cost;st.picks[st.step]=i;st.quals.push(x.q!==undefined?x.q:c.quality);st.step++;
+ st.R+=dr;st.E+=de;st.CP-=c.cost;st.picks[st.step]=i;{let q=x.q!==undefined?x.q:c.quality;if(pen)q=Math.max(0,q-1);st.quals.push(q)}st.step++;
  return{text:x.text,dr,de,pen}}
 function won(B,st){return st.R>0&&st.E<=(B.winAt||45)}
 
