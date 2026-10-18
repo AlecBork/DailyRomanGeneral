@@ -168,7 +168,7 @@ function start(){
 function turn(){
  let mvg=false;{const ns=stageFor(step);if(ns!==STG){goStage(ns);mvg=ok}}
  const T=B.turns[step],ev=B.decisions[step].event;hud("play");speak(T.h+". "+T.t);
- V.innerHTML=prevNote()+`<div class="card"><div class="kicker"><span>${ev?"⚡ Turn of fortune":"Decision "+(step+1)}</span><span class="cpw">🔭 ${SCN} scout${SCN===1?"":"s"} left</span></div><h2>${T.h}</h2><p>${T.t}</p>${ord(step).map(i=>`<button class="ch" data-i="${i}"><span class="l">${T.c[i].l}</span></button>`).join("")}${scout?"":SCN>0?`<button class="scout" id="sc">🔭 Send scouts (${SCN} of ${SCOUTS} left this battle)</button>`:'<div class="sub" style="margin:10px 0 0;text-align:center">No scouts left this battle.</div>'}</div>`+intel()+sit();
+ V.innerHTML=prevNote()+`<div class="card"><div class="kicker"><span>${ev?"⚡ Turn of fortune":"Decision "+(step+1)}</span><span class="cpw">🔭 ${SCN} scout${SCN===1?"":"s"} left</span></div><h2>${T.h}</h2><p>${T.t}</p>${ord(step).map(i=>`<button class="ch" data-i="${i}"><span class="l">${T.c[i].l}</span></button>`).join("")}${scout?"":SCN>0?`<button class="scout" id="sc">🔭 Send scouts (${SCN} of ${SCOUTS} left)</button>`:'<div class="sub" style="margin:10px 0 0;text-align:center">No scouts left this battle.</div>'}</div>`+intel()+sit();
  {const bs=V.querySelectorAll("button[data-i]");bs.forEach(b=>{b.onclick=()=>pick(+b.dataset.i);if(mvg)b.disabled=true});if(mvg)setTimeout(()=>bs.forEach(b=>b.disabled=false),2100)}const sc=$("sc");if(sc)sc.onclick=()=>{SCN--;scout=true;SFX.click();bars();turn()};
 }
 // Choices are shown in a shuffled order that is fixed for each battle, so their position gives nothing away.
@@ -393,7 +393,7 @@ function landing(){const ov=document.createElement("div");ov.id="intro";const fi
  ov.innerHTML=`<canvas id="globe"></canvas><canvas id="flat"></canvas><div id="site"><div id="tilt"><img id="simg" alt=""><img id="dimg" alt=""></div><div class="vign"></div><div id="pin"><div class="ring"></div><div class="stick">${PIN}<div class="lb">${loc.short}</div></div></div></div>
  <div id="ttl" class="glass"><div class="lg" style="cursor:pointer" onclick="window.devTap&&devTap()">DAILY ROMAN<br>GENERAL</div><div class="tg">One battle of ancient Rome, every day. Command the legions. Change history, or repeat it.</div>
  <div class="meta"><span>${PRACTICE?"PRACTICE":"BATTLE #"+(dayNum+1)}</span>${LEG?'<span style="border-color:#b05ad0;color:#e2b6f0">LEGENDARY SUNDAY · NO SCOUTS</span>':""}<span>${first?"3 ATTEMPTS":"ATTEMPT "+(ATT.length+1)+" OF 3"}</span></div>
- <button class="primary" id="go">${first?"Begin today’s battle":"Continue the battle"}</button><div id="ldev"></div><div class="fine">About five minutes. 3 scout reports per battle. Tap \u{1F50A} for sound.</div></div>
+ <button class="primary" id="go">${first?"Begin today’s battle":"Continue the battle"}</button><div id="ldev"></div><div class="fine">About five minutes. ${SCOUTS} scout report${SCOUTS===1?"":"s"} this battle. Tap \u{1F50A} for sound.</div></div>
  <div class="wheel glass" id="wh" style="display:none"></div><div id="cap" class="glass"><div class="cn">${B.name}</div><div class="cd">${B.date} · ${loc.place}</div></div>
  <button id="skip">SKIP ▸</button><div id="credit">Imagery: NASA Blue Marble · Natural Earth</div>`;
  document.body.appendChild(ov);landDev();requestAnimationFrame(()=>ov.style.opacity=1);
@@ -689,7 +689,7 @@ async function boot(){
   let bid=MF.battles[(((dayNum-sd)%n)+n)%n].id;DAILY=bid;
   try{const t=localStorage.getItem("drg-test-b");if(t&&MF.battles.some(b=>b.id===t)){bid=t;PRACTICE=true}}catch(e){}
   B=normalize(await getJSON("battles/"+bid+".json"));
-  DK=dayNum+"b"+B.id;U=B.units;WIN=B.winAt||45;CPMAX=99;SCOUTS=B.scouts||3;LEG=LEGENDARY_SUNDAYS&&!PRACTICE&&new Date().getDay()===0;if(LEG){SCOUTS=0;WIN-=5}
+  DK=dayNum+"b"+B.id;U=B.units;WIN=B.winAt||45;CPMAX=99;SCOUTS=B.scouts!=null?B.scouts:(B.decisions.length>=7?2:1);LEG=LEGENDARY_SUNDAYS&&!PRACTICE&&new Date().getDay()===0;if(LEG){SCOUTS=0;WIN-=5}
   document.querySelector(".tick").style.left=WIN+"%";
   $("brand").textContent="DAILY ROMAN GENERAL";$("bname").innerHTML=`${B.name.replace(/^Battle of (the )?/,"")}<small>${B.date} · ${PRACTICE?"practice":"#"+(dayNum+1)}</small>`;$("rn").textContent=B.rn;$("en").textContent=B.cn;
   renderDev();
