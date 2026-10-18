@@ -187,8 +187,8 @@ function pick(i){
  if(fin){const w=R>0&&win;climax(w);setTimeout(()=>SFX.horn(w),4500)}
  hud("play");if(!fin)$("plab").innerHTML=`<span class="pn">ORDERS GIVEN</span><span class="pt">${B.turns[k].h}</span>`;{const sg2=$("segs").children;if(sg2[k])sg2[k].className="seg done";}
  speak(x.o);V.innerHTML=`<div class="card"><div class="kicker"><span>Your orders are carried out</span></div><div id="oc" style="opacity:0;transition:opacity 1s"><div class="out">${x.o}${hm?"<br><i>"+hm+"</i>":""}</div><div class="delta"><span style="color:${R-R0<0?"var(--bad)":"var(--ok)"}">${B.rn} ${sg(R-R0)}</span><span style="color:${E-E0<0?"var(--ok)":"var(--bad)"}">${B.cn} ${sg(E-E0)}</span></div></div><button class="primary" id="nx" disabled style="opacity:.5">Watching the battle…</button></div>`+sit();
- setTimeout(()=>{const o=$("oc");if(o)o.style.opacity=1},600);
- setTimeout(()=>{const b=$("nx");if(!b)return;b.disabled=false;b.style.opacity=1;b.textContent=fin?"See the result ▸":"Next decision ▸";b.onclick=nxt},fin?3200:1600)}
+ const QK=ATT.length>0;setTimeout(()=>{const o=$("oc");if(o)o.style.opacity=1},QK?250:600);
+ setTimeout(()=>{const b=$("nx");if(!b)return;b.disabled=false;b.style.opacity=1;b.textContent=fin?"See the result ▸":"Next decision ▸";b.onclick=nxt},fin?(QK?2400:3200):(QK?800:1600))}
 
 // ---------- SOUND (synthesised, no files) ----------
 const SFX=(()=>{let ctx=null,out=null,amb=null,muted=false;try{muted=localStorage.getItem("drg-mute")==="1"}catch(e){}
@@ -405,7 +405,7 @@ function landing(){const ov=document.createElement("div");ov.id="intro";const fi
  const later=(f,ms)=>T.push(setTimeout(f,ms));
  const fin=()=>{if(over)return;over=true;T.forEach(clearTimeout);ov.style.opacity=0;setTimeout(()=>{if(G)G.stop();ov.remove();turn()},700)};
  sk.onclick=fin;
- ov.querySelector("#go").onclick=()=>{SFX.start();SFX.click();ttl.style.opacity=0;ttl.style.transform="translateY(20px)";sk.style.display="block";
+ ov.querySelector("#go").onclick=()=>{SFX.start();SFX.click();if(ATT.length){fin();return}ttl.style.opacity=0;ttl.style.transform="translateY(20px)";sk.style.display="block";
   later(()=>{ttl.style.display="none";wh.style.display="flex";yr.split("").forEach((d,i)=>wh.appendChild(reel(d,DIG,"",60+i*140,.8+i*.2)));wh.appendChild(reel(era,ERA,"era",60+yr.length*140,.8+yr.length*.2))},250);
   const flat=ov.querySelector("#flat"),siteKm=(B.loc.span||3)*2*111,V1=innerWidth*siteKm/(.88*S2),V0=2*.5*Math.tan(20*Math.PI/180)*6371*innerWidth/innerHeight;
   const toSite=()=>{site.style.transition="none";site.style.opacity=1;requestAnimationFrame(()=>{flat.style.opacity=0;site.style.transition="";
