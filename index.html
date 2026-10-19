@@ -129,7 +129,7 @@ details.sit summary{list-style:none;cursor:pointer;display:flex;justify-content:
 // ---------- DAILY PICK + SEEDED NOISE ----------
 const dayNow=()=>{const t=new Date();return Math.floor((Date.UTC(t.getFullYear(),t.getMonth(),t.getDate())-Date.UTC(2026,0,1))/864e5)};
 const today=new Date(),dayNum=Math.floor((Date.UTC(today.getFullYear(),today.getMonth(),today.getDate())-Date.UTC(2026,0,1))/864e5);
-let B,BI,DK,U,MF,PRACTICE=false,DAILY="";
+let BNUM=1,B,BI,DK,U,MF,PRACTICE=false,DAILY="";
 const rnd=i=>{let x=Math.sin((dayNum+1)*97+i*31)*1e4;return x-Math.floor(x)};
 const $=id=>document.getElementById(id),V=$("view");
 const SHARE_URL="";  // optional: the game’s public address; if empty, the page’s own address is used when hosted
@@ -281,12 +281,12 @@ function reminderICS(){const t=new Date();t.setDate(t.getDate()+1);const p=n=>St
  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Daily Roman General//EN","BEGIN:VEVENT","UID:drg-daily-"+d+"@dailyromangeneral.com","DTSTAMP:"+d+"T080000","DTSTART:"+d+"T080000","DURATION:PT10M","RRULE:FREQ=DAILY","SUMMARY:⚔ Today’s battle: Daily Roman General","DESCRIPTION:A new battle of ancient Rome is waiting. "+url,"URL:"+url,"BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:Daily Roman General","TRIGGER:PT0M","END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([ics],{type:"text/calendar"}));a.download="daily-roman-general.ics";document.body.appendChild(a);a.click();setTimeout(()=>a.remove(),500)}
 // ---- how other generals did today (hosted site with public GoatCounter counters) ----
-async function others(el){if(!HOSTED||!STATS_CODE||PRACTICE)return;const base=`https://${STATS_CODE}.goatcounter.com/counter/`,k=`game/day${dayNum+1}/${B.id}/`;
+async function others(el){if(!HOSTED||!STATS_CODE||PRACTICE)return;const base=`https://${STATS_CODE}.goatcounter.com/counter/`,k=`game/day${BNUM}/${B.id}/`;
  const get=async p=>{try{const r=await fetch(base+encodeURIComponent(p)+".json");if(!r.ok)return 0;const j=await r.json();return parseInt(String(j.count).replace(/\D/g,""))||0}catch(e){return 0}};
  const [w1,w2,w3,l]=await Promise.all(["won1","won2","won3","lost"].map(s=>get(k+s))),tot=w1+w2+w3+l;if(tot<3)return;
  const pct=Math.round(100*(w1+w2+w3)/tot),first=Math.round(100*w1/tot);
  el.innerHTML=`<div class="card others"><div class="kicker" style="color:var(--gold)"><span>Today’s generals</span><span class="cpw">${tot} played</span></div><div class="bar2"><i style="width:${pct}%"></i></div><div class="hist"><b>${pct}%</b> won today’s battle · ${first}% on the first attempt.</div></div>`}
-function finish(rec){ATT.push(rec);PREV=rec;if(!PRACTICE)track(`${B.id}/result/attempt${ATT.length}/${rec.won?"win":"loss"}`,`${B.name}: attempt ${ATT.length} ${rec.won?"won":"lost"}`);if(!PRACTICE)store.set("drg-att-"+DK,ATT);let out=rec;if(rec.won||ATT.length>=3){out={...rec,atts:ATT.slice()};if(!PRACTICE){store.set("drg-"+DK,out);streak(rec.won);recordStats(rec,ATT.length);saveRecord(out);track(`day${dayNum+1}/${B.id}/${rec.won?"won"+Math.min(3,ATT.length):"lost"}`,`Day ${dayNum+1} ${B.name}`)}}end(out)}
+function finish(rec){ATT.push(rec);PREV=rec;if(!PRACTICE)track(`${B.id}/result/attempt${ATT.length}/${rec.won?"win":"loss"}`,`${B.name}: attempt ${ATT.length} ${rec.won?"won":"lost"}`);if(!PRACTICE)store.set("drg-att-"+DK,ATT);let out=rec;if(rec.won||ATT.length>=3){out={...rec,atts:ATT.slice()};if(!PRACTICE){store.set("drg-"+DK,out);streak(rec.won);recordStats(rec,ATT.length);saveRecord(out);track(`day${BNUM}/${B.id}/${rec.won?"won"+Math.min(3,ATT.length):"lost"}`,`Day ${BNUM} ${B.name}`)}}end(out)}
 function playRandom(){const o=MF.battles.filter(b=>b.id!==B.id),c=o[Math.floor(Math.random()*o.length)];try{localStorage.setItem("drg-test-b",c.id);sessionStorage.setItem("drg-auto","1")}catch(e){}location.reload()}
 function retry(){S={};step=0;R=100;E=100;quals=[];last="";resetMap();bars();turn()}
 function gOf(q){return q.map(v=>(CB?["🟧","⬜","🟦"]:["🟥","🟨","🟩"])[v]).join("")}
@@ -295,7 +295,7 @@ function shareImage(gs,r,hit,tot,streak){return new Promise(res=>{try{
  const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,"#1b1410");g.addColorStop(1,"#0b0907");x.fillStyle=g;x.fillRect(0,0,W,H);
  x.strokeStyle="rgba(216,170,76,.55)";x.lineWidth=4;x.strokeRect(36,36,W-72,H-72);
  x.textAlign="center";x.fillStyle="#d8aa4c";x.font="700 42px Cinzel, Georgia, serif";x.fillText("DAILY ROMAN GENERAL",W/2,130);
- x.fillStyle="#a3958a";x.font="500 32px Cinzel, Georgia, serif";x.fillText(PRACTICE?"PRACTICE":"BATTLE #"+(dayNum+1),W/2,182);
+ x.fillStyle="#a3958a";x.font="500 32px Cinzel, Georgia, serif";x.fillText(PRACTICE?"PRACTICE":"BATTLE #"+BNUM,W/2,182);
  x.fillStyle="#efe6d6";x.font="700 64px Cinzel, Georgia, serif";x.fillText(B.name.replace(/^Battle of (the )?|^Siege of /,""),W/2,300);
  x.fillStyle="#a3958a";x.font="italic 36px Georgia, serif";x.fillText(B.date,W/2,352);
  const col=CB?["#f5793a","#c8c8c8","#85c0f9"]:["#d2493b","#d8aa4c","#5f9e5b"],sz=78,gap=14;
@@ -318,9 +318,9 @@ function end(r){
  const fresh=PRACTICE?[]:newHonours(),honHTML=(SAVED?`<div class="toast">🙏 <span>The gods were kind: one missed day this month was forgiven, and your streak lives on.</span></div>`:"")+fresh.map(a=>`<div class="toast"><span style="font-size:1.4rem">${a[1]}</span><span><b>New honour: ${a[2]}</b><br><span class="sub">${a[3]}</span></span></div>`).join("");
  const st=store.get("drg-streak")||{n:0,max:0},sx=stats(),hit=(r.p||[]).filter((v,k)=>v===B.hist[k]).length,tot=B.hist.length,real=B.result==="win";
  const verdict=r.won&&!real?"You changed history: Rome really lost this one.":!r.won&&real?`You lost a battle ${B.hn} won.`:r.won?`Like ${B.hn}, you won.`:`Like ${B.hn}, you lost. History repeats itself.`;
- const txt=`DailyRomanGeneral ${PRACTICE?"(practice)":"#"+(dayNum+1)}${LEG?" 🌟 Legendary":""}\n${LEGION} at ${B.name.replace(/^Battle of (the )?|^Siege of /,"")} (${B.date})\n${gs.map((a,i)=>gOf(a.q)+(i===gs.length-1&&r.won?" 🏆":" ❌")).join("\n")}\n${r.won?"Won on attempt "+gs.length+" of 3":"💀 Lost all 3 attempts"} · ${hit}/${tot} calls like ${B.hn}${PRACTICE?"":"\n🔥 Streak: "+st.n}`+(GAME_URL?"\n"+GAME_URL:"");
+ const txt=`DailyRomanGeneral ${PRACTICE?"(practice)":"#"+BNUM}${LEG?" 🌟 Legendary":""}\n${LEGION} at ${B.name.replace(/^Battle of (the )?|^Siege of /,"")} (${B.date})\n${gs.map((a,i)=>gOf(a.q)+(i===gs.length-1&&r.won?" 🏆":" ❌")).join("\n")}\n${r.won?"Won on attempt "+gs.length+" of 3":"💀 Lost all 3 attempts"} · ${hit}/${tot} calls like ${B.hn}${PRACTICE?"":"\n🔥 Streak: "+st.n}`+(GAME_URL?"\n"+GAME_URL:"");
  hud("over",Object.assign((r.q||[]).slice(),{won:r.won}));
- V.innerHTML=`<div class="card res ${r.won?"win":"lose"}"><div class="kicker"><span>${PRACTICE?"Practice battle":"Battle #"+(dayNum+1)}</span><span class="cpw">${B.date}</span></div><div class="big">${head}</div><p class="verdict">${verdict}</p>${gh}<p class="sub" style="margin:10px 0 0">You made the same call as ${B.hn} in ${hit} of ${tot} decisions.</p>
+ V.innerHTML=`<div class="card res ${r.won?"win":"lose"}"><div class="kicker"><span>${PRACTICE?"Practice battle":"Battle #"+BNUM}</span><span class="cpw">${B.date}</span></div><div class="big">${head}</div><p class="verdict">${verdict}</p>${gh}<p class="sub" style="margin:10px 0 0">You made the same call as ${B.hn} in ${hit} of ${tot} decisions.</p>
  <div class="stat" style="margin:14px 0 4px"><div><b>${sx.played}</b>played</div><div><b>${sx.played?Math.round(100*sx.won/sx.played):0}%</b>won</div><div><b>${st.n||0}</b>streak</div><div><b>${Math.max(st.max||0,st.n||0)}</b>best</div></div>
  <button class="primary" id="sh">Share result</button><button id="vid" style="text-align:center;display:none">🎬 Preparing the battle replay…</button><div class="sub" style="text-align:center;margin:10px 0 0">${PRACTICE?"Practice battle: it does not count toward your streak.":"Next battle in <b id=\"cd\"></b>"}</div></div>
  ${honHTML}<div id="others"></div><div class="card"><div class="kicker"><span>What really happened</span></div><p class="hist" style="margin:0">${B.debrief}</p></div>${(B.quotes||[]).length?`<div class="card"><div class="kicker"><span>In their words</span></div>${B.quotes.map(q=>`<p class="hist" style="font-style:italic;margin:0 0 4px">“${q.text}”</p><p class="sub" style="margin:0 0 10px">— ${q.who}</p>`).join("")}</div>`:""}<div class="card"><button id="cmpe">🗺 Campaign map, war record and honours</button><button id="rem">📅 Add a daily reminder to my calendar</button></div>
@@ -392,7 +392,7 @@ function landDev(){const el=document.getElementById("ldev");if(!el)return;if(!DE
 function landing(){const ov=document.createElement("div");ov.id="intro";const first=ATT.length===0,loc=B.loc;
  ov.innerHTML=`<canvas id="globe"></canvas><canvas id="flat"></canvas><div id="site"><div id="tilt"><img id="simg" alt=""><img id="dimg" alt=""></div><div class="vign"></div><div id="pin"><div class="ring"></div><div class="stick">${PIN}<div class="lb">${loc.short}</div></div></div></div>
  <div id="ttl" class="glass"><div class="lg" style="cursor:pointer" onclick="window.devTap&&devTap()">DAILY ROMAN<br>GENERAL</div><div class="tg">One battle of ancient Rome, every day. Command the legions. Change history, or repeat it.</div>
- <div class="meta"><span>${PRACTICE?"PRACTICE":"BATTLE #"+(dayNum+1)}</span>${LEG?'<span style="border-color:#b05ad0;color:#e2b6f0">LEGENDARY SUNDAY · NO SCOUTS</span>':""}<span>${first?"3 ATTEMPTS":"ATTEMPT "+(ATT.length+1)+" OF 3"}</span></div>
+ <div class="meta"><span>${PRACTICE?"PRACTICE":"BATTLE #"+BNUM}</span>${LEG?'<span style="border-color:#b05ad0;color:#e2b6f0">LEGENDARY SUNDAY · NO SCOUTS</span>':""}<span>${first?"3 ATTEMPTS":"ATTEMPT "+(ATT.length+1)+" OF 3"}</span></div>
  <button class="primary" id="go">${first?"Begin today’s battle":"Continue the battle"}</button><div id="ldev"></div><div class="fine">About five minutes. ${SCOUTS} scout report${SCOUTS===1?"":"s"} this battle. Tap \u{1F50A} for sound.</div></div>
  <div class="wheel glass" id="wh" style="display:none"></div><div id="cap" class="glass"><div class="cn">${B.name}</div><div class="cd">${B.date} · ${loc.place}</div></div>
  <button id="skip">SKIP ▸</button><div id="credit">Imagery: NASA Blue Marble · Natural Earth</div>`;
@@ -686,12 +686,13 @@ async function boot(){
  try{
   MF=await getJSON("battles/manifest.json");
   const [y,m,d]=(MF.start||"2026-01-01").split("-").map(Number),sd=Math.floor((Date.UTC(y,m-1,d)-Date.UTC(2026,0,1))/864e5),n=MF.battles.length;
-  let bid=MF.battles[(((dayNum-sd)%n)+n)%n].id;DAILY=bid;
+  let bid=MF.battles[(((dayNum-sd)%n)+n)%n].id;DAILY=bid;BNUM=Math.max(1,dayNum-sd+1);  // battle #1 = launch day (manifest "start")
+
   try{const t=localStorage.getItem("drg-test-b");if(t&&MF.battles.some(b=>b.id===t)){bid=t;PRACTICE=true}}catch(e){}
   B=normalize(await getJSON("battles/"+bid+".json"));
   DK=dayNum+"b"+B.id;U=B.units;WIN=B.winAt||45;CPMAX=99;SCOUTS=B.scouts!=null?B.scouts:(B.decisions.length>=7?2:1);LEG=LEGENDARY_SUNDAYS&&!PRACTICE&&new Date().getDay()===0;if(LEG){SCOUTS=0;WIN-=5}
   document.querySelector(".tick").style.left=WIN+"%";
-  $("brand").textContent="DAILY ROMAN GENERAL";$("bname").innerHTML=`${B.name.replace(/^Battle of (the )?/,"")}<small>${B.date} · ${PRACTICE?"practice":"#"+(dayNum+1)}</small>`;$("rn").textContent=B.rn;$("en").textContent=B.cn;
+  $("brand").textContent="DAILY ROMAN GENERAL";$("bname").innerHTML=`${B.name.replace(/^Battle of (the )?/,"")}<small>${B.date} · ${PRACTICE?"practice":"#"+BNUM}</small>`;$("rn").textContent=B.rn;$("en").textContent=B.cn;
   renderDev();
   let taps=0,tt=0;window.devTap=()=>{clearTimeout(tt);tt=setTimeout(()=>taps=0,2000);if(++taps>=5){taps=0;setDev(!DEV)}};$("brand").onclick=devTap;
   start();
