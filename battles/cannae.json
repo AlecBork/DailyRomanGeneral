@@ -375,7 +375,7 @@
  ],
  "decisions": [
   {
-   "title": "The ground",
+   "title": "Where to fight",
    "text": "Hannibal waits on the open plain beside the Aufidus. His Numidian horsemen raid your water parties, and your army is eager to fight. Paullus wants to avoid open ground, but today is your day to command.",
    "intel": {
     "hint": [
@@ -754,7 +754,7 @@
    ]
   },
   {
-   "title": "The formation",
+   "title": "How to form the legions",
    "text": "Your army is far larger than Hannibal’s, but the ground is narrow. Your officers want the maniples packed close and the column deep.",
    "intel": {
     "hint": [
@@ -1257,7 +1257,7 @@
    ]
   },
   {
-   "title": "The rear",
+   "title": "Cavalry behind your lines",
    "text": "Hasdrubal’s cavalry has beaten your allied horse and is riding round to your rear.",
    "intel": {
     "hint": [
