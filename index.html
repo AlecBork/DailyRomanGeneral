@@ -611,10 +611,14 @@ function stepProj(){const now=performance.now()/1000,v=new THREE.Vector3();for(l
  p.m.position.lerpVectors(p.s,p.e,kk);p.m.position.y+=p.h*4*kk*(1-kk);v.lerpVectors(p.s,p.e,Math.min(1,kk+.02));v.y+=p.h*4*(kk+.02)*(1-kk-.02);p.m.lookAt(v);p.m.visible=k<1}}
 // ---------- BATTLE REPLAY: the final moments recorded as a short square video to share ----------
 let REC=null,CLIP=null,CLIPWAIT=[];
+// The last replay is kept in the browser (IndexedDB), so it can still be shared after the page is reopened.
+function clipDB(){return new Promise((ok,no)=>{try{const r=indexedDB.open("drg-clips",1);r.onupgradeneeded=()=>r.result.createObjectStore("c");r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)}catch(e){no(e)}})}
+function clipSave(c){clipDB().then(db=>{const t=db.transaction("c","readwrite");t.objectStore("c").put({dk:DK,blob:c.blob,ext:c.ext,type:c.type},"last")}).catch(()=>{})}
+function clipLoad(){return clipDB().then(db=>new Promise(ok=>{const r=db.transaction("c").objectStore("c").get("last");r.onsuccess=()=>{const v=r.result;ok(v&&v.dk===DK&&v.blob?{blob:v.blob,ext:v.ext,type:v.type}:null)};r.onerror=()=>ok(null)})).catch(()=>null)}
 function startReplay(win,lines){CLIP=null;if(!ok||!window.MediaRecorder)return;const cv0=$("map");let types=["video/mp4;codecs=avc1","video/mp4","video/webm;codecs=vp9","video/webm"];const type=types.find(t=>{try{return MediaRecorder.isTypeSupported(t)}catch(e){return false}});if(!type)return;
  const S=720,c=document.createElement("canvas");c.width=c.height=S;const x=c.getContext("2d"),sh=Math.round(S/1.5),top=146,t0=performance.now(),dur=9000;
  let stream;try{stream=c.captureStream(30)}catch(e){return}let rec;try{rec=new MediaRecorder(stream,{mimeType:type,videoBitsPerSecond:2500000})}catch(e){return}const chunks=[];rec.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data)};
- rec.onstop=()=>{const blob=new Blob(chunks,{type:type.split(";")[0]});CLIP=blob.size>1000?{blob,ext:/mp4/.test(type)?"mp4":"webm",type:type.split(";")[0]}:null;CLIPWAIT.splice(0).forEach(f=>f())};
+ rec.onstop=()=>{const blob=new Blob(chunks,{type:type.split(";")[0]});CLIP=blob.size>1000?{blob,ext:/mp4/.test(type)?"mp4":"webm",type:type.split(";")[0]}:null;if(CLIP)clipSave(CLIP);CLIPWAIT.splice(0).forEach(f=>f())};
  const name=B.name.replace(/^Battle of (the )?|^Siege of /,""),res=win?"VICTORY":"DEFEAT";
  REC={frame(){const t=performance.now()-t0;x.fillStyle="#0b0907";x.fillRect(0,0,S,S);try{x.drawImage(cv0,0,top,S,sh)}catch(e){}
    x.textAlign="center";x.fillStyle="#d8aa4c";x.font="700 26px Georgia, serif";x.fillText("DAILY ROMAN GENERAL",S/2,48);x.fillStyle="#efe6d6";x.font="700 40px Georgia, serif";x.fillText(name,S/2,98);x.fillStyle="#a3958a";x.font="italic 24px Georgia, serif";x.fillText(B.date,S/2,130);
@@ -630,7 +634,7 @@ function replayButton(){const w=$("vidw"),b=$("vid"),sv=$("vsave"),pv=$("vprev")
   sv.style.display="block";sv.onclick=()=>{SFX.click();const a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>a.remove(),500);const L0=sv.textContent;sv.textContent="✓ Saved";setTimeout(()=>sv.textContent=L0,2500)};
   if(canFile){b.textContent="🎬 Share video";b.disabled=false;b.onclick=async()=>{SFX.click();try{await navigator.share({files:[f],text:"My battle at "+B.name.replace(/^Battle of (the )?|^Siege of /,"")+" on Daily Roman General"+(GAME_URL?" "+GAME_URL:"")})}catch(e){if(!e||e.name!=="AbortError")sv.onclick()}}}
   else{b.style.display="none";sv.textContent="⬇ Save the battle video"}};
- if(CLIP)ready();else if(REC){b.disabled=true;CLIPWAIT.push(ready)}else w.style.display="none"}
+ if(CLIP)ready();else if(REC){b.disabled=true;CLIPWAIT.push(ready)}else{b.disabled=true;clipLoad().then(c=>{if(c){CLIP=c;ready()}else w.style.display="none"})}}
 function place(){if(!ok)return;for(const id in UN){const o=UN[id],p=P[id];o.tx=WX(p[0]);o.tz=WZ(p[1]);o.a=p[2]==null?1:p[2]}}
 function mapScale(){if(!ok)return;for(const id in UN){const u=U[id];UN[id].k=Math.max(.25,Math.min(1,u.s==="r"?R/100:u.sc?E/100:1))}}
 function resetMap(){endReset();if(tried||ok){goStage("start",true);const f=$("fd"),t=$("stc");if(f)f.style.opacity=0;if(t)t.classList.remove("on")}picks=[];CP=CPMAX;SCN=SCOUTS;scout=false;clearTimeout(camT);CT.splice(0,6,0,190,245,0,0,-10);if(!tried)initGL();P={};for(const id in U)P[id]=[U[id].x,U[id].y,U[id].hidden?0:1];place();if(ok)for(const id in UN){UN[id].g.position.set(UN[id].tx,Math.max(0,gh(UN[id].tx,UN[id].tz)),UN[id].tz);UN[id].hit=0}}
