@@ -628,7 +628,7 @@ function replayButton(){const w=$("vidw"),b=$("vid"),sv=$("vsave"),pv=$("vprev")
   const canFile=!!(navigator.canShare&&navigator.canShare({files:[f]}));pv.src=u;pv.style.display="block";
   // Save: a direct download (on iPhone the Share sheet's "Save Video" puts it in Photos)
   sv.style.display="block";sv.onclick=()=>{SFX.click();const a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>a.remove(),500);const L0=sv.textContent;sv.textContent="✓ Saved";setTimeout(()=>sv.textContent=L0,2500)};
-  if(canFile){b.textContent="🎬 Share video";b.disabled=false;b.onclick=async()=>{SFX.click();try{await navigator.share({files:[f],text:"My battle at "+B.name.replace(/^Battle of (the )?|^Siege of /,"")+" on Daily Roman General"+(GAME_URL?" "+GAME_URL:"")})}catch(e){}}}
+  if(canFile){b.textContent="🎬 Share video";b.disabled=false;b.onclick=async()=>{SFX.click();try{await navigator.share({files:[f],text:"My battle at "+B.name.replace(/^Battle of (the )?|^Siege of /,"")+" on Daily Roman General"+(GAME_URL?" "+GAME_URL:"")})}catch(e){if(!e||e.name!=="AbortError")sv.onclick()}}}
   else{b.style.display="none";sv.textContent="⬇ Save the battle video"}};
  if(CLIP)ready();else if(REC){b.disabled=true;CLIPWAIT.push(ready)}else w.style.display="none"}
 function place(){if(!ok)return;for(const id in UN){const o=UN[id],p=P[id];o.tx=WX(p[0]);o.tz=WZ(p[1]);o.a=p[2]==null?1:p[2]}}
