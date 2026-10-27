@@ -274,7 +274,7 @@
    },
    "choices": [
     {
-     "label": "Charge the vanguard, drive it back, and summon the legions",
+     "label": "Charge the vanguard and call up the legions",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -336,7 +336,7 @@
      "cam": "wide"
     },
     {
-     "label": "Ride on to Cremona alone",
+     "label": "Ride on to Cremona before they can react",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -379,7 +379,7 @@
    },
    "choices": [
     {
-     "label": "Form the legions astride the Via Postumia and hold",
+     "label": "Form the legions across the road and hold",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -435,7 +435,7 @@
      "cam": "lowfront"
     },
     {
-     "label": "Attack them in the dark",
+     "label": "Attack them in the dark while they are tired",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -502,7 +502,7 @@
    },
    "choices": [
     {
-     "label": "Let two volunteers take enemy shields and cut its ropes",
+     "label": "Let two volunteers creep up and cut its ropes",
      "quality": 2,
      "cost": 0,
      "style": "A",
@@ -545,7 +545,7 @@
      "cam": "wide"
     },
     {
-     "label": "Storm the engine with a whole cohort",
+     "label": "Storm the engine with a whole cohort before it fires again",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -622,7 +622,7 @@
      "cam": "left"
     },
     {
-     "label": "Let the Seventh fall back",
+     "label": "Let the Seventh fall back and close the gap behind it",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -647,7 +647,7 @@
      "cam": "left"
     },
     {
-     "label": "Counterattack in the centre",
+     "label": "Counter-attack hard in the centre",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -764,7 +764,7 @@
      "cam": "wide"
     },
     {
-     "label": "Wait for real reinforcements",
+     "label": "Wait for real reinforcements before trusting a rumour",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -802,7 +802,7 @@
    },
    "choices": [
     {
-     "label": "Storm the camp with shields overhead and ladders",
+     "label": "Storm the camp with ladders and locked shields",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -849,7 +849,7 @@
      "cam": "push"
     },
     {
-     "label": "Besiege the camp",
+     "label": "Besiege the camp and let hunger do the work",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -869,7 +869,7 @@
      "cam": "wide"
     },
     {
-     "label": "Ignore the camp and march on Rome",
+     "label": "Leave the camp and march on Rome",
      "quality": 0,
      "cost": 0,
      "style": "A",

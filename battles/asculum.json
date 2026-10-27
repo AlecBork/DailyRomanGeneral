@@ -309,7 +309,7 @@
      "cam": "clash"
     },
     {
-     "label": "Come out onto the open plain",
+     "label": "Come out onto the open plain where your legions can form",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -375,7 +375,7 @@
    },
    "choices": [
     {
-     "label": "Do nothing and fight on the plain tomorrow",
+     "label": "Do nothing; fight on the plain tomorrow",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -419,7 +419,7 @@
      "cam": "wide"
     },
     {
-     "label": "Withdraw to camp and refuse battle",
+     "label": "Withdraw to camp and refuse battle on his chosen ground",
      "quality": 1,
      "cost": 1,
      "style": "A",
@@ -457,7 +457,7 @@
    },
    "choices": [
     {
-     "label": "Put the wagons in front against the elephants",
+     "label": "Put the wagons in front, crews ready at the poles",
      "quality": 1,
      "cost": 1,
      "style": "A",
@@ -498,7 +498,7 @@
      "cam": "clash"
     },
     {
-     "label": "Put the wagons in front, with velites screening the crews",
+     "label": "Put the wagons in front, velites guarding them",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -572,7 +572,7 @@
    },
    "choices": [
     {
-     "label": "Stand and meet them head-on",
+     "label": "Stand firm and meet them head-on with pila",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -613,7 +613,7 @@
      "cam": "clash"
     },
     {
-     "label": "Open lanes and attack the elephants from the sides",
+     "label": "Open lanes and hit the elephants from the sides",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -642,7 +642,7 @@
      "cam": "clash"
     },
     {
-     "label": "Fall back to the camp",
+     "label": "Fall back toward the camp",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -711,7 +711,7 @@
      "cam": "wide"
     },
     {
-     "label": "Counter-attack while his best troops ride to save the camp",
+     "label": "Counter-attack while his best troops ride back",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -756,7 +756,7 @@
      "cam": "front"
     },
     {
-     "label": "Send the cavalry to help the Daunians",
+     "label": "Send the cavalry to help the Daunians finish the camp",
      "quality": 1,
      "cost": 1,
      "style": "M",

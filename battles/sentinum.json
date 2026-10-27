@@ -282,7 +282,7 @@
    },
    "choices": [
     {
-     "label": "Send legions to ravage Clusium and draw the Etruscans home",
+     "label": "Send troops to ravage Clusium and draw the Etruscans home",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -311,7 +311,7 @@
      "cam": "wide"
     },
     {
-     "label": "Strengthen the camp guard and wait",
+     "label": "Strengthen the camp guard and wait for them to try it",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -382,7 +382,7 @@
    },
    "choices": [
     {
-     "label": "Point to the wolf and tell the ranks that Mars’s beast has passed through unharmed",
+     "label": "Tell the ranks that Mars’s wolf passed through unharmed",
      "quality": 2,
      "cost": 0,
      "style": "A",
@@ -413,7 +413,7 @@
      "cam": "right"
     },
     {
-     "label": "Say nothing and keep the ranks steady",
+     "label": "Say nothing of omens and keep the ranks steady",
      "quality": 1,
      "cost": 0,
      "style": "C",
@@ -434,7 +434,7 @@
      "cam": "right"
     },
     {
-     "label": "Order the ranks to close at once and ignore the beasts",
+     "label": "Close the ranks at once and ignore the beasts",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -473,7 +473,7 @@
    },
    "choices": [
     {
-     "label": "Fabius holds on the right to tire the Samnites; Decius attacks on the left",
+     "label": "Fabius holds on the right; Decius attacks on the left",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -502,7 +502,7 @@
      "cam": "clash"
     },
     {
-     "label": "Attack hard on both wings at once",
+     "label": "Attack hard on both wings at once and break them both",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -574,7 +574,7 @@
    },
    "choices": [
     {
-     "label": "Charge the cavalry twice, then into the infantry",
+     "label": "Charge their cavalry twice, then into the infantry",
      "quality": 1,
      "cost": 0,
      "style": "A",
@@ -610,7 +610,7 @@
      "cam": "leftflank"
     },
     {
-     "label": "Charge once, then fall back behind the infantry and meet the chariots with javelins",
+     "label": "Charge once, then fall back behind the infantry",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -683,7 +683,7 @@
    },
    "choices": [
     {
-     "label": "Decius devotes himself to the gods and charges into the enemy",
+     "label": "Decius devotes himself to the gods and charges the chariots",
      "quality": 1,
      "cost": 1,
      "style": "A",
@@ -712,7 +712,7 @@
      "cam": "leftclose"
     },
     {
-     "label": "Call up Fabius’s reserve contingents and rally behind the standards",
+     "label": "Call up Fabius’s reserves and rally behind the standards",
      "quality": 2,
      "cost": 2,
      "style": "C",
@@ -791,7 +791,7 @@
    },
    "choices": [
     {
-     "label": "Send the cavalry round the Samnite flank and commit the reserve",
+     "label": "Send the cavalry round the Samnite flank",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -836,7 +836,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Make a frontal attack on the Samnites",
+     "label": "Make a frontal attack on the worn-out Samnites",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -868,7 +868,7 @@
      "cam": "right"
     },
     {
-     "label": "Keep holding",
+     "label": "Keep holding; they have not broken yet",
      "quality": 1,
      "cost": 0,
      "style": "C",
@@ -906,7 +906,7 @@
    },
    "choices": [
     {
-     "label": "Send the Campanian lancers into the Senones’ rear and storm the camp",
+     "label": "Send the Campanian horse into the Senones’ rear",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -947,7 +947,7 @@
      "cam": "rear"
     },
     {
-     "label": "Pursue the Samnites only",
+     "label": "Pursue the Samnites and finish them before they rally",
      "quality": 1,
      "cost": 1,
      "style": "C",

@@ -250,7 +250,7 @@
    },
    "choices": [
     {
-     "label": "Form up at once, with no camp and no auspices",
+     "label": "Form up at once, before the Gauls arrive",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -307,7 +307,7 @@
      "cam": "lowfront"
     },
     {
-     "label": "Take the auspices, rest the men, then deploy between the Tiber and the hill",
+     "label": "Take the auspices and rest the men first",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -357,7 +357,7 @@
    },
    "choices": [
     {
-     "label": "Hold a compact line and bend the wings back",
+     "label": "Keep the line compact and bend the wings back",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -386,7 +386,7 @@
      "cam": "clash"
     },
     {
-     "label": "Stretch the wings to match the Gauls, thinning the centre",
+     "label": "Stretch the wings to match the Gauls",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -423,7 +423,7 @@
      "cam": "clash"
     },
     {
-     "label": "Anchor the left on the Tiber and the right on the hill; keep the line deep",
+     "label": "Keep the line deep, anchored on river and hill",
      "quality": 2,
      "cost": 2,
      "style": "C",
@@ -615,7 +615,7 @@
      "cam": "clash"
     },
     {
-     "label": "Counter-charge as they arrive, while they are strung out",
+     "label": "Counter-charge as they arrive",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -722,7 +722,7 @@
    },
    "choices": [
     {
-     "label": "Order the left to withdraw along the bank in good order",
+     "label": "Withdraw the left along the bank in good order",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -747,7 +747,7 @@
      "cam": "left"
     },
     {
-     "label": "Send the reserve to the left and put the officers in the front rank",
+     "label": "Send the reserve and officers to the left",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -787,7 +787,7 @@
      "cam": "left"
     },
     {
-     "label": "Hold the centre and right; the left must look after itself",
+     "label": "Hold centre and right; the left must look after itself",
      "quality": 0,
      "cost": 0,
      "style": "A",

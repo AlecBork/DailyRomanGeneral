@@ -296,7 +296,7 @@
    },
    "choices": [
     {
-     "label": "Leave the camp, leave a skeleton force, and march north with 7,000 picked men",
+     "label": "March north in secret with 7,000 picked men",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -325,7 +325,7 @@
      "cam": "wide"
     },
     {
-     "label": "Stay in the south and send the news to the Senate",
+     "label": "Stay in the south; send the news to the Senate",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -388,7 +388,7 @@
    },
    "choices": [
     {
-     "label": "Quarter the new men in the existing tents and keep the camp unchanged",
+     "label": "Squeeze the new men into the old tents",
      "quality": 2,
      "cost": 2,
      "style": "C",
@@ -412,7 +412,7 @@
      "cam": "front"
     },
     {
-     "label": "Build a new camp beside the old one",
+     "label": "Build a second camp beside the old one",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -432,7 +432,7 @@
      "cam": "wide"
     },
     {
-     "label": "Let Nero’s men rest a day and attack the next",
+     "label": "Rest Nero’s men a day, then attack",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -503,7 +503,7 @@
      "cam": "front"
     },
     {
-     "label": "Wait for dawn and pursue in good order",
+     "label": "Wait for dawn, then pursue in good order",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -562,7 +562,7 @@
    },
    "choices": [
     {
-     "label": "Attack the Spaniards on their right with Nero’s picked men",
+     "label": "Hit the Spaniards on the right with Nero’s men",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -594,7 +594,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Advance the whole line evenly",
+     "label": "Advance the whole line evenly; keep it unbroken",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -623,7 +623,7 @@
      "cam": "clash"
     },
     {
-     "label": "Hold the line and let the Carthaginians come",
+     "label": "Hold the line and let them come",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -662,7 +662,7 @@
    },
    "choices": [
     {
-     "label": "Take the picked men behind the Roman line and hit the Carthaginian right in the flank",
+     "label": "Take Nero’s men round behind the line",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -700,7 +700,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Send him up the ravine at the Gauls",
+     "label": "Send Nero up the ravine at the Gauls",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -728,7 +728,7 @@
      "cam": "left"
     },
     {
-     "label": "Keep him in reserve behind the line",
+     "label": "Keep Nero in reserve behind the line",
      "quality": 1,
      "cost": 1,
      "style": "C",

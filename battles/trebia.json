@@ -342,7 +342,7 @@
    },
    "choices": [
     {
-     "label": "Send the whole army across the river at once",
+     "label": "Send the whole army across at once to catch them",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -387,7 +387,7 @@
      "cam": "lowfront"
     },
     {
-     "label": "Cross at once, but feed the men a hasty meal first",
+     "label": "Cross soon, after a hasty meal",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -415,7 +415,7 @@
      "cam": "lowfront"
     },
     {
-     "label": "Stay in camp, warm and feed the men, and answer the Numidians only with velites",
+     "label": "Stay in camp; feed the men and send only velites",
      "quality": 2,
      "cost": 2,
      "style": "C",
@@ -487,7 +487,7 @@
      "cam": "front"
     },
     {
-     "label": "Search the watercourse with the velites and set a guard on the right",
+     "label": "Search the watercourse on the right with velites",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -523,7 +523,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Extend the right wing and thicken the line",
+     "label": "Extend the right wing and thicken the line on that side",
      "quality": 1,
      "cost": 1,
      "style": "A",
@@ -566,7 +566,7 @@
    },
    "choices": [
     {
-     "label": "Charge the Carthaginian cavalry head on",
+     "label": "Charge the Carthaginian cavalry head-on before they spread out",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -612,7 +612,7 @@
      "cam": "leftflank"
     },
     {
-     "label": "Keep the cavalry close to the wings, screened by the velites",
+     "label": "Keep the cavalry close to the wings, behind velites",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -698,7 +698,7 @@
    },
    "choices": [
     {
-     "label": "Press straight on and leave the wings to themselves",
+     "label": "Press straight on toward their camp",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -731,7 +731,7 @@
      "cam": "push"
     },
     {
-     "label": "Halt, wheel and take the Carthaginian line in the flank",
+     "label": "Halt and wheel into the Carthaginian flank",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -779,7 +779,7 @@
      "cam": "front"
     },
     {
-     "label": "Hold the ground you have won and wait",
+     "label": "Hold the ground you have won and wait for the wings",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -843,7 +843,7 @@
      "cam": "rear"
     },
     {
-     "label": "Turn about and fight the ambush force in your rear",
+     "label": "Turn about and fight the force in your rear",
      "quality": 2,
      "cost": 1,
      "style": "A",

@@ -280,7 +280,7 @@
      "cam": "wide"
     },
     {
-     "label": "Make the usual sacrifices",
+     "label": "Make the usual sacrifices to the old gods",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -371,7 +371,7 @@
      "cam": "front"
     },
     {
-     "label": "Wait for him to come further",
+     "label": "Wait for him to come further out",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -391,7 +391,7 @@
      "cam": "wide"
     },
     {
-     "label": "Try to cross the Tiber elsewhere",
+     "label": "Try to cross the Tiber somewhere else",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -684,7 +684,7 @@
      "cam": "push"
     },
     {
-     "label": "Let them cross and besiege Rome",
+     "label": "Let them cross, then besiege Rome",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -704,7 +704,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send the cavalry round to cut the road",
+     "label": "Send cavalry round to cut the road",
      "quality": 0,
      "cost": 0,
      "style": "M",

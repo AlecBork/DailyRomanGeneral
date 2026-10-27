@@ -316,7 +316,7 @@
    },
    "choices": [
     {
-     "label": "Move into the river-bounded plain to cramp the enemy cavalry",
+     "label": "Move onto the plain between the rivers",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -376,7 +376,7 @@
      "cam": "front"
     },
     {
-     "label": "Wait for Antiochus to attack you",
+     "label": "Wait for Antiochus to attack your fortified camp",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -415,7 +415,7 @@
    },
    "choices": [
     {
-     "label": "Advance now, while the damp spoils their bows and slings",
+     "label": "Advance now, in the mist and drizzle",
      "quality": 2,
      "cost": 0,
      "style": "A",
@@ -458,7 +458,7 @@
      "cam": "wide"
     },
     {
-     "label": "Pull back to the camp until the weather changes",
+     "label": "Pull back to camp until the weather clears",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -497,7 +497,7 @@
    },
    "choices": [
     {
-     "label": "Send archers, slingers and javelin men to shower the chariots",
+     "label": "Shower the chariots with missiles",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -599,7 +599,7 @@
    },
    "choices": [
     {
-     "label": "Eumenes charges the disordered left with all his cavalry",
+     "label": "Eumenes charges their left with all his horse",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -669,7 +669,7 @@
      "cam": "right"
     },
     {
-     "label": "Send the cavalry round behind the phalanx",
+     "label": "Send the cavalry round behind the phalanx at once",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -712,7 +712,7 @@
    },
    "choices": [
     {
-     "label": "Rally the left at the camp with the camp guard",
+     "label": "Rally the left at the camp with the guard",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -788,7 +788,7 @@
      "cam": "left"
     },
     {
-     "label": "Let the left go and attack the phalanx at once",
+     "label": "Let the left go and attack the phalanx",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -831,7 +831,7 @@
    },
    "choices": [
     {
-     "label": "Bombard the phalanx with missiles and do not close",
+     "label": "Shower the phalanx with missiles; do not close",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -878,7 +878,7 @@
      "cam": "front"
     },
     {
-     "label": "Charge the pikes head-on",
+     "label": "Charge the pikes now, before they get away",
      "quality": 0,
      "cost": 0,
      "style": "A",

@@ -277,7 +277,7 @@
    },
    "choices": [
     {
-     "label": "Stay behind the rampart and let them attack it",
+     "label": "Stay behind the rampart and let them attack",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -336,7 +336,7 @@
      "cam": "clash"
     },
     {
-     "label": "Offer a gladiator to fight their champion",
+     "label": "Send out a gladiator against their champion",
      "quality": 1,
      "cost": 0,
      "style": "M",
@@ -374,7 +374,7 @@
    },
    "choices": [
     {
-     "label": "Shadow them and fortify a camp each night",
+     "label": "Shadow them and dig a camp each night",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -403,7 +403,7 @@
      "cam": "wide"
     },
     {
-     "label": "Attack the column on the march",
+     "label": "Attack the column on the march while it is strung out",
      "quality": 1,
      "cost": 1,
      "style": "A",
@@ -516,7 +516,7 @@
      "cam": "right"
     },
     {
-     "label": "Recall the Ligurians",
+     "label": "Recall the Ligurians at once before the whole horde wakes",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -583,7 +583,7 @@
    },
    "choices": [
     {
-     "label": "Hide Claudius Marcellus with 3,000 men in the woods behind the enemy",
+     "label": "Hide 3,000 men in the woods behind them",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -612,7 +612,7 @@
      "cam": "wide"
     },
     {
-     "label": "Keep every man in the main line",
+     "label": "Keep every man in the main line: you are outnumbered",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -718,7 +718,7 @@
      "cam": "enemyrear"
     },
     {
-     "label": "Charge down the hill to meet them",
+     "label": "Charge down the hill to meet them with all your weight",
      "quality": 0,
      "cost": 0,
      "style": "A",

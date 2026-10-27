@@ -310,7 +310,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Assault their hill camps head-on",
+     "label": "Assault their hill camps head-on before your supplies run out",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -376,7 +376,7 @@
    },
    "choices": [
     {
-     "label": "Storm the cross-wall and go straight on to Cassius’s camp",
+     "label": "Storm the cross-wall and go on to the camp",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -445,7 +445,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send the cavalry round the marsh",
+     "label": "Send the cavalry round the marsh to take him in the rear",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -528,7 +528,7 @@
      "cam": "wide"
     },
     {
-     "label": "Abandon your gains and march north to save Octavian",
+     "label": "Leave your gains and march north to Octavian",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -596,7 +596,7 @@
    },
    "choices": [
     {
-     "label": "Extend south and fortify a hill that threatens Brutus’s supplies",
+     "label": "Fortify a hill to the south near his supply road",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -653,7 +653,7 @@
      "cam": "front"
     },
     {
-     "label": "Wait for him to run short",
+     "label": "Wait for him to run short; your army can go hungry a while",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -691,7 +691,7 @@
    },
    "choices": [
     {
-     "label": "Break the thin centre, then wheel into his flank and rear",
+     "label": "Break his thin centre, then wheel",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -759,7 +759,7 @@
      "cam": "clash"
     },
     {
-     "label": "Attack his strongest wing",
+     "label": "Attack his strongest wing and break his spirit",
      "quality": 0,
      "cost": 0,
      "style": "M",

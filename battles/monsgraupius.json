@@ -278,7 +278,7 @@
    },
    "choices": [
     {
-     "label": "Send the fleet along the coast and march on their granaries",
+     "label": "Send the fleet up the coast; burn their grain",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -302,7 +302,7 @@
      "cam": "wide"
     },
     {
-     "label": "Chase them into the hills",
+     "label": "Chase them into the hills before winter comes",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -360,7 +360,7 @@
    },
    "choices": [
     {
-     "label": "Put the auxiliaries in front and hold the legions back in reserve",
+     "label": "Auxiliaries in front, legions in reserve",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -389,7 +389,7 @@
      "cam": "wide"
     },
     {
-     "label": "Put the legions in front",
+     "label": "Put the legions in front: your best troops lead",
      "quality": 1,
      "cost": 1,
      "style": "A",
@@ -418,7 +418,7 @@
      "cam": "wide"
     },
     {
-     "label": "Spread your line wide to match theirs",
+     "label": "Spread the line wide to match theirs",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -461,7 +461,7 @@
    },
    "choices": [
     {
-     "label": "Send the Batavians and Tungrians in to fight hand to hand",
+     "label": "Send the Batavians in hand to hand",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -508,7 +508,7 @@
      "cam": "clash"
     },
     {
-     "label": "Keep exchanging missiles",
+     "label": "Keep exchanging missiles and wear them down",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -528,7 +528,7 @@
      "cam": "wide"
     },
     {
-     "label": "Charge with the cavalry uphill",
+     "label": "Charge uphill with the cavalry",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -571,7 +571,7 @@
    },
    "choices": [
     {
-     "label": "Send the four reserve squadrons against them",
+     "label": "Send the four reserve squadrons at them",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -612,7 +612,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Commit the legions",
+     "label": "Commit the legions to meet the new threat",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -637,7 +637,7 @@
      "cam": "right"
     },
     {
-     "label": "Ignore them",
+     "label": "Ignore them and press on",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -680,7 +680,7 @@
    },
    "choices": [
     {
-     "label": "Pursue in close order, surrounding and searching the woods",
+     "label": "Pursue in close order, combing the woods",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -714,7 +714,7 @@
      "cam": "push"
     },
     {
-     "label": "Pursue at once, every man for himself",
+     "label": "Pursue at once, as fast as you can",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -739,7 +739,7 @@
      "cam": "push"
     },
     {
-     "label": "Halt at the edge of the woods",
+     "label": "Halt at the edge of the woods and call the men back",
      "quality": 1,
      "cost": 1,
      "style": "M",

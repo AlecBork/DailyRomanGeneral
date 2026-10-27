@@ -290,7 +290,7 @@
    },
    "choices": [
     {
-     "label": "Regulus sends his cavalry to seize the hill above the road",
+     "label": "Regulus sends cavalry to seize the hill",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -342,7 +342,7 @@
      "cam": "wide"
     },
     {
-     "label": "Papus attacks the rearguard at once",
+     "label": "Papus attacks their rearguard at once",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -388,7 +388,7 @@
    },
    "choices": [
     {
-     "label": "Papus sends his cavalry up the hill to win it",
+     "label": "Papus sends his cavalry up the hill",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -500,7 +500,7 @@
    },
    "choices": [
     {
-     "label": "Send the velites forward to shower them with javelins",
+     "label": "Send the velites forward with javelins",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -532,7 +532,7 @@
      "cam": "clash"
     },
     {
-     "label": "Charge the legions straight in",
+     "label": "Charge the legions straight in before the Gauls are ready",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -560,7 +560,7 @@
      "cam": "clash"
     },
     {
-     "label": "Hold and wait",
+     "label": "Hold and wait for them to come",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -598,7 +598,7 @@
    },
    "choices": [
     {
-     "label": "Feed in hastati, then principes, to keep the pressure on",
+     "label": "Feed in hastati, then principes, in turn",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -645,7 +645,7 @@
      "cam": "clash"
     },
     {
-     "label": "Pull back to reform",
+     "label": "Pull back to re-form, then come on again",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -703,7 +703,7 @@
    },
    "choices": [
     {
-     "label": "Charge down from the hill into the Gallic flank",
+     "label": "Charge down the hill into their flank",
      "quality": 2,
      "cost": 1,
      "style": "M",

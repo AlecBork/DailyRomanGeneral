@@ -306,7 +306,7 @@
    },
    "choices": [
     {
-     "label": "March after Hannibal at once with your own army",
+     "label": "March after Hannibal at once, before he burns more",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -339,7 +339,7 @@
      "cam": "front"
     },
     {
-     "label": "March, but send cavalry ahead to scout the hills",
+     "label": "March, with cavalry scouting the hills ahead",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -408,7 +408,7 @@
    },
    "choices": [
     {
-     "label": "Lead the column straight in",
+     "label": "Lead the column straight in to catch him before he escapes",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -438,7 +438,7 @@
      "cam": "lowfront"
     },
     {
-     "label": "Halt at the mouth and send the velites up the slopes",
+     "label": "Halt at the mouth and send velites up the slopes",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -479,7 +479,7 @@
      "cam": "front"
     },
     {
-     "label": "Deploy the army in battle order before entering",
+     "label": "Deploy in battle order before entering",
      "quality": 1,
      "cost": 1,
      "style": "A",
@@ -726,7 +726,7 @@
      "cam": "clash"
     },
     {
-     "label": "Drive the vanguard east to open the road out",
+     "label": "Drive east along the road to break out",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -767,7 +767,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Form a square with the standards in the middle",
+     "label": "Form a square around the standards",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -814,7 +814,7 @@
    },
    "choices": [
     {
-     "label": "Let the men fight on, each unit as it is",
+     "label": "Let each unit fight on as it is, under its own officers",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -844,7 +844,7 @@
      "cam": "rear"
     },
     {
-     "label": "Rally round the senior tribune and fight your way out",
+     "label": "Rally round the senior tribune and cut your way out",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -884,7 +884,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Offer terms",
+     "label": "Offer terms to save the men who are left",
      "quality": 1,
      "cost": 0,
      "style": "C",

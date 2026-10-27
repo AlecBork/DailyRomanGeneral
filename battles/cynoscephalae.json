@@ -285,7 +285,7 @@
    },
    "choices": [
     {
-     "label": "Send in 300 cavalry and 1,000 light troops, then reinforce them with Aetolian horse as the fighting grows",
+     "label": "Feed more horse and light troops into the fog",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -322,7 +322,7 @@
      "cam": "wide"
     },
     {
-     "label": "Withdraw the scouts and wait for the fog to clear",
+     "label": "Pull the scouts back and wait for the fog to lift",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -389,7 +389,7 @@
    },
    "choices": [
     {
-     "label": "Hold the left, then give ground slowly and keep the line unbroken",
+     "label": "Give ground slowly on the left; keep the line whole",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -449,7 +449,7 @@
      "cam": "left"
     },
     {
-     "label": "Shift the weight of the army to the right at once",
+     "label": "Shift the army’s weight to the right at once",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -499,7 +499,7 @@
    },
    "choices": [
     {
-     "label": "Send the elephants and the right wing against the Macedonian left",
+     "label": "Send the elephants and right wing at their left",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -616,7 +616,7 @@
    },
    "choices": [
     {
-     "label": "Detach 20 maniples to attack the phalanx from behind",
+     "label": "Detach maniples to hit the phalanx from behind",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -653,7 +653,7 @@
      "cam": "rear"
     },
     {
-     "label": "Continue the pursuit of the Macedonian left",
+     "label": "Keep pursuing the broken left before it can re-form",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -678,7 +678,7 @@
      "cam": "push"
     },
     {
-     "label": "Reinforce the left from the centre",
+     "label": "Reinforce your left from the centre",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -716,7 +716,7 @@
    },
    "choices": [
     {
-     "label": "Pursue the phalanx with the legions, let the Aetolians plunder the camp",
+     "label": "Pursue with the legions; let the Aetolians loot",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -754,7 +754,7 @@
      "cam": "push"
     },
     {
-     "label": "Hold the line and let the phalanx go",
+     "label": "Hold the line and let the beaten phalanx go home",
      "quality": 1,
      "cost": 1,
      "style": "C",

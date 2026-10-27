@@ -376,7 +376,7 @@
    },
    "choices": [
     {
-     "label": "Meet him between the armies, hear his terms and refuse them",
+     "label": "Meet him, hear his terms, and refuse them",
      "quality": 2,
      "cost": 0,
      "style": "C",
@@ -398,7 +398,7 @@
      "cam": "wide"
     },
     {
-     "label": "Refuse to meet",
+     "label": "Refuse to meet; talking only unsettles the men",
      "quality": 1,
      "cost": 0,
      "style": "M",
@@ -419,7 +419,7 @@
      "cam": "wide"
     },
     {
-     "label": "Accept his terms and call off the battle",
+     "label": "Accept his terms and end the war without a battle",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -458,7 +458,7 @@
    },
    "choices": [
     {
-     "label": "Open lanes between maniples; velites screen, then fall back",
+     "label": "Open lanes in the line and let the beasts run through",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -502,7 +502,7 @@
      ]
     },
     {
-     "label": "Close ranks into a solid wall",
+     "label": "Close ranks into a solid wall of shields and hold",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -538,7 +538,7 @@
      ]
     },
     {
-     "label": "Charge before the elephants are set",
+     "label": "Charge before the elephants are set and moving",
      "quality": 1,
      "cost": 1,
      "style": "A",
@@ -595,7 +595,7 @@
    },
    "choices": [
     {
-     "label": "Both wings charge and drive the enemy cavalry off the field",
+     "label": "Both wings charge and chase their cavalry off the field",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -648,7 +648,7 @@
      ]
     },
     {
-     "label": "Hold the cavalry back to guard your flanks",
+     "label": "Hold the cavalry back to guard your infantry’s flanks",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -687,7 +687,7 @@
      ]
     },
     {
-     "label": "Send cavalry around to strike the enemy rear now",
+     "label": "Send the cavalry round now to strike the enemy rear",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -746,7 +746,7 @@
    },
    "choices": [
     {
-     "label": "Hastati advance; principes and triarii stay in reserve",
+     "label": "Hastati go in; principes and triarii wait behind",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -789,7 +789,7 @@
      ]
     },
     {
-     "label": "Hastati advance with principes close behind",
+     "label": "Hastati go in, principes close behind to support",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -832,7 +832,7 @@
      ]
     },
     {
-     "label": "Throw all lines in at once",
+     "label": "Commit all three lines at once and crush them",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -898,7 +898,7 @@
    },
    "choices": [
     {
-     "label": "Rotate fresh maniples forward and reissue pila from the baggage",
+     "label": "Pause, clear the wounded and bring up fresh men",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -935,7 +935,7 @@
      ]
     },
     {
-     "label": "Press on with no pause",
+     "label": "Press on now before the enemy can recover its breath",
      "quality": 1,
      "cost": 0,
      "style": "A",
@@ -965,7 +965,7 @@
      ]
     },
     {
-     "label": "Pull back to regroup",
+     "label": "Pull the whole army back to regroup",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -1041,7 +1041,7 @@
    },
    "choices": [
     {
-     "label": "Principes and triarii extend to both flanks; one long front",
+     "label": "Extend principes and triarii to both flanks",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -1092,7 +1092,7 @@
      ]
     },
     {
-     "label": "Frontal assault on the veterans",
+     "label": "Attack the veterans head-on while your men are hot",
      "quality": 0,
      "cost": 1,
      "style": "A",
@@ -1131,7 +1131,7 @@
      ]
     },
     {
-     "label": "Halt and let them come to you",
+     "label": "Halt and let the veterans come to you",
      "quality": 1,
      "cost": 0,
      "style": "C",
@@ -1217,7 +1217,7 @@
    },
    "choices": [
     {
-     "label": "Recall all cavalry to charge the veterans’ rear",
+     "label": "Recall the cavalry against the veterans’ rear",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -1268,7 +1268,7 @@
      ]
     },
     {
-     "label": "Let them chase the fleeing cavalry and destroy it",
+     "label": "Let them finish off Hannibal’s fleeing cavalry",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -1298,7 +1298,7 @@
      ]
     },
     {
-     "label": "Recall half, keep half in pursuit",
+     "label": "Recall half the cavalry; keep half in pursuit",
      "quality": 1,
      "cost": 1,
      "style": "C",

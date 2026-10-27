@@ -317,7 +317,7 @@
      "cam": "wide"
     },
     {
-     "label": "Reverse the order at dawn: legions on the wings, Iberians in the centre",
+     "label": "Swap the order: legions on the wings",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -350,7 +350,7 @@
      "cam": "wide"
     },
     {
-     "label": "Decline battle again",
+     "label": "Decline battle again and keep watching their habits",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -373,7 +373,7 @@
   },
   {
    "title": "Dawn",
-   "text": "Hasdrubal's army has not yet eaten. His men are in camp, finishing breakfast, and their horse are not saddled.",
+   "text": "Dawn. You had your own men fed before first light. The Carthaginian camp is quiet. A strike now means fighting before your own line is fully formed.",
    "intel": {
     "hint": [
      {
@@ -388,7 +388,7 @@
    },
    "choices": [
     {
-     "label": "Send velites and cavalry to hit the Carthaginian camp before they have eaten",
+     "label": "Hit their camp now with velites and cavalry",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -441,7 +441,7 @@
      "cam": "front"
     },
     {
-     "label": "Wait until the Carthaginians have formed and then advance",
+     "label": "Wait until they have formed, then advance",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -499,7 +499,7 @@
    },
    "choices": [
     {
-     "label": "Place the velites between the legions and the cavalry to meet the elephants",
+     "label": "Put the velites by the cavalry to meet them",
      "quality": 2,
      "cost": 2,
      "style": "C",
@@ -564,7 +564,7 @@
      "cam": "clash"
     },
     {
-     "label": "Hold the elephants with the legions only",
+     "label": "Hold the elephants with the legions, shields locked",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -587,7 +587,7 @@
   },
   {
    "title": "The wings wheel",
-   "text": "Your Iberian centre has not been ordered forward. On the wings the legions advance, and the Carthaginian line is slow to react.",
+   "text": "The lines close. Your Iberian allies hold the centre; the legions are on the wings, facing the Carthaginians’ weaker troops.",
    "intel": {
     "hint": [
      {
@@ -602,7 +602,7 @@
    },
    "choices": [
     {
-     "label": "Hold back the centre while the wings wheel in on the enemy flanks",
+     "label": "Keep the centre back; wheel the wings in",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -650,7 +650,7 @@
      "cam": "front"
     },
     {
-     "label": "Advance the whole line evenly",
+     "label": "Advance the whole line evenly, keeping it unbroken",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -678,7 +678,7 @@
      "cam": "clash"
     },
     {
-     "label": "Hold the line and let the Carthaginians come",
+     "label": "Hold the line and let them come",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -716,7 +716,7 @@
    },
    "choices": [
     {
-     "label": "Pursue to the camp and cut off the retreat",
+     "label": "Pursue to their camp in the rain",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -753,7 +753,7 @@
      "cam": "push"
     },
     {
-     "label": "Halt to re-form the line",
+     "label": "Halt to re-form the line before the hills",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -773,7 +773,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send the cavalry only",
+     "label": "Send the cavalry after them",
      "quality": 0,
      "cost": 0,
      "style": "M",

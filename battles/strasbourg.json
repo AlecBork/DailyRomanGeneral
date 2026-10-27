@@ -371,7 +371,7 @@
    },
    "choices": [
     {
-     "label": "Rest and feed the men, then fight in the afternoon",
+     "label": "Rest and feed the men, then fight",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -395,7 +395,7 @@
      "cam": "wide"
     },
     {
-     "label": "Attack straight off the march",
+     "label": "Attack straight off the march while the men are eager",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -462,7 +462,7 @@
    },
    "choices": [
     {
-     "label": "Have Severus hold his ground and wait for them to come out",
+     "label": "Severus holds and waits for them to come out",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -510,7 +510,7 @@
      "cam": "leftclose"
     },
     {
-     "label": "Send Severus into the woods",
+     "label": "Send Severus into the woods to flush them out",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -587,7 +587,7 @@
    },
    "choices": [
     {
-     "label": "Ride over and rally the cavalry behind the infantry",
+     "label": "Ride over and rally the cavalry yourself",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -658,7 +658,7 @@
      "cam": "right"
     },
     {
-     "label": "Charge with your own guard",
+     "label": "Charge with your own guard to plug the gap",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -701,7 +701,7 @@
    },
    "choices": [
     {
-     "label": "The Primani and Batavians meet the wedge and counter-charge",
+     "label": "The second line meets the wedge head-on",
      "quality": 2,
      "cost": 1,
      "style": "A",

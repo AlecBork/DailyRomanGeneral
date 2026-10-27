@@ -292,7 +292,7 @@
    },
    "choices": [
     {
-     "label": "Give up Londinium and fall back to join your legions",
+     "label": "Give up Londinium and fall back to the legions",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -336,7 +336,7 @@
      "cam": "wide"
     },
     {
-     "label": "Wait for the Second Legion",
+     "label": "Wait in Londinium for the Second Legion to come",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -374,7 +374,7 @@
    },
    "choices": [
     {
-     "label": "Form in a narrow defile with forest behind and a plain in front",
+     "label": "Form in a narrow valley, forest behind you",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -403,7 +403,7 @@
      "cam": "wide"
     },
     {
-     "label": "Fight on the open plain",
+     "label": "Fight on the open plain where your discipline tells",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -423,7 +423,7 @@
      "cam": "wide"
     },
     {
-     "label": "Fortify a hilltop camp",
+     "label": "Fortify a camp on a hilltop",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -462,7 +462,7 @@
    },
    "choices": [
     {
-     "label": "Stand still and throw your pila when they are close",
+     "label": "Stand still; throw pila when they are close",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -503,7 +503,7 @@
      "cam": "clash"
     },
     {
-     "label": "Charge out to meet them",
+     "label": "Charge out to meet them before their numbers tell",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -585,7 +585,7 @@
    },
    "choices": [
     {
-     "label": "Advance in wedge formation",
+     "label": "Advance in wedges into the tangle",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -636,7 +636,7 @@
      "cam": "clash"
     },
     {
-     "label": "Hold the line",
+     "label": "Hold the line and let them come again",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -656,7 +656,7 @@
      "cam": "clash"
     },
     {
-     "label": "Send the auxiliaries alone",
+     "label": "Send the auxiliaries in alone",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -699,7 +699,7 @@
    },
    "choices": [
     {
-     "label": "Send the cavalry in with lances to break any group that stands",
+     "label": "Send the cavalry in with lances",
      "quality": 2,
      "cost": 1,
      "style": "M",

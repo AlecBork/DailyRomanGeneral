@@ -259,7 +259,7 @@
    },
    "choices": [
     {
-     "label": "Attack now without waiting",
+     "label": "Attack now, and keep the glory for the East",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -306,7 +306,7 @@
      "cam": "wide"
     },
     {
-     "label": "March out, but fortify a camp near the Goths and wait there",
+     "label": "March out and fortify a camp near the Goths",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -368,7 +368,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send cavalry patrols to find the Gothic horse first",
+     "label": "Send cavalry patrols to find their horse first",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -397,7 +397,7 @@
      "cam": "wide"
     },
     {
-     "label": "March, but in the cool of evening",
+     "label": "March, but in the cool of evening, to spare the men the heat",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -435,7 +435,7 @@
    },
    "choices": [
     {
-     "label": "Negotiate while the army stands in the heat",
+     "label": "Talk while the army stands in the heat",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -456,7 +456,7 @@
      "cam": "wide"
     },
     {
-     "label": "Break off the talks and attack the wagons at once",
+     "label": "Break off the talks and attack the wagons",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -540,7 +540,7 @@
    },
    "choices": [
     {
-     "label": "Let the fighting spread as it will",
+     "label": "Let the fighting spread as it will; the guard has started it",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -576,7 +576,7 @@
      "cam": "right"
     },
     {
-     "label": "Support them at once with the whole line, in order",
+     "label": "Send the whole line in at once to support them",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -711,7 +711,7 @@
      "cam": "left"
     },
     {
-     "label": "Commit the Batavians and fall back to form a line on the hill",
+     "label": "Send in the Batavians and re-form on the hill",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -756,7 +756,7 @@
      "cam": "left"
     },
     {
-     "label": "Retreat to Adrianople",
+     "label": "Retreat to Adrianople while the infantry still holds together",
      "quality": 1,
      "cost": 1,
      "style": "A",

@@ -264,7 +264,7 @@
      "cam": "wide"
     },
     {
-     "label": "Attack his fleet inside the gulf",
+     "label": "Attack his fleet inside the gulf while it is crowded",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -330,7 +330,7 @@
    },
    "choices": [
     {
-     "label": "Hold your line out of range and make him come to you",
+     "label": "Hold out of range and make him come",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -354,7 +354,7 @@
      "cam": "wide"
     },
     {
-     "label": "Charge at once and ram",
+     "label": "Charge at once and ram before his archers find the range",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -420,7 +420,7 @@
    },
    "choices": [
     {
-     "label": "Extend your wing north, drawing his line out",
+     "label": "Extend your wing north, stretching his line",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -468,7 +468,7 @@
      "cam": "left"
     },
     {
-     "label": "Hold your ground and fight his big ships head-on",
+     "label": "Fight his big ships head-on, where your crews are best",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -534,7 +534,7 @@
    },
    "choices": [
     {
-     "label": "Swarm each big ship with several of yours, grapple and throw fire",
+     "label": "Swarm each big ship and throw fire",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -582,7 +582,7 @@
      "cam": "clash"
     },
     {
-     "label": "Keep shooting from range",
+     "label": "Keep shooting from range; never let them grapple",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -640,7 +640,7 @@
    },
    "choices": [
     {
-     "label": "Let the fugitives go and close on the fleet left behind",
+     "label": "Let her go and close on the ships left behind",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -687,7 +687,7 @@
      "cam": "wide"
     },
     {
-     "label": "Chase Cleopatra with your fastest ships",
+     "label": "Chase Cleopatra with your fastest ships and take the treasure",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -712,7 +712,7 @@
      "cam": "front"
     },
     {
-     "label": "Send half after her",
+     "label": "Send half the fleet after her",
      "quality": 1,
      "cost": 1,
      "style": "M",

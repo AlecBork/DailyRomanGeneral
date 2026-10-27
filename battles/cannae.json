@@ -391,7 +391,7 @@
    },
    "choices": [
     {
-     "label": "Form on the open plain as the army demands",
+     "label": "Form on the open plain, as the army demands",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -430,7 +430,7 @@
      ]
     },
     {
-     "label": "Wait a day; guard the water parties with infantry",
+     "label": "Wait a day and guard the water parties with infantry",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -464,7 +464,7 @@
      ]
     },
     {
-     "label": "Shift your line so the wind and dust are at your back",
+     "label": "Shift the line so the wind and dust blow at your back",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -525,7 +525,7 @@
    },
    "choices": [
     {
-     "label": "Disarm them of spear and shield, and send them to the rear",
+     "label": "Disarm them and send them to the rear",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -568,7 +568,7 @@
      "cam": "rear"
     },
     {
-     "label": "Turn them away",
+     "label": "Turn them away from your lines",
      "quality": 1,
      "cost": 0,
      "style": "M",
@@ -654,7 +654,7 @@
      ]
     },
     {
-     "label": "Support the river cavalry with velites and hold the line",
+     "label": "Hold the line by the river, with velites in support",
      "quality": 2,
      "cost": 2,
      "style": "C",
@@ -705,7 +705,7 @@
      ]
     },
     {
-     "label": "Pull both cavalry wings back as a reserve",
+     "label": "Pull both cavalry wings back to guard the infantry",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -776,7 +776,7 @@
    },
    "choices": [
     {
-     "label": "Widen the front; space the maniples and put triarii on the flanks",
+     "label": "Widen the front and space the maniples out",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -822,7 +822,7 @@
      ]
     },
     {
-     "label": "Keep the deep, narrow column to punch through the centre",
+     "label": "Keep the deep column to punch through the centre",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -869,7 +869,7 @@
      ]
     },
     {
-     "label": "Hold where you are and let Hannibal come",
+     "label": "Hold your ground and let Hannibal come",
      "quality": 1,
      "cost": 0,
      "style": "C",
@@ -922,7 +922,7 @@
    },
    "choices": [
     {
-     "label": "Halt and dress the line; refuse to follow the retreat",
+     "label": "Halt and dress the line; do not follow",
      "quality": 1,
      "cost": 0,
      "style": "C",
@@ -1014,7 +1014,7 @@
      ]
     },
     {
-     "label": "Advance in step; keep two rear lines back to face the Africans",
+     "label": "Advance steadily, keeping the rear lines back",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -1103,7 +1103,7 @@
    },
    "choices": [
     {
-     "label": "Break out toward Canusium on the one open side",
+     "label": "Break out toward Canusium on the open side",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -1141,7 +1141,7 @@
      ]
     },
     {
-     "label": "Keep fighting forward; the centre is nearly through",
+     "label": "Keep pushing forward; the centre is nearly through",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -1182,7 +1182,7 @@
      ]
     },
     {
-     "label": "Turn the outer maniples and triarii outward to meet the Africans",
+     "label": "Turn the outer maniples to face the Africans",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -1301,7 +1301,7 @@
    },
    "choices": [
     {
-     "label": "Form the triarii and any spare horse into a rear line",
+     "label": "Form a rear line from the triarii and spare horse",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -1373,7 +1373,7 @@
      ]
     },
     {
-     "label": "Stand and fight where you are",
+     "label": "Stand and fight where you are; the line is still whole",
      "quality": 0,
      "cost": 0,
      "style": "C",

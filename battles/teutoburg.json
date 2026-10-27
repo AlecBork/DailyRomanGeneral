@@ -328,7 +328,7 @@
      "cam": "wide"
     },
     {
-     "label": "Arrest Arminius and Segestes and hold them until autumn",
+     "label": "Arrest Arminius and Segestes",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -425,7 +425,7 @@
      "cam": "wide"
     },
     {
-     "label": "Keep to the known road to winter quarters",
+     "label": "Keep to the known road home",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -535,7 +535,7 @@
      "cam": "high"
     },
     {
-     "label": "Burn the wagons, close up the column and march in fighting order",
+     "label": "Burn the wagons and march in fighting order",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -702,7 +702,7 @@
      "cam": "front"
     },
     {
-     "label": "Fall back the way you came, in close order, scouts first",
+     "label": "Turn back the way you came, scouts first",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -792,7 +792,7 @@
    },
    "choices": [
     {
-     "label": "Attack along the whole wall as you come up",
+     "label": "Attack along the whole wall",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -845,7 +845,7 @@
      "cam": "front"
     },
     {
-     "label": "Mass everything at one point, cavalry held to guard the rear",
+     "label": "Mass everything against one point",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -896,7 +896,7 @@
      "cam": "front"
     },
     {
-     "label": "Turn back into the forest",
+     "label": "Turn back into the forest and look for another road",
      "quality": 1,
      "cost": 1,
      "style": "C",

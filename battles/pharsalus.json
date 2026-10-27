@@ -325,7 +325,7 @@
      "cam": "wide"
     },
     {
-     "label": "March on as planned",
+     "label": "March on as planned toward fresh supplies",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -345,7 +345,7 @@
      "cam": "wide"
     },
     {
-     "label": "Stay in camp and wait for him to come closer",
+     "label": "Stay in camp until he comes closer",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -383,7 +383,7 @@
    },
    "choices": [
     {
-     "label": "Anchor on the river and thin the lines to six deep to match his front",
+     "label": "Anchor on the river; thin the lines to match his front",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -432,7 +432,7 @@
      "cam": "wide"
     },
     {
-     "label": "Move your whole army away from the river",
+     "label": "Move off the river to open ground where you can manoeuvre",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -476,7 +476,7 @@
    },
    "choices": [
     {
-     "label": "Let Crastinus and his volunteers lead the first charge",
+     "label": "Let Crastinus and his volunteers lead the charge",
      "quality": 2,
      "cost": 0,
      "style": "A",
@@ -498,7 +498,7 @@
      "cam": "clash"
     },
     {
-     "label": "Keep him in his place in the line",
+     "label": "Keep him in his place: the line matters more than one man",
      "quality": 1,
      "cost": 0,
      "style": "C",
@@ -558,7 +558,7 @@
    },
    "choices": [
     {
-     "label": "Form a hidden fourth line of cohorts behind the right, to thrust pila at the riders’ faces",
+     "label": "Hide the cohorts as a fourth line behind the right",
      "quality": 2,
      "cost": 2,
      "style": "C",
@@ -608,7 +608,7 @@
      "cam": "clash"
     },
     {
-     "label": "Put them with the baggage",
+     "label": "Keep them back with the baggage as a last reserve",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -646,7 +646,7 @@
    },
    "choices": [
     {
-     "label": "Let the men halt short, catch their breath, and then charge",
+     "label": "Halt halfway to catch breath, then charge",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -695,7 +695,7 @@
      "cam": "clash"
     },
     {
-     "label": "Charge straight across the gap",
+     "label": "Charge straight across the gap while the men are eager",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -723,7 +723,7 @@
      "cam": "clash"
     },
     {
-     "label": "Halt and let them come to you",
+     "label": "Halt and make them come to you",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -761,7 +761,7 @@
    },
    "choices": [
     {
-     "label": "Unleash the fourth line, then send in the third line against Pompey’s left",
+     "label": "Unleash the hidden line at the cavalry",
      "quality": 2,
      "cost": 1,
      "style": "M",

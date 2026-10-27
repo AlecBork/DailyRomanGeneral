@@ -421,12 +421,9 @@ function tide(){const left=B.turns.length-step;if(left<=0)return E<=WIN?[B.rn+" 
  const pot=Rules.potential(B,S,step),per=(E-WIN-pot)/left;
  let t=E<=WIN?["Rome is ahead. Hold the line","g"]:per<=7?["Rome is favoured","g"]:per<=12?["Evenly poised","a"]:per<=18?[B.cn+" is favoured","r"]:["The battle is slipping away","r"];
  if(R<35&&t[1]!=="r")t=["Your line is wavering","a"];return t}
-function intel(){const I=B.decisions[step].intel;if(!I)return"";let o="";
- if(scout)o+=`<div class="hist">\u{1F52D} <b>Scouts:</b> ${Rules.text(I.scout,S)}</div>`;
- if(step>0){const st=B.turns[step-1].c[picks[step-1]].style;
-  if(st==="C"||st==="M")o+=`<div class="hist" style="margin-top:6px">\u{1F441} <b>${st==="C"?"From your steady line":"From your manoeuvre"}:</b> ${Rules.text(I.hint,S)}</div>`;
-  else o+=`<div class="hist" style="margin-top:6px;color:var(--mute)">\u2694 The press of the assault left your officers blind to what lies ahead.</div>`}
- return o?`<div class="card intel"><div class="kicker" style="color:var(--gold)"><span>Intel</span></div>${o}</div>`:""}
+function intel(){const I=B.decisions[step].intel;if(!I||!scout)return"";   // intel comes only from scouts
+ const h=Rules.text(I.hint,S),sc=Rules.text(I.scout,S);let o=`<div class="hist">\u{1F52D} <b>Scouts:</b> ${sc}</div>`;if(h)o+=`<div class="hist" style="margin-top:6px">\u{1F441} ${h}</div>`;
+ return `<div class="card intel"><div class="kicker" style="color:var(--gold)"><span>Intel</span></div>${o}</div>`}
 function sit(){const rows=Rules.statusRows(B,picks,S),c={g:"var(--ok)",a:"var(--gold)",r:"var(--bad)",n:"var(--mute)"},HN={C:"senses hesitation and will consolidate",M:"is watching your manoeuvres and will adapt",A:"expects another assault and has set a trap"},vg={g:"seems to be going well",a:"unclear, reports differ",r:"looks troubling"};
  let t=tide();if(!scout)t=R<35?["Your line looks shaky","a"]:["Hard to tell. Scouts could say more","n"];
  const rs=rows.map((r,k)=>{let txt=r[1],tone=r[2];if(!scout&&tone!=="n"){tone=rnd(step*7+k+3)<.2?"a":tone;txt=vg[tone]}

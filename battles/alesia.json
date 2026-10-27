@@ -267,7 +267,7 @@
    },
    "choices": [
     {
-     "label": "Build two rings of works: one facing the town, one facing outward",
+     "label": "Build two rings of works, inner and outer",
      "quality": 1,
      "cost": 2,
      "style": "C",
@@ -300,7 +300,7 @@
      "cam": "high"
     },
     {
-     "label": "Storm the hill at once",
+     "label": "Storm the hill at once, before the relief army can gather",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -328,7 +328,7 @@
      "cam": "front"
     },
     {
-     "label": "Build both rings, and bring the northern hill inside them",
+     "label": "Build both rings, wide enough to take in the north hill",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -375,7 +375,7 @@
    },
    "choices": [
     {
-     "label": "Send the Germanic cavalry at them",
+     "label": "Send the German cavalry at them",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -407,7 +407,7 @@
      "cam": "left"
     },
     {
-     "label": "Pull the workers behind the ditches",
+     "label": "Pull the workers back behind the ditches",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -470,7 +470,7 @@
    },
    "choices": [
     {
-     "label": "Have Antony and Trebonius bring troops from the distant forts",
+     "label": "Bring troops over from the distant forts",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -517,7 +517,7 @@
      "cam": "romanrear"
     },
     {
-     "label": "Hold every man in his own sector",
+     "label": "Hold every man in his own sector so no gap opens",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -580,7 +580,7 @@
    },
    "choices": [
     {
-     "label": "Send Labienus with six cohorts and orders to hold at all costs",
+     "label": "Send Labienus with six cohorts to hold it",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -654,7 +654,7 @@
      "cam": "rightclose"
     },
     {
-     "label": "Let the camp fall and form a new line behind it",
+     "label": "Let the camp fall and form a new line behind",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -697,7 +697,7 @@
    },
    "choices": [
     {
-     "label": "Ride to the camp with fresh troops and send the cavalry out behind the Gauls",
+     "label": "Ride to the camp yourself, cavalry round behind",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -750,7 +750,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Send the reserves, but stay at the centre",
+     "label": "Send the reserves forward, but stay at the centre to direct",
      "quality": 1,
      "cost": 1,
      "style": "C",

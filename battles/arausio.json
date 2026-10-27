@@ -250,7 +250,7 @@
    },
    "choices": [
     {
-     "label": "Write to the Senate and have him ordered across",
+     "label": "Write to the Senate to order him across",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -279,7 +279,7 @@
      "cam": "wide"
     },
     {
-     "label": "Go to Caepio’s camp and offer him an equal share of the command",
+     "label": "Go to Caepio and offer to share command",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -348,7 +348,7 @@
    },
    "choices": [
     {
-     "label": "Camp on the level ground with the river behind you",
+     "label": "Camp on the level ground by the river",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -377,7 +377,7 @@
      "cam": "romanrear"
     },
     {
-     "label": "Camp on higher ground with open country behind",
+     "label": "Camp on the higher ground inland",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -488,7 +488,7 @@
      "cam": "left"
     },
     {
-     "label": "March at once to join Caepio’s attack",
+     "label": "March at once to join his attack",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -609,7 +609,7 @@
      "cam": "clash"
     },
     {
-     "label": "March out to open ground away from the river and form a deep line",
+     "label": "March to open ground and form a deep line",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -649,7 +649,7 @@
      "cam": "front"
     },
     {
-     "label": "Form a hollow square around the camp",
+     "label": "Form a hollow square around the camp and its supplies",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -713,7 +713,7 @@
      "cam": "romanrear"
     },
     {
-     "label": "Fight a slow retreat in close order toward Arausio",
+     "label": "Fight a slow retreat toward Arausio",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -749,7 +749,7 @@
      "cam": "rear"
     },
     {
-     "label": "Make a last charge",
+     "label": "Make one last charge at the Cimbri chiefs to turn the day",
      "quality": 1,
      "cost": 1,
      "style": "M",

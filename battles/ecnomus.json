@@ -240,7 +240,7 @@
    },
    "choices": [
     {
-     "label": "Sail in a compact wedge: consuls at the point, transports in tow, the rear squadron line abreast",
+     "label": "Sail in a wedge, with the transports in tow",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -273,7 +273,7 @@
      "cam": "wide"
     },
     {
-     "label": "Form a single line like the Carthaginians",
+     "label": "Form a single long line, as the Carthaginians do",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -305,7 +305,7 @@
      "cam": "wide"
     },
     {
-     "label": "Keep the fleet together and wait for them to close",
+     "label": "Keep the fleet bunched together and wait",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -380,7 +380,7 @@
      "cam": "front"
     },
     {
-     "label": "Hold the wedge and refuse the bait",
+     "label": "Hold the wedge together and let them go",
      "quality": 2,
      "cost": 2,
      "style": "C",
@@ -408,7 +408,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send only one squadron after the retreating ships",
+     "label": "Send one squadron after the retreating ships",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -451,7 +451,7 @@
    },
    "choices": [
     {
-     "label": "Squadron III casts off its tows and fights; IV turns to meet Hanno",
+     "label": "Squadron III cuts its tows and turns to fight",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -493,7 +493,7 @@
      "cam": "clash"
     },
     {
-     "label": "Keep towing and fight with the point squadrons only",
+     "label": "Keep towing; fight with the point squadrons",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -568,7 +568,7 @@
    },
    "choices": [
     {
-     "label": "Form in the shallows facing the sea",
+     "label": "Stand in the shallows, facing the sea",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -604,7 +604,7 @@
      "cam": "clash"
     },
     {
-     "label": "Charge into the Carthaginian squadron at sea",
+     "label": "Charge into the Carthaginian squadron",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -636,7 +636,7 @@
      "cam": "clash"
     },
     {
-     "label": "Fall back to rejoin the rear squadron",
+     "label": "Fall back to join the rear squadron",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -679,7 +679,7 @@
    },
    "choices": [
     {
-     "label": "Board with the corvus and fight on the decks",
+     "label": "Drop the corvus and board them",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -725,7 +725,7 @@
      "cam": "clash"
     },
     {
-     "label": "Try to ram, as they do",
+     "label": "Ram them, as they would ram you",
      "quality": 0,
      "cost": 1,
      "style": "M",
@@ -795,7 +795,7 @@
    },
    "choices": [
     {
-     "label": "Return on the signal and trap the Carthaginian left against the shore",
+     "label": "Turn back on the signal to help the rear",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -840,7 +840,7 @@
      "cam": "leftflank"
     },
     {
-     "label": "Finish the centre and wait",
+     "label": "Finish off the centre and wait for the rear to come up",
      "quality": 1,
      "cost": 1,
      "style": "C",

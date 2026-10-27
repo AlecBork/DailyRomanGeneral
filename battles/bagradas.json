@@ -328,7 +328,7 @@
      "cam": "lowfront"
     },
     {
-     "label": "Hold the broken ground at the edge of the plain and raid, refusing battle on the level",
+     "label": "Hold the broken ground at the plain’s edge and raid",
      "quality": 2,
      "cost": 2,
      "style": "C",
@@ -356,7 +356,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send for recruits from the rebelling towns, and delay",
+     "label": "Send for recruits from the rebel towns and delay",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -397,7 +397,7 @@
    },
    "choices": [
     {
-     "label": "Mass the legions in a deep centre to break the phalanx",
+     "label": "Mass the legions deep to smash the phalanx",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -434,7 +434,7 @@
      "cam": "clash"
     },
     {
-     "label": "Keep a wider, shallower line with the cavalry guarding both ends",
+     "label": "Keep a wider line, cavalry guarding both ends",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -466,7 +466,7 @@
      "cam": "wide"
     },
     {
-     "label": "Anchor one flank on rough ground",
+     "label": "Anchor one flank on the rough ground",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -512,7 +512,7 @@
    },
    "choices": [
     {
-     "label": "Advance, banging swords on shields to deter the elephants",
+     "label": "Advance banging swords on shields to scare them",
      "quality": 1,
      "cost": 0,
      "style": "M",
@@ -580,7 +580,7 @@
      "cam": "clash"
     },
     {
-     "label": "Open lanes in the maniples and use the velites against the elephants",
+     "label": "Open lanes in the maniples and let them through",
      "quality": 2,
      "cost": 2,
      "style": "C",
@@ -633,7 +633,7 @@
    },
    "choices": [
     {
-     "label": "Let the allies pursue the routed right wing to its camp",
+     "label": "Let the allies chase the beaten wing to its camp",
      "quality": 1,
      "cost": 0,
      "style": "A",
@@ -667,7 +667,7 @@
      "cam": "left"
     },
     {
-     "label": "Recall them and wheel against the phalanx’s flank",
+     "label": "Recall them and wheel against the phalanx",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -707,7 +707,7 @@
      "cam": "leftflank"
     },
     {
-     "label": "Hold them in place",
+     "label": "Hold them where they are",
      "quality": 1,
      "cost": 0,
      "style": "C",
@@ -745,7 +745,7 @@
    },
    "choices": [
     {
-     "label": "Press on and break the phalanx before the cavalry arrives",
+     "label": "Press on and break the phalanx before they arrive",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -786,7 +786,7 @@
      "cam": "clash"
     },
     {
-     "label": "Form a rear guard to face the cavalry",
+     "label": "Turn a rear guard to face the cavalry",
      "quality": 2,
      "cost": 2,
      "style": "C",
@@ -941,7 +941,7 @@
      "cam": "wide"
     },
     {
-     "label": "Form a hollow square",
+     "label": "Form a hollow square and hold",
      "quality": 1,
      "cost": 1,
      "style": "C",

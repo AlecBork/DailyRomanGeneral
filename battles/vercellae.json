@@ -245,7 +245,7 @@
    },
    "choices": [
     {
-     "label": "Tell them their kin already have land, and show them the captive Teutonic kings",
+     "label": "Show them their captured kings in chains",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -289,7 +289,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send them away without an answer",
+     "label": "Send them away without an answer and make them wait",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -327,7 +327,7 @@
    },
    "choices": [
     {
-     "label": "Form on the open plain facing west, with the sun and wind at your back",
+     "label": "The open plain, sun and wind at your back",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -375,7 +375,7 @@
      "cam": "wide"
     },
     {
-     "label": "Fight in the hills where the cavalry cannot ride",
+     "label": "The hills, where their cavalry cannot ride",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -395,7 +395,7 @@
      "cam": "wide"
     },
     {
-     "label": "Let them come where they like",
+     "label": "Let them choose the ground",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -433,7 +433,7 @@
    },
    "choices": [
     {
-     "label": "Hold the line and let no one pursue",
+     "label": "Hold the line; let no one pursue",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -473,7 +473,7 @@
      "cam": "right"
     },
     {
-     "label": "Let the legions pursue the fleeing horse",
+     "label": "Let the legions chase the horse",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -548,7 +548,7 @@
    },
    "choices": [
     {
-     "label": "Sulla charges and drives the horsemen back into their own infantry",
+     "label": "Sulla charges the Cimbri horse",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -610,7 +610,7 @@
      "cam": "right"
     },
     {
-     "label": "Send the cavalry round to the wagons",
+     "label": "Send the cavalry round to their wagons",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -653,7 +653,7 @@
    },
    "choices": [
     {
-     "label": "Advance the centre with pila and swords, and close the wings on both flanks",
+     "label": "Advance the centre and close both wings",
      "quality": 2,
      "cost": 1,
      "style": "M",

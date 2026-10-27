@@ -275,7 +275,7 @@
    },
    "choices": [
     {
-     "label": "Send cavalry across the fords at several points",
+     "label": "Send the cavalry across first at several fords",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -333,7 +333,7 @@
      "cam": "front"
     },
     {
-     "label": "Cross at several fords, and forbid any charge beyond the bank",
+     "label": "Cross at several fords; no charging beyond the bank",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -374,7 +374,7 @@
    },
    "choices": [
     {
-     "label": "Go among the tents in disguise, with an animal skin over your shoulders",
+     "label": "Walk the tents in disguise and listen",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -418,7 +418,7 @@
      "cam": "wide"
     },
     {
-     "label": "Double the guard and say nothing",
+     "label": "Double the guard on the gates and say nothing",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -456,7 +456,7 @@
    },
    "choices": [
     {
-     "label": "Cry ‘Follow the Roman birds!’ and advance at once",
+     "label": "‘Follow the Roman birds!’ and advance",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -507,7 +507,7 @@
      "cam": "front"
     },
     {
-     "label": "Hold and let them come down",
+     "label": "Hold your ground and let them come down to you",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -527,7 +527,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send the legions first",
+     "label": "Send the legions in first",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -573,7 +573,7 @@
    },
    "choices": [
     {
-     "label": "Send your best cavalry at their flank and Stertinius round to their rear",
+     "label": "Send cavalry at their flank and round the rear",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -620,7 +620,7 @@
      "cam": "enemyrear"
     },
     {
-     "label": "Keep the cavalry to guard the river",
+     "label": "Keep the cavalry back to guard the river crossings",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -694,7 +694,7 @@
    },
    "choices": [
     {
-     "label": "Pursue the beaten army into the river and the forest until nightfall",
+     "label": "Pursue them into the river and forest",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -732,7 +732,7 @@
      "cam": "push"
     },
     {
-     "label": "Hunt for Arminius alone",
+     "label": "Hunt for Arminius himself",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -757,7 +757,7 @@
      "cam": "right"
     },
     {
-     "label": "Halt and hold the field",
+     "label": "Halt and hold the field; the forest hides ambushes",
      "quality": 0,
      "cost": 0,
      "style": "C",

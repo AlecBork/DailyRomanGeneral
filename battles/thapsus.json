@@ -282,7 +282,7 @@
    },
    "choices": [
     {
-     "label": "Post the Fifth Legion behind both wings, with archers and slingers on the flanks",
+     "label": "Put the Fifth behind both wings",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -335,7 +335,7 @@
      "cam": "wide"
     },
     {
-     "label": "Wait for him to attack your siege lines",
+     "label": "Wait for them to attack your lines",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -473,7 +473,7 @@
    },
    "choices": [
     {
-     "label": "Shower the elephants with arrows and sling stones",
+     "label": "Shower the elephants with missiles",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -516,7 +516,7 @@
      "cam": "right"
     },
     {
-     "label": "Charge them with cavalry",
+     "label": "Charge them with cavalry before they gather speed",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -579,7 +579,7 @@
    },
    "choices": [
     {
-     "label": "The Fifth stands and drives them back with pila and trumpets",
+     "label": "The Fifth stands and fights them",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -684,7 +684,7 @@
    },
    "choices": [
     {
-     "label": "Storm the camps with cavalry and legions",
+     "label": "Storm the camps",
      "quality": 2,
      "cost": 1,
      "style": "A",

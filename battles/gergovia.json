@@ -248,7 +248,7 @@
    },
    "choices": [
     {
-     "label": "Take the small hill and link it to your camp with a double trench",
+     "label": "Take the small hill and trench it to your camp",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -277,7 +277,7 @@
      "cam": "wide"
     },
     {
-     "label": "Storm the plateau at once",
+     "label": "Storm the plateau at once while your men are fresh",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -305,7 +305,7 @@
      "cam": "front"
     },
     {
-     "label": "Blockade from a distance",
+     "label": "Blockade the town from a distance",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -343,7 +343,7 @@
    },
    "choices": [
     {
-     "label": "March four legions through the night and surround them",
+     "label": "March four legions overnight to surround them",
      "quality": 2,
      "cost": 2,
      "style": "A",
@@ -372,7 +372,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send envoys and wait",
+     "label": "Send envoys to the Aedui and wait for them to cool",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -430,7 +430,7 @@
    },
    "choices": [
     {
-     "label": "Send the decoy legion round and rush the camps",
+     "label": "Send a decoy round and rush the camps",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -481,7 +481,7 @@
      "cam": "front"
     },
     {
-     "label": "Attack the town walls directly",
+     "label": "Attack the town walls directly where they are weakest",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -579,7 +579,7 @@
      "cam": "front"
     },
     {
-     "label": "Send the tribunes and legates in among the men to stop them",
+     "label": "Send the officers in to stop the men",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -656,7 +656,7 @@
    },
    "choices": [
     {
-     "label": "Attack the newcomers before they attack you",
+     "label": "Attack the newcomers before they strike",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -698,7 +698,7 @@
      "cam": "right"
     },
     {
-     "label": "Hold, identify them, and fall back covered by the Tenth",
+     "label": "Hold, find out who they are, fall back slowly",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -738,7 +738,7 @@
      "cam": "right"
     },
     {
-     "label": "Withdraw at once to camp",
+     "label": "Withdraw to camp at once before the cavalry arrives",
      "quality": 1,
      "cost": 1,
      "style": "C",

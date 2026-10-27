@@ -254,7 +254,7 @@
    },
    "choices": [
     {
-     "label": "Turn toward Bibracte to get grain",
+     "label": "Turn toward Bibracte for grain",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -336,7 +336,7 @@
    },
    "choices": [
     {
-     "label": "Cavalry holds them while the legions form on the hillside",
+     "label": "Cavalry holds them while the legions form",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -369,7 +369,7 @@
      "cam": "wide"
     },
     {
-     "label": "Turn and fight on the march",
+     "label": "Turn and fight on the march before they gather strength",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -488,7 +488,7 @@
      "cam": "clash"
     },
     {
-     "label": "Charge before they are close",
+     "label": "Charge down before their shield wall can close up",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -573,7 +573,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Halt the whole army",
+     "label": "Halt the whole army and face every way at once",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -593,7 +593,7 @@
      "cam": "wide"
     },
     {
-     "label": "Ignore them",
+     "label": "Ignore them and press on",
      "quality": 0,
      "cost": 0,
      "style": "A",

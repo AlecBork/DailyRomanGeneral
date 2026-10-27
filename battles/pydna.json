@@ -287,7 +287,7 @@
    },
    "choices": [
     {
-     "label": "Send Scipio Nasica over the mountains, with a feint toward the coast",
+     "label": "Send Nasica round over the mountains",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -316,7 +316,7 @@
      "cam": "wide"
     },
     {
-     "label": "Storm the river line",
+     "label": "Storm the river line head-on before Perseus is reinforced",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -344,7 +344,7 @@
      "cam": "front"
     },
     {
-     "label": "Wait for the fleet",
+     "label": "Wait for the fleet to arrive",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -382,7 +382,7 @@
    },
    "choices": [
     {
-     "label": "Explain the eclipse, sacrifice, and rest the men before fighting",
+     "label": "Explain the eclipse and rest the men first",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -406,7 +406,7 @@
      "cam": "wide"
     },
     {
-     "label": "Attack at once while the enemy is shaken",
+     "label": "Attack at once while they are frightened",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -434,7 +434,7 @@
      "cam": "clash"
     },
     {
-     "label": "Withdraw to the hills and wait for him to come",
+     "label": "Withdraw to the hills and wait",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -472,7 +472,7 @@
    },
    "choices": [
     {
-     "label": "Fall back slowly in good order onto the rough ground",
+     "label": "Fall back slowly onto the rough ground",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -545,7 +545,7 @@
      "cam": "clash"
     },
     {
-     "label": "Hold the line and let the elephants try the phalanx",
+     "label": "Hold and let the elephants try the phalanx",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -632,7 +632,7 @@
      "cam": "clash"
     },
     {
-     "label": "Wait for the phalanx to tire",
+     "label": "Wait for the phalanx to tire on the rough ground",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -703,7 +703,7 @@
    },
    "choices": [
     {
-     "label": "Send the elephants and cavalry of the right against the Macedonian left",
+     "label": "Send the right wing at the Macedonian left",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -771,7 +771,7 @@
      "cam": "clash"
     },
     {
-     "label": "Send the right wing to chase Perseus",
+     "label": "Send the right wing after Perseus",
      "quality": 0,
      "cost": 0,
      "style": "A",

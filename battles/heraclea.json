@@ -292,7 +292,7 @@
    },
    "choices": [
     {
-     "label": "Cross at dawn with the cavalry first, to drive off the scouts",
+     "label": "Cross at dawn with the cavalry first",
      "quality": 1,
      "cost": 0,
      "style": "A",
@@ -325,7 +325,7 @@
      "cam": "lowfront"
     },
     {
-     "label": "Cross at several fords at once, with velites holding the far bank first",
+     "label": "Cross at several fords at once, velites leading",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -398,7 +398,7 @@
    },
    "choices": [
     {
-     "label": "Press on across the bank without re-forming",
+     "label": "Press on up the bank without re-forming",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -435,7 +435,7 @@
      "cam": "clash"
     },
     {
-     "label": "Re-form the legions on the bank before the phalanx arrives",
+     "label": "Re-form the legions on the bank first",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -463,7 +463,7 @@
      "cam": "clash"
     },
     {
-     "label": "Screen the cavalry behind the velites and keep it away from the Greek horse",
+     "label": "Keep your cavalry back, away from the Greek horse",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -510,7 +510,7 @@
    },
    "choices": [
     {
-     "label": "Rotate fresh maniples and send the allied wings round the phalanx’s flank",
+     "label": "Rotate fresh maniples and send the allies round",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -550,7 +550,7 @@
      "cam": "clash"
     },
     {
-     "label": "Keep attacking the phalanx head-on",
+     "label": "Keep pressing the phalanx head-on until it gives",
      "quality": 1,
      "cost": 0,
      "style": "A",
@@ -583,7 +583,7 @@
      "cam": "clash"
     },
     {
-     "label": "Pull back a little and let the phalanx come to you",
+     "label": "Pull back a little and let the phalanx come",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -629,7 +629,7 @@
    },
    "choices": [
     {
-     "label": "Hold position",
+     "label": "Hold your position and wait to see",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -650,7 +650,7 @@
      "cam": "clash"
     },
     {
-     "label": "Throw the legions in at once while the Greek line wavers",
+     "label": "Throw the legions in while the Greek line wavers",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -690,7 +690,7 @@
      "cam": "clash"
     },
     {
-     "label": "Shout along the line that Pyrrhus is dead",
+     "label": "Shout along the line that Pyrrhus is dead and let it spread",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -769,7 +769,7 @@
      "cam": "leftflank"
     },
     {
-     "label": "Pull the cavalry back and let the velites and allies hurl javelins at the elephants",
+     "label": "Pull the cavalry back; let the velites take them",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -809,7 +809,7 @@
      "cam": "clash"
     },
     {
-     "label": "Open gaps in the line and let the elephants through",
+     "label": "Open gaps in the line and let the elephants pass through",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -888,7 +888,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Form a hollow line with the river at your back",
+     "label": "Form a hollow line with the river behind",
      "quality": 2,
      "cost": 1,
      "style": "C",

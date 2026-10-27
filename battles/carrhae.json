@@ -331,7 +331,7 @@
    },
    "choices": [
     {
-     "label": "Follow Ariamnes across the open plain",
+     "label": "Follow Ariamnes straight across the plain",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -360,7 +360,7 @@
      "cam": "wide"
     },
     {
-     "label": "Take the Armenian road through the mountains, with Artavasdes’s cavalry",
+     "label": "Take the Armenian road through the mountains",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -424,7 +424,7 @@
    },
    "choices": [
     {
-     "label": "Agree with Publius and march on to fight at once",
+     "label": "March on with Publius and fight at once",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -445,7 +445,7 @@
      "cam": "wide"
     },
     {
-     "label": "Camp by the stream, water the men, and fight in the morning",
+     "label": "Camp by the stream and fight in the morning",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -468,7 +468,7 @@
      "cam": "wide"
     },
     {
-     "label": "Move on carefully, in battle order",
+     "label": "Move on carefully in battle order, scouts thrown forward",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -507,7 +507,7 @@
    },
    "choices": [
     {
-     "label": "Form a hollow square, twelve cohorts to a side",
+     "label": "Form a hollow square, twelve cohorts a side",
      "quality": 1,
      "cost": 1,
      "style": "C",
@@ -553,7 +553,7 @@
      "cam": "high"
     },
     {
-     "label": "Form the square, and send light troops and horse against the camel train",
+     "label": "Form the square and raid their camel train",
      "quality": 2,
      "cost": 2,
      "style": "M",
@@ -605,7 +605,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Spread into a battle line to charge them",
+     "label": "Spread into a battle line and charge them",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -688,7 +688,7 @@
      "cam": "leftflank"
     },
     {
-     "label": "Keep Publius close, and advance the square slowly toward the hills",
+     "label": "Keep Publius close; edge toward the hills",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -725,7 +725,7 @@
      "cam": "high"
     },
     {
-     "label": "Let him go, but only a short way",
+     "label": "Let him go after them, but only a short way",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -771,7 +771,7 @@
    },
    "choices": [
     {
-     "label": "Retreat to Carrhae as best you can, leaving the wounded",
+     "label": "Hurry to Carrhae by night, leaving the wounded behind",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -797,7 +797,7 @@
      "cam": "romanrear"
     },
     {
-     "label": "March out in close column by night, with the wounded on the carts",
+     "label": "March in close column, wounded on the carts",
      "quality": 2,
      "cost": 1,
      "style": "A",
@@ -896,7 +896,7 @@
      "cam": "wide"
     },
     {
-     "label": "Refuse, and march for the Armenian hills by night",
+     "label": "Refuse, and slip away for the hills by night",
      "quality": 2,
      "cost": 0,
      "style": "C",
@@ -917,7 +917,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send an officer to hear the terms",
+     "label": "Send a trusted officer to hear Surena’s terms first",
      "quality": 1,
      "cost": 0,
      "style": "M",
