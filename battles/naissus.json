@@ -1,0 +1,654 @@
+{
+ "id": "naissus",
+ "name": "Battle of Naissus",
+ "date": "268 AD",
+ "result": "win",
+ "loc": {
+  "lat": 43.32,
+  "lon": 21.9,
+  "place": "Naissus, Moesia",
+  "short": "Naissus",
+  "x": 459,
+  "y": 87
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Goths",
+  "commander": "Claudius II",
+  "foe": "Gothic chiefs"
+ },
+ "intro": "Naissus (Niš, Serbia), 268 or 269 AD. A huge Gothic invasion has swept through the Balkans and Greece. You are Claudius II, a tough soldier-emperor from the Danube.",
+ "debrief": "The details come from late and unreliable sources. Zosimus says the Romans were pushed back, then a feigned retreat or a flank attack threw the Goths into confusion, and 50,000 died. Survivors fled into the mountains, where hunger and plague destroyed them, and many were settled or recruited. Claudius was hailed Gothicus, but died of plague the next year. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    30,
+    200,
+    20
+   ],
+   [
+    60,
+    140,
+    60,
+    16
+   ]
+  ],
+  "forests": [
+   [
+    60,
+    140,
+    60,
+    16
+   ]
+  ],
+  "grass": "#6f8a4a"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Claudius’s legions",
+   "model": "legionary"
+  },
+  "dal": {
+   "x": 60,
+   "y": 220,
+   "w": 80,
+   "h": 10,
+   "side": "roman",
+   "name": "Dalmatian cavalry",
+   "model": "cav_roman"
+  },
+  "got": {
+   "x": 200,
+   "y": 90,
+   "w": 220,
+   "h": 14,
+   "side": "enemy",
+   "name": "The Goths (a huge horde)",
+   "model": "barbarian",
+   "scales": true
+  },
+  "wag": {
+   "x": 200,
+   "y": 40,
+   "w": 180,
+   "h": 6,
+   "side": "enemy",
+   "name": "Wagon laager",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Goths chase into a trap.",
+   "The cavalry springs it.",
+   "Claudius is Gothicus."
+  ],
+  "lose": [
+   "The Gothic horde breaks the legions.",
+   "The Balkans burn.",
+   "The Danube frontier collapses."
+  ],
+  "cams": [
+   "left",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Contact",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Caught",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Laager",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Gothic horde",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Clash",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Feigned retreat",
+     "tone": "g"
+    },
+    {
+     "text": "Mounting losses",
+     "tone": "a"
+    },
+    {
+     "text": "Swallowed",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Pushed back",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Trap",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Sprung",
+     "tone": "g"
+    },
+    {
+     "text": "Re-formed",
+     "tone": "r"
+    },
+    {
+     "text": "Holding",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Strung out",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Hills",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Starved",
+     "tone": "g"
+    },
+    {
+     "text": "Ambush",
+     "tone": "r"
+    },
+    {
+     "text": "Escaped",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Fleeing",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The great invasion",
+   "text": "A huge Gothic force has crossed the Danube and raided Greece and the Balkans. You are Claudius, the new Emperor, a tough soldier from the Danube.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Goths are slowed by wagons and loot."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Catch them on the march."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Catch them on the march",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "caught": 1
+       },
+       "text": "You catch the Goths at Naissus, burdened with wagons and loot."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for them at the Danube",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They raid on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack their wagon laager",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The laager is strong."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "wag"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The first clash",
+   "text": "The Goths fight hard and push your legions back.",
+   "intel": {
+    "hint": [
+     {
+      "text": "A feigned retreat could draw them on."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fall back on purpose."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fall back on purpose",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "caught": true
+       },
+       "r": -4,
+       "e": -16,
+       "text": "Your legions fall back. The Goths follow, breaking their ranks."
+      },
+      {
+       "r": -8,
+       "e": -7,
+       "text": "The retreat nearly becomes real."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         230
+        ],
+        "got": [
+         200,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold at all costs",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "Your losses mount."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "got"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Throw in the cavalry",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "They are swallowed up."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "The trap",
+   "text": "The Goths are strung out chasing you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your cavalry is hidden on the side."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Spring the trap."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Spring it",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -16,
+       "text": "Your Dalmatian cavalry charges the Gothic flank from hiding. The legions turn. The Goths are slaughtered."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "dal": [
+         120,
+         150
+        ]
+       },
+       "f": [
+        "dal",
+        "got"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Keep falling back",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The Goths re-form."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge with the legions only",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The Goths hold."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "got"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Mountains",
+   "text": "The surviving Goths flee into the mountains with their wagons.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They will starve."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Blockade."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Blockade",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Hunger and plague destroy them. Many surrender and are settled as farmers or taken into the army."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Go in after them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "They ambush you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let them go home",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "They come back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Gothicus",
+   "text": "You are hailed 'Gothicus', conqueror of the Goths.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Plague is in your camp too."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take care."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stay with the army",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -9,
+       "text": "Claudius dies of plague the next year. The Goths will not trouble the Danube for a long time."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Return to Rome to celebrate",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "The army misses you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Go to fight Zenobia",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "The Danube is left bare."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Naissus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Naissus"
+  }
+ ]
+}

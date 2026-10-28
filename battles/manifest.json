@@ -1350,6 +1350,51 @@
    "lon": 38.13,
    "result": "loss",
    "naval": false
+  },
+  {
+   "id": "mediolanum259",
+   "name": "Mediolanum",
+   "date": "259 AD",
+   "lat": 45.46,
+   "lon": 9.19,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "edessa260",
+   "name": "Edessa",
+   "date": "260 AD",
+   "lat": 37.16,
+   "lon": 38.79,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "augsburg260",
+   "name": "Augsburg",
+   "date": "260 AD",
+   "lat": 48.37,
+   "lon": 10.9,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "naissus",
+   "name": "Naissus",
+   "date": "268 AD",
+   "lat": 43.32,
+   "lon": 21.9,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "benacus",
+   "name": "Lake Benacus",
+   "date": "268 AD",
+   "lat": 45.6,
+   "lon": 10.65,
+   "result": "win",
+   "naval": false
   }
  ]
 }

@@ -1,0 +1,635 @@
+{
+ "id": "benacus",
+ "name": "Battle of Lake Benacus",
+ "date": "268 AD",
+ "result": "win",
+ "loc": {
+  "lat": 45.6,
+  "lon": 10.65,
+  "place": "Lake Benacus, Italy",
+  "short": "Lake Benacus",
+  "x": 315,
+  "y": 47
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Alamanni",
+  "commander": "Claudius II",
+  "foe": "Alamanni chiefs"
+ },
+ "intro": "Lake Benacus (Lake Garda) in northern Italy, November 268 AD. Gallienus has been murdered by his officers. You are Claudius II, the new Emperor. The Alamanni have broken into Italy.",
+ "debrief": "The battle is known only from brief late sources. The Epitome de Caesaribus says Claudius beat the Alamanni near Lake Benacus, with barely half of them escaping. He then turned to the Goths and beat them at Naissus. The details of the fighting are not recorded. The other choices are what-ifs.",
+ "terrain": {
+  "lakes": [
+   [
+    40,
+    120,
+    60,
+    140
+   ]
+  ],
+  "hills": [
+   [
+    200,
+    20,
+    200,
+    16
+   ]
+  ],
+  "grass": "#6f8a4a"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Claudius’s army",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 320,
+   "y": 220,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_heavy"
+  },
+  "ala": {
+   "x": 200,
+   "y": 100,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Alamanni",
+   "model": "barbarian",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Alamanni are pinned by the lake.",
+   "Half of them fall.",
+   "Italy is cleared."
+  ],
+  "lose": [
+   "The Alamanni break out.",
+   "Northern Italy is plundered.",
+   "Claudius’s reign starts badly."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "March",
+   "decision": 0,
+   "options": [
+    {
+     "text": "North at once",
+     "tone": "g"
+    },
+    {
+     "text": "Rome first",
+     "tone": "a"
+    },
+    {
+     "text": "Bribes",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Alamanni",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Lake",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Pinned",
+     "tone": "g"
+    },
+    {
+     "text": "Disordered",
+     "tone": "r"
+    },
+    {
+     "text": "Slipped away",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Benacus",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Charge",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Broken",
+     "tone": "g"
+    },
+    {
+     "text": "Bloody",
+     "tone": "a"
+    },
+    {
+     "text": "Escaped",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Breakout",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Counter",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Ridden down",
+     "tone": "g"
+    },
+    {
+     "text": "Slow",
+     "tone": "a"
+    },
+    {
+     "text": "Recovered",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Spent",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Gallienus murdered",
+   "text": "Gallienus has been murdered by his own officers. You are Claudius, the new Emperor. The Alamanni have crossed the Alps into northern Italy.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Deal with the Alamanni before going east."
+     }
+    ],
+    "scout": [
+     {
+      "text": "March north at once."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March north at once",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "You march straight to meet them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Secure Rome first",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They plunder more."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer them money to leave",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "They want more."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The lake",
+   "text": "The Alamanni camp near Lake Benacus.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Pin them against the lake."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pin them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pin them",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "text": "Your army closes in, with the lake behind them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         160,
+         140
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack straight from the march",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "You arrive in disorder."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "ala"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for them to move",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They slip away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Battle",
+   "text": "The Alamanni charge to break out.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hold, then counter."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold firm."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -13,
+       "set": {
+        "held": 1
+       },
+       "text": "The charge breaks against your lines."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "ala"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Charge to meet them",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "A bloody fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "ala"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Let them through and chase them",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "They escape."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Counter",
+   "text": "The Alamanni are spent.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your cavalry is fresh."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send the cavalry."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the cavalry",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "held": true
+       },
+       "r": -2,
+       "e": -17,
+       "text": "Your cavalry rides down the exhausted Alamanni. Half of them are said to die."
+      },
+      {
+       "r": -6,
+       "e": -6,
+       "text": "The cavalry strikes."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         260,
+         100
+        ]
+       },
+       "f": [
+        "cav",
+        "ala"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Push with the infantry alone",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "Slow going."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Rest your men first",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "They recover."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The East",
+   "text": "Zenobia of Palmyra is taking over the East.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Goths too threaten the Danube."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Where next?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Turn to the Goths",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "Claudius turns to the Goths and beats them at Naissus. Zenobia must wait for Aurelian."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March against Zenobia",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The Goths break through."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stay in Italy",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Both threats grow."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Lake Benacus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Lake_Benacus"
+  }
+ ]
+}

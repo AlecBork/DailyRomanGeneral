@@ -1,0 +1,636 @@
+{
+ "id": "mediolanum259",
+ "name": "Battle of Mediolanum",
+ "date": "259 AD",
+ "result": "win",
+ "loc": {
+  "lat": 45.46,
+  "lon": 9.19,
+  "place": "near Mediolanum, Italy",
+  "short": "Mediolanum",
+  "x": 297,
+  "y": 50
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Alamanni",
+  "commander": "Gallienus",
+  "foe": "Alamanni chiefs"
+ },
+ "intro": "Near Mediolanum (Milan), 259 or 260 AD. The Alamanni have broken into Italy. You are the Emperor Gallienus, while your father Valerian fights Persia in the East.",
+ "debrief": "Late Roman writers say Gallienus beat a huge army of Alamanni (one claims 300,000) near Milan with a much smaller force. Gallienus is credited with creating a mobile cavalry army based at Milan, an early step toward the field armies of the later empire. The battle’s details are not recorded. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#7f9a4d"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 160,
+   "h": 14,
+   "side": "roman",
+   "name": "Gallienus’s field army",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 320,
+   "y": 220,
+   "w": 100,
+   "h": 10,
+   "side": "roman",
+   "name": "New mobile cavalry",
+   "model": "cav_heavy"
+  },
+  "ala": {
+   "x": 200,
+   "y": 90,
+   "w": 220,
+   "h": 14,
+   "side": "enemy",
+   "name": "Alamanni raiders (said to be 300,000)",
+   "model": "barbarian",
+   "scales": true
+  },
+  "loot": {
+   "x": 340,
+   "y": 50,
+   "w": 60,
+   "h": 6,
+   "side": "enemy",
+   "name": "Wagons of loot",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The cavalry catches the loot wagons.",
+   "The Alamanni break near Milan.",
+   "Italy is saved."
+  ],
+  "lose": [
+   "The Alamanni sack Milan.",
+   "Gallienus is too slow.",
+   "Italy is plundered."
+  ],
+  "cams": [
+   "right",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Speed",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Cavalry ahead",
+     "tone": "g"
+    },
+    {
+     "text": "Slow",
+     "tone": "a"
+    },
+    {
+     "text": "Milan sacked",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Alamanni",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Wagons",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Struck",
+     "tone": "g"
+    },
+    {
+     "text": "Hard fight",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Loot",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Clash",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Disordered",
+     "tone": "g"
+    },
+    {
+     "text": "Outnumbered",
+     "tone": "a"
+    },
+    {
+     "text": "Plundered",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Main body",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Rout",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Pursued",
+     "tone": "g"
+    },
+    {
+     "text": "Escaped",
+     "tone": "a"
+    },
+    {
+     "text": "Outrun",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Fleeing",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Italy invaded",
+   "text": "The Alamanni have broken through the Alps into Italy and are nearing Milan. Your father Valerian is in the East. You are the Emperor Gallienus, hurrying back from the Rhine.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Speed matters."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Use your new cavalry."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ride ahead with the cavalry",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "fast": 1
+       },
+       "text": "Your new mobile cavalry races ahead of the infantry toward Milan."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         320,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "March with the whole army together",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The Alamanni plunder on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for the Senate to raise troops in Rome",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Milan is sacked."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Milan",
+   "text": "You catch the Alamanni near Milan, slowed by loot.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hit their loot wagons."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike the wagons."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Strike the wagons",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "fast": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "Your cavalry falls on the loot wagons before the Alamanni can form up."
+      },
+      {
+       "r": -6,
+       "e": -7,
+       "text": "The wagons are guarded."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         340,
+         80
+        ]
+       },
+       "f": [
+        "cav",
+        "loot"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Attack their main body head on",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "They fight hard."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "ala"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for your infantry to arrive",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "They form up."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The main fight",
+   "text": "The Alamanni turn to save their loot.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are out of order."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Bring up the legions."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Bring up the legions",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -16,
+       "text": "Your legions hit the disordered Alamanni."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "leg",
+        "ala"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Keep the cavalry fighting alone",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "They are outnumbered."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Let them take the loot and go",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Italy is plundered."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Rout",
+   "text": "The Alamanni break.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Chase them to the Alps."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pursue."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pursue",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "Your cavalry chases them toward the passes."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ala": [
+         200,
+         30,
+         0.3
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let them go",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "They get home."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase them on foot",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "They outrun you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "A new army",
+   "text": "Your mounted army has saved Italy.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Keep it?"
+     }
+    ],
+    "scout": [
+     {
+      "text": "Base it at Milan."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Base the cavalry at Milan",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Gallienus keeps a mobile cavalry army at Milan, an early step toward the field armies of the later empire."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Disband it",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Raids come again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send it to the East to save your father",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Italy is open."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Mediolanum (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Mediolanum"
+  }
+ ]
+}

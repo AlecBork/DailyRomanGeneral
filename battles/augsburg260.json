@@ -1,0 +1,641 @@
+{
+ "id": "augsburg260",
+ "name": "Battle of Augusta Vindelicum",
+ "date": "260 AD",
+ "result": "win",
+ "loc": {
+  "lat": 48.37,
+  "lon": 10.9,
+  "place": "Augusta Vindelicum, Raetia",
+  "short": "Augsburg",
+  "x": 319,
+  "y": -1
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Juthungi",
+  "commander": "Simplicinius Genialis",
+  "foe": "Juthungi chiefs"
+ },
+ "intro": "Augusta Vindelicum (Augsburg), April 260 AD. The Juthungi are going home from Italy with thousands of captives. You are Marcus Simplicinius Genialis, governor of Raetia.",
+ "debrief": "This battle is known only from an altar found in Augsburg in 1992. It records that on 24-25 April 260, Genialis, with soldiers from Raetia and Germany and local people, beat the Juthungi and freed many thousands of Italian captives. The altar names Postumus, who had broken away with Gaul, as Emperor; his name was later chiselled off. The rest is reconstructed. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 120,
+   "w": 22
+  },
+  "forests": [
+   [
+    60,
+    60,
+    60,
+    16
+   ]
+  ],
+  "grass": "#6f8a4a"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 160,
+   "h": 14,
+   "side": "roman",
+   "name": "Raetian garrison and local militia",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 320,
+   "y": 220,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Troops from Germany",
+   "model": "auxiliary"
+  },
+  "jut": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Juthungi raiders",
+   "model": "barbarian",
+   "scales": true
+  },
+  "cap": {
+   "x": 340,
+   "y": 50,
+   "w": 80,
+   "h": 6,
+   "side": "enemy",
+   "name": "Thousands of Italian captives",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Juthungi are caught at the river.",
+   "Thousands of captives are freed.",
+   "An altar to Victory is raised."
+  ],
+  "lose": [
+   "The raiders cross the Lech.",
+   "The captives are lost.",
+   "Raetia is plundered."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Army",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Everyone called up",
+     "tone": "g"
+    },
+    {
+     "text": "Outnumbered",
+     "tone": "r"
+    },
+    {
+     "text": "Let them pass",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Raetia",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "River",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Caught at the Lech",
+     "tone": "g"
+    },
+    {
+     "text": "Outpaced",
+     "tone": "r"
+    },
+    {
+     "text": "Town fortified",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Crossing",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Captives",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Freed",
+     "tone": "g"
+    },
+    {
+     "text": "Dragging on",
+     "tone": "a"
+    },
+    {
+     "text": "Slipped away",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Two days",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Victory",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Altar raised",
+     "tone": "g"
+    },
+    {
+     "text": "Tired pursuit",
+     "tone": "a"
+    },
+    {
+     "text": "Captives sold",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Juthungi beaten",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Coming home",
+   "text": "The Juthungi are going home from raiding Italy, with thousands of Italian captives. You are Marcus Simplicinius Genialis, governor of Raetia, at Augusta Vindelicum (Augsburg).",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your own troops are few."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Call up the local militia and troops from Germany."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Call up everyone",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "all": 1
+       },
+       "text": "You call up soldiers, local men, and troops from Germany."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         320,
+         190
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack with the garrison alone",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "You are outnumbered."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let them pass",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The captives are lost."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The river",
+   "text": "The Juthungi must cross the Lech near Augsburg.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Catch them at the crossing."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wait at the river."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Wait at the river",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "all": true
+       },
+       "r": -2,
+       "e": -17,
+       "text": "Your mixed army waits as the Juthungi, slowed by captives and loot, reach the crossing."
+      },
+      {
+       "r": -6,
+       "e": -7,
+       "text": "You catch them, but you are few."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "leg",
+        "jut"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Chase them across country",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "They stay ahead."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fortify the town",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They cross unhindered."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Two days",
+   "text": "The fight goes on for two days, 24 and 25 April.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Free the captives."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike where the captives are held."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Free the captives",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -14,
+       "text": "You break through to the captives. Thousands of Italians are set free."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cap": [
+         340,
+         50,
+         0.2
+        ]
+       },
+       "f": [
+        "cav",
+        "jut"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Hold your line",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The fight drags on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Pull back for the night",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "They slip away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Victory",
+   "text": "The Juthungi are beaten.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Thank the gods."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Raise an altar."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Raise an altar to Victoria",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "You raise an altar to the goddess Victory. It is found in Augsburg in 1992."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase them over the Danube",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Your men are tired."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Sell the captured Juthungi",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "No reward from heaven."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Postumus",
+   "text": "The altar names the Emperor as Postumus, who has broken away with Gaul, not Gallienus.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Whose side?"
+     }
+    ],
+    "scout": [
+     {
+      "text": "You have chosen."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stay loyal to Postumus",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "Raetia belongs to the Gallic Empire for a time. Later the name of Postumus is chiselled off the altar."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Go back to Gallienus",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "Postumus is angry."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Proclaim yourself",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Your men refuse."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Augsburg Victory Altar (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Augsburg_Victory_Altar"
+  }
+ ]
+}
