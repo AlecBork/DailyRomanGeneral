@@ -1,0 +1,644 @@
+{
+ "id": "fano271",
+ "name": "Battle of Fano",
+ "date": "271 AD",
+ "result": "win",
+ "loc": {
+  "lat": 43.84,
+  "lon": 13.02,
+  "place": "Fanum Fortunae, Italy",
+  "short": "Fano",
+  "x": 346,
+  "y": 78
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Juthungi",
+  "commander": "Aurelian",
+  "foe": "Juthungi chiefs"
+ },
+ "intro": "Near Fanum Fortunae (Fano) on the Metaurus river, 271 AD. After beating Aurelian at Placentia, the Juthungi are marching on Rome. You are the Emperor Aurelian.",
+ "debrief": "Late sources say Aurelian caught the Juthungi at Fano on the Metaurus, near where Hasdrubal fell in 207 BC, and beat them. He then destroyed the survivors near Pavia. In Rome he executed senators suspected of plotting and began the Aurelian Walls. The battle details are not recorded. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 140,
+   "w": 24
+  },
+  "hills": [
+   [
+    340,
+    40,
+    100,
+    14
+   ]
+  ],
+  "grass": "#7f9a4d"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Aurelian’s army",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 320,
+   "y": 220,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_heavy"
+  },
+  "jut": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Juthungi (marching on Rome)",
+   "model": "barbarian",
+   "scales": true
+  },
+  "riv": {
+   "x": 200,
+   "y": 140,
+   "w": 260,
+   "h": 4,
+   "side": "enemy",
+   "name": "The Metaurus",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Juthungi are pinned on the Metaurus.",
+   "They break.",
+   "Aurelian builds Rome’s walls."
+  ],
+  "lose": [
+   "The Juthungi reach Rome.",
+   "Aurelian is beaten again.",
+   "Rome is sacked."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Chase",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Caught",
+     "tone": "g"
+    },
+    {
+     "text": "Defending Rome",
+     "tone": "a"
+    },
+    {
+     "text": "Suburbs raided",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Via Flaminia",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "River",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Pinned",
+     "tone": "g"
+    },
+    {
+     "text": "Costly crossing",
+     "tone": "r"
+    },
+    {
+     "text": "Outflanked",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Metaurus",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Clash",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Held",
+     "tone": "g"
+    },
+    {
+     "text": "Hard fight",
+     "tone": "a"
+    },
+    {
+     "text": "Escaped",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Breakout",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Pursuit",
+   "decision": 3,
+   "options": [
+    {
+     "text": "To Pavia",
+     "tone": "g"
+    },
+    {
+     "text": "Escaped",
+     "tone": "a"
+    },
+    {
+     "text": "Raids",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Fleeing",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "On to Rome",
+   "text": "The Juthungi are marching down the Via Flaminia toward Rome. You are Aurelian, beaten at Placentia but not broken.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are spread out raiding."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Catch them before Rome."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Catch them",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "caught": 1
+       },
+       "text": "You march hard and catch them near Fanum Fortunae on the Metaurus."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Defend Rome itself",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They plunder Umbria."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for more troops",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "They reach Rome’s suburbs."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The river",
+   "text": "They are on the Metaurus, where Hasdrubal died 478 years ago.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Pin them against the river."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Use the river."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pin them against it",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "caught": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "Your army traps them against the river."
+      },
+      {
+       "r": -6,
+       "e": -7,
+       "text": "They escape along the bank."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         180
+        ]
+       },
+       "f": [
+        "leg",
+        "jut"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Attack across the river",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The crossing is costly."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for them to cross",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They cross where you are not."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Battle",
+   "text": "The Juthungi fight to break out.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Stand firm."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold the line."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -14,
+       "text": "Your line holds. Many Juthungi are killed or drowned."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "jut": [
+         200,
+         140,
+         0.4
+        ]
+       },
+       "f": [
+        "leg",
+        "jut"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Charge",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "A hard fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "jut"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Open a gap and ambush them",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Many escape."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Pursuit",
+   "text": "They flee north.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They will try to reach the Alps."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Chase."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Chase them",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "You follow them to Pavia, where you destroy them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         320,
+         80
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let them go",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "They escape."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Return to Rome",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "They raid again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Rome",
+   "text": "Rome is shaken. Some senators have plotted against you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Rome needs walls."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Build them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Build the walls",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "You order the great Aurelian Walls built around Rome, 19 km long. You also execute senators you suspect of plotting."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Trust the legions",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Rome stays open."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Pardon the plotters",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "They plot again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Fano (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Fano"
+  }
+ ]
+}

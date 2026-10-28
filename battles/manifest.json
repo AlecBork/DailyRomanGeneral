@@ -1395,6 +1395,51 @@
    "lon": 10.65,
    "result": "win",
    "naval": false
+  },
+  {
+   "id": "placentia271",
+   "name": "Placentia",
+   "date": "271 AD",
+   "lat": 45.05,
+   "lon": 9.7,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "fano271",
+   "name": "Fano",
+   "date": "271 AD",
+   "lat": 43.84,
+   "lon": 13.02,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "immae",
+   "name": "Immae",
+   "date": "272 AD",
+   "lat": 36.2,
+   "lon": 36.6,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "emesa",
+   "name": "Emesa",
+   "date": "272 AD",
+   "lat": 34.73,
+   "lon": 36.71,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "chalons274",
+   "name": "Châlons",
+   "date": "274 AD",
+   "lat": 48.96,
+   "lon": 4.36,
+   "result": "win",
+   "naval": false
   }
  ]
 }

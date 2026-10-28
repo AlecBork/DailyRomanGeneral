@@ -1,0 +1,645 @@
+{
+ "id": "placentia271",
+ "name": "Battle of Placentia",
+ "date": "271 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 45.05,
+  "lon": 9.7,
+  "place": "near Placentia, Italy",
+  "short": "Placentia",
+  "x": 303,
+  "y": 57
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Juthungi and Alamanni",
+  "commander": "Aurelian",
+  "foe": "Juthungi chiefs"
+ },
+ "intro": "Near Placentia (Piacenza) in northern Italy, early 271 AD. The Juthungi and Alamanni have got past Aurelian into Italy. You are the Emperor Aurelian, hurrying after them.",
+ "debrief": "In the Historia Augusta and other late sources, the invaders ambushed Aurelian from woods near Placentia at dusk, and his army was badly beaten. Rome panicked, and the Sibylline Books were consulted. Aurelian regrouped and beat them at Fano and Pavia. Soon after, he began the Aurelian Walls around Rome, which still stand. The sources are brief and not fully reliable. The other choices are what-ifs.",
+ "terrain": {
+  "forests": [
+   [
+    80,
+    90,
+    60,
+    16
+   ],
+   [
+    340,
+    90,
+    60,
+    16
+   ]
+  ],
+  "grass": "#6f8a4a",
+  "weather": "night"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Aurelian’s army",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 320,
+   "y": 220,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_heavy"
+  },
+  "jut": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Juthungi and Alamanni",
+   "model": "barbarian",
+   "scales": true
+  },
+  "wood": {
+   "x": 80,
+   "y": 90,
+   "w": 80,
+   "h": 12,
+   "side": "enemy",
+   "name": "Warriors hidden in the woods",
+   "model": "barbarian",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The ambush is found.",
+   "The raiders are beaten.",
+   "Italy is safe."
+  ],
+  "lose": [
+   "Ambush in the woods at dusk.",
+   "Aurelian is beaten.",
+   "Rome panics."
+  ],
+  "cams": [
+   "left",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Army",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Exhausted",
+     "tone": "r"
+    },
+    {
+     "text": "Rested",
+     "tone": "g"
+    },
+    {
+     "text": "Laughed at",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Forced march",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Woods",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Ambushed",
+     "tone": "r"
+    },
+    {
+     "text": "Scouted",
+     "tone": "g"
+    },
+    {
+     "text": "Camp attacked",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Placentia",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Night",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Rallied",
+     "tone": "g"
+    },
+    {
+     "text": "Broken",
+     "tone": "r"
+    },
+    {
+     "text": "Losses",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Confusion",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Rome",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Panic",
+     "tone": "r"
+    },
+    {
+     "text": "Calmed",
+     "tone": "g"
+    },
+    {
+     "text": "Raiders roam",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "News",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Into Italy",
+   "text": "The Juthungi and Alamanni have slipped past you into Italy while you were on the Danube. You are Aurelian, a hard soldier-emperor, hurrying after them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your army is tired from a forced march."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Rest before you fight."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack as soon as you catch them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "You arrive near Placentia late in the day, your men exhausted."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rest the army first",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -22,
+       "set": {
+        "rest": 1
+       },
+       "text": "Your men rest a day before the fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send them a demand to surrender",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "They laugh."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Woods",
+   "text": "The country near Placentia is wooded. Their envoys stall you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Scout the woods."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Scout the woods."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March on through",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "rest": true
+       },
+       "r": -4,
+       "e": -6,
+       "text": "You are alert, and the ambush is less of a shock."
+      },
+      {
+       "r": -12,
+       "e": 0,
+       "text": "At dusk warriors burst from the woods into your column."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "wood": [
+         100,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "wood",
+        "leg"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Scout the woods",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -18,
+       "text": "Your scouts find the ambush."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "wood": [
+         80,
+         90,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Camp in the open",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "They attack your camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Night",
+   "text": "Your army is in confusion in the dark.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Keep it together."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Rally."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Rally",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -14,
+       "text": "You gather your men around the standards."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Counter-attack in the dark",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Your army breaks."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "jut"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Retreat",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "You lose many men."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Panic",
+   "text": "Rome hears of the defeat. There is panic. The Sibylline Books are opened.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The city has no walls fit to stop raiders."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Calm Rome."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let the Senate deal with it",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Rome panics. Riots break out."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Calm the city",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "The city waits."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rush to Rome",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The raiders roam free."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Aftermath",
+   "text": "Aurelian must regroup.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your army is shaken, but not destroyed."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Rebuild."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Regroup and hunt them",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "You will beat them at Fano and Pavia. Rome will begin building great new walls, still standing today."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Make peace",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "They plunder more."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Strike at once",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -11,
+       "text": "You catch them on the move."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "jut"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Placentia (271) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Placentia_(271)"
+  }
+ ],
+ "winAt": 50
+}

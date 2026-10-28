@@ -1,0 +1,646 @@
+{
+ "id": "emesa",
+ "name": "Battle of Emesa",
+ "date": "272 AD",
+ "result": "win",
+ "loc": {
+  "lat": 34.73,
+  "lon": 36.71,
+  "place": "Emesa, Syria",
+  "short": "Emesa",
+  "x": 649,
+  "y": 237
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Palmyra",
+  "commander": "Aurelian",
+  "foe": "Zenobia"
+ },
+ "intro": "Before Emesa (Homs, Syria), 272 AD. After Immae, Queen Zenobia makes her stand with perhaps 70,000 men. You are the Emperor Aurelian.",
+ "debrief": "In Zosimus’s account, Aurelian’s cavalry broke and fled. The Palmyrene armoured horsemen chased them and fell out of order, and the Roman infantry attacked them. Palestinian troops with clubs and maces did great damage to the armoured riders. Zenobia fled to Palmyra and then tried to reach Persia, but was caught at the Euphrates. She walked in Aurelian’s triumph and lived out her life in Italy. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#a8a163",
+  "ground": "#c4ad76",
+  "hills": [
+   [
+    200,
+    20,
+    140,
+    12
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Aurelian’s legions",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 320,
+   "y": 220,
+   "w": 90,
+   "h": 8,
+   "side": "roman",
+   "name": "Roman cavalry",
+   "model": "cav_roman"
+  },
+  "pal": {
+   "x": 60,
+   "y": 215,
+   "w": 80,
+   "h": 10,
+   "side": "roman",
+   "name": "Palestinian clubmen",
+   "model": "levy"
+  },
+  "cl": {
+   "x": 200,
+   "y": 90,
+   "w": 220,
+   "h": 14,
+   "side": "enemy",
+   "name": "Palmyrene armoured cavalry",
+   "model": "cav_heavy",
+   "scales": true
+  },
+  "inf": {
+   "x": 200,
+   "y": 50,
+   "w": 180,
+   "h": 10,
+   "side": "enemy",
+   "name": "Palmyrene infantry",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The clubmen smash the armour.",
+   "Zenobia’s army breaks.",
+   "The Queen is captured."
+  ],
+  "lose": [
+   "The armoured riders ride down the legions.",
+   "Zenobia holds Syria.",
+   "The East is lost."
+  ],
+  "cams": [
+   "left",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Plan",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Infantry ready",
+     "tone": "g"
+    },
+    {
+     "text": "Ridden down",
+     "tone": "r"
+    },
+    {
+     "text": "Not fooled",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "70,000",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Rout",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Scattered riders struck",
+     "tone": "g"
+    },
+    {
+     "text": "Few rally",
+     "tone": "a"
+    },
+    {
+     "text": "Re-formed",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Cavalry flees",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Clubs",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Armour smashed",
+     "tone": "g"
+    },
+    {
+     "text": "Armour holds",
+     "tone": "r"
+    },
+    {
+     "text": "Swords slide",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Clubmen",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Palmyra",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Besieged",
+     "tone": "g"
+    },
+    {
+     "text": "New army",
+     "tone": "r"
+    },
+    {
+     "text": "Refused",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Desert",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Emesa",
+   "text": "Zenobia makes her stand before Emesa with 70,000 men. You are Aurelian.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your cavalry is weaker than hers."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Expect them to break."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Infantry behind",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "ready": 1
+       },
+       "text": "You place your legions ready behind the cavalry."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge with your cavalry at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The armoured cavalry rides them down."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "cav",
+        "cl"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Try the feigned retreat again",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "They will not fall for it twice."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The cavalry",
+   "text": "Your cavalry breaks and flees. The Palmyrenes chase them, losing order.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their ranks are open."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike the scattered riders."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Strike now",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "ready": true
+       },
+       "r": -4,
+       "e": -17,
+       "text": "Your legions strike the scattered armoured riders as they chase."
+      },
+      {
+       "r": -10,
+       "e": -6,
+       "text": "The legions are too slow."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "cl"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Rally your fleeing cavalry",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "Few come back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold the infantry line where it is",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "They re-form."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Clubmen",
+   "text": "Your Palestinian troops carry clubs and maces.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Clubs beat armour."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send them in."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send in the clubmen",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "The clubmen smash the armoured riders, whose armour cannot stop the blows. The Palmyrenes break."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pal": [
+         140,
+         100
+        ]
+       },
+       "f": [
+        "pal",
+        "cl"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Keep them back",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The armour holds out."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the legions instead",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "Swords slide off armour."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "cl"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Palmyra",
+   "text": "Zenobia flees to Palmyra, in the desert.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Desert raiders will harass you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Follow her."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March on Palmyra",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "text": "You cross the desert, buying off the raiders, and besiege Palmyra."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stay at Emesa",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "She raises a new army."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer her terms",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "She refuses."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Queen",
+   "text": "Zenobia flees Palmyra on a camel to seek Persian help. Your horsemen catch her at the Euphrates.",
+   "intel": {
+    "hint": [
+     {
+      "text": "She is a prize."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Spare her."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Spare her",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "Zenobia walks in your triumph in golden chains. She lives out her life in a villa near Tibur."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Execute her as a rebel",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "The East resents it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Give her back Palmyra",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Palmyra rebels again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Emesa (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Emesa"
+  }
+ ]
+}

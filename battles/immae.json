@@ -1,0 +1,639 @@
+{
+ "id": "immae",
+ "name": "Battle of Immae",
+ "date": "272 AD",
+ "result": "win",
+ "loc": {
+  "lat": 36.2,
+  "lon": 36.6,
+  "place": "Immae, Syria",
+  "short": "Immae",
+  "x": 647,
+  "y": 212
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Palmyra",
+  "commander": "Aurelian",
+  "foe": "Zabdas"
+ },
+ "intro": "Immae, near Antioch in Syria, 272 AD. Queen Zenobia of Palmyra rules the Roman East. You are the Emperor Aurelian, facing her general Zabdas and his heavily armoured cavalry.",
+ "debrief": "In Zosimus’s account, Aurelian’s light cavalry pretended to flee. The Palmyrene armoured horsemen chased them in the heat until they were exhausted, then the Romans turned and cut them down. Zabdas fled to Antioch, where he paraded a man resembling Aurelian in chains to fool the city, then slipped away with Zenobia by night. Aurelian entered Antioch and pardoned her supporters. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#a8a163",
+  "ground": "#c4ad76"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 230,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Aurelian’s legions",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 200,
+   "y": 190,
+   "w": 200,
+   "h": 10,
+   "side": "roman",
+   "name": "Roman light cavalry (to feign retreat)",
+   "model": "cav_roman"
+  },
+  "cl": {
+   "x": 200,
+   "y": 90,
+   "w": 220,
+   "h": 14,
+   "side": "enemy",
+   "name": "Palmyrene clibanarii (armoured horse)",
+   "model": "cav_heavy",
+   "scales": true
+  },
+  "zab": {
+   "x": 340,
+   "y": 60,
+   "w": 40,
+   "h": 8,
+   "side": "enemy",
+   "name": "General Zabdas",
+   "model": "cav_heavy"
+  },
+  "zen": {
+   "x": 60,
+   "y": 40,
+   "w": 40,
+   "h": 6,
+   "side": "enemy",
+   "name": "Queen Zenobia",
+   "model": "cav_eastern"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The armoured horse chases itself to exhaustion.",
+   "Aurelian’s horsemen turn.",
+   "Antioch opens its gates."
+  ],
+  "lose": [
+   "The clibanarii ride down the Roman cavalry.",
+   "Aurelian is beaten.",
+   "Zenobia keeps the East."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Plan",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Feigned retreat",
+     "tone": "g"
+    },
+    {
+     "text": "Ridden down",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Armoured horse",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Chase",
+   "decision": 1,
+   "options": [
+    {
+     "text": "They tire",
+     "tone": "g"
+    },
+    {
+     "text": "Cut down",
+     "tone": "r"
+    },
+    {
+     "text": "Split",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Heat",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Turn",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Ridden down",
+     "tone": "g"
+    },
+    {
+     "text": "Turning back",
+     "tone": "a"
+    },
+    {
+     "text": "Too slow",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Spent horses",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Antioch",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Entered",
+     "tone": "g"
+    },
+    {
+     "text": "Escaped far",
+     "tone": "a"
+    },
+    {
+     "text": "Besieged",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Zabdas’s trick",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Zenobia",
+   "text": "Queen Zenobia of Palmyra rules Egypt, Syria and much of Asia Minor. You are Aurelian. Her general Zabdas waits at Immae near Antioch with heavily armoured cavalry.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Armour is heavy in the heat."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Make them chase you."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Make them chase you",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "plan": 1
+       },
+       "text": "You plan to have your light cavalry fall back and tire them out."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge their armoured horse",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "They ride your cavalry down."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "cav",
+        "cl"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold behind the infantry",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They wait too."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The chase",
+   "text": "Your light cavalry falls back. The armoured Palmyrenes chase them in the heat.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Keep running."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep running."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Keep falling back",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "plan": true
+       },
+       "r": -4,
+       "e": -16,
+       "text": "Your cavalry falls back across the plain. The Palmyrenes, roasting in their armour, follow until their horses are spent."
+      },
+      {
+       "r": -6,
+       "e": -9,
+       "text": "They chase you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         200,
+         240
+        ],
+        "cl": [
+         200,
+         190
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Turn and fight now",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Your light horse is cut down."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "cav",
+        "cl"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Split up",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Some are caught."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Turn",
+   "text": "Their horses are spent and the riders exhausted.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Turn now."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Turn and strike."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Turn and strike",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -16,
+       "text": "Your horsemen turn on the exhausted armoured cavalry and ride them down."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "cav",
+        "cl"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Keep running a bit more",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "They begin to turn back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send in the legions",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "Too slow."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Antioch",
+   "text": "Zabdas flees to Antioch. He parades a man who looks like you, in chains, to fool the city.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He will slip away by night."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hurry."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hurry to Antioch",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "Zabdas and Zenobia slip out of Antioch at night. You enter the city and pardon those who backed her."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rest your army",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "They get far away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Besiege Antioch",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The city suffers."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Pardon",
+   "text": "Antioch’s people supported Zenobia.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You need Syria on your side."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pardon them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pardon them",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Your pardon wins over the cities of Syria."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Punish them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Other cities resist you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fine them",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "They resent it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Immae (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Immae"
+  }
+ ]
+}
