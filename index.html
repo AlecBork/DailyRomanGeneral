@@ -149,7 +149,9 @@ let CB=(()=>{try{return localStorage.getItem("drg-cb")==="1"}catch(e){return fal
 let WIN=45,CPMAX=99,SCOUTS=3,SCN=3,SC=[],PREV=null;let S,step,R,E,quals,last,picks=[],CP=CPMAX,scout=false,ATT=[];
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 
-function bars(){const c=v=>Math.max(0,Math.min(100,v)),ev=scout?E:E+(rnd(step+20)-.5)*20;$("rv").textContent=Math.round(c(R));$("rb").style.width=c(R)+"%";$("eb").style.width=c(ev)+"%";$("ev").textContent=(scout?"":"~")+Math.round(c(ev));const cp=$("cpv");if(cp)cp.innerHTML=coins();mapScale()}
+// Without a scout report the enemy bar is an estimate. The error stays the same all battle, so changes on the bar match the reported changes.
+function dispE(v){v=v==null?E:v;return Math.max(0,Math.min(100,scout?v:v+Math.round((rnd(20)-.5)*16)))}
+function bars(){const c=v=>Math.max(0,Math.min(100,v)),ev=dispE();$("rv").textContent=Math.round(c(R));$("rb").style.width=c(R)+"%";$("eb").style.width=c(ev)+"%";$("ev").textContent=(scout?"":"~")+Math.round(c(ev));const cp=$("cpv");if(cp)cp.innerHTML=coins();mapScale()}
 function coins(){let o='<span class="coins">';for(let k=0;k<CPMAX;k++)o+=`<i${k<CP?"":' class="sp"'}></i>`;return o+`</span><b style="white-space:nowrap">${CP} CP</b>`}
 // mode: "play" (current decision), "over" (attempt finished: colour by quality), "intro"
 function hud(mode,q){if(!B)return;const n=B.turns.length;let segs="";
@@ -167,7 +169,7 @@ function start(){
  landing();
 }
 function turn(){
- let mvg=false;{const ns=stageFor(step);if(ns!==STG){goStage(ns);mvg=ok}}
+ if(scout){scout=false;bars()}let mvg=false;{const ns=stageFor(step);if(ns!==STG){goStage(ns);mvg=ok}}
  const T=B.turns[step],ev=B.decisions[step].event;hud("play");speak(T.h+". "+T.t);
  V.innerHTML=prevNote()+`<div class="card"><div class="kicker"><span>${ev?"⚡ Turn of fortune":"Decision "+(step+1)}</span><span class="cpw">🔭 ${SCN} scout${SCN===1?"":"s"} left</span></div><h2>${T.h}</h2><p>${T.t}</p>${ord(step).map(i=>`<button class="ch" data-i="${i}"><span class="l">${T.c[i].l}</span></button>`).join("")}${scout?"":SCN>0?`<button class="scout" id="sc">🔭 Send scouts (${SCN} of ${SCOUTS} left)</button>`:'<div class="sub" style="margin:10px 0 0;text-align:center">No scouts left this battle.</div>'}</div>`+intel()+sit();
  {const bs=V.querySelectorAll("button[data-i]");bs.forEach(b=>{b.onclick=()=>pick(+b.dataset.i);if(mvg)b.disabled=true});if(mvg)setTimeout(()=>bs.forEach(b=>b.disabled=false),2100)}const sc=$("sc");if(sc)sc.onclick=()=>{SCN--;scout=true;SFX.click();bars();turn()};
@@ -182,12 +184,12 @@ function pick(i){
  R=st.R;E=st.E;CP=st.CP;step=st.step;
  const x={o:res.text};
  let hm="";if(res.pen==="A")hm=B.fs+" had expected another assault and punished it.";else if(res.pen==="C")hm=B.fs+" used your caution to reform his line.";else if(res.pen==="M")hm=B.fs+" read your manoeuvre and adjusted.";
- scout=false;bars();move(k,i);SFX.clash(Math.abs(R-R0)+Math.abs(E-E0));
+ bars();move(k,i);SFX.clash(Math.abs(R-R0)+Math.abs(E-E0));
  const fin=step>=B.turns.length||R<=0,win=E<=WIN;let nxt;
  if(fin)nxt=()=>finish({won:R>0&&win,rout:R<=0,sc:SC.slice(),q:quals.slice(),p:picks.slice(),R:Math.max(0,R),E:Math.max(0,E)});else nxt=turn;
  if(fin){const w=R>0&&win;climax(w);setTimeout(()=>SFX.horn(w),4500)}
  hud("play");if(!fin)$("plab").innerHTML=`<span class="pn">ORDERS GIVEN</span><span class="pt">${B.turns[k].h}</span>`;{const sg2=$("segs").children;if(sg2[k])sg2[k].className="seg done";}
- speak(x.o);V.innerHTML=`<div class="card"><div class="kicker"><span>Your orders are carried out</span></div><div id="oc" style="opacity:0;transition:opacity 1s"><div class="out">${x.o}${hm?"<br><i>"+hm+"</i>":""}</div><div class="delta"><span style="color:${R-R0<0?"var(--bad)":"var(--ok)"}">${B.rn} ${sg(R-R0)}</span><span style="color:${E-E0<0?"var(--ok)":"var(--bad)"}">${B.cn} ${sg(E-E0)}</span></div></div><button class="primary" id="nx" disabled style="opacity:.5">Watching the battle…</button></div>`+sit();
+ speak(x.o);V.innerHTML=`<div class="card"><div class="kicker"><span>Your orders are carried out</span></div><div id="oc" style="opacity:0;transition:opacity 1s"><div class="out">${x.o}${hm?"<br><i>"+hm+"</i>":""}</div><div class="delta"><span style="color:${R-R0<0?"var(--bad)":"var(--ok)"}">${B.rn} ${sg(Math.max(0,Math.min(100,R))-Math.max(0,Math.min(100,R0)))}</span><span style="color:${E-E0<0?"var(--ok)":"var(--bad)"}">${B.cn} ${sg(dispE()-dispE(E0))}</span></div></div><button class="primary" id="nx" disabled style="opacity:.5">Watching the battle…</button></div>`+(()=>{const w=scout;scout=false;const h=sit();scout=w;return h})();
  const QK=ATT.length>0;setTimeout(()=>{const o=$("oc");if(o)o.style.opacity=1},QK?250:600);
  setTimeout(()=>{const b=$("nx");if(!b)return;b.disabled=false;b.style.opacity=1;b.textContent=fin?"See the result ▸":"Next decision ▸";b.onclick=nxt},fin?(QK?2400:3200):(QK?800:1600))}
 
@@ -466,7 +468,10 @@ function fleeStep(o,T,i0){const t=performance.now()/1000-END.t0,md=END.mode;if(o
  else{m.rotation.x=0;m.position.y=Math.abs(Math.sin(T*12+i))*1.6}
  if(md==="drown"){const wx=o.g.position.x+m.position.x,wz=o.g.position.z+m.position.z;if(inWater(wx,wz)){u.sink=(u.sink||0)+.08;m.position.y=-Math.min(10,u.sink);m.rotation.x=-.5;if(u.sink>4){u.v[0]*=.9;u.v[1]*=.9}}}})}
 // ---------- BATTLEFIELD MAP ----------
-let P={},ok=false,tried=false,ren,scene,cam,UN={};const CC=[0,190,245,0,0,-10],CT=[0,190,245,0,0,-10];
+let P={},ok=false,tried=false,ren,scene,cam,UN={};const CC=[0,190,245,0,0,-10],CT=[0,190,245,0,0,-10],CV=[0,0,0,0,0,0];
+// critically damped spring (like Unity's SmoothDamp): eases in and out, and stays smooth when the target changes mid-move
+function sdamp(c,t,v,st,dt){const w=2/st,x=w*dt,e=1/(1+x+.48*x*x+.235*x*x*x),ch=c-t,tmp=(v+w*ch)*dt;return[t+(ch+tmp)*e,(v-w*tmp)*e]}
+let LT=0;
 const WX=x=>x-200,WZ=y=>y-125;
 // Terrain features in battle files use field coordinates (x 0-400, y 0-250): hills [[x,y,r,height]], lakes [[x,y,rx,ry]],
 // marsh [[x,y,rx,ry]], forests [[x,y,r,trees]], roads [[x1,y1,x2,y2,width]].
@@ -527,13 +532,13 @@ function initGL(){tried=true;try{
   UN[id]={g,meshes,fx,tag,flag,std,dust,tx:0,tz:0,a:1,hit:0,k:1,ry:0}}
  addEventListener("resize",()=>{const w=$("map").parentNode.clientWidth;ren.setSize(w,w/1.5,false)});
  const v=new THREE.Vector3();
- (function loop(t){requestAnimationFrame(loop);const T=t/1000;for(let k=0;k<6;k++)CC[k]+=(CT[k]-CC[k])*.025;cam.position.set(CC[0]+Math.sin(T*.25)*(CT[1]>100?14:3),CC[1],CC[2]);cam.lookAt(CC[3],CC[4],CC[5]);
+ (function loop(t){requestAnimationFrame(loop);const T=t/1000,dt=Math.min(.05,Math.max(.001,T-(LT||T-.016)));LT=T;for(let k=0;k<6;k++){const r=sdamp(CC[k],CT[k],CV[k],1.05,dt);CC[k]=r[0];CV[k]=r[1]}cam.position.set(CC[0]+Math.sin(T*.25)*(CT[1]>100?14:3),CC[1],CC[2]);cam.lookAt(CC[3],CC[4],CC[5]);
   for(const id in UN){const o=UN[id],g=o.g,dx=o.tx-g.position.x,dz=o.tz-g.position.z,mv=Math.hypot(dx,dz),hit=performance.now()/1000<o.hit;
-   g.position.x+=dx*.018;g.position.z+=dz*.018;g.position.y+=(Math.max(0,gh(g.position.x,g.position.z))-g.position.y)*.2;
-   if(o.march&&mv<3&&!MARCHD)o.march=0;const mr=o.march||0;let ry=o.ry||0;if(!mr&&!o.fleeing&&!(END&&o.ry)&&mv>4&&U[id].model.indexOf("galley")<0){const f=U[id].s==="r"?Math.atan2(-dx,-dz):Math.atan2(dx,dz);if(Math.abs(f)<2.2)ry=f*.9}
-   g.rotation.y+=(ry-g.rotation.y)*.05;g.visible=o.a>.3;
-   if(o.fleeing&&END){fleeStep(o,T);o.meshes.forEach(m=>{m.visible=m.userData.rnd<=Math.max(o.k,.5)})}else{o.bend=(o.bend||0)+((hit?1:0)-(o.bend||0))*.04;const bs=(U[id].s==="r"?1:-1)*3.2*o.bend;o.meshes.forEach((m,i)=>{const u=m.userData;m.rotation.y+=((mr?-mr*Math.PI/2:0)-m.rotation.y)*.08;m.position.y=u.by+(mv>2?Math.abs(Math.sin(T*9+i))*1.5:0)+(hit?Math.abs(Math.sin(T*14+i*2))*2.2:0);if(u.z0!=null)m.position.z=u.z0+bs*Math.cos(u.xn*Math.PI/2);m.visible=u.rnd<=o.k})}
-   o.fx.material.opacity=hit?.28*Math.abs(Math.sin(T*8)):0;if(o.flag)o.flag.rotation.y=Math.sin(T*3+g.position.x)*.35;const dm=o.dust.material,isCav=/cav_/.test(U[id].model),want=hit?.45:mv>2?(isCav?.7:.3):0;dm.size=isCav&&mv>2?16:(SEA?6:12);dm.opacity+=(want-dm.opacity)*.05;o.dust.position.y=(T*6)%6;o.dust.visible=dm.opacity>.02;
+   {const rx=sdamp(g.position.x,o.tx,o.vx||0,.95,dt),rz=sdamp(g.position.z,o.tz,o.vz||0,.95,dt);g.position.x=rx[0];o.vx=rx[1];g.position.z=rz[0];o.vz=rz[1]}const spd=Math.hypot(o.vx,o.vz),sw=Math.min(1,spd/14);g.position.y+=(Math.max(0,gh(g.position.x,g.position.z))-g.position.y)*Math.min(1,dt*10);
+   if(o.march&&mv<3&&!MARCHD)o.march=0;const mr=o.march||0;let ry=o.ry||0;if(!mr&&!o.fleeing&&!(END&&o.ry)&&mv>4&&spd>3&&U[id].model.indexOf("galley")<0){const f=U[id].s==="r"?Math.atan2(-o.vx,-o.vz):Math.atan2(o.vx,o.vz);if(Math.abs(f)<2.2)ry=f*.9}
+   g.rotation.y+=(ry-g.rotation.y)*(1-Math.exp(-dt*2.6));g.visible=o.a>.3;
+   if(o.fleeing&&END){fleeStep(o,T);o.meshes.forEach(m=>{m.visible=m.userData.rnd<=Math.max(o.k,.5)})}else{o.bend=(o.bend||0)+((hit?1:0)-(o.bend||0))*(1-Math.exp(-dt*2.4));const bs=(U[id].s==="r"?1:-1)*3.2*o.bend;o.meshes.forEach((m,i)=>{const u=m.userData;m.rotation.y+=((mr?-mr*Math.PI/2:0)-m.rotation.y)*(1-Math.exp(-dt*4));m.position.y=u.by+Math.abs(Math.sin(T*9+i))*1.5*sw+(hit?Math.abs(Math.sin(T*14+i*2))*2.2:0);if(u.z0!=null)m.position.z=u.z0+bs*Math.cos(u.xn*Math.PI/2);m.visible=u.rnd<=o.k})}
+   o.fx.material.opacity=hit?.28*Math.abs(Math.sin(T*8)):0;if(o.flag)o.flag.rotation.y=Math.sin(T*3+g.position.x)*.35;const dm=o.dust.material,isCav=/cav_/.test(U[id].model),want=hit?.45:(isCav?.7:.3)*sw;dm.size=isCav&&sw>.2?16:(SEA?6:12);dm.opacity+=(want-dm.opacity)*(1-Math.exp(-dt*3));o.dust.position.y=(T*6)%6;o.dust.visible=dm.opacity>.02;
    v.set(g.position.x,14+g.position.y,g.position.z).project(cam);o.tag.style.display=g.visible?"block":"none";
    o.tag.style.left=((v.x+1)/2*100)+"%";o.tag.style.top=((1-v.y)/2*100)+"%"}
   if(SEA)GT.offset.x=(T*.004)%1;stepProj();if(WXF)WXF(T);ren.render(scene,cam);if(REC)REC.frame()})(0);
@@ -543,7 +548,7 @@ function buildWorld(){const TR=TF();if(WORLD){scene.remove(WORLD);WORLD.traverse
  const gg=new THREE.PlaneGeometry(700,520,110,82);gg.rotateX(-Math.PI/2);const ps=gg.attributes.position;
  for(let i=0;i<ps.count;i++){const x=ps.getX(i),z=ps.getZ(i),e=gh(x,z);ps.setY(i,e+(e>3?Math.sin(x*.05)*Math.cos(z*.07)*Math.min(4,e*.3):0))}
  gg.computeVertexNormals();
- GT=groundTex(TR,SEA);W.add(new THREE.Mesh(gg,new THREE.MeshLambertMaterial({map:GT})));
+ GT=groundTex(TR,SEA);{const gm=new THREE.MeshLambertMaterial({map:GT});if(!SEA)gm.onBeforeCompile=sh=>{sh.uniforms.dMap={value:groundDetail()};sh.fragmentShader="uniform sampler2D dMap;\n"+sh.fragmentShader.replace("#include <map_fragment>","#include <map_fragment>\n diffuseColor.rgb*=mix(vec3(1.),texture2D(dMap,vUv*vec2(70.,52.)).rgb*1.98,.6);")};W.add(new THREE.Mesh(gg,gm))}
  if(TR.river){const rh=TR.river.horizontal,rv=new THREE.Mesh(new THREE.PlaneGeometry(rh?700:(TR.river.w||26),rh?(TR.river.w||26):520),new THREE.MeshLambertMaterial({color:hx(TR.river.color||"#4d86a8")}));rv.rotation.x=-Math.PI/2;rv.position.set(rh?0:(TR.river.x==null?214:TR.river.x),.3,rh?(TR.river.y||125)-125:0);W.add(rv)}
  for(const q of TR.lakes||[]){const lk=new THREE.Mesh(new THREE.CircleGeometry(1,48),new THREE.MeshLambertMaterial({color:hx(TR.lakeColor||"#4a7d9a"),transparent:true,opacity:.92}));lk.rotation.x=-Math.PI/2;lk.scale.set(q[2],q[3],1);lk.position.set(WX(q[0]),.2,WZ(q[1]));W.add(lk)}
  const tg=new THREE.ConeGeometry(7,20,7),tg2=new THREE.ConeGeometry(5,14,7),trg=new THREE.CylinderGeometry(1,1.3,6,5),trm=new THREE.MeshLambertMaterial({color:0x5a4330}),tms=[0,1,2].map(k=>new THREE.MeshLambertMaterial({color:hx(mixC(TR.tree,k?"#000000":"#9fb06a",k===2?.18:.12))}));
@@ -580,16 +585,32 @@ function skyTex(sky){const c=document.createElement("canvas");c.width=4;c.height
 let _dot=null;function DOT(){if(_dot)return _dot;const c=document.createElement("canvas");c.width=c.height=32;const x=c.getContext("2d"),g=x.createRadialGradient(16,16,1,16,16,16);g.addColorStop(0,"rgba(255,255,255,.9)");g.addColorStop(1,"rgba(255,255,255,0)");x.fillStyle=g;x.fillRect(0,0,32,32);return _dot=new THREE.CanvasTexture(c)}
 let _sh=null;function SHT(){if(_sh)return _sh;const c=document.createElement("canvas");c.width=c.height=64;const x=c.getContext("2d"),g=x.createRadialGradient(32,32,4,32,32,32);
  g.addColorStop(0,"rgba(0,0,0,.55)");g.addColorStop(1,"rgba(0,0,0,0)");x.fillStyle=g;x.fillRect(0,0,64,64);return _sh=new THREE.CanvasTexture(c)}
-function groundTex(TR,sea){const W=1024,H=760,c=document.createElement("canvas");c.width=W;c.height=H;const x=c.getContext("2d");let sd=7;const r=()=>(sd=(sd*16807)%2147483647)/2147483647;
+// value noise, several octaves, built from small random grids (seeded, so every player sees the same field)
+function vnoise(W,H,cells,seed){let sd=seed;const r=()=>(sd=(sd*16807)%2147483647)/2147483647,out=new Float32Array(W*H);let amp=1,tot=0;
+ for(const n of cells){const gw=Math.ceil(W/n)+2,gh2=Math.ceil(H/n)+2,g=new Float32Array(gw*gh2);for(let i=0;i<g.length;i++)g[i]=r();
+  for(let y=0;y<H;y++){const fy=y/n,iy=fy|0,ty=fy-iy,sy=ty*ty*(3-2*ty);for(let x=0;x<W;x++){const fx=x/n,ix=fx|0,tx=fx-ix,sx=tx*tx*(3-2*tx),o=iy*gw+ix;
+   const a=g[o]+(g[o+1]-g[o])*sx,b=g[o+gw]+(g[o+gw+1]-g[o+gw])*sx;out[y*W+x]+=amp*(a+(b-a)*sy)}}tot+=amp;amp*=.55}
+ for(let i=0;i<out.length;i++)out[i]/=tot;return out}
+function groundTex(TR,sea){const W=sea?1024:1536,H=sea?760:1140,c=document.createElement("canvas");c.width=W;c.height=H;const x=c.getContext("2d");let sd=7;const r=()=>(sd=(sd*16807)%2147483647)/2147483647;
  const blob=(cx,cy,rad,col,a)=>{const g=x.createRadialGradient(cx,cy,0,cx,cy,rad);g.addColorStop(0,col);g.addColorStop(1,"rgba(0,0,0,0)");x.globalAlpha=a;x.fillStyle=g;x.fillRect(cx-rad,cy-rad,rad*2,rad*2);x.globalAlpha=1};
  const gr=css(TR.grass),gd=css(TR.ground);x.fillStyle=gr;x.fillRect(0,0,W,H);
- for(let i=0;i<700;i++)blob(r()*W,r()*H,30+r()*90,mixC(gr,r()<.5?"#000000":"#fff4c0",.05+r()*.07),.45);
- if(sea){for(let i=0;i<1600;i++){const px=r()*W,py=r()*H,l=8+r()*26;x.strokeStyle="rgba(255,255,255,"+(.06+r()*.12)+")";x.lineWidth=1+r()*1.5;x.beginPath();x.moveTo(px,py);x.quadraticCurveTo(px+l/2,py-2,px+l,py);x.stroke()}}
- else{const dw=W*430/700,dh=H*270/520,x0=(W-dw)/2,y0=(H-dh)/2;
-  for(let i=0;i<520;i++)blob(x0+r()*dw,y0+r()*dh,50+r()*90,gd,.4);
-  for(let i=0;i<600;i++)blob(x0-40+r()*(dw+80),y0-40+r()*(dh+80),14+r()*40,mixC(gd,r()<.5?"#000000":"#ffffff",.04+r()*.06),.45);
-  x.strokeStyle=mixC(gd,"#000000",.18);x.globalAlpha=.35;x.lineWidth=5;for(let k=0;k<2;k++){x.beginPath();const yy=y0+dh*(.3+.4*k);x.moveTo(0,yy+r()*40);x.bezierCurveTo(W*.3,yy-60+r()*120,W*.7,yy-60+r()*120,W,yy+r()*40);x.stroke()}x.globalAlpha=1;
-  for(let i=0;i<2600;i++){x.fillStyle=mixC(gr,"#000000",.25+r()*.2);x.globalAlpha=.35;x.fillRect(r()*W,r()*H,2,2)}x.globalAlpha=1}
+ if(sea){for(let i=0;i<700;i++)blob(r()*W,r()*H,30+r()*90,mixC(gr,r()<.5?"#000000":"#fff4c0",.05+r()*.07),.45);
+  for(let i=0;i<1600;i++){const px=r()*W,py=r()*H,l=8+r()*26;x.strokeStyle="rgba(255,255,255,"+(.06+r()*.12)+")";x.lineWidth=1+r()*1.5;x.beginPath();x.moveTo(px,py);x.quadraticCurveTo(px+l/2,py-2,px+l,py);x.stroke()}}
+ else{// grass and bare earth mixed by noise, so the edges are ragged like a real field, not soft blobs
+  const n1=vnoise(W,H,[220,90,38,15,6],11),n2=vnoise(W,H,[160,60,24,9],23),n3=vnoise(W,H,[40,12,4],37),id=x.getImageData(0,0,W,H),d=id.data;
+  const G=hx(gr),D=hx(gd),Gd=hx(mixC(gr,"#1d2a10",.35)),Gl=hx(mixC(gr,"#e8e0a0",.12)),Dd=hx(mixC(gd,"#3a2a18",.3));
+  const ch=(v,k)=>(v>>k)&255,cx0=W/2,cy0=H/2,rx=W*430/700/2,ry=H*270/520/2;
+  for(let y=0;y<H;y++)for(let X=0;X<W;X++){const i=y*W+X,ex=(X-cx0)/rx,ey=(y-cy0)/ry,fall=Math.max(0,1-Math.sqrt(ex*ex+ey*ey)*.85);
+   const dirt=Math.min(1,Math.max(0,(fall*.75+n2[i]*.75-.62)*7)),t=n1[i],g2=n3[i];
+   for(let k=0;k<3;k++){const s2=16-8*k;let gc=t<.5?ch(Gd,s2)+(ch(G,s2)-ch(Gd,s2))*(t*2):ch(G,s2)+(ch(Gl,s2)-ch(G,s2))*((t-.5)*2),dc=ch(Dd,s2)+(ch(D,s2)-ch(Dd,s2))*Math.min(1,t*1.6);
+    let v=gc+(dc-gc)*dirt;v*=.9+g2*.2+(r()-.5)*.08;d[i*4+k]=v<0?0:v>255?255:v}}
+  x.putImageData(id,0,0);
+  // tufts of grass and small stones for close-up detail
+  for(let i=0;i<14000;i++){const px=r()*W,py=r()*H;const ii=((py|0)*W+(px|0));const ex=(px-cx0)/rx,ey=(py-cy0)/ry;if(n2[ii]+Math.max(0,1-Math.sqrt(ex*ex+ey*ey)*.85)*.75>1.05&&r()<.8)continue;
+   x.strokeStyle=mixC(gr,r()<.5?"#18240a":"#f0e8b0",.15+r()*.3);x.globalAlpha=.55;x.lineWidth=1;x.beginPath();x.moveTo(px,py);x.lineTo(px+(r()-.5)*3,py-2-r()*4);x.stroke()}
+  for(let i=0;i<2200;i++){x.fillStyle=mixC(gd,r()<.5?"#000000":"#ffffff",.25+r()*.25);x.globalAlpha=.5;const sz=.8+r()*1.6;x.fillRect(r()*W,r()*H,sz,sz)}x.globalAlpha=1;
+  // a few old tracks across the field
+  x.strokeStyle=mixC(gd,"#000000",.15);x.globalAlpha=.25;x.lineWidth=4;for(let k=0;k<2;k++){x.beginPath();const yy=H*(.38+.24*k);x.moveTo(0,yy+r()*40);x.bezierCurveTo(W*.3,yy-60+r()*120,W*.7,yy-60+r()*120,W,yy+r()*40);x.stroke()}x.globalAlpha=1}
  const P=(fx,fy)=>[(WX(fx)+350)/700*W,(WZ(fy)+260)/520*H],sx=W/700,sy=H/520;
  for(const q of TR.hills||[]){const[cx,cy]=P(q[0],q[1]);blob(cx,cy,q[2]*sx*1.3,mixC(gr,"#2e3a1c",.25),.35);blob(cx-q[2]*sx*.3,cy-q[2]*sy*.3,q[2]*sx*.8,mixC(gr,"#fff4c0",.15),.25)}
  for(const q of TR.marsh||[]){const[cx,cy]=P(q[0],q[1]);for(let i=0;i<80;i++){const a=r()*6.283,d=Math.sqrt(r());blob(cx+Math.cos(a)*d*q[2]*sx,cy+Math.sin(a)*d*q[3]*sy,10+r()*30,r()<.4?"#3d5a5a":"#4a5a2a",.45)}
@@ -597,7 +618,14 @@ function groundTex(TR,sea){const W=1024,H=760,c=document.createElement("canvas")
  for(const q of TR.lakes||[]){const[cx,cy]=P(q[0],q[1]);blob(cx,cy,Math.max(q[2]*sx,q[3]*sy)*1.25,"#6d6a4a",.5)}
  for(const q of TR.roads||[]){const[a1,b1]=P(q[0],q[1]),[a2,b2]=P(q[2],q[3]);x.strokeStyle=mixC(gd,"#ffffff",.12);x.globalAlpha=.75;x.lineWidth=(q[4]||8)*sx;x.lineCap="round";x.beginPath();x.moveTo(a1,b1);x.lineTo(a2,b2);x.stroke();
   x.strokeStyle=mixC(gd,"#000000",.2);x.globalAlpha=.35;x.lineWidth=1.5;x.setLineDash([6,8]);x.stroke();x.setLineDash([]);x.globalAlpha=1}
- const t=new THREE.CanvasTexture(c);if(sea){t.wrapS=THREE.RepeatWrapping}t.anisotropy=4;return t}
+ const t=new THREE.CanvasTexture(c);if(sea){t.wrapS=THREE.RepeatWrapping}t.anisotropy=ren?ren.capabilities.getMaxAnisotropy():4;return t}
+// fine detail tiled many times over the ground, so it stays sharp when the camera is close
+let _gd=null;function groundDetail(){if(_gd)return _gd;const N=256,c=document.createElement("canvas");c.width=c.height=N;const x=c.getContext("2d"),id=x.createImageData(N,N),d=id.data,n=vnoise(N+8,N+8,[32,8,2],5);
+ for(let y=0;y<N;y++)for(let X=0;X<N;X++){const i=(y*N+X)*4;let v=128+(n[y*(N+8)+X]-.5)*60+(Math.random()-.5)*26;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255}
+ // smooth the seam by blending the right/bottom edges with the start
+ x.putImageData(id,0,0);x.globalAlpha=.5;x.drawImage(c,N/2,0,N/2,N,0,0,N/2,N);x.globalAlpha=1;
+ for(let i=0;i<900;i++){const px=Math.random()*N,py=Math.random()*N,l=2+Math.random()*4;x.strokeStyle=Math.random()<.5?"rgba(0,0,0,.18)":"rgba(255,255,255,.14)";x.lineWidth=1;for(const[ox,oy]of[[0,0],[-N,0],[0,-N],[-N,-N]]){x.beginPath();x.moveTo(px+ox,py+oy);x.lineTo(px+ox+(Math.random()-.5)*2,py+oy-l);x.stroke()}}
+ const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.anisotropy=ren?ren.capabilities.getMaxAnisotropy():4;return _gd=t}
 const PROJ=[];let PG=null,PM=null;
 function volley(a,b){if(!ok||!UN[a]||!UN[b])return;if(!PG){PG=new THREE.CylinderGeometry(.18,.18,7,4);PG.rotateX(Math.PI/2);PM=new THREE.MeshBasicMaterial({color:0x3a2a1a})}
  const A=UN[a].g.position,Bp=UN[b].g.position,ua=U[a],ub=U[b],arrow=/archer|velites/.test(ua.model),n=Math.min(40,Math.round(ua.w/5)),now=performance.now()/1000;
@@ -634,7 +662,7 @@ function replayButton(){const w=$("vidw"),b=$("vid"),sv=$("vsave"),pv=$("vprev")
  if(CLIP)ready();else if(REC){b.disabled=true;CLIPWAIT.push(ready)}else{b.disabled=true;clipLoad().then(c=>{if(c){CLIP=c;ready()}else w.style.display="none"})}}
 function place(){if(!ok)return;for(const id in UN){const o=UN[id],p=P[id];o.tx=WX(p[0]);o.tz=WZ(p[1]);o.a=p[2]==null?1:p[2]}}
 function mapScale(){if(!ok)return;for(const id in UN){const u=U[id];UN[id].k=Math.max(.25,Math.min(1,u.s==="r"?R/100:u.sc?E/100:1))}}
-function resetMap(){endReset();if(tried||ok){goStage("start",true);const f=$("fd"),t=$("stc");if(f)f.style.opacity=0;if(t)t.classList.remove("on")}picks=[];CP=CPMAX;SCN=SCOUTS;scout=false;clearTimeout(camT);CT.splice(0,6,0,190,245,0,0,-10);if(!tried)initGL();P={};for(const id in U)P[id]=[U[id].x,U[id].y,U[id].hidden?0:1];place();if(ok)for(const id in UN){UN[id].g.position.set(UN[id].tx,Math.max(0,gh(UN[id].tx,UN[id].tz)),UN[id].tz);UN[id].hit=0}}
+function resetMap(){endReset();if(tried||ok){goStage("start",true);const f=$("fd"),t=$("stc");if(f)f.style.opacity=0;if(t)t.classList.remove("on")}picks=[];CP=CPMAX;SCN=SCOUTS;scout=false;clearTimeout(camT);CT.splice(0,6,0,190,245,0,0,-10);if(!tried)initGL();P={};for(const id in U)P[id]=[U[id].x,U[id].y,U[id].hidden?0:1];place();if(ok)for(const id in UN){UN[id].g.position.set(UN[id].tx,Math.max(0,gh(UN[id].tx,UN[id].tz)),UN[id].tz);UN[id].vx=UN[id].vz=0;UN[id].hit=0}}
 // ---------- MOVING ON: a battle can move to new ground between decisions ----------
 // B.stages = {name:{label,title,terrain,weather,units:{id:[x,y,opacity]},dir:1|-1,cam}}. A decision's "stage" names the place it
 // happens in: a name, or a list [{"if":{...},"s":"name"},{"s":"name"}] so the place can follow earlier choices. "start" is the base terrain.
@@ -650,8 +678,8 @@ function goStage(n,instant){STGT.forEach(clearTimeout);STGT=[];MARCHD=0;if(!ok){
  STGT.push(setTimeout(()=>{$("fd").style.opacity=1},1200));
  STGT.push(setTimeout(()=>{swap();const nu=st.units||{};
   for(const id in UN){const o=UN[id],p=(nu[id]||P[id]).slice(),ro=U[id].s==="r"&&(p[2]==null||p[2]>.3);if(ro&&!nu[id])p[0]-=dir*200;P[id]=p;
-   const sx=WX(p[0])-(ro?dir*210:0),sz=WZ(p[1]);o.march=ro?dir:0;o.g.position.set(sx,Math.max(0,gh(sx,sz)),sz);o.hit=0}
-  place();for(let k=0;k<6;k++)CC[k]=[ -dir*90,100,185,-dir*30,0,15][k];CT.splice(0,6,...(st.cam||[dir*20,165,235,0,0,-5]));$("fd").style.opacity=0},1800));
+   const sx=WX(p[0])-(ro?dir*210:0),sz=WZ(p[1]);o.march=ro?dir:0;o.g.position.set(sx,Math.max(0,gh(sx,sz)),sz);o.vx=o.vz=0;o.hit=0}
+  place();for(let k=0;k<6;k++){CC[k]=[ -dir*90,100,185,-dir*30,0,15][k];CV[k]=0}CT.splice(0,6,...(st.cam||[dir*20,165,235,0,0,-5]));$("fd").style.opacity=0},1800));
  STGT.push(setTimeout(()=>tt.classList.remove("on"),4000));STGT.push(setTimeout(()=>{MARCHD=0},2400))}
 const OV=[0,190,245,0,0,-10];
 let camT=0;
