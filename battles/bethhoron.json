@@ -1,0 +1,709 @@
+{
+ "id": "bethhoron",
+ "name": "Battle of Beth Horon",
+ "date": "66 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 31.88,
+  "lon": 35.12,
+  "place": "the Beth Horon pass, Judaea",
+  "short": "Beth Horon",
+  "x": 629,
+  "y": 287
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Judaean rebels",
+  "commander": "Cestius Gallus",
+  "foe": "Eleazar ben Simon"
+ },
+ "intro": "Jerusalem and the pass of Beth Horon, autumn 66 AD. Judaea has risen against Rome. You are Cestius Gallus, governor of Syria, with the Twelfth Legion besieging Jerusalem.",
+ "debrief": "In Josephus’s account, Cestius suddenly broke off the siege of Jerusalem, perhaps fearing winter or supply, and retreated. In the narrow pass of Beth Horon the rebels attacked from the heights. He killed his mules and abandoned engines, left 400 men behind to fool the rebels and fled by night. About 6,000 Romans died, and the Twelfth Legion’s eagle was lost. Nero then sent Vespasian to Judaea. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    60,
+    140,
+    80,
+    30
+   ],
+   [
+    340,
+    140,
+    80,
+    30
+   ],
+   [
+    200,
+    40,
+    120,
+    20
+   ]
+  ],
+  "grass": "#a8a163",
+  "ground": "#c4ad76"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 120,
+   "h": 14,
+   "side": "roman",
+   "name": "Cestius’s Twelfth Legion and detachments",
+   "model": "legionary"
+  },
+  "bag": {
+   "x": 200,
+   "y": 240,
+   "w": 120,
+   "h": 6,
+   "side": "roman",
+   "name": "Baggage train and siege engines",
+   "model": "levy"
+  },
+  "cav": {
+   "x": 320,
+   "y": 220,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "jer": {
+   "x": 200,
+   "y": 50,
+   "w": 140,
+   "h": 12,
+   "side": "enemy",
+   "name": "Jerusalem",
+   "model": "levy"
+  },
+  "j1": {
+   "x": 60,
+   "y": 140,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Jewish rebels on the slopes",
+   "model": "levy",
+   "scales": true
+  },
+  "j2": {
+   "x": 340,
+   "y": 140,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Jewish rebels on the far slopes",
+   "model": "levy",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The heights are held.",
+   "The column reaches the coast intact.",
+   "The revolt is checked."
+  ],
+  "lose": [
+   "The column is ambushed in the pass.",
+   "The Twelfth Legion loses its eagle.",
+   "Nero sends Vespasian to Judaea."
+  ],
+  "cams": [
+   "wide",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Siege",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Called off",
+     "tone": "r"
+    },
+    {
+     "text": "Pressed",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Temple walls",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Pass",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Ambushed",
+     "tone": "r"
+    },
+    {
+     "text": "Heights held",
+     "tone": "g"
+    },
+    {
+     "text": "Rebels gather",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Beth Horon",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Baggage",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Abandoned",
+     "tone": "a"
+    },
+    {
+     "text": "Crawling",
+     "tone": "r"
+    },
+    {
+     "text": "Standing to fight",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Mules and engines",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Escape",
+   "decision": 3,
+   "options": [
+    {
+     "text": "400 sacrificed",
+     "tone": "r"
+    },
+    {
+     "text": "Costly",
+     "tone": "a"
+    },
+    {
+     "text": "Dug in",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Trapped",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Jerusalem",
+   "text": "Judaea has risen against Rome. You are Cestius Gallus, governor of Syria, with the Twelfth Legion and allies, besieging Jerusalem’s Temple walls. Your men have begun to undermine the wall.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Some say the city was about to fall."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Press the attack on the wall."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Call off the siege and march back to the coast",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "set": {
+        "retreat": 1
+       },
+       "text": "To everyone’s surprise, you suddenly order a retreat."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep undermining the Temple wall",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -15,
+       "set": {
+        "siege": 1
+       },
+       "text": "Your men keep working at the wall under their shields."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         90
+        ]
+       },
+       "f": [
+        "leg",
+        "jer"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for reinforcements from Syria",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Winter is coming."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The pass",
+   "text": "Your road back to the coast runs down through the narrow pass of Beth Horon. The rebels follow you and hold the hills.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The heights over the pass are empty for now."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Seize the heights before entering the pass."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March straight into the pass",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "siege": true
+       },
+       "r": -2,
+       "e": -8,
+       "text": "You never left Jerusalem."
+      },
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Rebels pour missiles into the column from both sides of the pass."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "j1": [
+         80,
+         170
+        ],
+        "j2": [
+         320,
+         170,
+         1
+        ]
+       },
+       "f": [
+        "j1",
+        "leg"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold the heights first",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -15,
+       "text": "Your troops hold the hills as the column passes."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         320,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait at the top of the pass for the rebels to tire",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The rebels gather."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The baggage",
+   "text": "The column is slow. Your mules and engines block the road.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Speed matters more than baggage."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Abandon the baggage."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Kill the mules and leave the baggage",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "You kill the pack animals and leave most of the engines. The column moves faster."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "bag": [
+         200,
+         240,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep every wagon and engine",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The column crawls."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Drop everything and fight",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "Your legion turns and fights."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "j1"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Trapped",
+   "text": "In the narrows the rebels close in from all sides.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You need to get out by night."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Leave a rearguard to deceive them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Leave 400 men on the roofs to fool them and slip away by night",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The 400 shout watchwords all night to fool the rebels. You escape; they die."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         250
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Break out by day",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -8,
+       "text": "Many fall."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fortify a camp and wait for relief",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "You dig in and hold."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Flight",
+   "text": "The column flees to the coast. The Twelfth Legion’s eagle is lost.",
+   "intel": {
+    "hint": [
+     {
+      "text": "About 6,000 Romans are dead."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Gather the survivors."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Flee to Antipatris and leave the engines",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The rebels take your engines and the eagle. They will use the engines in the coming siege. Nero sends Vespasian."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Turn and fight on the plain",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "On open ground, the legion beats them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "j1"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Ask for terms",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "They will not give them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Beth Horon (66) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Beth_Horon_(66)"
+  }
+ ],
+ "winAt": 50
+}

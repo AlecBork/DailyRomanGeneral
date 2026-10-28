@@ -1,0 +1,767 @@
+{
+ "id": "angrivarianwall",
+ "name": "Battle of the Angrivarian Wall",
+ "date": "16 AD",
+ "result": "win",
+ "loc": {
+  "lat": 52.45,
+  "lon": 9.2,
+  "place": "the Angrivarian Wall, Lower Saxony",
+  "short": "Angrivarian Wall",
+  "x": 297,
+  "y": -73
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Cherusci",
+  "commander": "Germanicus",
+  "foe": "Arminius"
+ },
+ "intro": "The Angrivarian Wall, an earth rampart in Germany between the Weser and the forests, summer 16 AD. You are Germanicus, Tiberius’s nephew, a few weeks after beating Arminius at Idistaviso.",
+ "debrief": "In Tacitus’s account, Arminius held an old earth wall with woods and marsh behind it and hid his cavalry in the trees. Germanicus found them, cleared the wall with slings and engines, then led the assault himself with his helmet off so his men could see him. The Germans were beaten in the woods, though Arminius escaped. Germanicus raised a trophy and was recalled by Tiberius the next year. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    110,
+    200,
+    8
+   ]
+  ],
+  "forests": [
+   [
+    340,
+    60,
+    60,
+    16
+   ],
+   [
+    60,
+    60,
+    60,
+    16
+   ]
+  ],
+  "marsh": [
+   [
+    200,
+    40,
+    120,
+    14
+   ]
+  ],
+  "river": {
+   "horizontal": true,
+   "y": 150,
+   "w": 20
+  }
+ },
+ "units": {
+  "leg": {
+   "x": 160,
+   "y": 215,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Germanicus’s legions",
+   "model": "legionary"
+  },
+  "aux": {
+   "x": 300,
+   "y": 215,
+   "w": 100,
+   "h": 10,
+   "side": "roman",
+   "name": "Auxiliaries and archers",
+   "model": "auxiliary"
+  },
+  "cav": {
+   "x": 60,
+   "y": 225,
+   "w": 60,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry under Seius Tubero",
+   "model": "cav_roman"
+  },
+  "eng": {
+   "x": 200,
+   "y": 240,
+   "w": 120,
+   "h": 6,
+   "side": "roman",
+   "name": "Slingers and engines",
+   "model": "velites"
+  },
+  "wall": {
+   "x": 200,
+   "y": 110,
+   "w": 200,
+   "h": 8,
+   "side": "enemy",
+   "name": "The Angrivarian earth wall",
+   "model": "levy"
+  },
+  "ger": {
+   "x": 200,
+   "y": 80,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Arminius’s Cherusci",
+   "model": "barbarian",
+   "scales": true
+  },
+  "wood": {
+   "x": 340,
+   "y": 60,
+   "w": 80,
+   "h": 12,
+   "side": "enemy",
+   "name": "Warriors hidden in the woods",
+   "model": "barbarian",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The wall is taken.",
+   "The Cherusci break in the woods.",
+   "Germanicus raises his trophy."
+  ],
+  "lose": [
+   "The Germans hold the wall.",
+   "Hidden horsemen hit the flank.",
+   "Germanicus falls back to the Rhine."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Woods",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Scouted",
+     "tone": "g"
+    },
+    {
+     "text": "Ambushed",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Hidden horsemen",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Wall top",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Cleared",
+     "tone": "g"
+    },
+    {
+     "text": "Thrown back",
+     "tone": "r"
+    },
+    {
+     "text": "River bank blocked",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Defended",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Assault",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Over the wall",
+     "tone": "g"
+    },
+    {
+     "text": "Heavy losses",
+     "tone": "a"
+    },
+    {
+     "text": "Reinforced",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Waiting",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Woods fight",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Horsemen beaten",
+     "tone": "g"
+    },
+    {
+     "text": "Stuck in the marsh",
+     "tone": "a"
+    },
+    {
+     "text": "Germans re-form",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Trees and marsh",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The wall",
+   "text": "A year after you found Varus’s bones in the forest, you are Germanicus, marching against Arminius again. The Germans hold an old earth wall built by the Angrivarii, with a river on one side and woods and marsh on the other.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their cavalry is hidden in the woods."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Find out what is in the woods before you attack the wall."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Scout the woods first",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "set": {
+        "woods": 1
+       },
+       "text": "Your scouts find the Cherusci cavalry hidden in the trees."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "wood": [
+         340,
+         60,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Storm the wall straight away with every legion",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "Horsemen burst from the woods into your flank."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         160,
+         140
+        ],
+        "wood": [
+         300,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "wall"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for the Germans to come out onto open ground",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "They stay behind the wall."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Missiles",
+   "text": "The Germans line the top of the wall. Your first assault up the earthwork is thrown back by spears from above.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Roman slings and catapults can clear the top of the wall."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pull back and use the engines."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Clear the wall with slings and catapult bolts",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "set": {
+        "cleared": 1
+       },
+       "text": "Your slingers and engines sweep the top of the wall. The defenders are shot down or driven back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eng": [
+         200,
+         180
+        ]
+       },
+       "f": [
+        "eng",
+        "wall"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send the legions up the wall again at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "Spears and stones break the attack."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         160,
+         130
+        ]
+       },
+       "f": [
+        "leg",
+        "wall"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Try to go round the end of the wall by the river",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The river bank is too narrow."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aux": [
+         330,
+         140
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Over the wall",
+   "text": "The top of the wall is clear.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Lead the assault yourself, bareheaded, so your men know you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Lead the assault."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Take your helmet off and lead the assault",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "cleared": true
+       },
+       "r": -4,
+       "e": -17,
+       "text": "You go over the wall with the praetorians, helmet off so your men can see you. The legions follow you into the Germans behind it."
+      },
+      {
+       "r": -10,
+       "e": -6,
+       "text": "You go over the wall into a storm of spears."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         100
+        ],
+        "ger": [
+         200,
+         70
+        ]
+       },
+       "f": [
+        "leg",
+        "ger"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send the auxiliaries in first to soak up the spears",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The auxiliaries take heavy losses."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aux": [
+         300,
+         110
+        ]
+       },
+       "f": [
+        "aux",
+        "ger"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for them to abandon the wall at night",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Arminius brings more men up."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Woods and marsh",
+   "text": "Behind the wall the Germans fight among trees and marsh, where they cannot use their long spears freely.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Close and fight with the short sword."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Your cavalry has a part to play too."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the cavalry into the woods",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "woods": true
+       },
+       "r": -2,
+       "e": -15,
+       "text": "Your cavalry, knowing where the hidden horsemen are, catches them in the trees."
+      },
+      {
+       "r": -6,
+       "e": -6,
+       "text": "Your cavalry runs into the woods blind."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         320,
+         80
+        ],
+        "wood": [
+         340,
+         60,
+         0.3
+        ]
+       },
+       "f": [
+        "cav",
+        "wood"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Push the legions straight on into the marsh behind",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "The ground swallows men."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         60
+        ]
+       },
+       "f": [
+        "leg",
+        "ger"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold the wall you have won",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The Germans re-form behind the marsh."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Night",
+   "text": "The Germans break at dusk. Arminius escapes again.",
+   "intel": {
+    "hint": [
+     {
+      "text": "There will be no prisoners, Germanicus orders."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Build a trophy."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Raise a trophy of their weapons and go home",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "You raise a trophy of captured arms with an inscription. Next year Tiberius recalls you to Rome."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ger": [
+         200,
+         20,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hunt Arminius through the forest at night",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Your men lose their way in the dark."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March on to the Elbe before winter",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Supplies run short."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Angrivarian Wall (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Angrivarian_Wall"
+  }
+ ]
+}
