@@ -1,0 +1,766 @@
+{
+ "id": "cremera",
+ "name": "Battle of the Cremera",
+ "date": "477 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 42.03,
+  "lon": 12.4,
+  "place": "the Cremera, near Veii",
+  "short": "Cremera",
+  "x": 338,
+  "y": 110
+ },
+ "names": {
+  "rome": "The Fabii",
+  "enemy": "Veii",
+  "commander": "the Fabii",
+  "foe": "the Veientines"
+ },
+ "intro": "By the river Cremera, near the Etruscan city of Veii, 477 BC. You lead the Fabian clan, which has offered to fight Rome’s war with Veii alone: Livy says 306 Fabii, with their clients and followers. The story is ancient tradition and partly legend.",
+ "debrief": "In the Roman tradition, the Fabii built a fort on the Cremera and raided Veientine land with success, until the Veientines lured them out with cattle left as bait and ambushed them from the hills. The Fabii fought on a hill until all were killed; Livy says only one young Fabius, too young to fight and left at Rome, survived to carry on the family. The day was marked as unlucky ever after. The numbers and details are uncertain. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "x": 120,
+   "w": 20
+  },
+  "hills": [
+   [
+    60,
+    110,
+    60,
+    16
+   ],
+   [
+    340,
+    150,
+    60,
+    16
+   ],
+   [
+    250,
+    150,
+    40,
+    10
+   ]
+  ]
+ },
+ "units": {
+  "fab": {
+   "x": 200,
+   "y": 190,
+   "w": 120,
+   "h": 12,
+   "side": "roman",
+   "name": "The Fabii and their clients",
+   "model": "hastati"
+  },
+  "fort": {
+   "x": 200,
+   "y": 225,
+   "w": 60,
+   "h": 10,
+   "side": "roman",
+   "name": "Fort on the Cremera",
+   "model": "levy"
+  },
+  "cat": {
+   "x": 330,
+   "y": 110,
+   "w": 50,
+   "h": 10,
+   "side": "enemy",
+   "name": "Cattle left as bait",
+   "model": "levy"
+  },
+  "vei": {
+   "x": 200,
+   "y": 70,
+   "w": 170,
+   "h": 16,
+   "side": "enemy",
+   "name": "Veientine army",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "amb1": {
+   "x": 60,
+   "y": 110,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Ambush on the hills",
+   "model": "auxiliary",
+   "scales": true,
+   "hidden": true
+  },
+  "amb2": {
+   "x": 340,
+   "y": 150,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Ambush on the hills",
+   "model": "auxiliary",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Fabii slip back to their fort.",
+   "Veii’s trap has cost it dearly.",
+   "The clan lives to fight again."
+  ],
+  "lose": [
+   "The Fabii die to the last man.",
+   "Only one boy, left at home, survives.",
+   "Rome never forgets the Cremera."
+  ],
+  "cams": [
+   "high",
+   "clash",
+   "wide"
+  ],
+  "anim": {
+   "lose": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "War",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Fort on the Cremera",
+     "tone": "g"
+    },
+    {
+     "text": "Driven off",
+     "tone": "r"
+    },
+    {
+     "text": "Short raids",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "A family war",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Habits",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Careless",
+     "tone": "r"
+    },
+    {
+     "text": "Scouts out",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting for help",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Raiding",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The herds",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Taken, men scattered",
+     "tone": "r"
+    },
+    {
+     "text": "Left alone",
+     "tone": "g"
+    },
+    {
+     "text": "Half taken",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "In the open",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The Fabii",
+   "decision": 3,
+   "options": [
+    {
+     "text": "On the hill",
+     "tone": "a"
+    },
+    {
+     "text": "Scattered",
+     "tone": "r"
+    },
+    {
+     "text": "Breaking through",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Caught",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "A family war",
+   "text": "Rome is tired of the war with Veii. The Fabian clan offers to fight it alone, at its own cost: 306 Fabii and their clients.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Veii is a strong Etruscan city a day from Rome."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A fortified post on the Cremera, close to Veii, lets the Fabii raid and still get home."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Build a fort on the Cremera and raid from it",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "fort": 1
+       },
+       "text": "The Fabii build a fort by the river and raid Veientine land for months."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March on Veii itself and challenge its army to come out",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "A clan cannot besiege a city. The Fabii are driven off."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fab": [
+         200,
+         120
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Raid from Rome, coming home each night",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The raids are short and do little harm."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Easy successes",
+   "text": "Raid after raid succeeds. The Veientines seem helpless. The Fabii grow careless.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Veientines have stopped fighting back. That is not like them."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep scouts on the hills before every raid. An enemy who stops resisting may be setting a trap."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Keep raiding the same way: it is working",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "set": {
+        "careless": 1
+       },
+       "text": "The raids go on. The Veientines watch and learn the Fabii’s habits."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send scouts over the hills before each raid",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "scouts": 1
+       },
+       "text": "The scouts find armed men camped in the hills, waiting."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Ask Rome for a consular army to join you first",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The Senate promises help, in time."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Cattle in the open",
+   "text": "Herds of cattle have been left grazing in the open, far from the fort, with only a few herdsmen.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The herds are farther out than ever before."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cattle with no guards, far from the town, are bait."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ride out and take the herds",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "scouts": true
+       },
+       "r": -4,
+       "e": -4,
+       "text": "Knowing the hills are watched, the Fabii take some cattle and come back fast."
+      },
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The Fabii scatter to round up the herds."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fab": [
+         330,
+         130
+        ]
+       },
+       "f": [
+        "fab",
+        "cat"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Leave the cattle and stay near the fort",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "stay": 1
+       },
+       "text": "The bait sits untaken. The ambushers grow restless."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Take the cattle with half; the rest guard the road",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Half the Fabii stay together on the road back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fab": [
+         280,
+         160
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The trap closes",
+   "text": "Veientine soldiers rise from the hills on every side. The Fabii are caught in the open, scattered after the herds.",
+   "intel": {
+    "hint": [
+     {
+      "text": "There is a hill behind you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Form on the nearest high ground in one body and cut your way back to the fort."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form on the hill and fight in one body",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -17,
+       "set": {
+        "hill": 1
+       },
+       "text": "The Fabii gather on a hill and fight off attack after attack."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fab": [
+         250,
+         150
+        ],
+        "amb1": [
+         150,
+         120,
+         1
+        ],
+        "amb2": [
+         330,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "fab",
+        "amb1",
+        "amb2"
+       ]
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Every group fights its way home on its own",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "Small groups are cut off and killed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "amb1": [
+         150,
+         120,
+         1
+        ],
+        "amb2": [
+         330,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "fab",
+        "amb1",
+        "amb2"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge straight through toward the fort",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "Some break through; many fall."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fab": [
+         200,
+         205
+        ],
+        "amb1": [
+         150,
+         120,
+         1
+        ],
+        "amb2": [
+         330,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "fab",
+        "amb2"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Last stand",
+   "text": "The Veientines bring up more men. The hill cannot be held for ever, and the fort is far behind.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Veientines are tiring too."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wait for night and slip away to the fort, or die on the hill."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stand on the hill to the last man",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": -4,
+       "text": "The Fabii fight until every one is dead. Rome remembers them for ever."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vei": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "fab",
+        "vei"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hold till dark, then slip back to the fort",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "if": {
+        "hill": true
+       },
+       "r": -2,
+       "e": -24,
+       "text": "At nightfall the survivors creep down the hill and reach the fort. Veii has paid dearly for its trap."
+      },
+      {
+       "r": -6,
+       "e": -14,
+       "text": "A few reach the fort."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fab": [
+         200,
+         215
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge down at the Veientine commander and kill him",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -10,
+       "text": "The charge shakes them, but the Fabii are too few."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fab": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "fab",
+        "vei"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Cremera (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Cremera"
+  }
+ ],
+ "winAt": 50
+}

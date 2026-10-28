@@ -1,0 +1,690 @@
+{
+ "id": "bovianum",
+ "name": "Battle of Bovianum",
+ "date": "305 BC",
+ "result": "win",
+ "loc": {
+  "lat": 41.49,
+  "lon": 14.47,
+  "place": "Bovianum, Samnium",
+  "short": "Bovianum",
+  "x": 364,
+  "y": 119
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Samnites",
+  "commander": "the consul",
+  "foe": "Statius Gellius"
+ },
+ "intro": "Near Bovianum, the chief town of the Samnites, 305 BC, at the end of the Second Samnite War. Rome has sent both consuls deep into Samnium. The sources say little about the battle itself.",
+ "debrief": "Livy reports that the consuls marched on Bovianum, that the Samnite general Statius Gellius was captured, and that Bovianum was taken; the Samnites made peace the next year. He admits his sources disagreed on which consul fought where. How the battle was fought is not known; the moves here are a reconstruction, and the other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    30,
+    160,
+    26
+   ],
+   [
+    350,
+    120,
+    50,
+    12
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 190,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Consular army",
+   "model": "hastati"
+  },
+  "leg2": {
+   "x": 340,
+   "y": 205,
+   "w": 70,
+   "h": 12,
+   "side": "roman",
+   "name": "Second consul’s army",
+   "model": "principes",
+   "hidden": true
+  },
+  "sam": {
+   "x": 200,
+   "y": 95,
+   "w": 170,
+   "h": 16,
+   "side": "enemy",
+   "name": "Samnite army",
+   "model": "auxiliary",
+   "scales": true
+  },
+  "town": {
+   "x": 200,
+   "y": 35,
+   "w": 100,
+   "h": 10,
+   "side": "enemy",
+   "name": "Bovianum",
+   "model": "levy"
+  },
+  "scav": {
+   "x": 60,
+   "y": 95,
+   "w": 50,
+   "h": 12,
+   "side": "enemy",
+   "name": "Samnite horse",
+   "model": "cav_roman"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The two armies close on the Samnites.",
+   "Gellius is taken and Bovianum falls.",
+   "The Second Samnite War ends."
+  ],
+  "lose": [
+   "The Samnites escape into the hills.",
+   "Bovianum holds.",
+   "The war goes on."
+  ],
+  "cams": [
+   "front",
+   "clash",
+   "wide"
+  ],
+  "anim": {
+   "win": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "March",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Two armies converging",
+     "tone": "g"
+    },
+    {
+     "text": "One slow army",
+     "tone": "a"
+    },
+    {
+     "text": "Raiding",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Into Samnium",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "First clash",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Bloody draw",
+     "tone": "a"
+    },
+    {
+     "text": "Holding firm",
+     "tone": "g"
+    },
+    {
+     "text": "Falling back",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Samnites out",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Flank",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Attacked together",
+     "tone": "g"
+    },
+    {
+     "text": "Second army alone",
+     "tone": "a"
+    },
+    {
+     "text": "Chance lost",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Second army near",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Bovianum",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Taken",
+     "tone": "g"
+    },
+    {
+     "text": "Shut",
+     "tone": "a"
+    },
+    {
+     "text": "Untouched",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Ahead",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Into Samnium",
+   "text": "The Samnites have raided Roman land in Campania. Rome sends both consuls, Lucius Postumius Megellus and Tiberius Minucius Augurinus, deep into Samnium toward Bovianum, its chief town. You command one army.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Samnites will fight to protect Bovianum."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Two armies arriving from two directions can trap them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Both armies march on Bovianum by different roads",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "set": {
+        "two": 1
+       },
+       "text": "The two armies converge on Bovianum."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Join the armies into one and march together for safety",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "One big army marches slowly into the hills."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Raid the countryside to draw them out to you",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The Samnites ignore the raiders and wait in the hills."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Samnites come out",
+   "text": "The Samnite army, under Statius Gellius, comes out to meet you before Bovianum.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The second army is still a day away."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold the Samnites in place until the second army arrives."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight them now, before the second army",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "A long, hard fight, with no result."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         160
+        ]
+       },
+       "f": [
+        "leg",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hold a strong position and wait a day",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "held": 1
+       },
+       "text": "You hold a strong position. The Samnites do not dare attack."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fall back to join the other consul",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The Samnites follow and harry the march."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         220
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The second army arrives",
+   "text": "The other consul’s army comes over the hills on the Samnite flank.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Samnites have not seen it."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack together, front and flank."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack at once, front and flank together",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "held": true
+       },
+       "r": -2,
+       "e": -20,
+       "text": "Your army pins the Samnites while the second army strikes their flank. Their line folds."
+      },
+      {
+       "r": -6,
+       "e": -13,
+       "text": "The two armies attack together."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ],
+        "leg2": [
+         330,
+         120,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "leg2",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Let the second army attack alone first",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The second army does the fighting while yours watches."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg2": [
+         330,
+         120,
+         1
+        ]
+       },
+       "f": [
+        "leg2",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Wait for the Samnites to make the first move",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The Samnites see the danger and pull back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg2": [
+         330,
+         180,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Gellius taken",
+   "text": "The Samnite general Statius Gellius has been captured. His army is breaking.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Bovianum is close."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Follow the beaten army into the town before it can shut its gates."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pursue them into Bovianum",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "The legions follow the fugitives to the town and take it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         60
+        ],
+        "town": [
+         200,
+         35,
+         0.3
+        ]
+       },
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Rest the men and besiege the town tomorrow",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The town shuts its gates."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the horse after them; keep the infantry back",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The horse cannot take walls."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Samnium beaten",
+   "text": "The Samnites have lost their army and their town. They will ask for peace.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They have fought Rome for twenty years."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Make the peace firm."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Grant peace, but keep the towns you have taken",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "Rome grants peace and keeps its gains. The Second Samnite War is over."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Refuse peace and march on into the mountains",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The army goes deeper into the mountains, and the war drags on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Give back the towns for a quick peace",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Peace comes quickly, and so will the next war."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Bovianum (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Bovianum"
+  }
+ ]
+}

@@ -1,0 +1,709 @@
+{
+ "id": "algidus",
+ "name": "Battle of Mount Algidus",
+ "date": "458 BC",
+ "result": "win",
+ "loc": {
+  "lat": 41.75,
+  "lon": 12.75,
+  "place": "Mount Algidus, in the Alban hills",
+  "short": "Algidus",
+  "x": 342,
+  "y": 115
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Aequi",
+  "commander": "Cincinnatus",
+  "foe": "Gracchus Cloelius"
+ },
+ "intro": "On Mount Algidus, in the Alban hills, 458 BC, as Roman tradition tells it. The Aequi, a hill people east of Rome, have trapped the consul Lucius Minucius and his army in their camp. Rome needs a commander, quickly.",
+ "debrief": "In the story told by Livy, Lucius Quinctius Cincinnatus was found ploughing his small farm when he was named dictator. He raised an army, had every man carry stakes, marched to Algidus by midnight and walled the besieging Aequi in. Attacked from both sides, they surrendered and were sent under the yoke, and their leader Gracchus Cloelius was taken. Cincinnatus resigned after sixteen days and went back to his farm. The tale is part legend, and was told as a model of Roman virtue. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    90,
+    140,
+    24
+   ]
+  ],
+  "forests": [
+   [
+    50,
+    60,
+    40,
+    12
+   ],
+   [
+    350,
+    60,
+    40,
+    12
+   ]
+  ]
+ },
+ "units": {
+  "min": {
+   "x": 200,
+   "y": 90,
+   "w": 120,
+   "h": 14,
+   "side": "roman",
+   "name": "Minucius’s trapped army",
+   "model": "hastati"
+  },
+  "cin": {
+   "x": 200,
+   "y": 215,
+   "w": 140,
+   "h": 14,
+   "side": "roman",
+   "name": "Cincinnatus’s relief army",
+   "model": "principes"
+  },
+  "aeq": {
+   "x": 200,
+   "y": 140,
+   "w": 180,
+   "h": 14,
+   "side": "enemy",
+   "name": "Aequi around the camp",
+   "model": "auxiliary",
+   "scales": true
+  },
+  "acamp": {
+   "x": 200,
+   "y": 40,
+   "w": 100,
+   "h": 10,
+   "side": "enemy",
+   "name": "Aequian camp",
+   "model": "levy"
+  },
+  "gra": {
+   "x": 320,
+   "y": 150,
+   "w": 50,
+   "h": 10,
+   "side": "enemy",
+   "name": "Gracchus Cloelius",
+   "model": "veteran"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Aequi are crushed.",
+   "They pass under the yoke.",
+   "Cincinnatus goes home to his plough."
+  ],
+  "lose": [
+   "The Aequi break out.",
+   "Minucius’s camp is still besieged.",
+   "Rome trembles."
+  ],
+  "cams": [
+   "clash",
+   "high",
+   "wide"
+  ],
+  "anim": {
+   "win": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Rescue",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Cincinnatus named",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting on the consul",
+     "tone": "a"
+    },
+    {
+     "text": "A small force",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Minucius trapped",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "March",
+   "decision": 1,
+   "options": [
+    {
+     "text": "At Algidus by midnight",
+     "tone": "g"
+    },
+    {
+     "text": "Arriving at dawn",
+     "tone": "a"
+    },
+    {
+     "text": "Cavalry stopped",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Rome arming",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The Aequi",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Walled in",
+     "tone": "g"
+    },
+    {
+     "text": "Ring broken in places",
+     "tone": "a"
+    },
+    {
+     "text": "Warned",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Besieging",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Battle",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Crushed between two armies",
+     "tone": "g"
+    },
+    {
+     "text": "Battering your wall",
+     "tone": "a"
+    },
+    {
+     "text": "Escaped",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Trapped",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "A consul trapped",
+   "text": "The Aequi under Gracchus Cloelius have trapped the consul Minucius and his army in their camp on Mount Algidus. Five horsemen slipped out to bring the news.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Rome’s other consul is far off with his own army."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Only a dictator can raise a new army quickly. The Senate thinks of a farmer across the Tiber."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Name Cincinnatus dictator, from his plough",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "set": {
+        "cin": 1
+       },
+       "text": "Envoys find Lucius Quinctius Cincinnatus ploughing his four acres. He wipes off the sweat, puts on his toga and accepts."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Recall the other consul’s army, which is ready and armed",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The other army will take days to come."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send what men are in the city at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "A small, hasty force marches out."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cin": [
+         200,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "One day",
+   "text": "Cincinnatus closes the shops and calls up every man of age. He needs an army on Algidus by midnight.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Aequi have built no wall facing outward."
+     }
+    ],
+    "scout": [
+     {
+      "text": "March fast and light, each man carrying stakes for a palisade."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Each man carries twelve stakes; march all day",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "set": {
+        "stakes": 1
+       },
+       "text": "The army marches with food for five days and twelve stakes per man, and reaches Algidus at midnight."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cin": [
+         200,
+         195
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March with the baggage, arrive in the morning",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The army arrives by daylight and the Aequi see it coming."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the cavalry ahead to break in",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The horsemen cannot break the Aequian lines."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Midnight on Algidus",
+   "text": "The Aequi are camped in a ring around Minucius’s camp. They do not know you are here.",
+   "intel": {
+    "hint": [
+     {
+      "text": "In the dark, a ring is thin everywhere."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Surround the besiegers with a ditch and palisade of your own, and raise a shout so the trapped army knows help has come."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Dig in around them all night, then shout",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "stakes": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "Through the night your men dig a ditch and plant their stakes around the Aequi. At a signal they raise a great shout; inside the camp Minucius’s men cheer and sally out."
+      },
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The ditch is only half done by dawn."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cin": [
+         200,
+         195
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Attack the ring at once in the dark before they know you are here",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The night attack breaks part of the ring."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cin": [
+         200,
+         160
+        ]
+       },
+       "f": [
+        "cin",
+        "aeq"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Wait for dawn to see the ground",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "At dawn the Aequi see you and turn to face you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Caught between two armies",
+   "text": "At dawn the Aequi find themselves trapped between Minucius’s camp and your new wall.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Minucius’s men are eager to get out."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack from both sides together."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack from both sides at once",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -18,
+       "set": {
+        "both": 1
+       },
+       "text": "Minucius’s army storms out of the camp as yours presses in from outside. The Aequi are crushed between them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "min": [
+         200,
+         120
+        ],
+        "cin": [
+         200,
+         165
+        ]
+       },
+       "f": [
+        "min",
+        "cin",
+        "aeq"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Let the Aequi exhaust themselves on your wall",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "They throw themselves at your palisade."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Open a gap and let them flee",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -4,
+       "text": "The Aequi escape to fight again."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aeq": [
+         200,
+         60
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Aequi beg for terms",
+   "text": "The Aequi lay down their arms and beg for their lives.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their leaders are in your hands."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Rome usually shames a beaten enemy rather than slaughtering it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send them under the yoke; keep their leaders",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "The Aequi pass under a yoke of spears, stripped of their arms. Gracchus Cloelius is led off in chains. Cincinnatus resigns his dictatorship after sixteen days and goes back to his farm."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aeq": [
+         200,
+         40,
+         0.4
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Kill them where they stand",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The slaughter shocks even your own men."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aeq": [
+         200,
+         140,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Let them go home in return for their lands",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "They promise much and go home armed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aeq": [
+         200,
+         40
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Mons Algidus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Mons_Algidus"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "He was found ploughing, and put on his toga to hear the Senate’s message.",
+   "who": "Livy, on Cincinnatus called from his farm"
+  }
+ ]
+}

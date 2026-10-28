@@ -1,0 +1,717 @@
+{
+ "id": "veii",
+ "name": "Siege of Veii",
+ "date": "396 BC",
+ "result": "win",
+ "loc": {
+  "lat": 42.02,
+  "lon": 12.4,
+  "place": "Veii, north of Rome",
+  "short": "Veii",
+  "x": 338,
+  "y": 110
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Veii",
+  "commander": "Camillus",
+  "foe": "the Veientines"
+ },
+ "intro": "Veii, the great Etruscan city twelve miles north of Rome, about 396 BC. The war has lasted years, and Roman tradition makes the siege last ten, like Troy. You command the besieging army, which will become Camillus’s.",
+ "debrief": "In Livy’s account, Rome began paying its soldiers so they could keep up the siege through the winters. Capena and Falerii tried to relieve Veii and were beaten off. The dictator Marcus Furius Camillus had a tunnel dug through the soft rock into the citadel, under the temple of Juno, and while the army attacked the walls, picked men came up through it and opened the city. Veii fell and its land became Roman. The details, especially the ten years, are coloured by legend, but the fall of Veii was real and doubled Rome’s territory. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    50,
+    150,
+    22
+   ]
+  ],
+  "river": {
+   "x": 40,
+   "w": 18
+  }
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 200,
+   "w": 160,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman army",
+   "model": "hastati"
+  },
+  "min": {
+   "x": 120,
+   "y": 170,
+   "w": 40,
+   "h": 10,
+   "side": "roman",
+   "name": "Tunnellers",
+   "model": "levy"
+  },
+  "walls": {
+   "x": 200,
+   "y": 70,
+   "w": 220,
+   "h": 10,
+   "side": "enemy",
+   "name": "Walls of Veii",
+   "model": "levy"
+  },
+  "vei": {
+   "x": 200,
+   "y": 95,
+   "w": 140,
+   "h": 12,
+   "side": "enemy",
+   "name": "Veientine defenders",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "cap": {
+   "x": 330,
+   "y": 140,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Capenate and Faliscan allies",
+   "model": "auxiliary",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Roman soldiers rise into the temple of Juno.",
+   "The gates are opened.",
+   "Veii, Rome’s great rival, falls."
+  ],
+  "lose": [
+   "The siege drags on another year.",
+   "The army grumbles.",
+   "Veii still stands across the Tiber."
+  ],
+  "cams": [
+   "front",
+   "high",
+   "wide"
+  ],
+  "anim": {
+   "win": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Siege",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Paid army, all winter",
+     "tone": "g"
+    },
+    {
+     "text": "Summer only",
+     "tone": "a"
+    },
+    {
+     "text": "Failed assault",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Long and costly",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Allies",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Driven off",
+     "tone": "g"
+    },
+    {
+     "text": "Raiding your camps",
+     "tone": "a"
+    },
+    {
+     "text": "Siege broken",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Marching",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Method",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Tunnel under the city",
+     "tone": "g"
+    },
+    {
+     "text": "Siege mound",
+     "tone": "a"
+    },
+    {
+     "text": "Ladders thrown down",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Camillus in command",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Veii",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Gates opened",
+     "tone": "g"
+    },
+    {
+     "text": "Fighting at a gate",
+     "tone": "a"
+    },
+    {
+     "text": "Holding out",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Unaware",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Ten years",
+   "text": "Rome has besieged Veii, the great Etruscan city across the Tiber, for years. The army has had to stay in the field through the winter, and it needs pay.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Men who must serve all year need to be paid."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pay the soldiers from the treasury so they can stay at the siege through winter."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pay the army so it can stay all winter",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "set": {
+        "pay": 1
+       },
+       "text": "For the first time, Roman soldiers are paid. The siege lines stay manned through the winter."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the men home each winter as usual",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -6,
+       "text": "Each spring the siege starts again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the walls now and end it",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The walls are too strong; the attack fails."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "leg",
+        "walls"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Allies to the rescue",
+   "text": "The neighbouring towns of Capena and Falerii march to help Veii and attack your lines from outside.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The relief comes from the north."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Turn part of the army to face them while the siege lines hold."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Turn part of the army to meet them",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "Part of the army turns and drives off the Capenates and Faliscans."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cap": [
+         330,
+         140,
+         1
+        ],
+        "leg": [
+         260,
+         190
+        ]
+       },
+       "f": [
+        "leg",
+        "cap"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Hold the siege lines and ignore them",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The allies raid your camps."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cap": [
+         330,
+         140,
+         1
+        ]
+       },
+       "f": [
+        "cap"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Give up the siege and fight them in the field",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "Veii is supplied while you are away."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         300,
+         150
+        ],
+        "cap": [
+         330,
+         140,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "cap"
+       ]
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "A new dictator",
+   "text": "The siege has dragged on under quarrelling commanders. Marcus Furius Camillus is named dictator.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The hill under Veii is soft rock."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A tunnel under the walls would open a way into the city itself."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Dig a tunnel under the walls into the city",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "set": {
+        "tunnel": 1
+       },
+       "text": "Six shifts dig day and night through the soft rock toward the citadel."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "min": [
+         160,
+         120
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Build a siege mound against the walls",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The mound grows slowly under Veientine missiles."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Assault the walls in many places at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -4,
+       "text": "The ladders are thrown down."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "leg",
+        "walls"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The tunnel is ready",
+   "text": "The tunnel has reached the citadel, under the temple of Juno. The defenders know nothing.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The defenders must be kept busy on the walls."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack the walls everywhere at once, so no one looks to the citadel, then break out of the tunnel."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack the walls to draw them, then open the tunnel",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "tunnel": true
+       },
+       "r": -2,
+       "e": -22,
+       "text": "While the Veientines rush to the walls, picked men burst up into the temple of Juno, open the gates and let the army in."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The assault makes slow progress."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ],
+        "min": [
+         200,
+         80
+        ]
+       },
+       "f": [
+        "leg",
+        "vei",
+        "walls"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send the tunnellers in alone at night",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The small party is found and fights its way to a gate."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "min": [
+         200,
+         80
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Wait for them to starve instead: they cannot hold out for ever",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The city holds on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Veii falls",
+   "text": "Roman soldiers are inside the walls. The city is falling.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Veientines are still fighting in the streets."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Promise mercy to those who lay down their arms, so the fighting ends quickly."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Spare anyone who lays down his arms",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "text": "Camillus has it announced that the unarmed will be spared. The fighting stops; the city is Rome’s."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vei": [
+         200,
+         95,
+         0.3
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let the soldiers sack the city at will",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "The sack is savage and the fighting drags on in the streets."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Pull back and make them surrender formally",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The defenders rally on the walls."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Veii (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Veii"
+  }
+ ]
+}

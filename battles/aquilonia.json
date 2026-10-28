@@ -1,0 +1,714 @@
+{
+ "id": "aquilonia",
+ "name": "Battle of Aquilonia",
+ "date": "293 BC",
+ "result": "win",
+ "loc": {
+  "lat": 41.42,
+  "lon": 14.65,
+  "place": "Aquilonia, Samnium",
+  "short": "Aquilonia",
+  "x": 367,
+  "y": 120
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Samnites",
+  "commander": "Papirius Cursor",
+  "foe": "the Samnites"
+ },
+ "intro": "Near Aquilonia in Samnium, 293 BC, in the Third Samnite War. The Samnites have raised their last great army, and its core, the Linen Legion of 16,000, has sworn to fight to the death. You are the consul Lucius Papirius Cursor.",
+ "debrief": "In Livy’s account, the Linen Legion swore its oath in an enclosure roofed with linen, and those who refused were killed. Papirius fought despite a false report about the sacred chickens, placing the lying keeper in the front, where he was killed. Spurius Nautius led mule drivers round the flank dragging branches to raise dust, the Samnites thought a new army had arrived, and they broke. Aquilonia was taken. Livy’s numbers are not reliable, but the victory broke Samnium. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    30,
+    150,
+    22
+   ]
+  ],
+  "forests": [
+   [
+    60,
+    150,
+    40,
+    12
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 190,
+   "w": 160,
+   "h": 14,
+   "side": "roman",
+   "name": "Papirius’s legions",
+   "model": "hastati"
+  },
+  "eq": {
+   "x": 340,
+   "y": 205,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Roman horse",
+   "model": "cav_roman"
+  },
+  "mul": {
+   "x": 60,
+   "y": 230,
+   "w": 50,
+   "h": 10,
+   "side": "roman",
+   "name": "Mule drivers (Nautius)",
+   "model": "levy",
+   "hidden": true
+  },
+  "lin": {
+   "x": 200,
+   "y": 95,
+   "w": 140,
+   "h": 16,
+   "side": "enemy",
+   "name": "Linen Legion",
+   "model": "veteran",
+   "scales": true
+  },
+  "sam": {
+   "x": 330,
+   "y": 100,
+   "w": 90,
+   "h": 14,
+   "side": "enemy",
+   "name": "Samnite levy",
+   "model": "auxiliary",
+   "scales": true
+  },
+  "town": {
+   "x": 200,
+   "y": 35,
+   "w": 100,
+   "h": 10,
+   "side": "enemy",
+   "name": "Aquilonia",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Linen Legion breaks.",
+   "Aquilonia burns.",
+   "Samnium’s last great army is gone."
+  ],
+  "lose": [
+   "The Linen Legion holds.",
+   "The dust settles.",
+   "Samnium fights on."
+  ],
+  "cams": [
+   "front",
+   "clash",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Morale",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Laughing at the oath",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Thrown back",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Facing the Linen Legion",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Omens",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Liar in front",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Uneasy",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Chickens",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Flank",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Dust cloud rising",
+     "tone": "g"
+    },
+    {
+     "text": "Cavalry stopped",
+     "tone": "a"
+    },
+    {
+     "text": "Nothing",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Idle",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Samnites",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Breaking",
+     "tone": "g"
+    },
+    {
+     "text": "Pressed",
+     "tone": "a"
+    },
+    {
+     "text": "Steady",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Wavering",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The Linen Legion",
+   "text": "The Samnites have raised their last great army. Its best men, 16,000 of them, have sworn a terrible oath in a linen-roofed enclosure to fight to the death. They wear white tunics and plumes. You are the consul Lucius Papirius Cursor.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Men who have sworn to die are dangerous for an hour, then tired like anyone else."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let your men know the oath is fear, not courage: many swore at sword-point."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Tell the army their oath was sworn at sword-point",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -9,
+       "set": {
+        "speech": 1
+       },
+       "text": "Your men laugh at a legion that had to be forced to swear."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for the other consul before you attack them",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -6,
+       "text": "The Samnites grow bolder as you wait."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack their camp at once, before they settle",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The Linen Legion meets you at its gate."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "leg",
+        "lin"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The chicken-keeper",
+   "text": "The sacred chickens must eat before a battle for the omens to be good. Your keeper reports they ate greedily. Your nephew says the keeper is lying: they would not eat at all.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The men want to fight today."
+     }
+    ],
+    "scout": [
+     {
+      "text": "If the keeper lied, the fault is his, not the army’s. Put him in the front line."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight anyway; put the lying keeper in front",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "set": {
+        "omen": 1
+       },
+       "text": "You say the gods will punish the liar. He is killed by a stray javelin before the battle, and the army takes it as a sign."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait a day and take the omens again",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -6,
+       "text": "The army waits, uneasy."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Punish the keeper and call off the battle",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "The army wonders whether the gods are against it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The lines meet",
+   "text": "The Linen Legion fights hard. The Samnite line will not give.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your horse is idle on the right; the mule drivers are idle in the camp."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A cloud of dust from the flank looks like a fresh army. Let Spurius Nautius take the mule drivers round, dragging branches."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the mule drivers round with branches",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "set": {
+        "dust": 1
+       },
+       "text": "Spurius Nautius leads the mule drivers round the flank, dragging leafy branches. A great dust cloud rises, and the Samnites think a new army has come."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mul": [
+         330,
+         170,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Charge the cavalry straight at the Linen Legion",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The horse hit hard but cannot break the oath-bound men."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         250,
+         110
+        ]
+       },
+       "f": [
+        "eq",
+        "lin"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Hold steady and let them exhaust themselves on your line",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "The line holds, and nothing changes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The dust cloud",
+   "text": "Your men see the dust and cheer, thinking the other consul is here. The Samnites waver.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Samnites think they are surrounded."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Push now, before they see it is only mules."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Throw the whole line forward",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "dust": true
+       },
+       "r": -2,
+       "e": -21,
+       "text": "The legions charge, shouting that the other consul has come. The Linen Legion breaks."
+      },
+      {
+       "r": -6,
+       "e": -12,
+       "text": "The legions push forward."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ],
+        "eq": [
+         300,
+         110
+        ],
+        "lin": [
+         200,
+         75
+        ]
+       },
+       "f": [
+        "leg",
+        "eq",
+        "lin",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send only the cavalry to finish them",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "The horse make some progress."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         300,
+         110
+        ]
+       },
+       "f": [
+        "eq",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Wait for the real army to arrive",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The Samnites see it was only dust."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Aquilonia",
+   "text": "The Samnite army is fleeing to its camp and the town of Aquilonia.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The gates are open for the fugitives."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Follow them in."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Storm the town while the gates are open",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "The legions pour in with the fugitives. Aquilonia is taken and burned."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         60
+        ],
+        "town": [
+         200,
+         35,
+         0.3
+        ]
+       },
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Take the camp first, then besiege the town",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "The camp falls; the town closes its gates."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let them go and count the dead",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The Samnites live to fight again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Aquilonia (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Aquilonia"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "The keeper who lied has drawn the gods’ anger on himself, not on the army.",
+   "who": "Papirius Cursor, as Livy has him speak"
+  }
+ ]
+}

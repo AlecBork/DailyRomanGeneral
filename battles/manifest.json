@@ -315,6 +315,114 @@
    "lon": 12.47,
    "result": "win",
    "naval": false
+  },
+  {
+   "id": "regillus",
+   "name": "Lake Regillus",
+   "date": "496 BC",
+   "lat": 41.85,
+   "lon": 12.71,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "cremera",
+   "name": "Cremera",
+   "date": "477 BC",
+   "lat": 42.03,
+   "lon": 12.4,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "algidus",
+   "name": "Algidus",
+   "date": "458 BC",
+   "lat": 41.75,
+   "lon": 12.75,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "veii",
+   "name": "Veii",
+   "date": "396 BC",
+   "lat": 42.02,
+   "lon": 12.4,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "gaurus",
+   "name": "Mount Gaurus",
+   "date": "343 BC",
+   "lat": 40.86,
+   "lon": 14.1,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "vesuvius",
+   "name": "Vesuvius",
+   "date": "340 BC",
+   "lat": 40.82,
+   "lon": 14.43,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "caudineforks",
+   "name": "Caudine Forks",
+   "date": "321 BC",
+   "lat": 41.06,
+   "lon": 14.63,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "lautulae",
+   "name": "Lautulae",
+   "date": "315 BC",
+   "lat": 41.3,
+   "lon": 13.25,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "bovianum",
+   "name": "Bovianum",
+   "date": "305 BC",
+   "lat": 41.49,
+   "lon": 14.47,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "aquilonia",
+   "name": "Aquilonia",
+   "date": "293 BC",
+   "lat": 41.42,
+   "lon": 14.65,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "vadimo",
+   "name": "Lake Vadimo",
+   "date": "283 BC",
+   "lat": 42.47,
+   "lon": 12.32,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "beneventum",
+   "name": "Beneventum",
+   "date": "275 BC",
+   "lat": 41.13,
+   "lon": 14.78,
+   "result": "win",
+   "naval": false
   }
  ]
 }

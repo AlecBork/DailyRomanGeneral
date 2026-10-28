@@ -1,0 +1,741 @@
+{
+ "id": "regillus",
+ "name": "Battle of Lake Regillus",
+ "date": "496 BC",
+ "result": "win",
+ "loc": {
+  "lat": 41.85,
+  "lon": 12.71,
+  "place": "Lake Regillus, near Tusculum",
+  "short": "Lake Regillus",
+  "x": 342,
+  "y": 113
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Latins",
+  "commander": "Postumius",
+  "foe": "Octavius Mamilius"
+ },
+ "intro": "By Lake Regillus, below Tusculum, about 496 BC, as Roman tradition tells it. The young Republic has expelled its last king, Tarquin the Proud, who has joined the Latin towns under his son-in-law Octavius Mamilius. The story comes to us from much later writers and is part legend.",
+ "debrief": "In the Roman tradition, Aulus Postumius was named dictator and met the Latins by Lake Regillus. Old Tarquin was wounded, the master of horse Aebutius was hurt and the Roman left gave way, and Postumius sent his own cohort to treat fleeing Romans as enemies. The cavalry dismounted to fight in the front line, Mamilius was killed, and Postumius vowed a temple to Castor and Pollux; later Romans said the twins themselves had fought for Rome. How much of this is history and how much legend cannot be known. The other choices are what-ifs.",
+ "terrain": {
+  "lakes": [
+   [
+    60,
+    40,
+    40,
+    24
+   ]
+  ],
+  "hills": [
+   [
+    330,
+    30,
+    80,
+    20
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 190,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman infantry",
+   "model": "hastati"
+  },
+  "eq": {
+   "x": 60,
+   "y": 205,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Roman horse",
+   "model": "cav_roman"
+  },
+  "coh": {
+   "x": 200,
+   "y": 222,
+   "w": 50,
+   "h": 10,
+   "side": "roman",
+   "name": "Dictator’s cohort",
+   "model": "triarii"
+  },
+  "lat": {
+   "x": 200,
+   "y": 95,
+   "w": 170,
+   "h": 16,
+   "side": "enemy",
+   "name": "Latin League army",
+   "model": "auxiliary",
+   "scales": true
+  },
+  "tarq": {
+   "x": 90,
+   "y": 90,
+   "w": 50,
+   "h": 12,
+   "side": "enemy",
+   "name": "Tarquin’s exiles",
+   "model": "levy",
+   "scales": true
+  },
+  "mam": {
+   "x": 320,
+   "y": 100,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Mamilius’s picked men",
+   "model": "veteran",
+   "scales": true
+  },
+  "lcav": {
+   "x": 340,
+   "y": 70,
+   "w": 50,
+   "h": 12,
+   "side": "enemy",
+   "name": "Latin horse",
+   "model": "cav_roman"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Latins break.",
+   "Mamilius is dead and Tarquin flees.",
+   "The Republic survives."
+  ],
+  "lose": [
+   "The Latins break the Roman line.",
+   "Tarquin rides toward Rome.",
+   "The young Republic is in danger."
+  ],
+  "cams": [
+   "front",
+   "clash",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Command",
+   "decision": 0,
+   "options": [
+    {
+     "text": "One dictator",
+     "tone": "g"
+    },
+    {
+     "text": "Two consuls",
+     "tone": "a"
+    },
+    {
+     "text": "Talking",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Undecided",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Line",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Deep, with a reserve",
+     "tone": "g"
+    },
+    {
+     "text": "Long and thin",
+     "tone": "a"
+    },
+    {
+     "text": "Charged early",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Forming",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The left",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Steadied",
+     "tone": "g"
+    },
+    {
+     "text": "Giving ground",
+     "tone": "a"
+    },
+    {
+     "text": "Disordered",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Holding",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The front",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Hardened",
+     "tone": "g"
+    },
+    {
+     "text": "Thinning",
+     "tone": "a"
+    },
+    {
+     "text": "Running",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Pressed",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "A war for the old king",
+   "text": "The Latin towns have joined the exiled king Tarquin the Proud and his son-in-law Octavius Mamilius of Tusculum. The young Republic faces its first great war.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The consuls share command, one day each."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Divided command has failed Rome before. One man with full power for six months could hold the army together."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Name a dictator to hold the whole command",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -9,
+       "set": {
+        "dict": 1
+       },
+       "text": "The Senate names Aulus Postumius dictator, with Titus Aebutius as master of horse. The army has one voice."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Leave the two consuls to share it, day by day",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -6,
+       "text": "The consuls take turns, and the army waits on their quarrels."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer the Latins terms to keep the peace",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "The Latins take the offer as weakness and march."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "By Lake Regillus",
+   "text": "The armies meet by a small lake below Tusculum. The Latins are many and confident. Tarquin, old as he is, rides with them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Latin line is long; their best men are on their right with Mamilius."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold your own line deep and keep a reserve of picked men behind it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Draw up deep, with your own cohort behind the line",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "set": {
+        "res": 1
+       },
+       "text": "The Roman line stands deep, the dictator’s cohort waiting behind it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "coh": [
+         200,
+         220
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stretch the line to match theirs so they cannot wrap it",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The line is long and thin."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         186
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge at once before they finish forming",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The charge runs into a ready enemy."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "lat"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Old Tarquin rides in",
+   "text": "Tarquin himself charges at the dictator. He is wounded and carried back, but on the Roman left the master of horse is hurt and the line gives.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The left is wavering."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Your own cohort is fresh. Use it to steady the left."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send your cohort to steady the left",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "text": "The picked men march up behind the left and it holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "coh": [
+         120,
+         205
+        ]
+       },
+       "f": [
+        "coh",
+        "tarq"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Let the left fall back and shorten the line",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "The line is shorter, but the Latins come on."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         220,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Counter-charge with the whole line",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -4,
+       "text": "The whole line surges forward and loses its order."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "lat"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The Latins press",
+   "text": "Mamilius leads his best men against the Roman front. Roman soldiers begin to slip away. The horsemen sit idle behind the line.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your horsemen are fresh, but on foot they would fight as well as any."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Order your own cohort to treat any Roman running away as the enemy, and have the cavalry dismount to fill the line."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Your cohort stops the runaways; the horse fight on foot",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "res": true
+       },
+       "r": -4,
+       "e": -18,
+       "text": "Your cohort turns back the men who are running. The horsemen leap down and fill the front. The line hardens and Mamilius falls."
+      },
+      {
+       "r": -6,
+       "e": -11,
+       "text": "The line hardens."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         150,
+         180
+        ],
+        "coh": [
+         200,
+         205
+        ]
+       },
+       "f": [
+        "eq",
+        "mam",
+        "leg"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Keep the horse mounted, ready to ride down the Latins when they break",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The front keeps thinning."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Pull the whole line back to the camp",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The retreat becomes a rout."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         225
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "A vow to the twins",
+   "text": "The fight hangs in the balance. Your men look to you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your soldiers are pious men."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A vow to the gods in front of the army will lift them. Then send the horse in."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Vow a temple to Castor and Pollux, then charge",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -18,
+       "text": "You vow a temple to the divine twins. The horse remount and charge, and the Latins break. Later, Romans will say two tall young horsemen fought in the front."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         250,
+         110
+        ],
+        "leg": [
+         200,
+         140
+        ],
+        "lat": [
+         200,
+         70
+        ]
+       },
+       "f": [
+        "eq",
+        "leg",
+        "lat"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold the line and wait for the Latins to tire",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The day ends with nothing decided."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ride to the front yourself and lead the charge",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "You lead the charge and are wounded; the army wavers."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "coh": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "coh",
+        "lat"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Lake Regillus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Lake_Regillus"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "Two youths of more than human size were seen fighting for Rome on horseback.",
+   "who": "The legend of Castor and Pollux, as later Romans told it"
+  }
+ ]
+}

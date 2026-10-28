@@ -1,0 +1,680 @@
+{
+ "id": "vadimo",
+ "name": "Battle of Lake Vadimo",
+ "date": "283 BC",
+ "result": "win",
+ "loc": {
+  "lat": 42.47,
+  "lon": 12.32,
+  "place": "Lake Vadimo, near the Tiber",
+  "short": "Lake Vadimo",
+  "x": 337,
+  "y": 102
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Gauls and Etruscans",
+  "commander": "Dolabella",
+  "foe": "the Boii and Etruscans"
+ },
+ "intro": "By the small Lake Vadimo, near the Tiber north of Rome, 283 BC. The Boii Gauls and the Etruscans have joined forces after beating a Roman army at Arretium. You are the consul Publius Cornelius Dolabella. The sources say little about the battle.",
+ "debrief": "Polybius and other writers say that Dolabella crushed the Etruscans and Boii at Lake Vadimo, that most of the Etruscans were killed, and that when the Boii raised a new army the next year it was beaten too, after which they made peace. How the battle was fought is not recorded; the moves here are a reconstruction, and the other choices are what-ifs.",
+ "terrain": {
+  "lakes": [
+   [
+    90,
+    40,
+    60,
+    30
+   ]
+  ],
+  "river": {
+   "x": 380,
+   "w": 24
+  }
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 190,
+   "w": 160,
+   "h": 14,
+   "side": "roman",
+   "name": "Dolabella’s legions",
+   "model": "hastati"
+  },
+  "eq": {
+   "x": 60,
+   "y": 205,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Roman horse",
+   "model": "cav_roman"
+  },
+  "etr": {
+   "x": 120,
+   "y": 95,
+   "w": 110,
+   "h": 14,
+   "side": "enemy",
+   "name": "Etruscans",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "boi": {
+   "x": 290,
+   "y": 95,
+   "w": 120,
+   "h": 14,
+   "side": "enemy",
+   "name": "Boii Gauls",
+   "model": "gaul",
+   "scales": true
+  },
+  "gcav": {
+   "x": 350,
+   "y": 70,
+   "w": 50,
+   "h": 12,
+   "side": "enemy",
+   "name": "Gallic horse",
+   "model": "cav_heavy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Gauls break.",
+   "The Etruscans are driven into the lake.",
+   "Rome is safe from the north."
+  ],
+  "lose": [
+   "The Gauls break the Roman line.",
+   "The Etruscans follow.",
+   "The road to Rome is open."
+  ],
+  "cams": [
+   "right",
+   "left",
+   "wide"
+  ],
+  "anim": {
+   "win": "drown"
+  }
+ },
+ "status": [
+  {
+   "label": "Ground",
+   "decision": 0,
+   "options": [
+    {
+     "text": "At Lake Vadimo",
+     "tone": "g"
+    },
+    {
+     "text": "Rome waits",
+     "tone": "r"
+    },
+    {
+     "text": "Raiding Etruria",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Enemy marching",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Gauls",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Spent on your line",
+     "tone": "g"
+    },
+    {
+     "text": "Striking your flank",
+     "tone": "r"
+    },
+    {
+     "text": "Winning the charge",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Ready to charge",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Line",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Gauls breaking",
+     "tone": "g"
+    },
+    {
+     "text": "Horse engaged",
+     "tone": "a"
+    },
+    {
+     "text": "Resting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Holding",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Etruscans",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Pinned by the lake",
+     "tone": "g"
+    },
+    {
+     "text": "Escaping",
+     "tone": "a"
+    },
+    {
+     "text": "Gone",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "In order",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Gauls and Etruscans",
+   "text": "The Boii Gauls have joined the Etruscans and are marching on Rome. Rome’s army met defeat at Arretium only the year before. You are the consul Publius Cornelius Dolabella.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Gauls are on the right of the enemy line, the Etruscans on the left."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Meet them before they reach Roman land, where you choose the ground."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Meet them at Lake Vadimo, before Rome",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "set": {
+        "ground": 1
+       },
+       "text": "You catch them by the small lake of Vadimo, near the Tiber."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for them behind the walls of Rome",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "They ravage the land while Rome waits."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March north to strike Etruria itself",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The raids draw some Etruscans home."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Two enemies",
+   "text": "The Etruscans and Gauls stand side by side by the lake. They fight differently: the Gauls with wild charges, the Etruscans in close ranks.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Gauls will charge first, and hardest."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let the Gauls tire themselves on a steady line."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold steady and let the Gauls charge first",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "set": {
+        "tired": 1
+       },
+       "text": "The Gauls charge with a roar and break against the Roman line."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "boi"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Attack the Etruscans first, the weaker side",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The Etruscans hold while the Gauls strike your flank."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         150,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "etr"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Charge the Gauls before they can start",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -4,
+       "text": "Wild meets wild, and the Gauls have the better of it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         260,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "boi"
+       ]
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The Gauls waver",
+   "text": "The Boii have spent their fury. The Etruscans are still in good order.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your horse is fresh on the left."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike the tired Gauls hard, then turn on the Etruscans."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Throw everything at the tired Gauls",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "tired": true
+       },
+       "r": -2,
+       "e": -19,
+       "text": "The legions go in against the spent Gauls and break them."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The Gauls give ground."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         280,
+         130
+        ]
+       },
+       "f": [
+        "leg",
+        "boi"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Send the horse round the Etruscans",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The Etruscans turn to face the horse."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         60,
+         100
+        ]
+       },
+       "f": [
+        "eq",
+        "etr"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Hold and rest the front ranks",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The Gauls recover their breath."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Etruscans alone",
+   "text": "The Gauls are breaking. The Etruscans fight on.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The lake is behind them."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pin them against the lake."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Turn the line and pin them against the lake",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "The legions wheel and drive the Etruscans back toward the water. Few escape."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         150,
+         130
+        ],
+        "etr": [
+         100,
+         60
+        ]
+       },
+       "f": [
+        "leg",
+        "etr"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Let the Etruscans retreat and chase the Gauls",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "The Etruscans get away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stop, and let both of them go",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Both enemies escape."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The next year",
+   "text": "The beaten Boii and Etruscans raise another army the next year.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are fewer now."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike again quickly, before they rebuild."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Meet them again and beat them",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "Rome beats them again the next year. The Boii make peace."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Build forts along the frontier",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The frontier is guarded but they recover."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer them land to settle",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The Boii take it as weakness."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Lake Vadimo (283 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Lake_Vadimo_(283_BC)"
+  }
+ ]
+}

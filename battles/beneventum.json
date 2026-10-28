@@ -1,0 +1,752 @@
+{
+ "id": "beneventum",
+ "name": "Battle of Beneventum",
+ "date": "275 BC",
+ "result": "win",
+ "loc": {
+  "lat": 41.13,
+  "lon": 14.78,
+  "place": "Maleventum (Beneventum), Samnium",
+  "short": "Beneventum",
+  "x": 368,
+  "y": 125
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Pyrrhus",
+  "commander": "Curius Dentatus",
+  "foe": "Pyrrhus"
+ },
+ "intro": "Near Maleventum in Samnium, 275 BC. King Pyrrhus of Epirus has returned from Sicily to fight Rome again. You are the consul Manius Curius Dentatus, camped on high ground, waiting for your colleague. The Romans later renamed the town Beneventum, ‘good result’.",
+ "debrief": "In the accounts of Plutarch and others, Pyrrhus tried to surprise the Roman camp with a night march through wooded hills, but his men lost their way and arrived at dawn exhausted, and Curius attacked them as they came down. In the battle on the plain, the Romans drove back the elephants; one writer says a wounded calf panicked and its mother charged back through Pyrrhus’s lines. Pyrrhus’s camp was taken and he soon left Italy. The details differ between sources and some may be legend. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    250,
+    110,
+    18
+   ],
+   [
+    60,
+    60,
+    80,
+    22
+   ]
+  ],
+  "forests": [
+   [
+    60,
+    50,
+    70,
+    30
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 190,
+   "w": 160,
+   "h": 14,
+   "side": "roman",
+   "name": "Curius’s legions",
+   "model": "hastati"
+  },
+  "camp": {
+   "x": 200,
+   "y": 226,
+   "w": 90,
+   "h": 10,
+   "side": "roman",
+   "name": "Roman camp on the hill",
+   "model": "levy"
+  },
+  "vel": {
+   "x": 200,
+   "y": 170,
+   "w": 120,
+   "h": 8,
+   "side": "roman",
+   "name": "Velites and light troops",
+   "model": "velites"
+  },
+  "phal": {
+   "x": 200,
+   "y": 90,
+   "w": 150,
+   "h": 16,
+   "side": "enemy",
+   "name": "Pyrrhus’s phalanx",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "ele": {
+   "x": 200,
+   "y": 118,
+   "w": 80,
+   "h": 10,
+   "side": "enemy",
+   "name": "Elephants",
+   "model": "elephant"
+  },
+  "nm": {
+   "x": 60,
+   "y": 60,
+   "w": 80,
+   "h": 12,
+   "side": "enemy",
+   "name": "Night-march column",
+   "model": "greek_phalanx",
+   "scales": true,
+   "hidden": true
+  },
+  "pcav": {
+   "x": 340,
+   "y": 80,
+   "w": 50,
+   "h": 12,
+   "side": "enemy",
+   "name": "Pyrrhus’s horse",
+   "model": "cav_eastern"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The elephants turn on their own side.",
+   "Pyrrhus’s camp is taken.",
+   "Pyrrhus leaves Italy for ever."
+  ],
+  "lose": [
+   "The elephants break the legions.",
+   "Pyrrhus holds the field.",
+   "Southern Italy is his."
+  ],
+  "cams": [
+   "clash",
+   "front",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Camp",
+   "decision": 0,
+   "options": [
+    {
+     "text": "On the high ground",
+     "tone": "g"
+    },
+    {
+     "text": "On the plain",
+     "tone": "r"
+    },
+    {
+     "text": "Marching off",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Near Maleventum",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Night march",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Ready for them",
+     "tone": "g"
+    },
+    {
+     "text": "Skirmishing",
+     "tone": "a"
+    },
+    {
+     "text": "Surprised",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Rumours",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Column",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Broken",
+     "tone": "g"
+    },
+    {
+     "text": "Attacking the camp",
+     "tone": "a"
+    },
+    {
+     "text": "You gave up the hill",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Tired",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Elephants",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Panicked",
+     "tone": "g"
+    },
+    {
+     "text": "Passed through",
+     "tone": "a"
+    },
+    {
+     "text": "Trampling you",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "In front",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Pyrrhus returns",
+   "text": "King Pyrrhus is back from Sicily with his army and elephants. You are the consul Manius Curius Dentatus, camped on high ground near Maleventum. The other consul is far away.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Pyrrhus wants to beat you before the other consul joins you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Stay on your hill and do not be drawn into battle on his ground."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stay on the high ground and wait",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "set": {
+        "hill": 1
+       },
+       "text": "You stay in your strong camp on the hill. Pyrrhus must come to you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Come down and offer battle on the plain",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The phalanx and elephants have room on the plain."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         160
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March away to join the other consul",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Pyrrhus follows your march."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "A night march",
+   "text": "Your scouts report Pyrrhus has left his camp at night with picked men and elephants, to march round through the woods and hit your camp from above at dawn.",
+   "intel": {
+    "hint": [
+     {
+      "text": "In thick woods at night, men lose their way."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Have your men armed and ready at dawn, and watch the hills."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Arm the army before dawn and watch the hills",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "set": {
+        "ready": 1
+       },
+       "text": "At first light Pyrrhus’s column comes out of the woods, late, tired and strung out. Your men are ready."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "nm": [
+         80,
+         100,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Send cavalry into the woods at once to find and stop them",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Your horsemen find the column in the woods and skirmish."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "nm": [
+         80,
+         100,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Ignore the report and wait for the day",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The column arrives at your camp unseen."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "nm": [
+         120,
+         180,
+         1
+        ]
+       },
+       "f": [
+        "nm",
+        "camp"
+       ]
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Out of the woods",
+   "text": "The tired column is coming down the hill. Its torches have burned out and its men are thirsty.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are strung out and weary."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack them now, before they form up."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack the column as it comes out",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "ready": true
+       },
+       "r": -2,
+       "e": -19,
+       "text": "You fall on the column as it comes down. The weary men break and run, and some elephants are taken."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "You catch part of the column."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         120,
+         140
+        ],
+        "nm": [
+         80,
+         90
+        ]
+       },
+       "f": [
+        "leg",
+        "nm"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Wait for them to attack your camp",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They form up and attack the camp, but without force."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fall back from the camp to the plain",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "You give up your strong position."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The elephants",
+   "text": "Pyrrhus brings up the main army, elephants in front. Your legions on the plain face them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "A young elephant has been wounded and is crying out for its mother."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Shower the elephants with javelins and burning missiles to panic them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Shower the elephants with javelins and fire",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -14,
+       "set": {
+        "panic": 1
+       },
+       "text": "Javelins and burning arrows hit the elephants. A wounded calf runs wild, and its mother turns back through Pyrrhus’s own ranks."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         200,
+         140
+        ],
+        "ele": [
+         200,
+         90
+        ]
+       },
+       "f": [
+        "vel",
+        "ele",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Open lanes and let the elephants through",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The elephants pass through and turn back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         200,
+         215,
+         0.5
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge the elephants head-on with the legions",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -4,
+       "text": "The legions are trampled."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Pyrrhus’s last chance",
+   "text": "The elephants have crashed back into the phalanx. Pyrrhus’s line is in chaos.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His camp is open behind him."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Drive through the chaos into his camp."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Drive on into his camp",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "panic": true
+       },
+       "r": -2,
+       "e": -22,
+       "text": "The legions drive through the broken phalanx into Pyrrhus’s camp. Pyrrhus escapes, and soon leaves Italy for good."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The legions push on."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         80
+        ],
+        "phal": [
+         200,
+         50
+        ]
+       },
+       "f": [
+        "leg",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold the field and let him withdraw",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "Pyrrhus withdraws in order."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase the elephants instead",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -4,
+       "text": "The phalanx re-forms while you chase beasts."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Beneventum (275 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Beneventum_(275_BC)"
+  }
+ ]
+}

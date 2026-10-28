@@ -1,0 +1,706 @@
+{
+ "id": "lautulae",
+ "name": "Battle of Lautulae",
+ "date": "315 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 41.3,
+  "lon": 13.25,
+  "place": "Lautulae, near Tarracina",
+  "short": "Lautulae",
+  "x": 349,
+  "y": 123
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Samnites",
+  "commander": "Fabius",
+  "foe": "the Samnites"
+ },
+ "intro": "At Lautulae, a narrow pass near Tarracina on the road from Rome to Campania, 315 BC. You are the dictator Quintus Fabius Maximus Rullianus, facing a Samnite army that has come down to the coast. The sources say little about this battle.",
+ "debrief": "Little is known. Livy reports that the Romans were defeated at Lautulae; he notes that some writers said the battle was drawn, but that the master of horse, Quintus Aulius Cerretanus, died charging the enemy after killing the Samnite cavalry commander. The defeat shook Rome’s hold on Campania for a time, but Rome recovered and won again the next year. Most details here are reconstructions; the other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    60,
+    120,
+    70,
+    24
+   ],
+   [
+    200,
+    20,
+    140,
+    18
+   ]
+  ],
+  "lakes": [
+   [
+    420,
+    160,
+    80,
+    140
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 190,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Fabius’s army",
+   "model": "hastati"
+  },
+  "eq": {
+   "x": 340,
+   "y": 200,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Horse under Aulius",
+   "model": "cav_roman"
+  },
+  "sam": {
+   "x": 200,
+   "y": 90,
+   "w": 170,
+   "h": 16,
+   "side": "enemy",
+   "name": "Samnite army",
+   "model": "auxiliary",
+   "scales": true
+  },
+  "scav": {
+   "x": 60,
+   "y": 95,
+   "w": 50,
+   "h": 12,
+   "side": "enemy",
+   "name": "Samnite horse",
+   "model": "cav_roman"
+  },
+  "pass": {
+   "x": 40,
+   "y": 150,
+   "w": 40,
+   "h": 40,
+   "side": "enemy",
+   "name": "The pass at Lautulae",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Samnites are driven from the pass.",
+   "The road south is safe.",
+   "Fabius has the victory."
+  ],
+  "lose": [
+   "The line breaks at Lautulae.",
+   "Aulius dies with his horsemen.",
+   "Campania wavers."
+  ],
+  "cams": [
+   "left",
+   "clash",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "The pass",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Held",
+     "tone": "g"
+    },
+    {
+     "text": "Open ground",
+     "tone": "a"
+    },
+    {
+     "text": "Lost",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "On the road south",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Line",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Holding at a cost",
+     "tone": "a"
+    },
+    {
+     "text": "Better ground",
+     "tone": "g"
+    },
+    {
+     "text": "Charge broken",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Engaged",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Horse",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Aulius lost",
+     "tone": "r"
+    },
+    {
+     "text": "Kept together",
+     "tone": "g"
+    },
+    {
+     "text": "On the flank",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Restless",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Army",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Routed",
+     "tone": "r"
+    },
+    {
+     "text": "Withdrawing in order",
+     "tone": "g"
+    },
+    {
+     "text": "Last stand",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Breaking",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Rome’s road south",
+   "text": "The Samnites are back on the offensive. Their army has come down toward the coast near Tarracina, where a narrow pass at Lautulae carries the road between the hills and the sea. You are the dictator Quintus Fabius Maximus Rullianus.",
+   "intel": {
+    "hint": [
+     {
+      "text": "If the Samnites hold the pass, the road to Campania is cut."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold the pass yourself before they reach it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March fast to seize the pass first",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "pass": 1
+       },
+       "text": "Your vanguard reaches the pass first."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         120,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Meet them on the open ground before the pass",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "You meet them on open ground near Lautulae."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for more troops from Rome",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "The Samnites take the pass."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The lines meet",
+   "text": "The Samnites attack hard. The fighting is long and costly.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The ground is cramped between the hills and the sea."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Do not let the line be pushed back into the narrows."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold the line where it stands, whatever it costs",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The line holds, but at great cost."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Fall back to stronger ground by the hills",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "set": {
+        "ground": 1
+       },
+       "text": "The army takes a better position against the slope."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Throw the whole line forward",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -4,
+       "text": "The charge breaks against the Samnites."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The master of horse",
+   "text": "Your master of horse, Quintus Aulius Cerretanus, sees the line giving and wants to charge the Samnite horse.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Samnite horse outnumber yours."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A lone charge by the horse will not save the line."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let Aulius charge",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": -4,
+       "set": {
+        "aulius": 1
+       },
+       "text": "Aulius charges, kills the Samnite commander of horse and is cut down himself."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         300,
+         100
+        ]
+       },
+       "f": [
+        "eq",
+        "scav"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Keep the horse to cover the retreat",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "set": {
+        "cover": 1
+       },
+       "text": "The horse stays together, ready to cover the infantry."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the horse round the Samnite flank",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The flank attack draws some Samnites off."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         330,
+         110
+        ]
+       },
+       "f": [
+        "eq",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Breaking point",
+   "text": "The Roman line is breaking. Men are running toward Tarracina.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Night is not far off."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Form a rearguard and get the army away intact."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Every man for himself: run for Tarracina and its walls",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": 0,
+       "text": "The army breaks and many are cut down."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         230
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Form a rearguard and withdraw in order",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "cover": true
+       },
+       "r": -2,
+       "e": -20,
+       "text": "Covered by the horse, the army falls back in good order."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The rearguard holds long enough."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         215
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Make a last stand at the pass",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "The stand costs the Samnites dearly."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         80,
+         160
+        ]
+       },
+       "f": [
+        "leg",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "After the battle",
+   "text": "The Samnites have won. Campania wavers, and some towns go over to them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Rome will send another army."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold what you can and wait for help."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fall back to Rome and raise a new army",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "You fall back to raise a new army."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold Tarracina and keep the road open",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "The town holds, and the road stays open."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Counter-attack at once to save face",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The tired army is beaten again."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Lautulae (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Lautulae"
+  }
+ ],
+ "winAt": 50
+}
