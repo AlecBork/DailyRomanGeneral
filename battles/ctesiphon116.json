@@ -1,0 +1,643 @@
+{
+ "id": "ctesiphon116",
+ "name": "Capture of Ctesiphon",
+ "date": "116 AD",
+ "result": "win",
+ "loc": {
+  "lat": 33.09,
+  "lon": 44.58,
+  "place": "Ctesiphon, Mesopotamia",
+  "short": "Ctesiphon",
+  "x": 750,
+  "y": 266
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Parthia",
+  "commander": "Trajan",
+  "foe": "Osroes I"
+ },
+ "intro": "Ctesiphon, the Parthian capital on the Tigris (south of modern Baghdad), 116 AD. You are the Emperor Trajan, over sixty, at the height of Rome’s expansion.",
+ "debrief": "In Cassius Dio’s account, Trajan hauled his Euphrates fleet overland to the Tigris and took Ctesiphon while the Parthian king Osroes was busy elsewhere, capturing his daughter and golden throne. Trajan sailed to the Persian Gulf and, seeing a ship leaving for India, said he would have gone too, were he young. Revolts broke out behind him, and he set up a client king. Hadrian gave up the conquests soon after. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 140,
+   "w": 30
+  },
+  "grass": "#a8a163",
+  "ground": "#c4ad76"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 220,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Trajan’s legions",
+   "model": "legionary"
+  },
+  "fleet": {
+   "x": 80,
+   "y": 200,
+   "w": 60,
+   "h": 10,
+   "side": "roman",
+   "name": "Fleet carried overland",
+   "model": "galley_roman"
+  },
+  "eng": {
+   "x": 320,
+   "y": 210,
+   "w": 80,
+   "h": 6,
+   "side": "roman",
+   "name": "Engines",
+   "model": "velites"
+  },
+  "cte": {
+   "x": 200,
+   "y": 70,
+   "w": 180,
+   "h": 12,
+   "side": "enemy",
+   "name": "Ctesiphon",
+   "model": "levy",
+   "scales": true
+  },
+  "riv": {
+   "x": 200,
+   "y": 140,
+   "w": 260,
+   "h": 4,
+   "side": "enemy",
+   "name": "The Tigris",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The fleet reaches the Tigris.",
+   "Ctesiphon falls.",
+   "Rome reaches the Persian Gulf."
+  ],
+  "lose": [
+   "The legions cannot cross the Tigris.",
+   "Ctesiphon holds.",
+   "The Parthian king returns."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Fleet",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Hauled across",
+     "tone": "g"
+    },
+    {
+     "text": "On the Euphrates",
+     "tone": "a"
+    },
+    {
+     "text": "Flood",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Two rivers",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Tigris",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Crossed",
+     "tone": "g"
+    },
+    {
+     "text": "King returns",
+     "tone": "r"
+    },
+    {
+     "text": "Bridging",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Far bank",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "City",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Taken",
+     "tone": "g"
+    },
+    {
+     "text": "Besieged",
+     "tone": "a"
+    },
+    {
+     "text": "Stalled",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Ctesiphon",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Gulf",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Turned back",
+     "tone": "g"
+    },
+    {
+     "text": "Sailing on",
+     "tone": "r"
+    },
+    {
+     "text": "Wintering",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "A ship for India",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Parthia",
+   "text": "Parthia has put its own king on Armenia’s throne. You are Trajan, now over sixty, invading Mesopotamia. You have taken Armenia and Mesopotamia and built a fleet on the Euphrates.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Ctesiphon is on the Tigris. Your fleet is on the Euphrates."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Drag the ships across."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Haul the ships overland",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "fleet": 1
+       },
+       "text": "Your engineers haul the fleet across the narrow land between the rivers on rollers."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fleet": [
+         80,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "March down the Euphrates",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "You end up far from Ctesiphon."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Dig a canal to join the rivers",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The ground is too high; the river would flood."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Tigris",
+   "text": "Ctesiphon stands on the far bank of the Tigris.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Parthian king Osroes is busy fighting a rival in the east."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cross now."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cross now",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "fleet": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "Your fleet ferries the legions over the Tigris."
+      },
+      {
+       "r": -8,
+       "e": -7,
+       "text": "The crossing is slow."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "leg",
+        "cte"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for the king to come back",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Osroes returns with an army."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Bridge the river first",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "It takes weeks."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The city",
+   "text": "Ctesiphon’s walls are weakly held.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The king’s family is inside."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Storm it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Storm the city",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "The city falls. You take the king’s daughter and his golden throne."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cte": [
+         200,
+         70,
+         0.2
+        ]
+       },
+       "f": [
+        "leg",
+        "cte"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Besiege it",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "It takes weeks."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ask it to surrender",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The garrison stalls."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Gulf",
+   "text": "You sail down the Tigris to the Persian Gulf. You see a ship sailing for India.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You are too old to be Alexander."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Look, and go back."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Watch it go, and turn back",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Trajan says he would have gone to India too, if he were young. Rome now reaches the Gulf."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Sail on for India",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The provinces revolt behind you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stay at the Gulf for the winter",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Revolts break out."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Revolt",
+   "text": "Behind you, the new provinces revolt.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your generals can put them down."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send Lusius Quietus."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send your generals",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Lusius Quietus and others crush the revolts. You set up a Parthian prince as client king in Ctesiphon."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hurry back yourself",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "You fall ill."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Give back the conquests to keep peace",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "Rome mocks you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Trajan%27s Parthian campaign (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Trajan%27s_Parthian_campaign"
+  }
+ ]
+}

@@ -1170,6 +1170,51 @@
    "lon": 22.7,
    "result": "win",
    "naval": false
+  },
+  {
+   "id": "tapae101",
+   "name": "Tapae (third)",
+   "date": "101 AD",
+   "lat": 45.5,
+   "lon": 22.7,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "adamclisi",
+   "name": "Adamclisi",
+   "date": "102 AD",
+   "lat": 44.09,
+   "lon": 27.95,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "sarmizegetusa",
+   "name": "Sarmizegetusa",
+   "date": "106 AD",
+   "lat": 45.62,
+   "lon": 23.31,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "ctesiphon116",
+   "name": "Ctesiphon",
+   "date": "116 AD",
+   "lat": 33.09,
+   "lon": 44.58,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "hatra117",
+   "name": "Hatra",
+   "date": "117 AD",
+   "lat": 35.59,
+   "lon": 42.72,
+   "result": "loss",
+   "naval": false
   }
  ]
 }

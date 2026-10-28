@@ -1,0 +1,653 @@
+{
+ "id": "adamclisi",
+ "name": "Battle of Adamclisi",
+ "date": "102 AD",
+ "result": "win",
+ "loc": {
+  "lat": 44.09,
+  "lon": 27.95,
+  "place": "Adamclisi, Moesia",
+  "short": "Adamclisi",
+  "x": 537,
+  "y": 74
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Dacians and Roxolani",
+  "commander": "Trajan",
+  "foe": "Decebalus"
+ },
+ "intro": "Near Adamclisi in Moesia (modern Dobruja, Romania), winter 101-102 AD. Decebalus and the Sarmatian Roxolani have crossed the Danube to raid behind Trajan’s lines. You are the Emperor Trajan.",
+ "debrief": "Trajan’s Column shows Trajan hurrying down the Danube by ship, a night attack on a Dacian camp, Moorish horsemen under Lusius Quietus fighting armoured Roxolani, and a battle at a wagon laager. The battle was costly: an altar at Adamclisi lists nearly 4,000 Roman dead. Trajan later built a huge trophy monument there, whose ruins survive. Details of the battle are reconstructed from these monuments. The other choices are what-ifs.",
+ "terrain": {
+  "weather": "snow",
+  "grass": "#cfd6d6",
+  "ground": "#d8dcda"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 220,
+   "w": 160,
+   "h": 14,
+   "side": "roman",
+   "name": "Trajan’s legions",
+   "model": "legionary"
+  },
+  "aux": {
+   "x": 320,
+   "y": 220,
+   "w": 90,
+   "h": 10,
+   "side": "roman",
+   "name": "Auxiliaries",
+   "model": "auxiliary"
+  },
+  "cav": {
+   "x": 60,
+   "y": 225,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Moorish cavalry under Lusius Quietus",
+   "model": "cav_numidian"
+  },
+  "dac": {
+   "x": 160,
+   "y": 90,
+   "w": 160,
+   "h": 14,
+   "side": "enemy",
+   "name": "Dacians and Roxolani raiding Moesia",
+   "model": "barbarian",
+   "scales": true
+  },
+  "rox": {
+   "x": 320,
+   "y": 90,
+   "w": 80,
+   "h": 10,
+   "side": "enemy",
+   "name": "Roxolani armoured cavalry",
+   "model": "cav_heavy"
+  },
+  "wag": {
+   "x": 200,
+   "y": 40,
+   "w": 160,
+   "h": 6,
+   "side": "enemy",
+   "name": "Wagon laager",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The raiders are caught by night.",
+   "The Moors ride round the Roxolani.",
+   "Moesia is saved."
+  ],
+  "lose": [
+   "The Roxolani ride the legions down.",
+   "Moesia burns.",
+   "Trajan’s campaign is ruined."
+  ],
+  "cams": [
+   "right",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "March",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Down the river",
+     "tone": "g"
+    },
+    {
+     "text": "Overland",
+     "tone": "a"
+    },
+    {
+     "text": "Moesia plundered",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Raid",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Camp",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Surprised",
+     "tone": "g"
+    },
+    {
+     "text": "Seen",
+     "tone": "a"
+    },
+    {
+     "text": "Slipped away",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Dacian camp",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Roxolani",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Ridden round",
+     "tone": "g"
+    },
+    {
+     "text": "Armour holds",
+     "tone": "r"
+    },
+    {
+     "text": "Square",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Armoured horse",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Laager",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Stormed",
+     "tone": "g"
+    },
+    {
+     "text": "Broken out",
+     "tone": "a"
+    },
+    {
+     "text": "Wet wagons",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Wagons",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The raid",
+   "text": "In winter, Decebalus and his Sarmatian allies, the Roxolani, cross the frozen Danube into Moesia, behind your lines. You are Trajan.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are spread out raiding."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hurry down the Danube by boat."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hurry down the Danube by boat",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "fast": 1
+       },
+       "text": "You take your guard and troops down the river by ship, and land near the raiders."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March overland",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "It takes weeks."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Leave Moesia to its garrison",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Moesia is plundered."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Night attack",
+   "text": "You find part of the Dacian army camped at night.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They do not expect you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack by night."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack by night",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "fast": true
+       },
+       "r": -2,
+       "e": -15,
+       "text": "Your night attack falls on them before they know you are near."
+      },
+      {
+       "r": -6,
+       "e": -6,
+       "text": "They are half ready."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         160,
+         120
+        ]
+       },
+       "f": [
+        "leg",
+        "dac"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for daylight to see the ground",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "They see you coming."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Surround the camp in the dark",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "They slip out in the dark."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Roxolani",
+   "text": "Roxolani cavalry, horse and man covered in scale armour, charge.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are heavy, and slow to turn."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Use your Moorish horse."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Outride them",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "text": "Lusius Quietus’s Moorish light horse ride round the armoured Roxolani and attack from behind."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         320,
+         60
+        ]
+       },
+       "f": [
+        "cav",
+        "rox"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Meet them head-on with your cavalry",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The armour holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "cav",
+        "rox"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Form a square and let them break on it",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "They ride round you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The laager",
+   "text": "The Dacians fall back to a laager of wagons.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Storm it."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack the wagons."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Storm the wagons",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -15,
+       "text": "Your legions storm the wagons. The battle is long and bloody, and many Romans die."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         60
+        ]
+       },
+       "f": [
+        "leg",
+        "wag"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Surround them and starve them out",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "They break out."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Shoot fire arrows to burn the wagons",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "The wagons are wet."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The monument",
+   "text": "Nearly 4,000 Romans died. The Dacians have been driven back over the Danube.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Honour the dead."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Build a memorial."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Honour the dead",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "You build an altar listing the names of the Roman dead, and later a great trophy monument. Its ruins still stand at Adamclisi."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase them back over the river into Dacia",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Winter stops you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Execute the prisoners",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Dacians fight harder."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Adamclisi (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Adamclisi"
+  }
+ ]
+}

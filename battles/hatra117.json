@@ -1,0 +1,636 @@
+{
+ "id": "hatra117",
+ "name": "Siege of Hatra",
+ "date": "117 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 35.59,
+  "lon": 42.72,
+  "place": "Hatra, Mesopotamia",
+  "short": "Hatra",
+  "x": 726,
+  "y": 222
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Hatra",
+  "commander": "Trajan",
+  "foe": "Hatra’s king"
+ },
+ "intro": "Hatra, a walled Arab city in the Mesopotamian desert, 117 AD. Hatra has revolted against Trajan’s new conquests. You are the Emperor Trajan, ill and over sixty.",
+ "debrief": "In Cassius Dio’s account, Trajan’s army suffered in the desert from lack of water, food and fodder. His engines made a breach, but the cavalry sent in was thrown back. Riding near the walls, Trajan was recognised by his grey hair and nearly hit; a cavalryman beside him was killed. Lightning, hail and swarms of flies tormented the army, and Trajan gave up. He died on the way home, and Hadrian gave up most of the eastern conquests. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#c4ad76",
+  "ground": "#d0b37a"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 220,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Trajan’s army",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 60,
+   "y": 220,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "eng": {
+   "x": 320,
+   "y": 210,
+   "w": 80,
+   "h": 6,
+   "side": "roman",
+   "name": "Engines",
+   "model": "velites"
+  },
+  "hat": {
+   "x": 200,
+   "y": 70,
+   "w": 150,
+   "h": 12,
+   "side": "enemy",
+   "name": "Hatra’s round walls",
+   "model": "levy",
+   "scales": true
+  },
+  "arc": {
+   "x": 200,
+   "y": 100,
+   "w": 180,
+   "h": 10,
+   "side": "enemy",
+   "name": "Hatrene archers",
+   "model": "archer"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The breach is widened.",
+   "Hatra falls.",
+   "Mesopotamia is secured."
+  ],
+  "lose": [
+   "The cavalry is thrown back.",
+   "Hatra holds.",
+   "Trajan leaves, a sick man."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Supply",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Short",
+     "tone": "r"
+    },
+    {
+     "text": "Well supplied",
+     "tone": "g"
+    },
+    {
+     "text": "Delegated",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Desert",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Breach",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Thrown back",
+     "tone": "r"
+    },
+    {
+     "text": "Widening",
+     "tone": "g"
+    },
+    {
+     "text": "Mining",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Round walls",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Emperor",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Shot at",
+     "tone": "r"
+    },
+    {
+     "text": "Out of range",
+     "tone": "g"
+    },
+    {
+     "text": "Testudo",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Archers",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Summer",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Suffering",
+     "tone": "r"
+    },
+    {
+     "text": "Withdrawn",
+     "tone": "g"
+    },
+    {
+     "text": "Assault failed",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Flies and hail",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The desert city",
+   "text": "The Arab city of Hatra has revolted. It stands in the desert, ringed by round walls. You are Trajan, ill and over sixty.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The desert has little water or fodder."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Bring your own supplies."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March straight to Hatra",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Your army arrives in the summer heat with little food."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Bring supplies and wells",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -22,
+       "set": {
+        "sup": 1
+       },
+       "text": "Your army comes well supplied."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Leave it to a general",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "He besieges it in your place."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The walls",
+   "text": "Your engines batter the walls. They hold.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The wall has a breach."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send the cavalry into the breach."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the cavalry into the breach",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "sup": true
+       },
+       "r": -4,
+       "e": -6,
+       "text": "The cavalry reaches the breach but is thrown back."
+      },
+      {
+       "r": -12,
+       "e": 0,
+       "text": "The cavalry is thrown back from the breach with heavy losses."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         160,
+         100
+        ]
+       },
+       "f": [
+        "cav",
+        "hat"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Widen the breach",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -19,
+       "text": "The breach grows."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eng": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "eng",
+        "hat"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Mine under the walls by night",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -6,
+       "text": "The ground is hard."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Archers",
+   "text": "Hatra’s archers are deadly. An arrow kills a cavalryman beside you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They have seen your grey hair."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wear plain clothes."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ride close to see the walls",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The archers notice you and shoot."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Stay back",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -15,
+       "text": "You command from out of range."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Use shields and the testudo",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -6,
+       "text": "The arrows keep coming."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Summer",
+   "text": "Flies, thirst and storms of hail and thunder torment the army.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The army is suffering."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Give up."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stay and keep trying",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Lightning, hail and swarms of flies torment the army. Your men fall sick."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Give up the siege now",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "You save the army."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Final assault",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -6,
+       "text": "It fails."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "hat"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Leaving",
+   "text": "You leave Hatra untaken. You are ill.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Rome is far away."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Head home."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Go home to Rome",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Trajan dies on the way home, in Cilicia. Hadrian gives up the eastern conquests."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stay in the East",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "You grow weaker."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hand over command",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "Hadrian takes over."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Hatra (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Hatra"
+  }
+ ],
+ "winAt": 50
+}

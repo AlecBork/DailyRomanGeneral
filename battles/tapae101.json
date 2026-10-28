@@ -1,0 +1,674 @@
+{
+ "id": "tapae101",
+ "name": "Third Battle of Tapae",
+ "date": "101 AD",
+ "result": "win",
+ "loc": {
+  "lat": 45.5,
+  "lon": 22.7,
+  "place": "Tapae, Dacia",
+  "short": "Tapae (third)",
+  "x": 470,
+  "y": 49
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Dacia",
+  "commander": "Trajan",
+  "foe": "Decebalus"
+ },
+ "intro": "Tapae in Dacia, autumn 101 AD. You are the Emperor Trajan, invading Dacia with perhaps 12 legions. Decebalus has grown strong since Domitian’s peace.",
+ "debrief": "Cassius Dio tells how an ally of Decebalus sent Trajan a huge mushroom inscribed in Latin, urging him to turn back. At Tapae, the battle was bloody; so many were wounded that Trajan tore up his own clothes for bandages. Trajan’s Column shows a storm, with Jupiter hurling thunderbolts at the Dacians. Trajan wintered in Dacia and beat a Dacian raid at Adamclisi. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    60,
+    70,
+    90,
+    26
+   ],
+   [
+    340,
+    70,
+    90,
+    26
+   ]
+  ],
+  "forests": [
+   [
+    340,
+    60,
+    60,
+    16
+   ]
+  ],
+  "weather": "rain",
+  "grass": "#5f7f41"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 220,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Trajan’s legions",
+   "model": "legionary"
+  },
+  "aux": {
+   "x": 320,
+   "y": 215,
+   "w": 90,
+   "h": 10,
+   "side": "roman",
+   "name": "Auxiliaries and Moorish horse",
+   "model": "auxiliary"
+  },
+  "cav": {
+   "x": 60,
+   "y": 225,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "dac": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Decebalus’s Dacians",
+   "model": "barbarian",
+   "scales": true
+  },
+  "hill": {
+   "x": 340,
+   "y": 60,
+   "w": 80,
+   "h": 12,
+   "side": "enemy",
+   "name": "Dacians on the wooded heights",
+   "model": "barbarian",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The heights are cleared.",
+   "Trajan’s army wins at Tapae.",
+   "Rome winters in Dacia."
+  ],
+  "lose": [
+   "The Dacians hold the heights.",
+   "Trajan pulls back across the Danube.",
+   "Decebalus raids Moesia."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Advance",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Forts and roads",
+     "tone": "g"
+    },
+    {
+     "text": "Ambushed",
+     "tone": "r"
+    },
+    {
+     "text": "Talks",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Over the Danube",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Mushroom",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Ignored",
+     "tone": "g"
+    },
+    {
+     "text": "Talks",
+     "tone": "a"
+    },
+    {
+     "text": "Turned back",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "A strange message",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Heights",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Cleared",
+     "tone": "g"
+    },
+    {
+     "text": "Shot at",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Wooded heights",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Storm",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Fighting on",
+     "tone": "g"
+    },
+    {
+     "text": "Back in camp",
+     "tone": "r"
+    },
+    {
+     "text": "Mud",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Wounded",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The Danube",
+   "text": "You are Trajan, Emperor, a soldier’s soldier. Decebalus has grown rich and strong on Domitian’s payments. You cross the Danube on bridges of boats with a great army.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The road to his capital goes through Tapae again."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Advance with care, building roads and forts."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Advance slowly, with roads and forts",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "forts": 1
+       },
+       "text": "Your army builds roads and forts as it goes. Your supply line is secure."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Race for his capital at Sarmizegetusa",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Your column is ambushed in the hills."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Accept his envoys’ offers of peace",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "He uses the time to prepare."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The mushroom",
+   "text": "A Dacian ally sends you a giant mushroom with a message in Latin scratched on it, telling you to go home.",
+   "intel": {
+    "hint": [
+     {
+      "text": "It is a warning."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Go on."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March on",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "You march on toward Tapae."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Halt and hear what the envoys say",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Decebalus gains time."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Turn back to the Danube for the winter",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Rome laughs."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Tapae",
+   "text": "Decebalus fights at Tapae again. Dacians hold the heights in the woods.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Clear the heights first."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send the auxiliaries up the slopes."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Clear the heights",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "forts": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "Your auxiliaries clear the heights, so the legions can advance safely."
+      },
+      {
+       "r": -6,
+       "e": -9,
+       "text": "The auxiliaries clear the heights, at a cost."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aux": [
+         330,
+         90
+        ],
+        "hill": [
+         340,
+         60,
+         1
+        ]
+       },
+       "f": [
+        "aux",
+        "hill"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Push the legions up the road",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Dacians shoot down from the heights."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         130
+        ],
+        "hill": [
+         340,
+         60,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "dac"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold and wait for the Dacians to come down",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "A storm breaks over both armies."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Storm",
+   "text": "A thunderstorm breaks over the battle. The Romans say Jupiter fights for them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "So many are wounded that you run out of bandages."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Tear up your own clothes."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight on",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "Trajan tears up his own clothes for bandages. His men fight on."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "leg",
+        "dac"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Pull back to camp to tend the wounded",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The Dacians claim victory."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Throw the cavalry in through the rain",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The mud slows them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Winter",
+   "text": "Both sides have lost heavily. Winter is coming.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Dacians will raid south across the Danube in winter."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Winter in Dacia."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Winter in forts in Dacia",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "You winter in Dacia. When Decebalus raids over the Danube, you beat him at Adamclisi."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Go back across the Danube",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "You must fight for the pass again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Make peace",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "Decebalus rebuilds."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Tapae (101 AD) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Tapae_(101_AD)"
+  }
+ ]
+}
