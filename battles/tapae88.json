@@ -1,0 +1,674 @@
+{
+ "id": "tapae88",
+ "name": "Second Battle of Tapae",
+ "date": "88 AD",
+ "result": "win",
+ "loc": {
+  "lat": 45.5,
+  "lon": 22.7,
+  "place": "Tapae, Dacia",
+  "short": "Tapae",
+  "x": 470,
+  "y": 49
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Dacia",
+  "commander": "Tettius Julianus",
+  "foe": "Decebalus"
+ },
+ "intro": "Tapae, the pass leading to the heart of Dacia (in modern Romania), 88 AD. Two years ago the Dacian king Decebalus destroyed a Roman army. You are Tettius Julianus, sent by the Emperor Domitian.",
+ "debrief": "In Cassius Dio’s account, Julianus had every soldier write his name and his centurion’s on his shield, so bravery would be noticed. He beat the Dacians at Tapae; their general Vezinas escaped by lying among the dead. Decebalus is said to have cut down trees and dressed them in armour to make the Romans halt. Domitian, at war elsewhere, made peace, making Decebalus a client king. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    60,
+    80,
+    90,
+    26
+   ],
+   [
+    340,
+    80,
+    90,
+    26
+   ]
+  ],
+  "forests": [
+   [
+    340,
+    60,
+    60,
+    16
+   ],
+   [
+    60,
+    40,
+    60,
+    16
+   ]
+  ],
+  "grass": "#5f7f41"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 220,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Tettius Julianus’s legions",
+   "model": "legionary"
+  },
+  "aux": {
+   "x": 320,
+   "y": 215,
+   "w": 90,
+   "h": 10,
+   "side": "roman",
+   "name": "Auxiliaries",
+   "model": "auxiliary"
+  },
+  "std": {
+   "x": 80,
+   "y": 215,
+   "w": 50,
+   "h": 6,
+   "side": "roman",
+   "name": "Soldiers with names on their shields",
+   "model": "legionary"
+  },
+  "dac": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Decebalus’s Dacians",
+   "model": "barbarian",
+   "scales": true
+  },
+  "tree": {
+   "x": 340,
+   "y": 60,
+   "w": 80,
+   "h": 8,
+   "side": "enemy",
+   "name": "Felled trees dressed as soldiers",
+   "model": "levy",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Dacians break at Tapae.",
+   "The fake army is seen through.",
+   "Decebalus becomes a client king."
+  ],
+  "lose": [
+   "Decebalus holds the pass.",
+   "Another Roman army is lost.",
+   "Dacia stays free."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Shields",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Names painted",
+     "tone": "g"
+    },
+    {
+     "text": "Uneasy",
+     "tone": "a"
+    },
+    {
+     "text": "Pass strengthened",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Discipline",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Pass",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Broken",
+     "tone": "g"
+    },
+    {
+     "text": "Slowed",
+     "tone": "a"
+    },
+    {
+     "text": "Held",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Tapae",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Pursuit",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Pressing on",
+     "tone": "g"
+    },
+    {
+     "text": "Searching",
+     "tone": "a"
+    },
+    {
+     "text": "Lost in forest",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Fleeing Dacians",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Forest",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Seen through",
+     "tone": "g"
+    },
+    {
+     "text": "Halted",
+     "tone": "r"
+    },
+    {
+     "text": "Charging trees",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Great army?",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The Iron Gates",
+   "text": "Two years ago the Dacians under Decebalus destroyed a Roman army and killed its general Cornelius Fuscus. You are Tettius Julianus, sent by Domitian. The road to the Dacian capital runs through the pass at Tapae.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Discipline won your last campaigns."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Have every soldier write his name and centurion’s name on his shield."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Names on the shields",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -15,
+       "set": {
+        "names": 1
+       },
+       "text": "Every soldier paints his own name and his centurion’s on his shield, so bravery and cowardice will be seen."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "std": [
+         80,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March at once to Tapae before they are ready",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Your men are uneasy."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for more legions from the Danube",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "Decebalus strengthens the pass."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The pass",
+   "text": "Decebalus waits at Tapae, where the road goes through the hills.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men fight hard with their names on their shields."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack the pass",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "names": true
+       },
+       "r": -4,
+       "e": -20,
+       "text": "Your men fight hard, each knowing he will be seen. The Dacians break."
+      },
+      {
+       "r": -8,
+       "e": -8,
+       "text": "The fight is hard."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "leg",
+        "dac"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Go round through the hills",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The hills slow you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "aux": [
+         330,
+         120
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Wait for them to attack",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "They hold the pass."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Pursuit",
+   "text": "The Dacians flee toward their capital, Sarmizegetusa. Their general Vezinas lies down among the dead to escape.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Chase them while they are broken."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pursue."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Chase them",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "Your army follows the fleeing Dacians toward their capital."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         90
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Search the dead for their general",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "You find nothing."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rush ahead with the cavalry",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "They ride into the forest."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Fake army",
+   "text": "As you near the capital, you see a great army in the forest ahead.",
+   "intel": {
+    "hint": [
+     {
+      "text": "It is too quiet."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Look more closely."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Look closer",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -15,
+       "text": "The 'army' is felled trees dressed in armour. Decebalus is trying to make you halt."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "tree": [
+         340,
+         60,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Halt and dig in against it",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Decebalus gains time."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge it before it forms up",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "You charge into trees."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Peace",
+   "text": "Domitian, at war with the Marcomanni, wants peace with Dacia.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Decebalus offers to be Rome’s client king."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Accept for now."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Accept him as client",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "Decebalus becomes Rome’s client, and Rome even pays him money and lends him engineers. It will take Trajan to finish this war."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March on to the capital",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Domitian recalls you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ask for hostages only",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "Decebalus refuses."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Second Battle of Tapae (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Second_Battle_of_Tapae"
+  }
+ ]
+}

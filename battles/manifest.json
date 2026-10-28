@@ -1125,6 +1125,51 @@
    "lon": 35.12,
    "result": "loss",
    "naval": false
+  },
+  {
+   "id": "jotapata",
+   "name": "Jotapata",
+   "date": "67 AD",
+   "lat": 32.84,
+   "lon": 35.28,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "bedriacum1",
+   "name": "Bedriacum (first)",
+   "date": "69 AD",
+   "lat": 45.15,
+   "lon": 10.25,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "jerusalem70",
+   "name": "Jerusalem",
+   "date": "70 AD",
+   "lat": 31.78,
+   "lon": 35.23,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "masada",
+   "name": "Masada",
+   "date": "73 AD",
+   "lat": 31.31,
+   "lon": 35.35,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "tapae88",
+   "name": "Tapae",
+   "date": "88 AD",
+   "lat": 45.5,
+   "lon": 22.7,
+   "result": "win",
+   "naval": false
   }
  ]
 }

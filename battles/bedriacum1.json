@@ -1,0 +1,681 @@
+{
+ "id": "bedriacum1",
+ "name": "First Battle of Bedriacum",
+ "date": "69 AD",
+ "result": "win",
+ "loc": {
+  "lat": 45.15,
+  "lon": 10.25,
+  "place": "between Cremona and Bedriacum",
+  "short": "Bedriacum (first)",
+  "x": 310,
+  "y": 55
+ },
+ "names": {
+  "rome": "Vitellius",
+  "enemy": "Otho",
+  "commander": "Caecina & Valens",
+  "foe": "Otho’s generals"
+ },
+ "intro": "Between Cremona and Bedriacum in northern Italy, April 69 AD, the Year of the Four Emperors. Otho rules in Rome. The Rhine legions have proclaimed Vitellius. You are Caecina and Valens, Vitellius’s generals.",
+ "debrief": "In Tacitus’s account, Otho stayed behind at Brixellum and pushed his generals to fight. His army came on in a marching column among the vineyards along the Via Postumia. A false rumour that the Vitellians had deserted made Otho’s men cheer and stop fighting. The Batavians destroyed Otho’s gladiators by the Po. Otho’s army was beaten, and Otho killed himself to end the civil war. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 40,
+   "w": 30
+  },
+  "roads": [
+   [
+    200,
+    250,
+    200,
+    0,
+    10
+   ]
+  ],
+  "grass": "#7f9a4d"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 220,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Vitellian legions from the Rhine",
+   "model": "legionary"
+  },
+  "bat": {
+   "x": 320,
+   "y": 215,
+   "w": 80,
+   "h": 10,
+   "side": "roman",
+   "name": "Batavian cohorts",
+   "model": "auxiliary"
+  },
+  "cav": {
+   "x": 60,
+   "y": 225,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Vitellian cavalry",
+   "model": "cav_roman"
+  },
+  "oth": {
+   "x": 200,
+   "y": 100,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Otho’s army (marching column)",
+   "model": "legionary",
+   "scales": true
+  },
+  "glad": {
+   "x": 340,
+   "y": 60,
+   "w": 60,
+   "h": 8,
+   "side": "enemy",
+   "name": "Otho’s gladiators by the river",
+   "model": "levy"
+  },
+  "pra": {
+   "x": 80,
+   "y": 90,
+   "w": 70,
+   "h": 12,
+   "side": "enemy",
+   "name": "Praetorian Guard",
+   "model": "veteran"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Otho’s column is caught on the road.",
+   "The gladiators are destroyed at the river.",
+   "Vitellius becomes Emperor."
+  ],
+  "lose": [
+   "Otho’s army forms up in time.",
+   "The Vitellians are beaten.",
+   "Otho keeps the throne."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Position",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Rested",
+     "tone": "g"
+    },
+    {
+     "text": "Tired",
+     "tone": "a"
+    },
+    {
+     "text": "Talks",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Cremona",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Column",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Caught on the road",
+     "tone": "g"
+    },
+    {
+     "text": "Deployed",
+     "tone": "r"
+    },
+    {
+     "text": "Slowed by vines",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Marching",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Rumour",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Confusion",
+     "tone": "g"
+    },
+    {
+     "text": "Fading",
+     "tone": "a"
+    },
+    {
+     "text": "Praetorians hold",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Cheering",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "River",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Gladiators destroyed",
+     "tone": "g"
+    },
+    {
+     "text": "Landed behind",
+     "tone": "r"
+    },
+    {
+     "text": "Muddy bank",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Crossing the Po",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Two emperors",
+   "text": "Nero is dead and Galba has been murdered. Now Otho rules in Rome, but the Rhine legions have proclaimed Vitellius. You are Aulus Caecina and Fabius Valens, Vitellius’s generals, near Cremona. Otho’s army is marching toward you, while Otho himself stays behind.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Otho’s generals are forced to march before they are ready."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wait in a strong position and let them come to you."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Wait by Cremona for them to come",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "rested": 1
+       },
+       "text": "You wait, rested, near Cremona."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March out to meet them",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Both armies are tired."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Talk to Otho’s generals about peace",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "Nothing comes of it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Column",
+   "text": "Otho’s army comes on in a long column with its baggage, along a raised road with vineyards on either side.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are not in battle order."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack while they are in column."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack them while still in column",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "rested": true
+       },
+       "r": -2,
+       "e": -17,
+       "text": "Your rested legions fall on the marching column before it can deploy among the vines."
+      },
+      {
+       "r": -6,
+       "e": -8,
+       "text": "You hit the column, but your men are tired too."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "leg",
+        "oth"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Let them form up first",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "They form up."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the cavalry round behind them",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The vineyards slow your horses."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         60,
+         130
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Vines",
+   "text": "In the vineyards, the fighting breaks into separate struggles.",
+   "intel": {
+    "hint": [
+     {
+      "text": "On the road, a rumour spreads that Vitellius’s army has deserted. Otho’s men cheer, and stop fighting."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike while they cheer."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Charge now",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "text": "Your men answer the cheers with a charge. Otho’s men, thinking the war was over, are thrown into confusion."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "oth"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold your ground until the rumour fades",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The rumour fades."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge straight up the raised road",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The Praetorians stop you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "pra"
+       ]
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "The river",
+   "text": "Otho’s gladiators try to cross the Po to attack your flank.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your Batavians are by the river."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send the Batavians."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the Batavians",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "text": "The Batavians catch the gladiators in their boats and destroy them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "bat": [
+         330,
+         80
+        ],
+        "glad": [
+         340,
+         60,
+         0.2
+        ]
+       },
+       "f": [
+        "bat",
+        "glad"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Ignore them and keep pressing the main battle",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "They land behind you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Send the cavalry along the riverbank",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The riverbank is muddy."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Otho",
+   "text": "Otho’s army is beaten and falls back to Bedriacum. Otho himself, at Brixellum, still has an army.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Otho might fight on."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Offer his soldiers terms."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Offer them peace",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "Otho’s men surrender. Otho, to stop more civil war, kills himself. Vitellius is Emperor, for now."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "oth": [
+         200,
+         20,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March on Brixellum and Otho himself",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Otho’s men fight on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for Vitellius to arrive from Gaul",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "Otho rallies."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "First Battle of Bedriacum (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/First_Battle_of_Bedriacum"
+  }
+ ]
+}

@@ -1,0 +1,683 @@
+{
+ "id": "jotapata",
+ "name": "Siege of Jotapata",
+ "date": "67 AD",
+ "result": "win",
+ "loc": {
+  "lat": 32.84,
+  "lon": 35.28,
+  "place": "Jotapata, Galilee",
+  "short": "Jotapata",
+  "x": 631,
+  "y": 271
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Jewish defenders",
+  "commander": "Vespasian",
+  "foe": "Josephus"
+ },
+ "intro": "Jotapata in Galilee, summer 67 AD. You are Vespasian, sent by Nero with three legions to crush the Jewish revolt. Your son Titus is with you. The defender is Joseph ben Matthias, later the historian Josephus.",
+ "debrief": "Josephus himself tells the story. Vespasian built a mound against the only approachable side. The defenders hung dripping clothes on the walls to hide their thirst, softened the ram with sacks and poured boiling oil. After 47 days a deserter revealed that the guards slept before dawn, and Titus led the men over the wall. Josephus survived a suicide pact in a cave, surrendered, and foretold that Vespasian would become emperor. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    60,
+    140,
+    28
+   ],
+   [
+    60,
+    80,
+    60,
+    20
+   ],
+   [
+    340,
+    80,
+    60,
+    20
+   ]
+  ],
+  "grass": "#a8a163",
+  "ground": "#c4ad76"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 220,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Vespasian’s three legions",
+   "model": "legionary"
+  },
+  "eng": {
+   "x": 200,
+   "y": 180,
+   "w": 160,
+   "h": 6,
+   "side": "roman",
+   "name": "Siege engines and the ram",
+   "model": "velites"
+  },
+  "bank": {
+   "x": 200,
+   "y": 140,
+   "w": 120,
+   "h": 6,
+   "side": "roman",
+   "name": "The siege mound",
+   "model": "levy"
+  },
+  "town": {
+   "x": 200,
+   "y": 70,
+   "w": 140,
+   "h": 12,
+   "side": "enemy",
+   "name": "Jotapata, on its cliff",
+   "model": "levy"
+  },
+  "jos": {
+   "x": 200,
+   "y": 50,
+   "w": 40,
+   "h": 10,
+   "side": "enemy",
+   "name": "Josephus and the defenders",
+   "model": "levy",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Titus climbs the wall at dawn.",
+   "Jotapata falls.",
+   "Josephus foretells the empire."
+  ],
+  "lose": [
+   "The cliff and the boiling oil hold.",
+   "Vespasian is stuck in Galilee.",
+   "The revolt spreads."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Mound",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Rising",
+     "tone": "g"
+    },
+    {
+     "text": "Assault failed",
+     "tone": "r"
+    },
+    {
+     "text": "Blockade",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "North wall",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Water",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Not fooled",
+     "tone": "g"
+    },
+    {
+     "text": "Fooled",
+     "tone": "r"
+    },
+    {
+     "text": "Refused",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Wet clothes",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Ram",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Wall breached",
+     "tone": "g"
+    },
+    {
+     "text": "Softened",
+     "tone": "a"
+    },
+    {
+     "text": "Oil",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Sacks of chaff",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Dawn",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Titus inside",
+     "tone": "g"
+    },
+    {
+     "text": "Defenders awake",
+     "tone": "a"
+    },
+    {
+     "text": "No attack",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Sleeping guards",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The cliff town",
+   "text": "You are Vespasian, sent by Nero to crush the Jewish revolt. The town of Jotapata in Galilee stands on a cliff, approachable only from the north. Its commander is a young priest named Joseph, later famous as the historian Josephus.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The only approach is from the north."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Build a siege mound on the north side."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Build a mound to the north",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "mound": 1
+       },
+       "text": "Your legions start a great mound of earth and timber against the north wall, under cover of screens."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "bank": [
+         200,
+         120
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Storm it at once from every side",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The cliffs beat you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Starve the town out by a blockade",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "They have food, but little water."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Water",
+   "text": "Josephus hangs wet clothes over the walls so you think they have plenty of water.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are short of water, despite the dripping clothes."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep the blockade tight."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Keep up the blockade and the mound",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "You are not fooled. The mound grows."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Give up hope of thirst and storm",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The walls hold."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         110
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Offer terms",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Josephus refuses."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The ram",
+   "text": "Your ram reaches the wall. The defenders lower sacks of chaff to soften the blows and pour boiling oil on your men.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Cut the ropes holding the sacks."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cut them with blades on poles."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cut the ropes",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "mound": true
+       },
+       "r": -4,
+       "e": -17,
+       "text": "Sickles on long poles cut down the sacks. The ram breaks into the wall."
+      },
+      {
+       "r": -8,
+       "e": -7,
+       "text": "The ram cannot reach the wall well."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eng": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "eng",
+        "town"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Keep ramming through the sacks until they split",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The blows are softened."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send the legions up ladders while the ram works",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Boiling oil pours down on them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Dawn",
+   "text": "A deserter tells you the exhausted guards fall asleep just before dawn.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Titus, your son, can lead a few picked men."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send Titus in before dawn."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send Titus in before dawn",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -17,
+       "text": "Titus and a few men climb the wall in the mist and kill the sleeping guards. The legions follow."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         60
+        ],
+        "town": [
+         200,
+         70,
+         0.2
+        ]
+       },
+       "f": [
+        "leg",
+        "jos"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Attack in full daylight with every legion",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "The defenders are awake."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Do not trust the deserter; it may be a trap",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The siege drags on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The cave",
+   "text": "Jotapata falls after 47 days. Josephus hides in a cave with forty men, who agree to kill each other rather than surrender. Josephus is one of the last two.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He surrenders, and says he can foretell the future."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Spare him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Spare him",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Josephus foretells that you will be Emperor. You keep him as a prisoner. When it comes true, you free him, and he writes the history of the war."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send him to Nero in chains",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Nero would have him killed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Execute him",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "His history is never written."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Siege of Yodfat (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Siege_of_Yodfat"
+  }
+ ]
+}
