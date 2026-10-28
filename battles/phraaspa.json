@@ -1,0 +1,709 @@
+{
+ "id": "phraaspa",
+ "name": "Siege of Phraaspa",
+ "date": "36 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 37.15,
+  "lon": 46.25,
+  "place": "Phraaspa, Media Atropatene",
+  "short": "Phraaspa",
+  "x": 771,
+  "y": 195,
+  "span": 2.5
+ },
+ "names": {
+  "rome": "Antony’s army",
+  "enemy": "Parthia and Media",
+  "commander": "Mark Antony",
+  "foe": "Phraates IV"
+ },
+ "intro": "Phraaspa in Media Atropatene (north-western Iran), autumn 36 BC. You are Mark Antony, invading Parthia’s ally with about 16 legions. Your siege train of 300 wagons, with a ram eighty feet long, is slow.",
+ "debrief": "In Plutarch’s account, Antony hurried ahead to Phraaspa, leaving the siege train under Oppius Statianus with two legions. The Parthians destroyed it, and the Armenian king Artavasdes rode home. Without engines, Antony could not take the town, and as autumn came he retreated through the mountains, harassed daily by horse archers. A guide led him by the hills, and the testudo saved his men in one attack, but he lost perhaps 24,000 men on the retreat. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    60,
+    60,
+    80,
+    24
+   ],
+   [
+    340,
+    60,
+    80,
+    24
+   ],
+   [
+    200,
+    40,
+    100,
+    16
+   ]
+  ],
+  "weather": "snow"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 200,
+   "w": 170,
+   "h": 14,
+   "side": "roman",
+   "name": "Antony’s legions",
+   "model": "legionary"
+  },
+  "tr": {
+   "x": 340,
+   "y": 230,
+   "w": 80,
+   "h": 10,
+   "side": "roman",
+   "name": "Siege train (300 wagons) under Statianus",
+   "model": "levy"
+  },
+  "arm": {
+   "x": 60,
+   "y": 220,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Armenian cavalry",
+   "model": "cav_eastern"
+  },
+  "town": {
+   "x": 200,
+   "y": 60,
+   "w": 140,
+   "h": 12,
+   "side": "enemy",
+   "name": "Phraaspa",
+   "model": "levy"
+  },
+  "par": {
+   "x": 340,
+   "y": 130,
+   "w": 100,
+   "h": 14,
+   "side": "enemy",
+   "name": "Parthian horse archers",
+   "model": "cav_eastern",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The siege train is safe.",
+   "Phraaspa falls.",
+   "Media is Roman."
+  ],
+  "lose": [
+   "The siege train burns.",
+   "Phraaspa holds.",
+   "Antony loses a quarter of his army in retreat."
+  ],
+  "cams": [
+   "right",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Train",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Left behind",
+     "tone": "r"
+    },
+    {
+     "text": "With the army",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "300 wagons",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Siege train",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Destroyed",
+     "tone": "r"
+    },
+    {
+     "text": "Partly saved",
+     "tone": "g"
+    },
+    {
+     "text": "Too late",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Attacked",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Siege",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Dragging on",
+     "tone": "r"
+    },
+    {
+     "text": "Given up",
+     "tone": "g"
+    },
+    {
+     "text": "Assault failed",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "No engines",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Retreat",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Through the hills",
+     "tone": "g"
+    },
+    {
+     "text": "Across the plains",
+     "tone": "r"
+    },
+    {
+     "text": "Fighting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Harassed",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Antony’s great invasion",
+   "text": "You are Mark Antony, invading Parthia’s ally Media Atropatene with 16 legions. Your siege train of 300 wagons, with a ram eighty feet long, is slow.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Armenian king Artavasdes is your ally, but unreliable."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep the siege train with the army."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hurry ahead and leave the siege train behind",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "set": {
+        "split": 1
+       },
+       "text": "You race ahead to Phraaspa, leaving the siege train under Statianus with two legions."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep the army and siege train together",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -17,
+       "set": {
+        "together": 1
+       },
+       "text": "The army moves slowly, but together."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for Artavasdes’s promise to be kept",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "Artavasdes delays."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The siege train",
+   "text": "The Parthians fall on the siege train. Artavasdes and his Armenian cavalry ride off home.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Two legions guard it."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send help back."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Keep the whole army at Phraaspa",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "together": true
+       },
+       "r": -2,
+       "e": -8,
+       "text": "The train is with the army and the Parthians cannot touch it."
+      },
+      {
+       "r": -12,
+       "e": 0,
+       "text": "The siege train is destroyed and Statianus’s two legions are killed. The great ram is burned."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "par": [
+         340,
+         180,
+         1
+        ],
+        "tr": [
+         340,
+         230,
+         0.2
+        ],
+        "arm": [
+         20,
+         240,
+         0.2
+        ]
+       },
+       "f": [
+        "tr",
+        "par"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "March back to save it",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -12,
+       "text": "You arrive in time to save part of it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         300,
+         200
+        ],
+        "par": [
+         340,
+         180,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "par"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Send the cavalry back",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "The cavalry is too late."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "par": [
+         340,
+         180,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "A siege without engines",
+   "text": "You must take Phraaspa without siege engines. You build a mound against the walls. Autumn comes.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your foragers are cut down by Parthian horse."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Give up the siege before winter."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Keep up the siege into autumn",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The mound grows slowly while your army starves."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Retreat before winter",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "set": {
+        "early": 1
+       },
+       "text": "You march out before the weather turns."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the walls without engines",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -8,
+       "text": "The defenders throw you back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         100
+        ]
+       },
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The retreat",
+   "text": "You retreat through the mountains, harassed every day by horse archers. A local guide leads you by the hills, away from the plains.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The plains are horse country."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Trust the guide and stay in the hills."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Follow the guide through the hills",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -12,
+       "text": "The guide leads you through the hills. The horse archers cannot get at you as easily."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         220
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Take the easy road across the plains",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": 0,
+       "text": "The horse archers ride round you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "par": [
+         340,
+         180,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "par"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Halt and fight the horse archers",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -8,
+       "text": "They ride away and come back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The testudo",
+   "text": "Horse archers catch you in the open. Your men form the testudo, shields locked overhead.",
+   "intel": {
+    "hint": [
+     {
+      "text": "When they think you are kneeling from wounds, they will charge close."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let them come close, then charge."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold the testudo, then charge when they close",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The Parthians, thinking you beaten, ride in close. Your men leap up and drive them off. But the retreat costs you some 24,000 men."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "They ride away and shoot."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Keep marching in the testudo",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -9,
+       "text": "You get through, slowly."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Antony%27s Parthian War (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Antony%27s_Parthian_War"
+  }
+ ],
+ "winAt": 50
+}

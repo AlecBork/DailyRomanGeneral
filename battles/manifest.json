@@ -999,6 +999,87 @@
    "lon": 19.45,
    "result": "loss",
    "naval": false
+  },
+  {
+   "id": "nile",
+   "name": "Nile",
+   "date": "47 BC",
+   "lat": 30.85,
+   "lon": 30.85,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "zela47",
+   "name": "Zela (47)",
+   "date": "47 BC",
+   "lat": 40.3,
+   "lon": 35.89,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "ruspina",
+   "name": "Ruspina",
+   "date": "46 BC",
+   "lat": 35.77,
+   "lon": 10.83,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "munda",
+   "name": "Munda",
+   "date": "45 BC",
+   "lat": 37.38,
+   "lon": -4.85,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "forumgallorum",
+   "name": "Forum Gallorum",
+   "date": "43 BC",
+   "lat": 44.6,
+   "lon": 11,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "perusia",
+   "name": "Perusia",
+   "date": "40 BC",
+   "lat": 43.11,
+   "lon": 12.39,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "gindarus",
+   "name": "Gindarus",
+   "date": "38 BC",
+   "lat": 36.4,
+   "lon": 36.7,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "naulochus",
+   "name": "Naulochus",
+   "date": "36 BC",
+   "lat": 38.22,
+   "lon": 15.33,
+   "result": "win",
+   "naval": true
+  },
+  {
+   "id": "phraaspa",
+   "name": "Phraaspa",
+   "date": "36 BC",
+   "lat": 37.15,
+   "lon": 46.25,
+   "result": "loss",
+   "naval": false
   }
  ]
 }

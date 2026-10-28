@@ -1,0 +1,679 @@
+{
+ "id": "zela47",
+ "name": "Battle of Zela (47 BC)",
+ "date": "47 BC",
+ "result": "win",
+ "loc": {
+  "lat": 40.3,
+  "lon": 35.89,
+  "place": "Zela, Pontus",
+  "short": "Zela (47)",
+  "x": 638,
+  "y": 140
+ },
+ "names": {
+  "rome": "Caesar’s army",
+  "enemy": "Pontus",
+  "commander": "Caesar",
+  "foe": "Pharnaces II"
+ },
+ "intro": "Zela in Pontus, August 47 BC. Pharnaces, son of Mithridates, has invaded his father’s old kingdom and beaten a Roman army. You are Julius Caesar, arriving from Egypt with a small force.",
+ "debrief": "In the Alexandrian War, Caesar seized a hill across a valley from Pharnaces’s camp by night. At dawn, while the Romans were still digging, Pharnaces surprisingly attacked uphill. The scythed chariots were stopped by missiles on the slope, and the veterans of the Sixth Legion broke the enemy left. The battle lasted about four hours. Caesar summed it up in a letter: ‘Veni, vidi, vici.’ The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    40,
+    150,
+    26
+   ],
+   [
+    200,
+    250,
+    150,
+    22
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 200,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Caesar’s legions (building the camp)",
+   "model": "legionary"
+  },
+  "x6": {
+   "x": 120,
+   "y": 200,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Sixth Legion (veterans)",
+   "model": "legionary"
+  },
+  "pha": {
+   "x": 200,
+   "y": 90,
+   "w": 170,
+   "h": 14,
+   "side": "enemy",
+   "name": "Pharnaces’s army",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "cha": {
+   "x": 200,
+   "y": 130,
+   "w": 100,
+   "h": 8,
+   "side": "enemy",
+   "name": "Scythed chariots",
+   "model": "cav_eastern"
+  },
+  "val": {
+   "x": 200,
+   "y": 150,
+   "w": 280,
+   "h": 6,
+   "side": "enemy",
+   "name": "Valley between the hills",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Sixth breaks their left.",
+   "Pharnaces’s army is destroyed in four hours.",
+   "Veni, vidi, vici."
+  ],
+  "lose": [
+   "Pharnaces’s uphill charge succeeds.",
+   "Caesar is driven off the hill.",
+   "Zela claims another Roman army."
+  ],
+  "cams": [
+   "left",
+   "front",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Hill",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Seized at night",
+     "tone": "g"
+    },
+    {
+     "text": "Uphill attack",
+     "tone": "r"
+    },
+    {
+     "text": "Talking",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Across the valley",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Attack",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Formed on the slope",
+     "tone": "g"
+    },
+    {
+     "text": "In the valley",
+     "tone": "a"
+    },
+    {
+     "text": "Camp unfinished",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Uphill!",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Chariots",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Brought down",
+     "tone": "g"
+    },
+    {
+     "text": "Passed through",
+     "tone": "a"
+    },
+    {
+     "text": "Cutting the line",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Climbing",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Sixth",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Pushing",
+     "tone": "g"
+    },
+    {
+     "text": "Holding",
+     "tone": "a"
+    },
+    {
+     "text": "Moved",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "On the right",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Pharnaces",
+   "text": "Pharnaces, son of Mithridates, has invaded Pontus and beaten a Roman army. You are Caesar, arriving from Egypt with a small force. He is camped on a hill at Zela, where his father once beat Triarius.",
+   "intel": {
+    "hint": [
+     {
+      "text": "There is another hill across a valley from his camp."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Seize that hill at night and fortify it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Seize the opposite hill",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "set": {
+        "hill": 1
+       },
+       "text": "You march by night and occupy the hill across the valley from Pharnaces."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack his camp at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "You must climb his hill under attack."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "leg",
+        "pha"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Negotiate while your army rests from the march",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Pharnaces offers flattery and delay."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "He attacks uphill",
+   "text": "At dawn, while your men are digging the camp, Pharnaces leads his army down into the valley and up your hill.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Attacking uphill is madness."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let the diggers stand to arms where they are."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stand to arms",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -13,
+       "set": {
+        "form": 1
+       },
+       "text": "Your men drop their tools and form up on the slope."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cha": [
+         200,
+         160
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge down to meet them",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "You meet them in the valley."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "pha"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Fall back into the half-built camp",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The camp is unfinished."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The chariots",
+   "text": "Scythed chariots lead the attack up the slope.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are slowed by the hill."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Shower them with missiles."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Shower them with missiles",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "text": "Javelins and stones bring down the horses as they struggle up the slope."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cha": [
+         200,
+         160,
+         0.2
+        ]
+       },
+       "f": [
+        "leg",
+        "cha"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Open lanes",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The chariots pass through."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Stand firm and take the charge",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The scythes cut into the line."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The Sixth",
+   "text": "The fight is hard. On your right, the veterans of the Sixth Legion are holding.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are only a thousand men, but veterans."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let them push."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let the Sixth push",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "form": true
+       },
+       "r": -2,
+       "e": -21,
+       "text": "The Sixth breaks the enemy left and the whole line follows down the slope. Pharnaces’s army is driven back across the valley and its camp is taken."
+      },
+      {
+       "r": -4,
+       "e": -11,
+       "text": "The Sixth pushes forward."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "x6": [
+         140,
+         130
+        ],
+        "pha": [
+         200,
+         70
+        ]
+       },
+       "f": [
+        "x6",
+        "pha"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Hold the line",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The fight drags on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Send the Sixth to strengthen the left",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -4,
+       "text": "The right weakens."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Veni, vidi, vici",
+   "text": "Pharnaces’s army is destroyed in four hours. He flees.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Rome must hear of this."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send a short message."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send three words",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "You write to a friend in Rome: ‘I came, I saw, I conquered.’"
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase Pharnaces and finish him",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "He escapes to the Crimea."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send a long report",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "No one remembers it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Zela (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Zela"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "Veni, vidi, vici. I came, I saw, I conquered.",
+   "who": "Caesar, reporting Zela to Rome"
+  }
+ ]
+}

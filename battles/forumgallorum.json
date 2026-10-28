@@ -1,0 +1,693 @@
+{
+ "id": "forumgallorum",
+ "name": "Battle of Forum Gallorum",
+ "date": "43 BC",
+ "result": "win",
+ "loc": {
+  "lat": 44.6,
+  "lon": 11,
+  "place": "Forum Gallorum, near Mutina",
+  "short": "Forum Gallorum",
+  "x": 320,
+  "y": 65
+ },
+ "names": {
+  "rome": "The Senate’s armies",
+  "enemy": "Mark Antony",
+  "commander": "Pansa and Hirtius",
+  "foe": "Mark Antony"
+ },
+ "intro": "Forum Gallorum on the Via Aemilia, near Mutina in northern Italy, April 43 BC. Caesar has been murdered. Mark Antony is besieging Decimus Brutus in Mutina. You are the consul Gaius Vibius Pansa, bringing new legions; the other consul, Hirtius, and young Octavian are nearby.",
+ "debrief": "In Appian’s account and a letter by an officer who was there, Antony ambushed Pansa’s march in the marshes near Forum Gallorum. The Martian Legion fought fiercely, but Antony won and Pansa was mortally wounded. As Antony’s tired men returned, Hirtius fell on them and routed them, so that Antony won and lost on the same day. A week later Hirtius broke Antony’s lines at Mutina but was killed; Pansa died of his wounds. Antony escaped to Gaul, and Octavian soon joined him against the Senate. The other choices are what-ifs.",
+ "terrain": {
+  "marsh": [
+   [
+    60,
+    120,
+    60,
+    50
+   ],
+   [
+    340,
+    120,
+    60,
+    40
+   ]
+  ],
+  "roads": [
+   [
+    0,
+    200,
+    400,
+    200,
+    12
+   ]
+  ]
+ },
+ "units": {
+  "pan": {
+   "x": 200,
+   "y": 200,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Pansa’s new legions",
+   "model": "legionary"
+  },
+  "mar": {
+   "x": 320,
+   "y": 200,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Martian Legion",
+   "model": "legionary"
+  },
+  "hir": {
+   "x": 60,
+   "y": 230,
+   "w": 80,
+   "h": 12,
+   "side": "roman",
+   "name": "Hirtius’s legions (coming)",
+   "model": "legionary",
+   "hidden": true
+  },
+  "ant": {
+   "x": 200,
+   "y": 90,
+   "w": 170,
+   "h": 14,
+   "side": "enemy",
+   "name": "Mark Antony’s veterans",
+   "model": "hastati",
+   "scales": true
+  },
+  "acav": {
+   "x": 340,
+   "y": 80,
+   "w": 50,
+   "h": 12,
+   "side": "enemy",
+   "name": "Antony’s cavalry",
+   "model": "cav_heavy",
+   "scales": true
+  },
+  "marsh": {
+   "x": 60,
+   "y": 120,
+   "w": 60,
+   "h": 60,
+   "side": "enemy",
+   "name": "Marshes along the road",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Hirtius routs Antony’s tired men.",
+   "Antony is driven from Mutina.",
+   "Both consuls are dead by the week’s end."
+  ],
+  "lose": [
+   "Antony crushes the new legions.",
+   "Mutina falls.",
+   "Decimus Brutus is lost."
+  ],
+  "cams": [
+   "left",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "March",
+   "decision": 0,
+   "options": [
+    {
+     "text": "On the road",
+     "tone": "a"
+    },
+    {
+     "text": "Waiting for Hirtius",
+     "tone": "g"
+    },
+    {
+     "text": "Alone",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "North",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Ambush",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Veterans fighting",
+     "tone": "g"
+    },
+    {
+     "text": "Recruits broken",
+     "tone": "r"
+    },
+    {
+     "text": "Falling back",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Marsh",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Pansa",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Camp held",
+     "tone": "g"
+    },
+    {
+     "text": "Beaten again",
+     "tone": "r"
+    },
+    {
+     "text": "Camp lost",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Wounded",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Hirtius",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Antony routed",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Antony escapes",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Coming",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "After Caesar",
+   "text": "Caesar has been murdered. Mark Antony is besieging Decimus Brutus in Mutina. The Senate has sent the consuls Pansa and Hirtius, with young Octavian, against him. You are Gaius Vibius Pansa, bringing four new legions north along the Via Aemilia.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Antony may ambush you on the road."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Join Hirtius before fighting."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March on to join Hirtius",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -15,
+       "set": {
+        "march": 1
+       },
+       "text": "You march on along the road between the marshes. Hirtius sends the Martian Legion to meet you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for Hirtius to come to you",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -15,
+       "set": {
+        "wait": 1
+       },
+       "text": "You wait at Bononia for Hirtius."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack Antony’s siege lines alone",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Antony’s veterans crush your recruits."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Ambush on the road",
+   "text": "Near Forum Gallorum, Antony attacks from the marshes along the road with two veteran legions.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Martian Legion is eager to fight Antony, who once decimated it."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep your recruits back and let the veterans fight."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let the veterans fight",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -15,
+       "set": {
+        "vets": 1
+       },
+       "text": "The Martian Legion and the praetorians fight Antony’s veterans in the marsh."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mar": [
+         300,
+         140
+        ]
+       },
+       "f": [
+        "mar",
+        "ant"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Throw the recruits in",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The recruits break."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pan": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "pan",
+        "ant"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Fall back to the camp and wait for Hirtius",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Antony presses on."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pan": [
+         200,
+         225
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Pansa wounded",
+   "text": "Fighting in the marsh, you are badly wounded and carried from the field. Your men fall back to the camp.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Antony’s men are scattered and tired after their victory."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold the camp."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold the camp",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -12,
+       "text": "Your camp holds. Antony’s men, tired, start back to their siege lines."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pan": [
+         200,
+         225
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Counter-attack",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -8,
+       "text": "The tired legions are beaten again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Retreat to Bononia",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "Antony takes your camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Hirtius arrives",
+   "text": "As Antony’s tired men march back, Hirtius comes up with fresh legions and falls on them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Antony’s men are worn out."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hirtius falls on Antony’s tired men",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "vets": true
+       },
+       "r": -2,
+       "e": -26,
+       "text": "Hirtius’s fresh legions catch Antony’s veterans in the evening and rout them. Antony has won and lost on the same day."
+      },
+      {
+       "r": -4,
+       "e": -15,
+       "text": "Hirtius catches them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hir": [
+         150,
+         140,
+         1
+        ],
+        "ant": [
+         200,
+         60
+        ]
+       },
+       "f": [
+        "hir",
+        "ant"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Hirtius waits for morning",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "Antony gets back to his lines."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hirtius goes to help Pansa’s camp",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "Antony escapes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Mutina",
+   "text": "A week later, Hirtius attacks Antony’s lines at Mutina and breaks them, but is killed in Antony’s camp. Pansa dies of his wounds. Octavian is left in command.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Antony is retreating over the Alps."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pursue him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pursue Antony",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "Antony flees. But Octavian will not pursue him; soon they will make a pact against the Senate."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Free Decimus Brutus",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "Brutus is free, and alone."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let him go",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Antony reaches Gaul."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Forum Gallorum (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Forum_Gallorum"
+  }
+ ]
+}

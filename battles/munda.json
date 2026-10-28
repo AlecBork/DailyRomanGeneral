@@ -1,0 +1,694 @@
+{
+ "id": "munda",
+ "name": "Battle of Munda",
+ "date": "45 BC",
+ "result": "win",
+ "loc": {
+  "lat": 37.38,
+  "lon": -4.85,
+  "place": "Munda, southern Spain",
+  "short": "Munda",
+  "x": 117,
+  "y": 191
+ },
+ "names": {
+  "rome": "Caesar’s army",
+  "enemy": "The Pompeians",
+  "commander": "Caesar",
+  "foe": "Gnaeus Pompeius"
+ },
+ "intro": "Near Munda in southern Spain, March 45 BC. Pompey is dead, but his sons Gnaeus and Sextus have raised thirteen legions. You are Julius Caesar, in the last battle of the civil war. Your old legate Labienus commands their cavalry.",
+ "debrief": "In the Spanish War and later accounts, Caesar attacked up a slope and the lines fought for hours without giving way. Caesar himself is said to have gone to the front when his line wavered. The Tenth Legion pushed back the enemy left. When Labienus took cohorts back to stop Bogud’s Moorish horse riding round toward the camp, the Pompeians thought he was retreating, and their line broke. About 30,000 died, Labienus among them. Caesar said he had often fought for victory, but at Munda for his life. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    50,
+    180,
+    22
+   ]
+  ],
+  "marsh": [
+   [
+    200,
+    150,
+    120,
+    12
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 170,
+   "h": 14,
+   "side": "roman",
+   "name": "Caesar’s legions",
+   "model": "legionary"
+  },
+  "x10": {
+   "x": 320,
+   "y": 205,
+   "w": 70,
+   "h": 12,
+   "side": "roman",
+   "name": "Tenth Legion (right)",
+   "model": "legionary"
+  },
+  "eq": {
+   "x": 60,
+   "y": 215,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Bogud’s Moorish horse",
+   "model": "cav_numidian"
+  },
+  "gn": {
+   "x": 200,
+   "y": 95,
+   "w": 180,
+   "h": 14,
+   "side": "enemy",
+   "name": "Gnaeus Pompeius’s 13 legions (on the slope)",
+   "model": "hastati",
+   "scales": true
+  },
+  "lab": {
+   "x": 340,
+   "y": 60,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Labienus’s cavalry",
+   "model": "cav_heavy",
+   "scales": true
+  },
+  "camp": {
+   "x": 200,
+   "y": 35,
+   "w": 100,
+   "h": 10,
+   "side": "enemy",
+   "name": "Pompeian camp and Munda",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Pompeian line breaks.",
+   "Labienus dies.",
+   "The civil war is over."
+  ],
+  "lose": [
+   "The Pompeian legions hold.",
+   "Caesar’s line breaks.",
+   "The sons of Pompey rule Spain."
+  ],
+  "cams": [
+   "front",
+   "clash",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Attack",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Up the slope",
+     "tone": "a"
+    },
+    {
+     "text": "Waiting",
+     "tone": "g"
+    },
+    {
+     "text": "Blocked",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Pompeians on the hill",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Line",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Caesar at the front",
+     "tone": "g"
+    },
+    {
+     "text": "Reserves in",
+     "tone": "a"
+    },
+    {
+     "text": "Pulled back",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Wavering",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Tenth",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Pushing",
+     "tone": "g"
+    },
+    {
+     "text": "Holding",
+     "tone": "a"
+    },
+    {
+     "text": "Moved left",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "On the right",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Labienus",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Mistaken for flight",
+     "tone": "g"
+    },
+    {
+     "text": "Holding",
+     "tone": "a"
+    },
+    {
+     "text": "Recovered",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Moving back",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The last army",
+   "text": "Pompey is dead, but his sons have raised 13 legions in Spain. You are Caesar. They wait on a slope near Munda, with a stream and marsh before them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They hold the high ground."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Make them come down; they will not."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack up the slope",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -13,
+       "set": {
+        "up": 1
+       },
+       "text": "Your legions cross the stream and climb toward the enemy."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         170
+        ]
+       },
+       "f": [
+        "leg",
+        "gn"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for them to come down",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "set": {
+        "wait": 1
+       },
+       "text": "They hold their ground; the day passes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March round to their flank",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "The marsh blocks you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Neither side gives",
+   "text": "For hours the lines fight without giving ground. These are Roman legions against Roman legions. Your line begins to waver.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You may be about to lose everything."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Go to the front yourself."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Go to the front",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -13,
+       "set": {
+        "front": 1
+       },
+       "text": "You run forward on foot, shouting that this will be your last day and their last campaign. Ashamed, the line holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "gn"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Send in the reserves",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The line steadies a little."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Pull back across the stream to re-form the line",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The Pompeians follow."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         225
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Tenth",
+   "text": "On your right, the Tenth Legion, your favourite, begins to push the enemy left back.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Gnaeus will have to send help from his right."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let the Tenth push hard."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let the Tenth push",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "front": true
+       },
+       "r": -2,
+       "e": -17,
+       "text": "The Tenth drives the enemy left back. Gnaeus has to move a legion from his right to save it."
+      },
+      {
+       "r": -4,
+       "e": -11,
+       "text": "The Tenth pushes on."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "x10": [
+         320,
+         120
+        ]
+       },
+       "f": [
+        "x10",
+        "gn"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Hold the Tenth in line",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The fight stays even."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Send the Tenth to the left where the line is weak",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -4,
+       "text": "The right is weakened."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Labienus moves",
+   "text": "Your Moorish horse under King Bogud ride round the enemy right toward their camp. Labienus takes five cohorts back to stop them. The Pompeian legions think he is retreating.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their line is wavering."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Shout that the enemy is fleeing."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Shout that the enemy is in flight",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -17,
+       "text": "Your soldiers shout that Labienus is running. The Pompeian line breaks. Thirty thousand of them die; Labienus is among the dead."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         80,
+         60
+        ],
+        "lab": [
+         340,
+         30,
+         0.3
+        ],
+        "gn": [
+         200,
+         60
+        ]
+       },
+       "f": [
+        "leg",
+        "gn",
+        "eq"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send the cavalry after Labienus",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "Labienus holds the cavalry back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Hold the line",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The Pompeians recover."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "‘For my life’",
+   "text": "Afterward, you say that you have often fought for victory, but at Munda you fought for your life.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Gnaeus Pompeius has fled."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Finish the war."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "End the war",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "Gnaeus is caught and killed; his brother Sextus escapes. The civil war is over. A year later, you will be murdered in Rome."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Pardon them all, as you did in Spain before",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "Some will fight again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Sack the Spanish towns",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "Spain hates you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Munda (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Munda"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "I have often fought for victory; this time I fought for my life.",
+   "who": "Caesar after Munda, as Plutarch reports"
+  }
+ ]
+}

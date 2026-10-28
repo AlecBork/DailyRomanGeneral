@@ -1,0 +1,658 @@
+{
+ "id": "gindarus",
+ "name": "Battle of Mount Gindarus",
+ "date": "38 BC",
+ "result": "win",
+ "loc": {
+  "lat": 36.4,
+  "lon": 36.7,
+  "place": "Mount Gindarus, Syria",
+  "short": "Gindarus",
+  "x": 649,
+  "y": 208
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Parthia",
+  "commander": "Ventidius",
+  "foe": "Pacorus"
+ },
+ "intro": "Near Mount Gindarus in northern Syria, 38 BC. The Parthian prince Pacorus has invaded Syria again. You are Publius Ventidius Bassus, Mark Antony’s general, who as a boy was paraded as a captive in a Roman triumph.",
+ "debrief": "In Cassius Dio’s and Frontinus’s accounts, Ventidius tricked a spy into telling Pacorus to take a longer route, which gave him time to gather his legions. Camped on high ground, he let the Parthians charge uphill, then counter-attacked with legionaries and slingers. Pacorus was killed and the Parthians fled. The battle was said to fall on the anniversary of Carrhae. Ventidius became the first Roman to celebrate a triumph over Parthia. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    240,
+    170,
+    22
+   ]
+  ],
+  "grass": "#a8a163",
+  "ground": "#c4ad76"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 170,
+   "h": 14,
+   "side": "roman",
+   "name": "Ventidius’s legions (on the hill)",
+   "model": "legionary"
+  },
+  "sl": {
+   "x": 200,
+   "y": 195,
+   "w": 120,
+   "h": 8,
+   "side": "roman",
+   "name": "Slingers",
+   "model": "velites"
+  },
+  "cat": {
+   "x": 200,
+   "y": 100,
+   "w": 180,
+   "h": 14,
+   "side": "enemy",
+   "name": "Pacorus’s Parthian cavalry",
+   "model": "cav_eastern",
+   "scales": true
+  },
+  "pac": {
+   "x": 200,
+   "y": 70,
+   "w": 40,
+   "h": 10,
+   "side": "enemy",
+   "name": "Prince Pacorus",
+   "model": "cav_eastern"
+  },
+  "hill": {
+   "x": 200,
+   "y": 240,
+   "w": 180,
+   "h": 10,
+   "side": "roman",
+   "name": "Ventidius’s hill camp",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Parthians are driven down the hill.",
+   "Prince Pacorus falls.",
+   "Carrhae is avenged."
+  ],
+  "lose": [
+   "The horse archers ride round the legions.",
+   "Syria is lost.",
+   "Carrhae happens again."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Spy",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Fooled",
+     "tone": "g"
+    },
+    {
+     "text": "Too early",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Pacorus coming",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Camp",
+   "decision": 1,
+   "options": [
+    {
+     "text": "On the hill",
+     "tone": "g"
+    },
+    {
+     "text": "On the plain",
+     "tone": "r"
+    },
+    {
+     "text": "Slingers out",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Gindarus",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Charge",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Driven down the hill",
+     "tone": "g"
+    },
+    {
+     "text": "Exchanging fire",
+     "tone": "a"
+    },
+    {
+     "text": "Ridden round",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Uphill",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Pacorus",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Killed",
+     "tone": "g"
+    },
+    {
+     "text": "Retreating",
+     "tone": "a"
+    },
+    {
+     "text": "Escaped",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Rallying",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The Parthians return",
+   "text": "The Parthian prince Pacorus is invading Syria again. You are Publius Ventidius Bassus, once a captured boy paraded in a triumph, now Antony’s best general. You have beaten the Parthians before.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Pacorus has spies in your camp."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Feed false news to the spy: that you fear he will cross the Euphrates by the shorter route."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Feed the spy false news",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "spy": 1
+       },
+       "text": "You let the spy hear you fear Pacorus will take the short road. He takes the long one, giving you forty days to gather your legions."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March to the Euphrates to stop him",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Your legions are scattered in winter quarters."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Gather your army and wait",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Pacorus crosses unopposed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The hill camp",
+   "text": "Pacorus crosses the Euphrates and finds you camped on a hill near Gindarus. He thinks you are afraid.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Parthian horse cannot charge uphill well."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Stay on the hill and let him come."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stay on the hill and look afraid",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "set": {
+        "hill": 1
+       },
+       "text": "Your army stays in camp. Pacorus grows bold."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Come down to meet him",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The horse archers surround you on the plain."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         160
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the slingers out to provoke him",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The horse archers drive them in."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Uphill charge",
+   "text": "The Parthian cavalry charges up the hill at your camp.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are close now, and cannot shoot from a distance."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Charge down on them now, with slingers covering you."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Charge down the hill on them",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "hill": true
+       },
+       "r": -2,
+       "e": -19,
+       "text": "Your legions charge down the slope as the horsemen climb it. Slingers outrange their bows. The Parthians are driven back down the hill in confusion."
+      },
+      {
+       "r": -4,
+       "e": -11,
+       "text": "The charge drives them back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ],
+        "sl": [
+         200,
+         160
+        ]
+       },
+       "f": [
+        "leg",
+        "sl",
+        "cat"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold the rampart and shoot",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "They shoot back from horseback."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for them to tire",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "They ride round you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Pacorus",
+   "text": "Pacorus himself is fighting in the thick of it, trying to rally his men.",
+   "intel": {
+    "hint": [
+     {
+      "text": "If he falls, the Parthians will flee."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Go for the prince."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Strike at the prince",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "Pacorus is killed. The Parthians break and flee for the Euphrates."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pac": [
+         200,
+         70,
+         0.2
+        ],
+        "cat": [
+         200,
+         60
+        ]
+       },
+       "f": [
+        "leg",
+        "cat"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold the hill",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "They pull back in order."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase the horse archers",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "Your infantry cannot catch them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Revenge for Carrhae",
+   "text": "On the same day as Crassus’s defeat at Carrhae, fifteen years before, a Roman army has destroyed a Parthian one and killed its prince.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Antony is jealous of your success."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send his head round the cities of Syria."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Parade his head",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "The Syrian cities that had gone over to Parthia come back to Rome. You will be the first Roman to celebrate a triumph over Parthia."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Cross the Euphrates and invade Parthia",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Antony takes the command from you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Return his body to his father the king",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The king mourns his son."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Mount Gindarus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Mount_Gindarus"
+  }
+ ]
+}
