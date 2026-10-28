@@ -1620,6 +1620,51 @@
    "lon": 12.43,
    "result": "loss",
    "naval": false
+  },
+  {
+   "id": "canusium",
+   "name": "Canusium",
+   "date": "209 BC",
+   "lat": 41.22,
+   "lon": 16.07,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "utica203",
+   "name": "Utica",
+   "date": "203 BC",
+   "lat": 37.06,
+   "lon": 10.06,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "cremona200",
+   "name": "Cremona",
+   "date": "200 BC",
+   "lat": 45.13,
+   "lon": 10.02,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "sucro",
+   "name": "Sucro",
+   "date": "75 BC",
+   "lat": 39.17,
+   "lon": -0.32,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "numistro",
+   "name": "Numistro",
+   "date": "210 BC",
+   "lat": 40.75,
+   "lon": 15.5,
+   "result": "loss",
+   "naval": false
   }
  ]
 }

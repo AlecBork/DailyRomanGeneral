@@ -1,0 +1,621 @@
+{
+ "id": "numistro",
+ "name": "Battle of Numistro",
+ "date": "210 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 40.75,
+  "lon": 15.5,
+  "place": "Numistro, Lucania",
+  "short": "Numistro",
+  "x": 377,
+  "y": 132
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Claudius Marcellus",
+  "foe": "Hannibal"
+ },
+ "intro": "Numistro in Lucania, southern Italy, 210 BC. Hannibal has just destroyed a Roman army at Herdonia. You are Marcus Claudius Marcellus, hurrying to stop him.",
+ "debrief": "In Livy’s account, Hannibal held a hill while Marcellus fought from below. The battle lasted from dawn until dark without a result, and Hannibal slipped away in the night toward Apulia. Marcellus followed him. Livy treats it as indecisive; Hannibal kept his freedom of movement in Italy. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    80,
+    220,
+    26
+   ]
+  ],
+  "grass": "#7f9a4d"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Marcellus’s legions",
+   "model": "hastati"
+  },
+  "cav": {
+   "x": 60,
+   "y": 220,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "han": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Hannibal’s army (on the hill)",
+   "model": "african",
+   "scales": true
+  },
+  "num": {
+   "x": 340,
+   "y": 90,
+   "w": 70,
+   "h": 8,
+   "side": "enemy",
+   "name": "Numidian horse",
+   "model": "cav_numidian"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Hannibal is lured onto flat ground.",
+   "The fresh legions win.",
+   "Hannibal is beaten."
+  ],
+  "lose": [
+   "Marcellus attacks uphill.",
+   "The fight ends in darkness.",
+   "Hannibal slips away."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Ground",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Uphill",
+     "tone": "r"
+    },
+    {
+     "text": "Plain",
+     "tone": "g"
+    },
+    {
+     "text": "Long way round",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Hill",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Fight",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Exhausted",
+     "tone": "r"
+    },
+    {
+     "text": "Rotated",
+     "tone": "g"
+    },
+    {
+     "text": "Losses",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "All day",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Night",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Watching",
+     "tone": "g"
+    },
+    {
+     "text": "Slipped away",
+     "tone": "r"
+    },
+    {
+     "text": "Ready",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Dark",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "March",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Following",
+     "tone": "g"
+    },
+    {
+     "text": "Gone back",
+     "tone": "r"
+    },
+    {
+     "text": "Missed",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Apulia",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Herdonia",
+   "text": "Hannibal has just destroyed a Roman army at Herdonia. You are Marcellus, hurrying south to stop him at Numistro in Lucania.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hannibal holds the hill."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Don’t attack uphill."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack uphill",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Your men climb toward the Carthaginians."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "han"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Stay low",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -17,
+       "set": {
+        "plain": 1
+       },
+       "text": "You offer battle on flat ground."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Go round the hill to the far side",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "It takes all day."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "All day",
+   "text": "The fight lasts from dawn till dark.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Rotate your units to keep them fresh."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Rotate."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight on as you are",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "plain": true
+       },
+       "r": -4,
+       "e": -6,
+       "text": "Hannibal won’t come down to fight."
+      },
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Your tired men fight on until night falls, with no result."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "han"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Rotate the legions",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "Fresh men take the front."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Charge one last time",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "Heavy losses."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Night",
+   "text": "Darkness ends the fight.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hannibal will slip away."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Watch him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Watch him",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "Your scouts watch his camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rest your men",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Hannibal leaves in the night."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack his camp",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "He is ready."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Follow",
+   "text": "Hannibal marches off toward Apulia.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Follow closely."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Follow."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Follow him",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "You stay on his heels."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Go back",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "He takes more towns."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Cut ahead",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "You miss him."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Rome",
+   "text": "Rome is disappointed.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hannibal is still unbeaten in Italy."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Accept it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Keep shadowing him",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Marcellus keeps after Hannibal. Next year they fight at Canusium."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ask the Senate to recall you",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Rome loses its best general."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Force battle",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -9,
+       "text": "You force him to fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Numistro (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Numistro"
+  }
+ ],
+ "winAt": 50
+}

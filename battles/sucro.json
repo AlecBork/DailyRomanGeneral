@@ -1,0 +1,631 @@
+{
+ "id": "sucro",
+ "name": "Battle of Sucro",
+ "date": "75 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 39.17,
+  "lon": -0.32,
+  "place": "the river Sucro, Spain",
+  "short": "Sucro",
+  "x": 175,
+  "y": 160
+ },
+ "names": {
+  "rome": "Rome (Senate)",
+  "enemy": "Sertorius",
+  "commander": "Pompey",
+  "foe": "Quintus Sertorius"
+ },
+ "intro": "On the river Sucro (Júcar) in eastern Spain, 75 BC. You are Pompey, thirty years old, sent against the rebel Roman general Sertorius. Your colleague Metellus Pius is on his way.",
+ "debrief": "In Plutarch’s account, Pompey attacked before Metellus arrived, wanting the glory. Sertorius beat Pompey’s wing; Pompey was wounded and escaped because the enemy fought over his richly decorated horse. On the other wing Afranius broke into Sertorius’s camp, but his men stopped to loot and were cut down. Metellus arrived next morning. Sertorius is said to have joked that if 'the old woman' had not come he would have whipped 'the boy' back to Rome. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 150,
+   "w": 24
+  },
+  "grass": "#a8a163"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Pompey’s legions",
+   "model": "legionary"
+  },
+  "afr": {
+   "x": 80,
+   "y": 215,
+   "w": 70,
+   "h": 10,
+   "side": "roman",
+   "name": "Afranius’s wing",
+   "model": "legionary"
+  },
+  "ser": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Sertorius’s army",
+   "model": "legionary",
+   "scales": true
+  },
+  "met": {
+   "x": 340,
+   "y": 250,
+   "w": 60,
+   "h": 10,
+   "side": "roman",
+   "name": "Metellus’s army (coming)",
+   "model": "legionary",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Pompey waits for Metellus.",
+   "Sertorius is held.",
+   "Spain is won."
+  ],
+  "lose": [
+   "Pompey attacks alone.",
+   "Pompey is wounded.",
+   "Sertorius wins."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Plan",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Alone",
+     "tone": "r"
+    },
+    {
+     "text": "With Metellus",
+     "tone": "g"
+    },
+    {
+     "text": "Avoiding",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Sucro",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Right",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Beaten",
+     "tone": "r"
+    },
+    {
+     "text": "Holding",
+     "tone": "g"
+    },
+    {
+     "text": "Pressed",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Sertorius",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Left",
+   "decision": 2,
+   "options": [
+    {
+     "text": "In order",
+     "tone": "g"
+    },
+    {
+     "text": "Looting",
+     "tone": "r"
+    },
+    {
+     "text": "Tired",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Afranius",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Morning",
+   "decision": 3,
+   "options": [
+    {
+     "text": "With Metellus",
+     "tone": "g"
+    },
+    {
+     "text": "Beaten",
+     "tone": "r"
+    },
+    {
+     "text": "Escaped",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Metellus",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Glory",
+   "text": "You are Pompey, thirty years old, sent to Spain against the rebel Sertorius. Your colleague Metellus Pius is coming with his army. You want the glory for yourself.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Wait for Metellus."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wait for him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack before Metellus arrives",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "You offer battle on the river Sucro in the evening."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for him",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -20,
+       "set": {
+        "met": 1
+       },
+       "text": "Metellus’s army joins you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "met": [
+         340,
+         230,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Avoid battle",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Sertorius raids."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Sertorius",
+   "text": "Sertorius himself leads against your right wing.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He is a dangerous fighter."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Reinforce the right."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Lead the right yourself",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "met": true
+       },
+       "r": -4,
+       "e": -6,
+       "text": "With Metellus beside you, you hold."
+      },
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Your wing is beaten. You are wounded in the thigh and escape only because the enemy fights over your gold-decked horse."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "ser"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Reinforce the right",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -17,
+       "text": "The right holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Pull back the right",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Sertorius presses."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Afranius",
+   "text": "On the left, Afranius breaks through to Sertorius’s camp.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His men start looting."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Stop them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stop them",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -17,
+       "text": "Afranius keeps his men in order."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Let them loot",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Sertorius returns and cuts the looters down."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "afr": [
+         80,
+         100
+        ]
+       },
+       "f": [
+        "afr",
+        "ser"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Send them on",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "They are tired."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Morning",
+   "text": "Next morning Metellus arrives.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Sertorius pulls back."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Join him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Join Metellus",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "text": "Together you follow Sertorius."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase Sertorius alone",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Another defeat."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rest",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Sertorius escapes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The lesson",
+   "text": "Sertorius says: 'If the old woman had not come, I would have whipped the boy back to Rome.'",
+   "intel": {
+    "hint": [
+     {
+      "text": "He means Metellus and you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Learn."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Learn patience the hard way",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The war in Spain drags on for three more years, until Sertorius is murdered by his own officers."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ignore it",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "You make the same mistake."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Work together",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "The war goes better."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Sucro (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Sucro"
+  }
+ ],
+ "winAt": 50
+}

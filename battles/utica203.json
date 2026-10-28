@@ -1,0 +1,636 @@
+{
+ "id": "utica203",
+ "name": "Battle of Utica",
+ "date": "203 BC",
+ "result": "win",
+ "loc": {
+  "lat": 37.06,
+  "lon": 10.06,
+  "place": "near Utica, Africa",
+  "short": "Utica",
+  "x": 308,
+  "y": 197
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage and Syphax",
+  "commander": "Scipio",
+  "foe": "Hasdrubal Gisco & Syphax"
+ },
+ "intro": "Near Utica in Africa, winter 204-203 BC. You are Publius Cornelius Scipio, facing two armies: Syphax’s Numidians and Hasdrubal Gisco’s Carthaginians.",
+ "debrief": "In Polybius’s account, Scipio held peace talks while centurions disguised as slaves studied the enemy camps. He then broke off talks and, at night, set fire to Syphax’s camp of reed huts; Hasdrubal’s men, rushing to help unarmed, were cut down and their camp burned too. Polybius calls it the most brilliant of Scipio’s exploits. Weeks later Scipio beat the survivors at the Great Plains. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#b8a06e",
+  "weather": "night"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 230,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Scipio’s army",
+   "model": "hastati"
+  },
+  "mas": {
+   "x": 320,
+   "y": 230,
+   "w": 80,
+   "h": 10,
+   "side": "roman",
+   "name": "Masinissa’s Numidians",
+   "model": "cav_numidian"
+  },
+  "syp": {
+   "x": 120,
+   "y": 90,
+   "w": 140,
+   "h": 12,
+   "side": "enemy",
+   "name": "Syphax’s camp (reed huts)",
+   "model": "cav_numidian",
+   "scales": true
+  },
+  "has": {
+   "x": 300,
+   "y": 90,
+   "w": 140,
+   "h": 12,
+   "side": "enemy",
+   "name": "Hasdrubal Gisco’s camp",
+   "model": "african",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The reed huts burn.",
+   "Both camps are destroyed.",
+   "Carthage’s armies are broken."
+  ],
+  "lose": [
+   "Scipio faces two armies.",
+   "He is besieged at Utica.",
+   "Carthage holds Africa."
+  ],
+  "cams": [
+   "left",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Spies",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Camps studied",
+     "tone": "g"
+    },
+    {
+     "text": "Two armies",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Talks",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Fire",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Huts ablaze",
+     "tone": "g"
+    },
+    {
+     "text": "Confusion",
+     "tone": "a"
+    },
+    {
+     "text": "Syphax helps",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Syphax’s camp",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Second camp",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Burned",
+     "tone": "g"
+    },
+    {
+     "text": "Ambushed",
+     "tone": "a"
+    },
+    {
+     "text": "Got back",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Hasdrubal",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Dawn",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Chasing",
+     "tone": "g"
+    },
+    {
+     "text": "Siege",
+     "tone": "a"
+    },
+    {
+     "text": "Regrouping",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Ashes",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Winter",
+   "text": "You are Scipio, wintering near Utica in Africa. Two armies, Syphax’s Numidians and Hasdrubal Gisco’s Carthaginians, are camped close by.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Syphax’s men live in huts of reeds and branches."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Talk peace and spy."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send envoys with spies",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "spy": 1
+       },
+       "text": "Your envoys talk peace, while centurions dressed as slaves study the camps."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack the camps by day",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Two armies face you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "has"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for spring",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "They grow stronger."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Night",
+   "text": "You break off the talks.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Reed huts burn."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fire."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Set fire to Syphax’s camp",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "spy": true
+       },
+       "r": -2,
+       "e": -17,
+       "text": "Masinissa and Laelius set the reed huts ablaze. Syphax’s men, thinking it an accident, run out unarmed and are cut down."
+      },
+      {
+       "r": -8,
+       "e": -6,
+       "text": "The fire is late."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mas": [
+         120,
+         130
+        ],
+        "syp": [
+         120,
+         90,
+         0.2
+        ]
+       },
+       "f": [
+        "mas",
+        "syp"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Attack both camps at once",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "Confusion."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack Hasdrubal’s camp first",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Syphax comes to help him."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "has"
+       ]
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The other camp",
+   "text": "Hasdrubal’s men see the fire and rush out to help, unarmed.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His camp is open."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fire his too."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Burn it",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "You set Hasdrubal’s camp on fire too. Thousands die in the flames or by the sword."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "has": [
+         300,
+         90,
+         0.2
+        ]
+       },
+       "f": [
+        "leg",
+        "has"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Ambush them on the road",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Many are killed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Stay in place",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "They get back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Dawn",
+   "text": "At dawn the camps are ash.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Syphax and Hasdrubal fled."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Chase."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Chase them",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "text": "You catch them weeks later on the Great Plains."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Besiege Utica",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "They regroup."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rest",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "They raise new armies."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Was it fair?",
+   "text": "You attacked during peace talks.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Polybius calls it Scipio’s most brilliant exploit."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Justify it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "You ended talks",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "You broke off the talks before attacking. Polybius calls the night attack the most brilliant of Scipio’s exploits."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "War is war, and Carthage would do the same",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Some Romans frown."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Deny any talks happened",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "No one believes you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Utica (203 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Utica_(203_BC)"
+  }
+ ]
+}

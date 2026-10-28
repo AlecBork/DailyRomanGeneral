@@ -1,0 +1,619 @@
+{
+ "id": "cremona200",
+ "name": "Battle of Cremona",
+ "date": "200 BC",
+ "result": "win",
+ "loc": {
+  "lat": 45.13,
+  "lon": 10.02,
+  "place": "near Cremona, Cisalpine Gaul",
+  "short": "Cremona",
+  "x": 307,
+  "y": 55
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Insubres and Cenomani",
+  "commander": "Furius Purpureo",
+  "foe": "Hamilcar"
+ },
+ "intro": "Near the colony of Cremona on the Po, 200 BC. Led by a Carthaginian officer named Hamilcar, the Gauls have burned Placentia and besieged Cremona. You are the praetor Lucius Furius Purpureo.",
+ "debrief": "In Livy’s account, Furius marched to Cremona and beat the Gauls; Hamilcar and many thousands of Gauls were killed. Despite the consul’s objections, the Senate granted Furius a triumph. The battle details are thin. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 30,
+   "w": 30
+  },
+  "grass": "#7f9a4d"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Furius Purpureo’s legions",
+   "model": "hastati"
+  },
+  "cav": {
+   "x": 320,
+   "y": 220,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "gal": {
+   "x": 200,
+   "y": 90,
+   "w": 220,
+   "h": 14,
+   "side": "enemy",
+   "name": "Insubres and Cenomani, under Hamilcar",
+   "model": "gaul",
+   "scales": true
+  },
+  "cre": {
+   "x": 60,
+   "y": 160,
+   "w": 60,
+   "h": 10,
+   "side": "roman",
+   "name": "Cremona colony",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The cavalry hits the Gallic flank.",
+   "Hamilcar dies.",
+   "Cremona is saved."
+  ],
+  "lose": [
+   "The Gauls break the legions.",
+   "Cremona falls.",
+   "The Po valley is lost."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "March",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Hurrying",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Placentia first",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Cremona besieged",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Flank",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Hit",
+     "tone": "g"
+    },
+    {
+     "text": "Long fight",
+     "tone": "a"
+    },
+    {
+     "text": "Pushed back",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Gallic attack",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Centre",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Held",
+     "tone": "g"
+    },
+    {
+     "text": "Bending",
+     "tone": "a"
+    },
+    {
+     "text": "Disorder",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Pressing",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Hamilcar",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Dead",
+     "tone": "g"
+    },
+    {
+     "text": "Escaped",
+     "tone": "a"
+    },
+    {
+     "text": "Fled",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Gauls flee",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Placentia burned",
+   "text": "The Gauls of the Po valley, led by a Carthaginian officer named Hamilcar, have sacked the colony of Placentia and are besieging Cremona. You are the praetor Lucius Furius Purpureo.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Cremona is holding."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hurry to Cremona."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hurry",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "text": "You march hard to Cremona."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for the consul",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Cremona suffers."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Retake Placentia first",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Cremona may fall."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Battle line",
+   "text": "The Gauls attack fiercely.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Use the cavalry on their flank."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Flank."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hit their flank",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "Your cavalry hits the Gallic flank while the legions hold them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         340,
+         100
+        ]
+       },
+       "f": [
+        "cav",
+        "gal"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Hold the line",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "A long fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Charge their centre",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "They push you back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "gal"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The centre",
+   "text": "The Gallic centre presses hard.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Bring up the reserve."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Reserve."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Bring up the reserve",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -16,
+       "text": "Your reserve holds the centre. The Gauls break."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "leg",
+        "gal"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Let the centre bend",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "Risky."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Counter-charge",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Disorder."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Hamilcar",
+   "text": "The Gauls flee. Hamilcar is among them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He is a Carthaginian in breach of the peace."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Find him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Find him",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "Hamilcar dies in the battle. Thousands of Gauls are killed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let him go",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "He raises more Gauls."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Free Cremona first",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "He escapes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Triumph",
+   "text": "You are a praetor, not a consul.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The consul wanted this war."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Ask for a triumph."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ask for a triumph",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Despite complaints from the consul, the Senate grants you a triumph."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Give the consul the credit",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "You are forgotten."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold a triumph without asking",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Scandal."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Cremona (200 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Cremona_(200_BC)"
+  }
+ ]
+}
