@@ -1485,6 +1485,51 @@
    "lon": 39.6,
    "result": "win",
    "naval": false
+  },
+  {
+   "id": "longbridges",
+   "name": "Long Bridges",
+   "date": "15 AD",
+   "lat": 52.5,
+   "lon": 7.5,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "auzea",
+   "name": "Auzea",
+   "date": "24 AD",
+   "lat": 36.15,
+   "lon": 3.68,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "artaxata",
+   "name": "Artaxata",
+   "date": "58 AD",
+   "lat": 39.96,
+   "lon": 44.55,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "rhandeia",
+   "name": "Rhandeia",
+   "date": "62 AD",
+   "lat": 38.95,
+   "lon": 39.6,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "camulodunum",
+   "name": "Camulodunum",
+   "date": "60 AD",
+   "lat": 51.89,
+   "lon": 0.9,
+   "result": "loss",
+   "naval": false
   }
  ]
 }

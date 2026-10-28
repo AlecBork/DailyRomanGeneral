@@ -1,0 +1,634 @@
+{
+ "id": "rhandeia",
+ "name": "Battle of Rhandeia",
+ "date": "62 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 38.95,
+  "lon": 39.6,
+  "place": "Rhandeia, Armenia",
+  "short": "Rhandeia",
+  "x": 686,
+  "y": 164
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Parthia",
+  "commander": "Caesennius Paetus",
+  "foe": "Vologases I"
+ },
+ "intro": "Rhandeia in Armenia, autumn 62 AD. You are Lucius Caesennius Paetus, newly sent to Armenia, who mocks Corbulo’s caution.",
+ "debrief": "In Tacitus’s account, Paetus failed to stock his winter camp and scattered his troops to hold the passes. When Vologases came, the detachments were cut up and Paetus was besieged. Though Corbulo was only days away, he agreed to leave Armenia; his army was humiliated. Nero mocked Paetus and gave Corbulo full command. Peace came when Tiridates went to Rome to receive his crown from Nero. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    340,
+    140,
+    80,
+    20
+   ],
+   [
+    60,
+    60,
+    80,
+    24
+   ]
+  ],
+  "weather": "snow",
+  "grass": "#cfd6d6",
+  "ground": "#d8dcda"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Paetus’s two legions",
+   "model": "legionary"
+  },
+  "out": {
+   "x": 340,
+   "y": 140,
+   "w": 80,
+   "h": 10,
+   "side": "roman",
+   "name": "Detachments in the passes",
+   "model": "auxiliary"
+  },
+  "cas": {
+   "x": 80,
+   "y": 230,
+   "w": 60,
+   "h": 6,
+   "side": "roman",
+   "name": "Wives and children in a fort",
+   "model": "levy"
+  },
+  "par": {
+   "x": 200,
+   "y": 80,
+   "w": 220,
+   "h": 14,
+   "side": "enemy",
+   "name": "Vologases’s Parthians",
+   "model": "cav_eastern",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The army holds together.",
+   "Corbulo arrives.",
+   "Armenia is held."
+  ],
+  "lose": [
+   "Paetus scatters his army.",
+   "His legions surrender.",
+   "Rome is humiliated."
+  ],
+  "cams": [
+   "wide",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Stores",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Empty",
+     "tone": "r"
+    },
+    {
+     "text": "Stocked",
+     "tone": "g"
+    },
+    {
+     "text": "Advised",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Winter",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Army",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Cut up",
+     "tone": "r"
+    },
+    {
+     "text": "Together",
+     "tone": "g"
+    },
+    {
+     "text": "Surrounded",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Vologases",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Siege",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Holding",
+     "tone": "g"
+    },
+    {
+     "text": "Bargaining",
+     "tone": "r"
+    },
+    {
+     "text": "Breakout",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Camp",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Terms",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Yoke",
+     "tone": "r"
+    },
+    {
+     "text": "Corbulo arrives",
+     "tone": "g"
+    },
+    {
+     "text": "Beaten",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Surrender",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Paetus",
+   "text": "You are Lucius Caesennius Paetus, sent to take Armenia. You scoff at Corbulo’s caution. Winter is near.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your camp at Rhandeia is short of supplies."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Stock your camp."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March deep into Armenia",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "You march about, taking a few forts, then return to winter quarters without stores."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stock your camp",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -22,
+       "set": {
+        "stock": 1
+       },
+       "text": "You gather grain for the winter."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ask Corbulo for advice",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "He advises caution."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Vologases",
+   "text": "The Parthian king Vologases comes with a great army.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Keep your men together."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Concentrate."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Spread detachments to hold the passes",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "stock": true
+       },
+       "r": -6,
+       "e": -4,
+       "text": "The detachments are cut off, but the camp has food."
+      },
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Your scattered detachments are cut up one by one."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "out": [
+         340,
+         140
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Concentrate",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -18,
+       "text": "Your army stays together."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack him at once",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -6,
+       "text": "His horsemen surround you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "par"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Besieged",
+   "text": "You are besieged in your camp.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Corbulo is coming."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -18,
+       "text": "You hold out, waiting for Corbulo."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ask for terms",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "You send to Vologases to bargain."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Break out",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -6,
+       "text": "Many die."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Surrender",
+   "text": "Vologases offers terms: leave Armenia.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Corbulo is only three days away."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wait."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Accept his terms and leave",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "You agree to leave. Your soldiers pass under a yoke; Parthians take your stores. Some even say you build a bridge for them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold out",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "Corbulo arrives."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight your way out",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -6,
+       "text": "Your weak army is beaten."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "par"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Rome",
+   "text": "Rome hears of it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Nero jokes."
+     }
+    ],
+    "scout": [
+     {
+      "text": "And Paetus?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Nero pardons him with a joke",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Nero jokes that he pardons Paetus at once, since one so easily frightened might fall ill waiting. Corbulo is given full command."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Paetus is executed",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The army is shocked."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "He is demoted",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "He is given a small post."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Rhandeia (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Rhandeia"
+  }
+ ],
+ "winAt": 50
+}

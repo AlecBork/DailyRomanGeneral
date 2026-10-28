@@ -1,0 +1,670 @@
+{
+ "id": "longbridges",
+ "name": "Battle of the Long Bridges",
+ "date": "15 AD",
+ "result": "win",
+ "loc": {
+  "lat": 52.5,
+  "lon": 7.5,
+  "place": "north-west Germany",
+  "short": "Long Bridges",
+  "x": 275,
+  "y": -74
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Cherusci",
+  "commander": "Caecina Severus",
+  "foe": "Arminius"
+ },
+ "intro": "The 'Long Bridges', an old causeway through the marshes of north-west Germany, autumn 15 AD. You are Aulus Caecina Severus, a veteran of forty years, leading four legions back to the Rhine with Arminius on your heels.",
+ "debrief": "In Tacitus’s account, Caecina tried to repair the old causeway while fighting off Arminius. He dreamed of Varus rising from the marsh. At dawn the baggage stuck and his horse was killed, but the Germans stopped to loot. In camp, Caecina let the Germans storm the rampart, then charged out of the gates and routed them. At the Rhine, Agrippina stopped the bridge being destroyed and cared for the returning soldiers. The other choices are what-ifs.",
+ "terrain": {
+  "marsh": [
+   [
+    200,
+    180,
+    260,
+    30
+   ],
+   [
+    60,
+    120,
+    60,
+    20
+   ]
+  ],
+  "forests": [
+   [
+    340,
+    90,
+    60,
+    16
+   ]
+  ],
+  "grass": "#6f8a4a",
+  "weather": "mist"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 200,
+   "w": 160,
+   "h": 14,
+   "side": "roman",
+   "name": "Caecina’s four legions",
+   "model": "legionary"
+  },
+  "bag": {
+   "x": 200,
+   "y": 235,
+   "w": 140,
+   "h": 6,
+   "side": "roman",
+   "name": "Baggage on the causeway",
+   "model": "levy"
+  },
+  "bri": {
+   "x": 200,
+   "y": 160,
+   "w": 200,
+   "h": 4,
+   "side": "roman",
+   "name": "The old Long Bridges causeway",
+   "model": "levy"
+  },
+  "arm": {
+   "x": 200,
+   "y": 80,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Arminius’s Cherusci",
+   "model": "barbarian",
+   "scales": true
+  },
+  "hill": {
+   "x": 340,
+   "y": 90,
+   "w": 80,
+   "h": 10,
+   "side": "enemy",
+   "name": "Germans on the wooded hills",
+   "model": "barbarian",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The column holds in the marsh.",
+   "The camp gates open on the Germans.",
+   "Caecina reaches the Rhine."
+  ],
+  "lose": [
+   "Arminius traps the legions on the causeway.",
+   "Another Varus disaster.",
+   "Four legions die in the marsh."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Causeway",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Being repaired",
+     "tone": "g"
+    },
+    {
+     "text": "Sinking",
+     "tone": "r"
+    },
+    {
+     "text": "Melted away",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Long Bridges",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Night",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Working",
+     "tone": "g"
+    },
+    {
+     "text": "Sleeping",
+     "tone": "a"
+    },
+    {
+     "text": "Lost",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Varus’s ghost",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Dawn",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Column held",
+     "tone": "g"
+    },
+    {
+     "text": "Baggage lost",
+     "tone": "a"
+    },
+    {
+     "text": "In the mud",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Attack",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Camp",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Sally from the gates",
+     "tone": "g"
+    },
+    {
+     "text": "Too early",
+     "tone": "a"
+    },
+    {
+     "text": "Under attack",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Rampart",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The causeway",
+   "text": "You are Aulus Caecina Severus, an old soldier with forty years’ service, leading four legions home from Germany along the 'Long Bridges', an old causeway through the marsh. Arminius is following you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Repair the causeway while some legions guard the work."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Split the work."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Split the work",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "split": 1
+       },
+       "text": "Some legions repair the causeway while others hold off the Germans."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "bri": [
+         200,
+         160
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Push on over the broken causeway",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Wagons sink in the marsh."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Turn and attack Arminius in the woods",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "He melts away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "hill"
+       ]
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Night",
+   "text": "At night the Germans feast and sing in the hills. You dream of Varus rising from the marsh, calling you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men are uneasy."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep them working."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Keep them working",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "You keep your men digging and on guard all night."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let them sleep",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The Germans attack at dawn."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March on in the dark",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The column gets lost."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Dawn",
+   "text": "At dawn the legions on your flanks move off their posts. The baggage is stuck in the mud and Arminius attacks.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your horse is killed under you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold the column."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold the column",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "split": true
+       },
+       "r": -4,
+       "e": -16,
+       "text": "The First Legion saves you. The Germans stop to loot the baggage, which gives your men time."
+      },
+      {
+       "r": -10,
+       "e": -7,
+       "text": "Many fall in the mud."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "bag": [
+         200,
+         235,
+         0.4
+        ]
+       },
+       "f": [
+        "leg",
+        "arm"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Abandon the baggage",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The Germans loot it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge into the hills",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Your men sink in the mud."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "hill"
+       ]
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The camp",
+   "text": "You reach dry ground and build a camp. Arminius’s uncle Inguiomerus wants to storm it at dawn.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Let them come right up to the rampart."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wait."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Wait",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -16,
+       "text": "The Germans storm the camp. When they are packed against the rampart, you throw open the gates and charge. They flee."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         100
+        ]
+       },
+       "f": [
+        "leg",
+        "arm"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Sally out at once",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "They are not yet close."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "arm"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold the rampart only",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "They keep attacking."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The bridge",
+   "text": "A rumour reaches the Rhine that your army is destroyed. Some want to destroy the Rhine bridge.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Agrippina, Germanicus’s wife, stands at the bridgehead."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Who stops them?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Agrippina",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Agrippina stops them from destroying the bridge and greets your returning soldiers there, giving clothes to the needy and dressing the wounded."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "The Rhine garrison",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The bridge is kept."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "No one",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The bridge is destroyed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle at the Pontes Longi (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_at_the_Pontes_Longi"
+  }
+ ]
+}

@@ -1,0 +1,633 @@
+{
+ "id": "artaxata",
+ "name": "Capture of Artaxata",
+ "date": "58 AD",
+ "result": "win",
+ "loc": {
+  "lat": 39.96,
+  "lon": 44.55,
+  "place": "Artaxata, Armenia",
+  "short": "Artaxata",
+  "x": 749,
+  "y": 146
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Armenia and Parthia",
+  "commander": "Corbulo",
+  "foe": "Tiridates"
+ },
+ "intro": "Armenia, 58 AD. The Parthian prince Tiridates holds the throne of Armenia. You are Gnaeus Domitius Corbulo, sent by Nero with the soft Syrian legions.",
+ "debrief": "In Tacitus’s account, Corbulo toughened the Syrian legions by wintering them in tents in the Armenian snow, with harsh discipline. He took Tiridates’s forts, marched on Artaxata in battle order so Tiridates could find no opening, and burned the city when it surrendered. Next year Tigranocerta opened its gates, and Rome set up its own king. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    60,
+    60,
+    80,
+    24
+   ],
+   [
+    340,
+    60,
+    80,
+    24
+   ]
+  ],
+  "weather": "snow",
+  "grass": "#cfd6d6",
+  "ground": "#d8dcda"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Corbulo’s hardened legions",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 320,
+   "y": 220,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry and archers",
+   "model": "cav_roman"
+  },
+  "ar": {
+   "x": 200,
+   "y": 80,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Tiridates’s Armenian and Parthian horse",
+   "model": "cav_eastern",
+   "scales": true
+  },
+  "cap": {
+   "x": 80,
+   "y": 40,
+   "w": 80,
+   "h": 8,
+   "side": "enemy",
+   "name": "Artaxata",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The hardened legions march in battle order.",
+   "Artaxata falls.",
+   "Armenia gets a Roman king."
+  ],
+  "lose": [
+   "Soft legions break.",
+   "Tiridates wins.",
+   "Armenia stays Parthian."
+  ],
+  "cams": [
+   "wide",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Legions",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Hardened",
+     "tone": "g"
+    },
+    {
+     "text": "Broken",
+     "tone": "r"
+    },
+    {
+     "text": "Allies",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Soft",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Forts",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Stormed",
+     "tone": "g"
+    },
+    {
+     "text": "Chasing",
+     "tone": "r"
+    },
+    {
+     "text": "Raids",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Tiridates",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "March",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Battle order",
+     "tone": "g"
+    },
+    {
+     "text": "Lured away",
+     "tone": "r"
+    },
+    {
+     "text": "Dug in",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Circled",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Capital",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Burned",
+     "tone": "g"
+    },
+    {
+     "text": "Overstretched",
+     "tone": "r"
+    },
+    {
+     "text": "Returned",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Artaxata",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Soft legions",
+   "text": "You are Gnaeus Domitius Corbulo, sent by Nero. The Syrian legions are soft: some men have never stood guard or seen a ditch dug.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Train them hard."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Winter in the mountains."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Winter in tents",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "hard": 1
+       },
+       "text": "You make them winter in tents in the Armenian snow, training. Men lose toes to frostbite. Deserters are executed. They become soldiers."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Invade at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Your soft legions break."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hire more allies from the kings",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "They do not fight hard."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Forts",
+   "text": "Tiridates, the Parthian prince on Armenia’s throne, avoids battle and raids.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Take his forts one by one."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take his strongholds."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Take the strongholds",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "You storm three forts in a single day."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase his horsemen",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "They ride away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold the frontier",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "He raids on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The march",
+   "text": "You march on Artaxata, the capital. Tiridates’s horsemen circle you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Keep a hollow square."
+     }
+    ],
+    "scout": [
+     {
+      "text": "March in battle order."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Battle order",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "hard": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "Your column marches in battle order. Tiridates cannot find a gap, and at nightfall rides away."
+      },
+      {
+       "r": -6,
+       "e": -7,
+       "text": "Your column holds, barely."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase his horsemen",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "They lure your men away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Halt and dig in for the night",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "You lose time."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Artaxata",
+   "text": "Artaxata opens its gates.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You cannot hold it with your army."
+     }
+    ],
+    "scout": [
+     {
+      "text": "What now?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Burn it",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "You spare the people but burn and level the city. Nero is hailed as Imperator."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cap": [
+         80,
+         40,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Garrison it",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Your army is spread too thin."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hand it back",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Tiridates returns."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Tigranocerta",
+   "text": "Next year you march on Tigranocerta.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Its people may surrender."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Show mercy."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Show mercy",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Tigranocerta opens its gates. Rome puts its own king on the Armenian throne."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm it",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "It is costly."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ignore it",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "Armenia stays divided."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Roman%E2%80%93Parthian War of 58%E2%80%9363 (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Roman%E2%80%93Parthian_War_of_58%E2%80%9363"
+  }
+ ]
+}
