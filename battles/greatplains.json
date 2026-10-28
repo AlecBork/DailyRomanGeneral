@@ -739,6 +739,7 @@
    "label": "A month later",
    "title": "The Great Plains",
    "dir": 1,
+   "weather": null,
    "terrain": {
     "grass": "#a8a163",
     "ground": "#c4ad76",

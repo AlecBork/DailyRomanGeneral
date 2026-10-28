@@ -819,6 +819,96 @@
    "lon": 27.89,
    "result": "win",
    "naval": false
+  },
+  {
+   "id": "vesuvius73",
+   "name": "Vesuvius (73)",
+   "date": "73 BC",
+   "lat": 40.82,
+   "lon": 14.43,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "silarus",
+   "name": "Silarus",
+   "date": "71 BC",
+   "lat": 40.48,
+   "lon": 15.1,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "tigranocerta",
+   "name": "Tigranocerta",
+   "date": "69 BC",
+   "lat": 37.95,
+   "lon": 41.08,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "zela67",
+   "name": "Zela (67)",
+   "date": "67 BC",
+   "lat": 40.3,
+   "lon": 35.89,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "lycus",
+   "name": "Lycus",
+   "date": "66 BC",
+   "lat": 40.17,
+   "lon": 38,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "pistoria",
+   "name": "Pistoria",
+   "date": "62 BC",
+   "lat": 43.93,
+   "lon": 10.92,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "arar",
+   "name": "Arar",
+   "date": "58 BC",
+   "lat": 46.05,
+   "lon": 4.85,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "vosges",
+   "name": "Vosges",
+   "date": "58 BC",
+   "lat": 47.85,
+   "lon": 7.3,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "axona",
+   "name": "Axona",
+   "date": "57 BC",
+   "lat": 49.4,
+   "lon": 3.8,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "sabis",
+   "name": "Sabis",
+   "date": "57 BC",
+   "lat": 50.3,
+   "lon": 4.1,
+   "result": "win",
+   "naval": false
   }
  ]
 }

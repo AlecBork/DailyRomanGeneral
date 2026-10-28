@@ -1,0 +1,668 @@
+{
+ "id": "tigranocerta",
+ "name": "Battle of Tigranocerta",
+ "date": "69 BC",
+ "result": "win",
+ "loc": {
+  "lat": 37.95,
+  "lon": 41.08,
+  "place": "Tigranocerta, Armenia",
+  "short": "Tigranocerta",
+  "x": 705,
+  "y": 181
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Armenia",
+  "commander": "Lucullus",
+  "foe": "Tigranes the Great"
+ },
+ "intro": "Before Tigranocerta, the new capital of Armenia, 6 October 69 BC. King Tigranes the Great comes with an enormous army to relieve the city. You are Lucius Licinius Lucullus, with perhaps 10,000 foot and 1,000 horse.",
+ "debrief": "In Plutarch’s account, Tigranes mocked the small Roman army as too many for envoys and too few for soldiers. Lucullus, told the day was unlucky, said he would make it lucky. He led two cohorts up a slope to attack the Armenian cataphracts on a hill, telling his men to strike at their legs; the cataphracts panicked and fled back into their own army, which broke. The Romans claimed huge enemy losses. The city’s mercenaries opened its gates. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 180,
+   "w": 20
+  },
+  "hills": [
+   [
+    340,
+    100,
+    60,
+    18
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 140,
+   "h": 14,
+   "side": "roman",
+   "name": "Lucullus’s legions (two cohorts each side)",
+   "model": "hastati"
+  },
+  "lc": {
+   "x": 340,
+   "y": 200,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Lucullus with two cohorts",
+   "model": "principes"
+  },
+  "riv": {
+   "x": 200,
+   "y": 180,
+   "w": 280,
+   "h": 6,
+   "side": "roman",
+   "name": "The river",
+   "model": "levy"
+  },
+  "cat": {
+   "x": 340,
+   "y": 100,
+   "w": 90,
+   "h": 14,
+   "side": "enemy",
+   "name": "Armenian cataphracts on the hill",
+   "model": "cav_eastern",
+   "scales": true
+  },
+  "arm": {
+   "x": 160,
+   "y": 90,
+   "w": 200,
+   "h": 16,
+   "side": "enemy",
+   "name": "Tigranes’s huge army",
+   "model": "levy",
+   "scales": true
+  },
+  "tig": {
+   "x": 200,
+   "y": 40,
+   "w": 60,
+   "h": 10,
+   "side": "enemy",
+   "name": "King Tigranes",
+   "model": "cav_eastern"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The cataphracts trample their own men.",
+   "The king of kings flees.",
+   "Tigranocerta falls."
+  ],
+  "lose": [
+   "The cataphracts break the legions.",
+   "Tigranes relieves his capital.",
+   "Lucullus is far from home."
+  ],
+  "cams": [
+   "right",
+   "front",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Siege",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Kept up",
+     "tone": "g"
+    },
+    {
+     "text": "Lifted",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Tigranocerta",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Omen",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Made lucky",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Praying",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Unlucky day",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Cataphracts",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Struck from behind",
+     "tone": "g"
+    },
+    {
+     "text": "Charging",
+     "tone": "a"
+    },
+    {
+     "text": "Across the river",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "On the hill",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Army",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Fleeing",
+     "tone": "g"
+    },
+    {
+     "text": "Tigranes escaped",
+     "tone": "a"
+    },
+    {
+     "text": "Intact",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Panicking",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The king of kings",
+   "text": "Tigranes the Great of Armenia, ‘king of kings’, comes with an enormous army to relieve his new capital, Tigranocerta. You are Lucullus, with about 10,000 foot and 1,000 horse. Tigranes laughs that your army is ‘too many for envoys, too few for soldiers’.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His army is huge but much of it is untrained."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Leave a force to keep up the siege and march out with the rest."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Split the army and march out",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "set": {
+        "split": 1
+       },
+       "text": "You leave a force at the siege and march out to meet the king."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Lift the siege and retreat",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Tigranes relieves his city."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait behind your siege lines and let him attack",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Tigranes surrounds you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "An unlucky day",
+   "text": "It is 6 October, the anniversary of the Roman disaster at Arausio. Your officers say it is an unlucky day.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men are ready."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Make it a lucky day."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "‘I will make it lucky’",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -9,
+       "set": {
+        "luck": 1
+       },
+       "text": "You tell your officers you will make it a lucky day. The men laugh and follow."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait a day for a better omen",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Tigranes’s army grows."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Sacrifice and pray",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The day passes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The cataphracts",
+   "text": "Tigranes’s armoured cataphracts, men and horses covered in mail, are on a hill on his flank. You see they can be reached by a slope from behind.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Cataphracts are helpless if attacked close up, at the legs."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take two cohorts up the slope and attack them yourself."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Climb the slope and strike them",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "luck": true
+       },
+       "r": -2,
+       "e": -21,
+       "text": "You climb the hill on foot with two cohorts and fall on the cataphracts, telling your men to strike at their legs. They panic and crash back into the Armenian army."
+      },
+      {
+       "r": -4,
+       "e": -12,
+       "text": "The cataphracts are thrown into confusion."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lc": [
+         360,
+         100
+        ],
+        "cat": [
+         360,
+         80,
+         0.4
+        ]
+       },
+       "f": [
+        "lc",
+        "cat"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Send your horse against them",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "Your few horse cannot stop them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "cat"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Hold the river and let them charge across it",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "They charge across the river."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Panic",
+   "text": "The cataphracts are trampling their own army. The whole Armenian host is beginning to flee.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Tigranes himself is fleeing."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Push across the river now."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cross and attack",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -16,
+       "text": "Your legions cross the river and the vast army breaks without a fight. Tens of thousands are killed in the rout."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ],
+        "arm": [
+         160,
+         60,
+         0.3
+        ]
+       },
+       "f": [
+        "leg",
+        "arm"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Chase Tigranes and capture the king himself",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "He escapes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold the river",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The army flees unharmed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Tigranocerta",
+   "text": "The city’s Greek mercenaries open the gates.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The city is full of treasure."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take it, and let the people go home."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Take the city",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "You take Tigranocerta and send home the Greeks and others Tigranes had forced to live there."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let the soldiers sack it",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "The soldiers grow rich."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold it for ransom from the king",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Tigranes refuses."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Tigranocerta (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Tigranocerta"
+  }
+ ]
+}

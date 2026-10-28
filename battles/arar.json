@@ -1,0 +1,664 @@
+{
+ "id": "arar",
+ "name": "Battle of the Arar",
+ "date": "58 BC",
+ "result": "win",
+ "loc": {
+  "lat": 46.05,
+  "lon": 4.85,
+  "place": "the river Arar (Saône), Gaul",
+  "short": "Arar",
+  "x": 241,
+  "y": 39
+ },
+ "names": {
+  "rome": "Caesar’s army",
+  "enemy": "The Helvetii",
+  "commander": "Caesar",
+  "foe": "Divico"
+ },
+ "intro": "By the river Arar (Saône), central Gaul, 58 BC. The Helvetii are migrating across Gaul and have spent twenty days ferrying across the river. You are Gaius Julius Caesar, governor of Gaul, in his first campaign.",
+ "debrief": "In Caesar’s own account, he marched at midnight with three legions and fell on the Tigurini, the clan still on the near bank, killing many; he notes that they were the clan that had killed the consul Lucius Cassius fifty years before. He then bridged the Arar in a day, which so impressed the Helvetii that they sent the old chief Divico to negotiate. Divico refused to give hostages, and Caesar followed the Helvetii until the battle near Bibracte. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 140,
+   "w": 26
+  },
+  "forests": [
+   [
+    60,
+    60,
+    50,
+    16
+   ],
+   [
+    340,
+    60,
+    50,
+    16
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Three of Caesar’s legions",
+   "model": "legionary"
+  },
+  "riv": {
+   "x": 200,
+   "y": 140,
+   "w": 280,
+   "h": 8,
+   "side": "roman",
+   "name": "The river Arar (Saône)",
+   "model": "levy"
+  },
+  "tig": {
+   "x": 200,
+   "y": 90,
+   "w": 140,
+   "h": 14,
+   "side": "enemy",
+   "name": "The Tigurini (not yet across)",
+   "model": "gaul",
+   "scales": true
+  },
+  "hel": {
+   "x": 200,
+   "y": 30,
+   "w": 180,
+   "h": 10,
+   "side": "enemy",
+   "name": "The Helvetii (already across)",
+   "model": "gaul"
+  },
+  "raft": {
+   "x": 120,
+   "y": 140,
+   "w": 60,
+   "h": 8,
+   "side": "enemy",
+   "name": "Rafts and boats",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Tigurini are scattered at the river.",
+   "Cassius is avenged.",
+   "The Helvetii see a bridge built in a day."
+  ],
+  "lose": [
+   "The Tigurini escape.",
+   "The Helvetii march on.",
+   "Caesar’s first campaign stalls."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Crossing",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Tigurini caught on this side",
+     "tone": "g"
+    },
+    {
+     "text": "All across",
+     "tone": "a"
+    },
+    {
+     "text": "Crossing under fire",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Twenty days",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Tigurini",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Scattered",
+     "tone": "g"
+    },
+    {
+     "text": "Escaping",
+     "tone": "a"
+    },
+    {
+     "text": "Crossed",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "At the bank",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "River",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Bridged in a day",
+     "tone": "g"
+    },
+    {
+     "text": "Rafts",
+     "tone": "a"
+    },
+    {
+     "text": "Let them go",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Helvetii across",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Talks",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Hostages demanded",
+     "tone": "g"
+    },
+    {
+     "text": "Peace on their terms",
+     "tone": "r"
+    },
+    {
+     "text": "Divico seized",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Divico",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "A people on the move",
+   "text": "The Helvetii, 368,000 people by Caesar’s count, are migrating west across Gaul. For twenty days they have been ferrying across the slow river Arar on rafts. You are Gaius Julius Caesar, governor of Gaul.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Three-quarters of them are already across. One clan, the Tigurini, is still on this side."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike the part still on this bank."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Strike the clan still on this side",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -15,
+       "set": {
+        "night": 1
+       },
+       "text": "You march at midnight with three legions toward the Tigurini, still on the near bank."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for them all to cross, then follow",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The whole people is across."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack those already across",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "You must cross the river under their eyes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Tigurini",
+   "text": "At dawn you fall on the Tigurini, encumbered by baggage, at the river bank.",
+   "intel": {
+    "hint": [
+     {
+      "text": "These are the men who killed a consul and sent his army under the yoke fifty years ago."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack at once, before they form."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack before they can form",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "night": true
+       },
+       "r": -2,
+       "e": -23,
+       "text": "Your legions fall on the Tigurini as they pack their wagons. Many are killed; the rest flee into the woods. Caesar has avenged the defeat of Cassius."
+      },
+      {
+       "r": -4,
+       "e": -13,
+       "text": "The Tigurini are scattered."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ],
+        "tig": [
+         200,
+         90,
+         0.3
+        ]
+       },
+       "f": [
+        "leg",
+        "tig"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Surround them against the river",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "Many escape along the bank."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer them terms",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "They cross the river by night."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "A bridge in a day",
+   "text": "The rest of the Helvetii are across the Arar. It took them twenty days.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your engineers are good."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Build a bridge and cross in one day."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Build a bridge",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "set": {
+        "bridge": 1
+       },
+       "text": "Your army bridges the Arar in a single day. The Helvetii, astonished, send envoys."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "riv": [
+         200,
+         140
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Cross on their abandoned rafts",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The crossing is slow and disordered."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         120,
+         140
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Let them go",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "They march on into Gaul."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Divico’s message",
+   "text": "The old chief Divico, who beat Cassius fifty years ago, comes as envoy. The Helvetii will settle where you tell them, but warn you not to forget their old victory.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He wants peace on his terms."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Demand hostages as surety."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Demand hostages",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "Divico replies that the Helvetii take hostages; they do not give them. He leaves. The war goes on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Accept peace on their terms and let them settle",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "They settle on Aeduan land."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Seize Divico",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "The Helvetii are furious."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Following",
+   "text": "The Helvetii march on. Your cavalry clashes with their rearguard.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are heading toward Bibracte country."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Follow, but keep your distance."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Shadow them, five miles behind",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "You shadow them for fifteen days. The decisive battle will come at Bibracte."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack their rearguard with cavalry",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "Your Gallic horse are beaten by 500 Helvetian riders."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Turn away to get grain",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "You lose contact."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Arar (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Arar"
+  }
+ ]
+}

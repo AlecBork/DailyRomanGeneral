@@ -1,0 +1,663 @@
+{
+ "id": "vesuvius73",
+ "name": "Battle of Mount Vesuvius",
+ "date": "73 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 40.82,
+  "lon": 14.43,
+  "place": "Mount Vesuvius, Campania",
+  "short": "Vesuvius (73)",
+  "x": 364,
+  "y": 131
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Spartacus",
+  "commander": "Glaber",
+  "foe": "Spartacus"
+ },
+ "intro": "Mount Vesuvius, Campania, 73 BC. Seventy gladiators led by the Thracian Spartacus have escaped from a training school at Capua and taken refuge on the mountain. You are the praetor Gaius Claudius Glaber, with 3,000 militia.",
+ "debrief": "In Plutarch’s and Frontinus’s accounts, Glaber blocked the only path down from the summit, expecting the gladiators to starve. They made ladders from wild vines, climbed down the cliffs at night and fell on his camp from behind; the militia fled. Slaves and herdsmen flocked to Spartacus, who defeated several Roman armies over the next two years. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    40,
+    190,
+    46
+   ]
+  ],
+  "forests": [
+   [
+    60,
+    110,
+    40,
+    16
+   ]
+  ],
+  "weather": "night"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 200,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Glaber’s militia (3,000)",
+   "model": "levy"
+  },
+  "camp": {
+   "x": 200,
+   "y": 230,
+   "w": 90,
+   "h": 10,
+   "side": "roman",
+   "name": "Glaber’s camp at the foot of the path",
+   "model": "levy"
+  },
+  "spa": {
+   "x": 200,
+   "y": 60,
+   "w": 90,
+   "h": 12,
+   "side": "enemy",
+   "name": "Spartacus’s gladiators (on the summit)",
+   "model": "barbarian",
+   "scales": true
+  },
+  "vine": {
+   "x": 60,
+   "y": 110,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Gladiators on vine ladders",
+   "model": "barbarian",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The gladiators are caught on the cliffs.",
+   "The revolt is crushed at once.",
+   "Spartacus is a name no one remembers."
+  ],
+  "lose": [
+   "The gladiators come down the vines.",
+   "Glaber’s camp is taken.",
+   "The great slave war begins."
+  ],
+  "cams": [
+   "left",
+   "clash",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Mountain",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Path blocked",
+     "tone": "a"
+    },
+    {
+     "text": "Storm failed",
+     "tone": "r"
+    },
+    {
+     "text": "Ringed",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Gladiators on top",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Cliffs",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Unwatched",
+     "tone": "r"
+    },
+    {
+     "text": "Sentries posted",
+     "tone": "g"
+    },
+    {
+     "text": "Camp fortified",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Vines",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Camp",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Taken",
+     "tone": "r"
+    },
+    {
+     "text": "Holding",
+     "tone": "g"
+    },
+    {
+     "text": "Retreating",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Attacked from behind",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Spartacus",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Growing",
+     "tone": "r"
+    },
+    {
+     "text": "Attacked again",
+     "tone": "r"
+    },
+    {
+     "text": "Towns guarded",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Armed",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Escaped gladiators",
+   "text": "Seventy gladiators led by the Thracian Spartacus have broken out of a school at Capua and taken refuge on Mount Vesuvius. You are the praetor Gaius Claudius Glaber, with 3,000 hastily raised militia.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The only path up the mountain is narrow."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Block the path and wait for hunger."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Block the one path and wait for them to starve",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "set": {
+        "block": 1
+       },
+       "text": "You camp at the foot of the only path. The gladiators are trapped on the summit."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the summit at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The gladiators throw you back down the path."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "leg",
+        "spa"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Ring the whole mountain with guards",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -16,
+       "set": {
+        "ring": 1
+       },
+       "text": "Your patrols watch every slope, not just the path."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "high"
+    }
+   ]
+  },
+  {
+   "title": "Wild vines",
+   "text": "On the cliffs, wild vines grow thick.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Men can make ladders from vines."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Watch the cliffs as well as the path."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Watch only the path",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "Your sentries watch the path."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Watch the cliffs too",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "if": {
+        "ring": true
+       },
+       "r": 0,
+       "e": -19,
+       "text": "Your sentries see men climbing down the cliffs on vine ladders, and raise the alarm."
+      },
+      {
+       "r": -2,
+       "e": -12,
+       "text": "A sentry spots movement on the cliff."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Fortify the camp more strongly against a sally",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The camp is stronger, facing the path."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Behind you",
+   "text": "At night the gladiators climb down the cliffs on ladders woven from vines and fall on your camp from behind.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your militia are raw."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep them together."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Your men panic and run",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": 0,
+       "text": "Your militia flee. The camp is taken."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vine": [
+         120,
+         215,
+         1
+        ]
+       },
+       "f": [
+        "camp",
+        "vine"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Stand round the standards",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -12,
+       "text": "Part of your force stands and fights."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vine": [
+         120,
+         215,
+         1
+        ],
+        "leg": [
+         200,
+         215
+        ]
+       },
+       "f": [
+        "leg",
+        "vine"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Fall back to the road and re-form in the open",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "Some get away in order."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         240
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The army of slaves",
+   "text": "Word spreads. Slaves and herdsmen flock to Spartacus. Your camp’s weapons are in his hands.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He will grow very quickly."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Get help from Rome."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ask Rome for a proper army",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Rome sends another praetor. Spartacus beats him too."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack him again before he grows",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "Your broken militia is beaten again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Guard Capua and the towns",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -9,
+       "text": "The towns are safe."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Rome’s mistake",
+   "text": "Rome thought this was only a band of runaway slaves.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Spartacus is a soldier who once served Rome."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Warn the Senate."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Warn the Senate",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "The Senate listens too late. Soon Spartacus will have 70,000 men."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Blame your militia for running",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The Senate shrugs."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Say nothing",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "Rome sends no one for months."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Siege of Mount Vesuvius (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Siege_of_Mount_Vesuvius"
+  }
+ ],
+ "winAt": 50
+}

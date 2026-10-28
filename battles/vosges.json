@@ -1,0 +1,689 @@
+{
+ "id": "vosges",
+ "name": "Battle of the Vosges",
+ "date": "58 BC",
+ "result": "win",
+ "loc": {
+  "lat": 47.85,
+  "lon": 7.3,
+  "place": "the Vosges, Alsace",
+  "short": "Vosges",
+  "x": 272,
+  "y": 8
+ },
+ "names": {
+  "rome": "Caesar’s army",
+  "enemy": "Ariovistus’s Germans",
+  "commander": "Caesar",
+  "foe": "Ariovistus"
+ },
+ "intro": "In Alsace, at the foot of the Vosges, 58 BC. The German king Ariovistus has settled across the Rhine in Gaul with many thousands of warriors. You are Julius Caesar, whose army is afraid of the Germans.",
+ "debrief": "In Caesar’s account, his men panicked at tales of the Germans until he said he would march with the Tenth Legion alone. German horsemen attacked his escort during a parley. Learning that German wise women forbade battle before the new moon, Caesar forced one by marching to their camp. The Germans charged too fast for pila to be thrown; when the Roman left was pressed, young Publius Crassus, commanding the cavalry, sent the third line to help. The Germans fled to the Rhine, fifteen miles away; Ariovistus escaped in a boat. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    60,
+    40,
+    80,
+    20
+   ]
+  ],
+  "forests": [
+   [
+    340,
+    40,
+    60,
+    16
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 200,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Six legions in three lines",
+   "model": "legionary"
+  },
+  "tri": {
+   "x": 200,
+   "y": 228,
+   "w": 140,
+   "h": 10,
+   "side": "roman",
+   "name": "Third line (Crassus)",
+   "model": "triarii"
+  },
+  "eq": {
+   "x": 340,
+   "y": 215,
+   "w": 40,
+   "h": 10,
+   "side": "roman",
+   "name": "Cavalry (Aedui and legionaries)",
+   "model": "cav_roman"
+  },
+  "ger": {
+   "x": 200,
+   "y": 95,
+   "w": 190,
+   "h": 16,
+   "side": "enemy",
+   "name": "Ariovistus’s Germans by tribe",
+   "model": "barbarian",
+   "scales": true
+  },
+  "gcav": {
+   "x": 60,
+   "y": 90,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "German horse with foot",
+   "model": "cav_heavy",
+   "scales": true
+  },
+  "wag": {
+   "x": 200,
+   "y": 30,
+   "w": 200,
+   "h": 10,
+   "side": "enemy",
+   "name": "Wagons and women",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The third line saves the left.",
+   "The Germans flee to the Rhine.",
+   "Ariovistus escapes in a little boat."
+  ],
+  "lose": [
+   "The German shield wall breaks the left.",
+   "The legions fall back.",
+   "Gaul belongs to Ariovistus."
+  ],
+  "cams": [
+   "left",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Morale",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Shamed into courage",
+     "tone": "g"
+    },
+    {
+     "text": "Sullen",
+     "tone": "a"
+    },
+    {
+     "text": "Panicking",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Afraid",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Parley",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Truce broken by them",
+     "tone": "g"
+    },
+    {
+     "text": "Skirmish",
+     "tone": "a"
+    },
+    {
+     "text": "Seizure failed",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Between the armies",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Battle",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Forced before the new moon",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "r"
+    },
+    {
+     "text": "Raiding",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Omens",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Left wing",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Saved by the third line",
+     "tone": "g"
+    },
+    {
+     "text": "Buckling",
+     "tone": "a"
+    },
+    {
+     "text": "Broken",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Pressed",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Fear in the camp",
+   "text": "The Germans of Ariovistus have settled in Gaul. Traders tell your men of their huge size and terrible eyes. Panic spreads; officers are writing their wills.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your soldiers are afraid of an enemy they have never seen."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Shame them: if no one else will march, you will go with the Tenth Legion alone."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March with the Tenth alone",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "set": {
+        "morale": 1
+       },
+       "text": "You call a council and tell them you will march with the Tenth Legion alone if need be. The Tenth thanks you; the others beg to come."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Punish the officers spreading panic",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The army obeys sullenly."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for the panic to pass",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "It spreads."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Ariovistus parleys",
+   "text": "Ariovistus agrees to meet you between the armies, on horseback. His horsemen attack your escort during the talks.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He wants to provoke you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Do not let your escort fight back; keep your word clean."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ride back without fighting",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "You ride back and forbid any reply. The Germans have broken the truce, not Rome."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let your escort fight back and punish them",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "A skirmish, and nothing more."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "eq",
+        "gcav"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Seize Ariovistus",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "He escapes; his men are enraged."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The new moon",
+   "text": "German prisoners say their wise women forbid them to fight before the new moon.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They do not want to fight yet."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Force a battle now, before the moon changes."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Force a battle now",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "morale": true
+       },
+       "r": -2,
+       "e": -19,
+       "text": "You march your legions in three lines up to the German camp. The Germans must come out and fight, against their omens."
+      },
+      {
+       "r": -4,
+       "e": -12,
+       "text": "The Germans come out."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for them to attack",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "They wait for the new moon."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Raid their supply wagons to make them come out",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "They guard them well."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The left is pressed",
+   "text": "The Germans charge so fast your men have no time to throw their pila. They grapple with the German shield wall. Your left is being pushed back.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Young Publius Crassus commands the cavalry, outside the fight, where he can see."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send the third line to the left."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the third line left",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -17,
+       "set": {
+        "third": 1
+       },
+       "text": "Crassus sees the danger and sends the third line to save the left. Some legionaries leap onto the German shield wall and stab down."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "tri": [
+         100,
+         190
+        ]
+       },
+       "f": [
+        "tri",
+        "ger",
+        "leg"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Throw the right wing forward to win there first",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -12,
+       "text": "The right breaks through, but the left is buckling."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "ger"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Pull the whole line back",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The Germans pour after you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         220
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Rhine",
+   "text": "The Germans break and flee toward the Rhine, fifteen miles away.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Ariovistus is fleeing."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send the cavalry after them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pursue them to the Rhine",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "third": true
+       },
+       "r": -2,
+       "e": -17,
+       "text": "Your cavalry cuts down the fugitives all the way to the Rhine. Ariovistus escapes across it in a small boat; his two wives die."
+      },
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Many are caught."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         300,
+         60
+        ],
+        "ger": [
+         200,
+         40,
+         0.3
+        ]
+       },
+       "f": [
+        "eq",
+        "ger"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Halt and take the wagons",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "The wagons are full of women and children."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let them go",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "They will cross back next year."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Vosges (58 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Vosges_(58_BC)"
+  }
+ ]
+}
