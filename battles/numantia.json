@@ -1,0 +1,688 @@
+{
+ "id": "numantia",
+ "name": "Siege of Numantia",
+ "date": "133 BC",
+ "result": "win",
+ "loc": {
+  "lat": 41.81,
+  "lon": -2.44,
+  "place": "Numantia, northern Spain",
+  "short": "Numantia",
+  "x": 148,
+  "y": 114
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Numantia",
+  "commander": "Scipio Aemilianus",
+  "foe": "the Numantines"
+ },
+ "intro": "Numantia, a Celtiberian hill town in northern Spain, 134-133 BC. It has defeated several Roman armies over twenty years. You are Publius Cornelius Scipio Aemilianus, conqueror of Carthage, with about 60,000 men.",
+ "debrief": "In Appian’s account, Scipio restored discipline, then ringed Numantia with a wall nine kilometres long with towers and seven camps, and blocked the Douro with a boom of spiked timbers. When the noble Rhetogenes escaped to seek help, Scipio rode to Lutia and cut off the hands of 400 young men who had promised aid. After eight months of starvation, many Numantines killed themselves and the rest surrendered; the town was destroyed. The siege works can still be traced today. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    50,
+    110,
+    22
+   ]
+  ],
+  "river": {
+   "x": 360,
+   "w": 24
+  }
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 170,
+   "h": 14,
+   "side": "roman",
+   "name": "Scipio Aemilianus’s army (60,000)",
+   "model": "hastati"
+  },
+  "lines": {
+   "x": 200,
+   "y": 180,
+   "w": 240,
+   "h": 6,
+   "side": "roman",
+   "name": "Wall, towers and forts",
+   "model": "levy"
+  },
+  "riv": {
+   "x": 360,
+   "y": 110,
+   "w": 30,
+   "h": 140,
+   "side": "roman",
+   "name": "Boom across the Douro",
+   "model": "levy"
+  },
+  "num": {
+   "x": 200,
+   "y": 80,
+   "w": 140,
+   "h": 14,
+   "side": "enemy",
+   "name": "Numantine warriors",
+   "model": "barbarian",
+   "scales": true
+  },
+  "town": {
+   "x": 200,
+   "y": 40,
+   "w": 100,
+   "h": 10,
+   "side": "enemy",
+   "name": "Numantia",
+   "model": "levy"
+  },
+  "ret": {
+   "x": 60,
+   "y": 90,
+   "w": 40,
+   "h": 10,
+   "side": "enemy",
+   "name": "Rhetogenes’s riders",
+   "model": "cav_heavy",
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Numantia is starved into surrender.",
+   "The town burns.",
+   "Spain is quiet at last."
+  ],
+  "lose": [
+   "Numantia holds out.",
+   "Another Roman army fails.",
+   "Spain stays unconquered."
+  ],
+  "cams": [
+   "high",
+   "wide",
+   "wide"
+  ],
+  "anim": {
+   "win": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Army",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Drilled and fit",
+     "tone": "g"
+    },
+    {
+     "text": "Beaten again",
+     "tone": "r"
+    },
+    {
+     "text": "Talking",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Demoralised",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Siege",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Walled in",
+     "tone": "g"
+    },
+    {
+     "text": "Raiding",
+     "tone": "a"
+    },
+    {
+     "text": "Refused battle",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Before Numantia",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "River",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Boomed",
+     "tone": "g"
+    },
+    {
+     "text": "Guarded",
+     "tone": "a"
+    },
+    {
+     "text": "Open",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "The Douro",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Allies",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Lutia crushed",
+     "tone": "g"
+    },
+    {
+     "text": "Help beaten off",
+     "tone": "a"
+    },
+    {
+     "text": "Food sent",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Rhetogenes riding",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The town no one can take",
+   "text": "Numantia, a Celtiberian hill town, has beaten Roman army after army for twenty years. You are Scipio Aemilianus, who destroyed Carthage, sent to end it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your army is demoralised and soft."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Do not fight until the army is fit to fight."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Drill the army",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "drill": 1
+       },
+       "text": "You throw out the traders and camp women, and drill the army until it is fit again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the town at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The Numantines beat you, as they beat the others."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "leg",
+        "num"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Talk peace with Numantia to end it quickly",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The Senate rejects the peace."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "A wall round the town",
+   "text": "Numantia sits on a hill between two rivers.",
+   "intel": {
+    "hint": [
+     {
+      "text": "A town that cannot be stormed can be starved."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Ring it with a wall nine kilometres long, with towers and seven camps."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Wall it in",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "set": {
+        "wall": 1
+       },
+       "text": "Your army builds a stone wall with towers around the town and seven forts."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lines": [
+         200,
+         175
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Ravage the land around it to starve it",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The Numantines bring in food from allies."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight them in the open",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "They will not come out on your terms."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The river",
+   "text": "Boats and swimmers still bring food down the Douro.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The river runs past the town."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Stretch a boom of timbers set with blades across it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Block the river",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "set": {
+        "river": 1
+       },
+       "text": "A boom of logs set with blades and spearheads closes the river."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "riv": [
+         360,
+         110
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Guard the river banks with archers at night",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Some boats still get through at night."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Ignore the river",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "Food keeps coming."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Rhetogenes",
+   "text": "A Numantine noble, Rhetogenes, slips over your wall at night with a few riders to beg other towns for help. One town, Lutia, wants to help.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Lutia’s young men are ready to march."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike Lutia before it can move."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ride to Lutia at once and stop them",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "wall": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "You ride through the night to Lutia and cut off the hands of 400 young men who had promised to help. No one else dares."
+      },
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Lutia is cowed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ret": [
+         60,
+         90,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Strengthen the wall and ignore Lutia",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "Lutia sends some help, which is beaten off."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send envoys to Lutia",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Lutia sends food."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The end of Numantia",
+   "text": "After eight months, the Numantines are starving. Some have eaten the dead.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They ask for terms."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Demand unconditional surrender."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Demand unconditional surrender",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -15,
+       "text": "Many Numantines kill themselves rather than surrender. The rest give up. You burn the town and sell the survivors."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "town": [
+         200,
+         40,
+         0.2
+        ],
+        "num": [
+         200,
+         80,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer them their lives and land",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "Rome is angry at the terms."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the town now",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "The starving defenders fight like wolves."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         100
+        ]
+       },
+       "f": [
+        "leg",
+        "num"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Siege of Numantia (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Siege_of_Numantia"
+  }
+ ]
+}

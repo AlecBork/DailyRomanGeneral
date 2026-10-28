@@ -1,0 +1,716 @@
+{
+ "id": "tribola",
+ "name": "Battle of Tribola",
+ "date": "147 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 37,
+  "lon": -5.8,
+  "place": "Tribola, southern Spain",
+  "short": "Tribola",
+  "x": 105,
+  "y": 198
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Lusitanians",
+  "commander": "Vetilius",
+  "foe": "Viriathus"
+ },
+ "intro": "Near Tribola in southern Spain, 147 BC. The Lusitanians, led by a former shepherd named Viriathus, have risen against Rome. You are the praetor Gaius Vetilius, who has trapped their army.",
+ "debrief": "In Appian’s account, the trapped Lusitanians offered to surrender, but Viriathus persuaded them to fight on. He drew them up for battle, then had them scatter while he held the Romans back with a thousand horsemen, and they met again at Tribola. Vetilius followed him into thickets, where he was ambushed; of 10,000 men, about 6,000 escaped. Vetilius was captured, and killed by a soldier who did not know who he was. Viriathus fought Rome for eight more years. The other choices are what-ifs.",
+ "terrain": {
+  "forests": [
+   [
+    60,
+    110,
+    60,
+    30
+   ],
+   [
+    340,
+    110,
+    60,
+    30
+   ]
+  ],
+  "hills": [
+   [
+    60,
+    60,
+    70,
+    16
+   ],
+   [
+    340,
+    60,
+    70,
+    16
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 200,
+   "w": 140,
+   "h": 14,
+   "side": "roman",
+   "name": "Vetilius’s army",
+   "model": "hastati"
+  },
+  "eq": {
+   "x": 340,
+   "y": 215,
+   "w": 40,
+   "h": 10,
+   "side": "roman",
+   "name": "Roman horse",
+   "model": "cav_roman"
+  },
+  "vir": {
+   "x": 200,
+   "y": 110,
+   "w": 80,
+   "h": 12,
+   "side": "enemy",
+   "name": "Viriathus’s horsemen",
+   "model": "cav_heavy",
+   "scales": true
+  },
+  "lus1": {
+   "x": 60,
+   "y": 90,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "Lusitanians in the woods",
+   "model": "barbarian",
+   "scales": true,
+   "hidden": true
+  },
+  "lus2": {
+   "x": 340,
+   "y": 90,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "Lusitanians in the woods",
+   "model": "barbarian",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Lusitanians lay down their arms.",
+   "Viriathus is left alone.",
+   "The war in Spain ends."
+  ],
+  "lose": [
+   "The army is ambushed at Tribola.",
+   "Vetilius is killed.",
+   "Viriathus’s war goes on for eight years."
+  ],
+  "cams": [
+   "wide",
+   "clash",
+   "wide"
+  ],
+  "anim": {
+   "lose": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Surrender",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Viriathus seized",
+     "tone": "g"
+    },
+    {
+     "text": "Offer accepted, then broken",
+     "tone": "a"
+    },
+    {
+     "text": "Broken off",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Offered",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The trick",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Chasing",
+     "tone": "r"
+    },
+    {
+     "text": "Holding together",
+     "tone": "g"
+    },
+    {
+     "text": "Horse charged",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Scattering",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Road",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Into the thickets",
+     "tone": "r"
+    },
+    {
+     "text": "Scouted",
+     "tone": "g"
+    },
+    {
+     "text": "Open road",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "To Tribola",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Army",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Cut to pieces",
+     "tone": "r"
+    },
+    {
+     "text": "Square fighting back",
+     "tone": "g"
+    },
+    {
+     "text": "Breaking out",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Ambushed",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Viriathus",
+   "text": "The Lusitanians of western Spain, led by a former shepherd named Viriathus, have risen against Rome. You are the praetor Gaius Vetilius. You have trapped their army.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Lusitanians are offering to surrender for land."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Accept: they have no way out."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Seize Viriathus before he can speak",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -19,
+       "set": {
+        "peace": 1
+       },
+       "text": "Viriathus is taken. Without him, the Lusitanians lay down their arms."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Accept their offer of land for peace",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "They agree, until Viriathus reminds them how Galba massacred Lusitanians who surrendered. They decide to fight on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack them while they talk",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "Viriathus rallies them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "A trick",
+   "text": "Viriathus draws his men up for battle with his horsemen in front. Then, at his signal, the rest scatter in every direction.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His horsemen stay to hold you back."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Do not chase the scattered men; they will meet again somewhere."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pursue the scattered warriors before they vanish",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "set": {
+        "chase": 1
+       },
+       "text": "Your men break formation to chase them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         160
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold together",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "set": {
+        "hold": 1
+       },
+       "text": "Your army stays together."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge his horsemen",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The horsemen ride off."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         250,
+         120
+        ]
+       },
+       "f": [
+        "eq",
+        "vir"
+       ]
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The road to Tribola",
+   "text": "Viriathus’s horsemen fall back toward the town of Tribola. The road runs through thickets and a narrow valley.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His men will be waiting for you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Do not follow into the thickets."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Follow him toward Tribola",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Your army follows him into the thickets."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Halt and send scouts ahead",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -15,
+       "set": {
+        "warned": 1
+       },
+       "text": "Your scouts find warriors in the woods."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Go round by the open road",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The long way is slow but safe."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The ambush",
+   "text": "The Lusitanians rise from the thickets on both sides.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The valley is narrow."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Form a square and fight back."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight where you stand",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "warned": true
+       },
+       "r": -4,
+       "e": -8,
+       "text": "Warned, your army fights its way out."
+      },
+      {
+       "r": -14,
+       "e": -2,
+       "text": "The army is cut to pieces in the narrow valley."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lus1": [
+         120,
+         160,
+         1
+        ],
+        "lus2": [
+         280,
+         160,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "lus1",
+        "lus2"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Form a square",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -15,
+       "text": "The square fights back down the road."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         215
+        ],
+        "lus1": [
+         120,
+         160,
+         1
+        ],
+        "lus2": [
+         280,
+         160,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge one side of the valley to break out",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -8,
+       "text": "Some break out."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lus1": [
+         120,
+         160,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "lus1"
+       ]
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Vetilius",
+   "text": "You are captured. Your captor does not know who you are and sees only a fat old man.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The survivors are fleeing to Carpessus."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Survive."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Say nothing",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Your captor, thinking you worthless, kills you. Of 10,000 men, 6,000 escape to Carpessus."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Reveal who you are",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "text": "You are held for ransom."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Try to slip away in the confusion",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "You are caught again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Tribola (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Tribola"
+  }
+ ],
+ "winAt": 50
+}

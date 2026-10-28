@@ -1,0 +1,709 @@
+{
+ "id": "carthage",
+ "name": "Siege of Carthage",
+ "date": "146 BC",
+ "result": "win",
+ "loc": {
+  "lat": 36.85,
+  "lon": 10.32,
+  "place": "Carthage, Africa",
+  "short": "Carthage",
+  "x": 311,
+  "y": 200
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Scipio Aemilianus",
+  "foe": "Hasdrubal the Boeotarch"
+ },
+ "intro": "Carthage, 147-146 BC, in the Third Punic War. Rome has resolved to destroy its old enemy, and the siege has dragged on for two years. You are Publius Cornelius Scipio Aemilianus, consul at 37.",
+ "debrief": "In Appian’s account, drawn from Polybius, who was there, Scipio restored discipline, walled off the isthmus and built a mole across the harbour mouth. The Carthaginians dug a new channel and launched a fleet, which was beaten. In spring 146 BC the Romans broke into the city and fought for six days through the streets to the citadel of Byrsa, where 50,000 people surrendered. Hasdrubal begged for his life; his wife killed herself and her children in the burning temple. The city was destroyed. Scipio is said to have wept and quoted Homer on the fall of Troy. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    35,
+    90,
+    16
+   ]
+  ],
+  "lakes": [
+   [
+    440,
+    100,
+    90,
+    110
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 170,
+   "h": 14,
+   "side": "roman",
+   "name": "Scipio Aemilianus’s army",
+   "model": "hastati"
+  },
+  "mole": {
+   "x": 340,
+   "y": 150,
+   "w": 40,
+   "h": 40,
+   "side": "roman",
+   "name": "Mole across the harbour",
+   "model": "levy"
+  },
+  "walls": {
+   "x": 200,
+   "y": 110,
+   "w": 240,
+   "h": 10,
+   "side": "enemy",
+   "name": "Walls of Carthage",
+   "model": "levy"
+  },
+  "car": {
+   "x": 200,
+   "y": 75,
+   "w": 160,
+   "h": 12,
+   "side": "enemy",
+   "name": "Hasdrubal’s defenders",
+   "model": "african",
+   "scales": true
+  },
+  "byr": {
+   "x": 200,
+   "y": 35,
+   "w": 80,
+   "h": 10,
+   "side": "enemy",
+   "name": "The Byrsa citadel",
+   "model": "african",
+   "scales": true
+  },
+  "fleet": {
+   "x": 360,
+   "y": 80,
+   "w": 50,
+   "h": 17,
+   "side": "enemy",
+   "name": "New Carthaginian fleet",
+   "model": "galley_punic",
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Byrsa surrenders.",
+   "Carthage burns.",
+   "Scipio weeps for Rome."
+  ],
+  "lose": [
+   "The walls hold another year.",
+   "The army mutters.",
+   "Carthage still stands."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ],
+  "anim": {
+   "win": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Army",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Drilled",
+     "tone": "g"
+    },
+    {
+     "text": "Thrown back",
+     "tone": "r"
+    },
+    {
+     "text": "Talking",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Slack",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Isthmus",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Walled off",
+     "tone": "g"
+    },
+    {
+     "text": "Raiding",
+     "tone": "a"
+    },
+    {
+     "text": "Failed attacks",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Open",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Harbour",
+   "decision": 2,
+   "options": [
+    {
+     "text": "New fleet beaten",
+     "tone": "g"
+    },
+    {
+     "text": "Raided",
+     "tone": "a"
+    },
+    {
+     "text": "Still open",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Mole building",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "City",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Taken street by street",
+     "tone": "g"
+    },
+    {
+     "text": "Burning",
+     "tone": "a"
+    },
+    {
+     "text": "Holding",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Breached",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Carthage must be destroyed",
+   "text": "Rome has decided that Carthage must be destroyed. After two years the siege has gone nowhere. You are Publius Cornelius Scipio Aemilianus, adopted grandson of Africanus, elected consul at 37.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The army is slack and its camp full of traders."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Restore discipline first."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Drill the army first",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "set": {
+        "drill": 1
+       },
+       "text": "You drive the hangers-on from the camp and drill the army hard."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the walls at once to win fame",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The triple walls of Carthage hold."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "walls"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Offer the city terms",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Carthage will not accept destruction."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The isthmus",
+   "text": "Carthage stands on a peninsula. Supplies still come in by land and sea.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The land side can be closed with a wall."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wall off the isthmus completely."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Wall off the isthmus",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "set": {
+        "wall": 1
+       },
+       "text": "Your men build a great fortified line across the isthmus. Nothing comes by land."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Raid the countryside to cut off their food",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Supplies still get through."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack the city at many points",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The attacks fail."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The harbour",
+   "text": "Ships still bring food. You build a great mole to close the harbour mouth. The Carthaginians secretly dig a new channel and launch a fleet.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their new fleet has appeared from nowhere."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fight it at once before it is trained."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight the new fleet at once",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "wall": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "Your ships fight the new fleet near the mole. The Carthaginian ships are crowded and beaten back into the harbour."
+      },
+      {
+       "r": -6,
+       "e": -9,
+       "text": "The sea fight is hard."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fleet": [
+         360,
+         80,
+         1
+        ]
+       },
+       "f": [
+        "mole",
+        "fleet"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Ignore it and finish the mole",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Their fleet raids your ships."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fleet": [
+         360,
+         80,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Abandon the mole",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The harbour stays open."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mole": [
+         340,
+         150,
+         0.3
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Into the city",
+   "text": "In spring you break into the harbour district. Six days of street fighting lie ahead, house by house, up to the citadel.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The streets are narrow and the houses six storeys high."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fight along the rooftops as well as the streets."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight street by street",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -16,
+       "text": "Your men fight up the streets and across the rooftops for six days. The city burns behind them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         80
+        ],
+        "car": [
+         200,
+         60,
+         0.4
+        ]
+       },
+       "f": [
+        "leg",
+        "car"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Burn the city from the walls and wait",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "The fires spread slowly."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for them to surrender",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "They fight on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Byrsa",
+   "text": "The last defenders, 50,000 men, women and children, surrender from the citadel. Hasdrubal begs for his life. Roman deserters and his wife hold the temple of Eshmun.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your soldiers want to plunder."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Rome has ordered the city destroyed."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Carry out Rome’s order",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "text": "The survivors are sold into slavery and Carthage is levelled. You weep as it burns, and quote Homer: one day Rome too may fall."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "byr": [
+         200,
+         35,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the citadel and finish them",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The last fight is bitter."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         50
+        ]
+       },
+       "f": [
+        "leg",
+        "byr"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Spare the city and its people",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The Senate is furious."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Siege of Carthage (Third Punic War) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Siege_of_Carthage_(Third_Punic_War)"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "A day will come when sacred Troy shall perish.",
+   "who": "Homer, quoted by Scipio Aemilianus as Carthage burned"
+  }
+ ]
+}

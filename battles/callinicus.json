@@ -1,0 +1,695 @@
+{
+ "id": "callinicus",
+ "name": "Battle of Callinicus",
+ "date": "171 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 39.7,
+  "lon": 22.47,
+  "place": "Callinicus, near Larissa, Thessaly",
+  "short": "Callinicus",
+  "x": 467,
+  "y": 150
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Macedon",
+  "commander": "Licinius Crassus",
+  "foe": "Perseus"
+ },
+ "intro": "Near Mount Callinicus, by Larissa in Thessaly, 171 BC, at the start of the Third Macedonian War. You are the consul Publius Licinius Crassus. King Perseus’s cavalry and light troops have come to your camp to offer battle.",
+ "debrief": "In Livy’s account, the battle was fought by cavalry and light troops while the Roman legions stayed in camp. Perseus’s Thracian infantry and Macedonian horse routed the Roman and allied cavalry, and the Romans lost about 2,000 foot and 200 horse. Perseus did not bring up his phalanx to attack the camp, and the Romans withdrew across the Peneus. Perseus offered peace, but Rome refused to treat after a defeat, and won at Pydna in 168 BC. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    320,
+    40,
+    80,
+    16
+   ]
+  ],
+  "river": {
+   "horizontal": true,
+   "y": 248,
+   "w": 16
+  }
+ },
+ "units": {
+  "eq": {
+   "x": 200,
+   "y": 195,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman and allied horse",
+   "model": "cav_roman"
+  },
+  "lt": {
+   "x": 200,
+   "y": 175,
+   "w": 120,
+   "h": 8,
+   "side": "roman",
+   "name": "Light infantry",
+   "model": "velites"
+  },
+  "leg": {
+   "x": 200,
+   "y": 230,
+   "w": 140,
+   "h": 10,
+   "side": "roman",
+   "name": "Legions (in camp)",
+   "model": "hastati"
+  },
+  "mac": {
+   "x": 200,
+   "y": 95,
+   "w": 150,
+   "h": 14,
+   "side": "enemy",
+   "name": "Macedonian and Thracian horse",
+   "model": "cav_heavy",
+   "scales": true
+  },
+  "thr": {
+   "x": 80,
+   "y": 100,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Thracian infantry",
+   "model": "barbarian",
+   "scales": true
+  },
+  "phal": {
+   "x": 320,
+   "y": 50,
+   "w": 100,
+   "h": 12,
+   "side": "enemy",
+   "name": "Perseus’s phalanx (held back)",
+   "model": "greek_phalanx"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The legions meet the Macedonian horse.",
+   "Perseus pulls back.",
+   "Thessaly holds."
+  ],
+  "lose": [
+   "The Roman horse are ridden down.",
+   "Perseus claims a great victory.",
+   "But Rome will not make peace."
+  ],
+  "cams": [
+   "front",
+   "clash",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Army",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Horse only",
+     "tone": "r"
+    },
+    {
+     "text": "Whole army",
+     "tone": "g"
+    },
+    {
+     "text": "In camp",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Near Larissa",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Right",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Broken by Thracians",
+     "tone": "r"
+    },
+    {
+     "text": "Held",
+     "tone": "g"
+    },
+    {
+     "text": "Falling back",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Thracians charging",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Centre",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Ridden down",
+     "tone": "r"
+    },
+    {
+     "text": "Behind the legions",
+     "tone": "g"
+    },
+    {
+     "text": "Flank charge",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Royal horse",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Camp",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Held",
+     "tone": "a"
+    },
+    {
+     "text": "Phalanx up",
+     "tone": "r"
+    },
+    {
+     "text": "Across the river",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Legions",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Perseus advances",
+   "text": "King Perseus of Macedon has marched into Thessaly. You are the consul Publius Licinius Crassus, camped near Larissa. Perseus’s cavalry and light troops come up to your camp, looking for a fight.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your legions are still in camp."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fight with the whole army or not at all."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send out the horse and light troops to meet them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "set": {
+        "cav": 1
+       },
+       "text": "Your horse and light infantry ride out to meet the king’s cavalry."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         200,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Bring out the whole army in battle order",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "set": {
+        "all": 1
+       },
+       "text": "The legions form up in front of the camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         205
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stay in camp and let them taunt you",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Perseus rides off, claiming victory."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Thracians",
+   "text": "Perseus’s Thracian infantry, wild men with long swords, charge your allied horse on the right.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Thracians fight like wild beasts."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Meet them with your own infantry, not horse."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let the horse fight them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The Thracians hack at the horses’ legs. Your right wing breaks."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "thr": [
+         120,
+         170
+        ]
+       },
+       "f": [
+        "eq",
+        "thr"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Send light infantry at them",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "if": {
+        "all": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "The legions are close; the Thracians are held."
+      },
+      {
+       "r": -4,
+       "e": -11,
+       "text": "The light infantry hold the Thracians."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lt": [
+         120,
+         160
+        ]
+       },
+       "f": [
+        "lt",
+        "thr"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Pull the right back toward the camp to save the horses",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The right falls back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Macedonian horse",
+   "text": "Perseus’s royal cavalry charges your centre.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Macedonian horse are the best in the world."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Do not meet them head-on; fall back on the legions."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Meet the charge head-on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": -4,
+       "text": "Your centre is ridden down."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mac": [
+         200,
+         170
+        ]
+       },
+       "f": [
+        "eq",
+        "mac"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Fall back on the legions",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -11,
+       "text": "Your horse fall back through the legions, who meet the Macedonians with pila."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         200,
+         225
+        ]
+       },
+       "f": [
+        "leg",
+        "mac"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Charge their flank instead of meeting them",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "Part of their horse is turned."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The camp",
+   "text": "Your horse are beaten, but the legions still hold the camp. Perseus has not brought up his phalanx.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He may think the day is won."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold the camp; do not let his men in."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold the camp and the legions",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The legions hold the camp. Perseus does not attack it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Counter-attack with the legions",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The phalanx comes up."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ],
+        "phal": [
+         250,
+         90
+        ]
+       },
+       "f": [
+        "leg",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Retreat across the river by night",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "text": "You withdraw safely across the Peneus."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "After the battle",
+   "text": "You have lost about 2,000 foot and 200 horse. Perseus offers peace on the old terms.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Rome never makes peace after a defeat."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Refuse."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Refuse to talk",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "text": "You refuse. Rome will fight on, and three years later win at Pydna."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Accept peace",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Rome is shamed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack again at once to wipe out the shame",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The army is shaken."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Callinicus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Callinicus"
+  }
+ ],
+ "winAt": 50
+}

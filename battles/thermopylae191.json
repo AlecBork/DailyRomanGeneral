@@ -1,0 +1,708 @@
+{
+ "id": "thermopylae191",
+ "name": "Battle of Thermopylae (191 BC)",
+ "date": "191 BC",
+ "result": "win",
+ "loc": {
+  "lat": 38.8,
+  "lon": 22.53,
+  "place": "Thermopylae, Greece",
+  "short": "Thermopylae",
+  "x": 467,
+  "y": 166
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Antiochus III",
+  "commander": "Acilius Glabrio",
+  "foe": "Antiochus III"
+ },
+ "intro": "The pass of Thermopylae, Greece, 191 BC. King Antiochus III of the Seleucid empire holds the pass with a wall, and his Aetolian allies hold the heights. You are the consul Manius Acilius Glabrio; your legate is Marcus Porcius Cato.",
+ "debrief": "In Livy’s and Plutarch’s accounts, Acilius attacked the wall from the front while Cato led a force by night over the mountain, as the Persians had done in 480 BC. Cato surprised the Aetolians on the heights and came down behind the Seleucid army, which broke; Antiochus escaped with about 500 horsemen and soon left Greece. The Romans followed him to Asia and beat him at Magnesia. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    320,
+    40,
+    90,
+    34
+   ],
+   [
+    80,
+    40,
+    60,
+    20
+   ]
+  ],
+  "lakes": [
+   [
+    -30,
+    200,
+    80,
+    120
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Acilius’s legions",
+   "model": "hastati"
+  },
+  "cato": {
+   "x": 340,
+   "y": 200,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Cato’s flanking force",
+   "model": "principes",
+   "hidden": true
+  },
+  "wall": {
+   "x": 200,
+   "y": 120,
+   "w": 200,
+   "h": 6,
+   "side": "enemy",
+   "name": "Antiochus’s wall",
+   "model": "levy"
+  },
+  "ant": {
+   "x": 200,
+   "y": 90,
+   "w": 150,
+   "h": 14,
+   "side": "enemy",
+   "name": "Seleucid phalanx",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "aet": {
+   "x": 320,
+   "y": 40,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Aetolians on the heights",
+   "model": "auxiliary",
+   "scales": true
+  },
+  "ele": {
+   "x": 80,
+   "y": 100,
+   "w": 40,
+   "h": 10,
+   "side": "enemy",
+   "name": "Elephants",
+   "model": "elephant"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Cato comes down behind the king.",
+   "The Seleucid army breaks.",
+   "Antiochus flees to Asia."
+  ],
+  "lose": [
+   "The wall holds.",
+   "Cato is lost in the mountains.",
+   "Antiochus keeps Greece."
+  ],
+  "cams": [
+   "right",
+   "front",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Flank",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Cato on the mountain",
+     "tone": "g"
+    },
+    {
+     "text": "Assault failed",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Pass held",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Front",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Pressing",
+     "tone": "g"
+    },
+    {
+     "text": "Broken on the pikes",
+     "tone": "r"
+    },
+    {
+     "text": "Light troops only",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "At the wall",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Heights",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Aetolians scattered",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting for day",
+     "tone": "a"
+    },
+    {
+     "text": "Antiochus warned",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Cato climbing",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Phalanx",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Breaking",
+     "tone": "g"
+    },
+    {
+     "text": "Rearguard",
+     "tone": "a"
+    },
+    {
+     "text": "Escaping",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Wavering",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The old pass",
+   "text": "King Antiochus III holds the pass of Thermopylae, where the Spartans once died, with a wall across it and his Aetolian allies on the heights above. You are the consul Manius Acilius Glabrio. Your legate is Marcus Porcius Cato.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Like the Persians long ago, you could go round by the mountain paths."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send Cato by night to the heights."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send Cato over the mountains",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "set": {
+        "cato": 1
+       },
+       "text": "Cato sets out at night with picked men to find the paths over Mount Kallidromos."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cato": [
+         360,
+         120,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Storm the wall head-on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The phalanx and the wall hold."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "wall"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for Antiochus to come out and fight in the open",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "He has no need to."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The front",
+   "text": "At dawn you attack the wall from the front to hold Antiochus’s attention.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The phalanx is strong behind the wall."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep up the pressure, but do not throw the army away."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Press the wall steadily",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -11,
+       "set": {
+        "press": 1
+       },
+       "text": "Your men press the wall all morning. The phalanx holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "wall",
+        "ant"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Throw everything at the wall",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -4,
+       "text": "The attack breaks against the pikes."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "leg",
+        "ant"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Send the light troops only",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Antiochus watches his flank."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Cato on the heights",
+   "text": "Cato has found the Aetolians on the heights, half asleep.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are spread over several hilltops."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack them at once and come down behind Antiochus."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cato attacks at once",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "press": true
+       },
+       "r": -2,
+       "e": -21,
+       "text": "Cato’s men scatter the Aetolians and come down the slope behind the Seleucid army. Antiochus’s men think they are surrounded."
+      },
+      {
+       "r": -4,
+       "e": -11,
+       "text": "Cato drives off the Aetolians."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cato": [
+         320,
+         60,
+         1
+        ],
+        "aet": [
+         360,
+         20,
+         0.3
+        ]
+       },
+       "f": [
+        "cato",
+        "aet"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Cato waits for daylight to see the ground",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "The Aetolians wake."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Cato sends a messenger and waits",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "Antiochus is warned."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Panic",
+   "text": "Antiochus’s army sees Romans above and behind it. The phalanx wavers.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their elephants block the pass behind them."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack the wall again now."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack the wall again",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "The legions storm the wall as the phalanx breaks. The elephants block the road behind them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         100
+        ],
+        "ant": [
+         200,
+         60
+        ]
+       },
+       "f": [
+        "leg",
+        "ant",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Let Cato do the work",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Antiochus’s rearguard holds Cato."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Hold and let them flee into the elephants",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The army escapes intact."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Antiochus",
+   "text": "The king flees with 500 horsemen to Chalcis and then to Asia. His army is destroyed.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Greece is free of him."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Follow him to Asia."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Follow him to Asia",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "Rome will follow Antiochus to Asia, and beat him at Magnesia."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Punish the Aetolians first",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "The Aetolians are punished; Antiochus rearms."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Make peace with Antiochus",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "He rebuilds his army."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Thermopylae (191 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Thermopylae_(191_BC)"
+  }
+ ]
+}

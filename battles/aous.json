@@ -1,0 +1,688 @@
+{
+ "id": "aous",
+ "name": "Battle of the Aous",
+ "date": "198 BC",
+ "result": "win",
+ "loc": {
+  "lat": 40.29,
+  "lon": 20.07,
+  "place": "the Aous gorge, Epirus",
+  "short": "Aous",
+  "x": 436,
+  "y": 140
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Macedon",
+  "commander": "Flamininus",
+  "foe": "Philip V"
+ },
+ "intro": "The gorge of the river Aous in Epirus, 198 BC, in the Second Macedonian War. King Philip V holds the pass. You are the consul Titus Quinctius Flamininus.",
+ "debrief": "In Livy’s and Plutarch’s accounts, Flamininus was shown a path over the mountains by a shepherd sent by the Epirote chief Charops. A force of 4,000 men climbed it over three nights while Flamininus kept Philip busy in the gorge. When their smoke signal rose behind the Macedonian camp, he attacked from the front; caught between the two, Philip’s army fled, losing about 2,000 men. Flamininus then won over Greek cities with promises of freedom, and beat Philip at Cynoscephalae the next year. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    60,
+    80,
+    90,
+    30
+   ],
+   [
+    340,
+    60,
+    90,
+    30
+   ]
+  ],
+  "river": {
+   "horizontal": true,
+   "y": 150,
+   "w": 16
+  }
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 160,
+   "h": 14,
+   "side": "roman",
+   "name": "Flamininus’s legions",
+   "model": "hastati"
+  },
+  "guide": {
+   "x": 340,
+   "y": 180,
+   "w": 60,
+   "h": 10,
+   "side": "roman",
+   "name": "4,000 men with the shepherd guide",
+   "model": "principes",
+   "hidden": true
+  },
+  "riv": {
+   "x": 200,
+   "y": 150,
+   "w": 240,
+   "h": 6,
+   "side": "enemy",
+   "name": "The Aous gorge",
+   "model": "levy"
+  },
+  "phil": {
+   "x": 200,
+   "y": 80,
+   "w": 150,
+   "h": 14,
+   "side": "enemy",
+   "name": "Philip’s army in the pass",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "mac": {
+   "x": 340,
+   "y": 60,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Macedonian camp on the heights",
+   "model": "greek_phalanx",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The column falls on Philip’s camp.",
+   "Philip flees from the gorge.",
+   "The road to Thessaly is open."
+  ],
+  "lose": [
+   "Philip holds the gorge.",
+   "The Roman army sits below.",
+   "Greece stays Macedonian."
+  ],
+  "cams": [
+   "front",
+   "right",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Gorge",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Path found",
+     "tone": "g"
+    },
+    {
+     "text": "Attack failed",
+     "tone": "r"
+    },
+    {
+     "text": "Talking",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Blocked",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Column",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Climbing, Philip distracted",
+     "tone": "g"
+    },
+    {
+     "text": "Climbing",
+     "tone": "a"
+    },
+    {
+     "text": "Seen",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Ready",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Signal",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Attack both ways",
+     "tone": "g"
+    },
+    {
+     "text": "Column alone",
+     "tone": "a"
+    },
+    {
+     "text": "Chance lost",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Smoke",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Philip",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Driven off",
+     "tone": "g"
+    },
+    {
+     "text": "Escaping",
+     "tone": "a"
+    },
+    {
+     "text": "Regrouping",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Fleeing",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The gorge of the Aous",
+   "text": "King Philip V of Macedon holds the narrow gorge of the river Aous, with his army on the slopes and his catapults covering the river. You are the consul Titus Quinctius Flamininus. For forty days your predecessor sat here.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The gorge cannot be forced head-on."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Find a way round. Ask the local people."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ask the local people for a way round",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "path": 1
+       },
+       "text": "A local chief, Charops, sends you a shepherd who knows a path over the mountains behind Philip’s camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Force the gorge with the legions",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The catapults and archers cut down your men."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         160
+        ]
+       },
+       "f": [
+        "leg",
+        "phil"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Talk peace with Philip while you look for a way through",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Philip refuses to give up Thessaly."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The shepherd’s path",
+   "text": "The shepherd will lead 4,000 men over the mountains in three nights, hiding by day.",
+   "intel": {
+    "hint": [
+     {
+      "text": "If Philip learns of it, the column will be trapped."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep up attacks in the gorge so he looks only to his front."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send it; keep him busy",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -13,
+       "set": {
+        "busy": 1
+       },
+       "text": "For three days your army skirmishes in the gorge while the column climbs at night."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "guide": [
+         360,
+         120,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Send the column and wait quietly",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Philip grows suspicious."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "guide": [
+         360,
+         120,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Send the whole army over the path to be sure",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The army is too big to hide."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Smoke on the heights",
+   "text": "On the third morning, smoke rises from the heights behind Philip: the column’s signal.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Philip’s army is facing you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack the gorge now from the front with everything."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack the gorge with everything",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "busy": true
+       },
+       "r": -2,
+       "e": -23,
+       "text": "You attack up the gorge as the column falls on Philip’s camp from above. The Macedonians, caught between, flee."
+      },
+      {
+       "r": -6,
+       "e": -13,
+       "text": "The attack goes in."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ],
+        "guide": [
+         330,
+         70,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "guide",
+        "phil",
+        "mac"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Let the column attack alone first",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "Philip turns to face the column."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "guide": [
+         330,
+         70,
+         1
+        ]
+       },
+       "f": [
+        "guide",
+        "mac"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Wait to see what Philip does",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "Philip sees the danger and pulls back in order."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Philip flees",
+   "text": "Philip’s army is running from the gorge.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The ground beyond is rough and broken."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pursue carefully; the ground is broken."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pursue with care",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "text": "Philip loses about 2,000 men and his camp; the rest escape into Thessaly."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "phil": [
+         200,
+         40,
+         0.4
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase him headlong before he can re-form",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "Your men are scattered in the hills."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Stop at the gorge",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Philip regroups."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Greece",
+   "text": "The way into Thessaly is open.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Greek cities are watching."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Promise them freedom from Macedon."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Promise the Greeks freedom",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "Greek cities begin to come over to Rome."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Plunder Thessaly to punish Philip’s friends",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The Greeks turn against you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for orders from Rome",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Philip uses the time."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Aous (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Aous"
+  }
+ ]
+}

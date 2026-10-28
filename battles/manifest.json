@@ -621,6 +621,105 @@
    "lon": -3.77,
    "result": "win",
    "naval": false
+  },
+  {
+   "id": "grumentum",
+   "name": "Grumentum",
+   "date": "207 BC",
+   "lat": 40.28,
+   "lon": 15.89,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "greatplains",
+   "name": "Great Plains",
+   "date": "203 BC",
+   "lat": 36.75,
+   "lon": 9.45,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "aous",
+   "name": "Aous",
+   "date": "198 BC",
+   "lat": 40.29,
+   "lon": 20.07,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "thermopylae191",
+   "name": "Thermopylae",
+   "date": "191 BC",
+   "lat": 38.8,
+   "lon": 22.53,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "myonessus",
+   "name": "Myonessus",
+   "date": "190 BC",
+   "lat": 38.05,
+   "lon": 26.95,
+   "result": "win",
+   "naval": true
+  },
+  {
+   "id": "callinicus",
+   "name": "Callinicus",
+   "date": "171 BC",
+   "lat": 39.7,
+   "lon": 22.47,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "carthage",
+   "name": "Carthage",
+   "date": "146 BC",
+   "lat": 36.85,
+   "lon": 10.32,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "corinth",
+   "name": "Corinth",
+   "date": "146 BC",
+   "lat": 37.93,
+   "lon": 22.93,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "tribola",
+   "name": "Tribola",
+   "date": "147 BC",
+   "lat": 37,
+   "lon": -5.8,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "numantia",
+   "name": "Numantia",
+   "date": "133 BC",
+   "lat": 41.81,
+   "lon": -2.44,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "noreia",
+   "name": "Noreia",
+   "date": "112 BC",
+   "lat": 47,
+   "lon": 14.4,
+   "result": "loss",
+   "naval": false
   }
  ]
 }
