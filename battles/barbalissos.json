@@ -1,0 +1,640 @@
+{
+ "id": "barbalissos",
+ "name": "Battle of Barbalissos",
+ "date": "252 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 36.06,
+  "lon": 38.13,
+  "place": "Barbalissos, Syria",
+  "short": "Barbalissos",
+  "x": 667,
+  "y": 214
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Sasanian Persia",
+  "commander": "Rome’s eastern army",
+  "foe": "Shapur I"
+ },
+ "intro": "Barbalissos on the Euphrates (in modern Syria), 252 or 253 AD. Shapur I has invaded Roman Syria again. You command Rome’s army of the East, said to be 60,000 strong.",
+ "debrief": "Almost all we know comes from Shapur’s own inscription, which says he destroyed a Roman army of 60,000 at Barbalissos, then took Antioch and many cities. A Roman writer tells of a woman in Antioch’s theatre crying out that the Persians had come. A Roman traitor, Mariades, is said to have guided Shapur. The details of the battle are unknown. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "x": -214,
+   "w": 30
+  },
+  "grass": "#a8a163",
+  "ground": "#c4ad76"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 200,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman army of the East (60,000)",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 60,
+   "y": 220,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "per": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Shapur’s army",
+   "model": "cav_heavy",
+   "scales": true
+  },
+  "ha": {
+   "x": 340,
+   "y": 80,
+   "w": 80,
+   "h": 10,
+   "side": "enemy",
+   "name": "Horse archers",
+   "model": "cav_eastern"
+  },
+  "ant": {
+   "x": 340,
+   "y": 240,
+   "w": 60,
+   "h": 8,
+   "side": "roman",
+   "name": "Road to Antioch",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The square holds.",
+   "Shapur’s charge fails.",
+   "Antioch is safe."
+  ],
+  "lose": [
+   "The horse archers surround the legions.",
+   "60,000 are lost.",
+   "Shapur sacks Antioch."
+  ],
+  "cams": [
+   "wide",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Field",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Open plain",
+     "tone": "r"
+    },
+    {
+     "text": "By the river",
+     "tone": "g"
+    },
+    {
+     "text": "Retreat",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Barbalissos",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Flanks",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Ridden round",
+     "tone": "r"
+    },
+    {
+     "text": "Square",
+     "tone": "g"
+    },
+    {
+     "text": "Cataphracts hold",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Horse archers",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Charge",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Broken",
+     "tone": "r"
+    },
+    {
+     "text": "Shields hold",
+     "tone": "g"
+    },
+    {
+     "text": "Cavalry crushed",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Cataphracts",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Rout",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Destroyed",
+     "tone": "r"
+    },
+    {
+     "text": "Rearguard",
+     "tone": "g"
+    },
+    {
+     "text": "Scattered",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Breaking",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Shapur returns",
+   "text": "Shapur accuses Rome of interfering in Armenia and invades again. You command Rome’s army of the East, said to be 60,000 men, at Barbalissos on the Euphrates.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Shapur’s horse archers are fast."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep to the river."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Meet him in the open",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "You march out onto the plain."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep to the river",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -21,
+       "set": {
+        "river": 1
+       },
+       "text": "You form with the river on one flank."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fall back to Antioch",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Syria is left open."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Surrounded",
+   "text": "Shapur’s horsemen try to surround you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Keep the flanks safe."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold the line together."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Spread the line wide",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "river": true
+       },
+       "r": -4,
+       "e": -6,
+       "text": "The river protects one flank."
+      },
+      {
+       "r": -12,
+       "e": 0,
+       "text": "The horse archers ride round both flanks."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ha": [
+         300,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Form a hollow square",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -18,
+       "text": "They cannot get behind you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge their centre",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "The cataphracts hold."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "per"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The charge",
+   "text": "The cataphracts charge.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Lock shields."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Lock shields."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Counter-charge",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Your line is broken and cut down."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "per": [
+         200,
+         170
+        ]
+       },
+       "f": [
+        "leg",
+        "per"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Lock shields",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -18,
+       "text": "The charge breaks on your shields."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send the cavalry against them",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "Your cavalry is crushed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "cav",
+        "per"
+       ]
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Rout",
+   "text": "Your army breaks.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Antioch is open."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Save who you can."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Flee to Antioch",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Most of your army is destroyed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight a rearguard",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -11,
+       "text": "Some men get away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Scatter into the hills",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Small bands survive."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Antioch",
+   "text": "Shapur marches on Antioch, the great city of the East.",
+   "intel": {
+    "hint": [
+     {
+      "text": "A traitor named Mariades guides him."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Warn the city."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Warn the city",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "Some people flee in time."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Do nothing",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Shapur takes Antioch by surprise. In the theatre, a woman cries: 'Is it a dream, or are the Persians here?'"
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Defend the walls",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Few soldiers are left."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Barbalissos (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Barbalissos"
+  }
+ ],
+ "winAt": 50
+}

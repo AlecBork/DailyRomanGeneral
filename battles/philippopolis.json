@@ -1,0 +1,648 @@
+{
+ "id": "philippopolis",
+ "name": "Siege of Philippopolis",
+ "date": "250 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 42.15,
+  "lon": 24.75,
+  "place": "Philippopolis, Thrace",
+  "short": "Philippopolis",
+  "x": 496,
+  "y": 108
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Goths",
+  "commander": "Lucius Priscus",
+  "foe": "Cniva"
+ },
+ "intro": "Philippopolis (Plovdiv) in Thrace, 250 AD. The Goths under King Cniva have crossed the Danube. You are the garrison of Philippopolis, under the governor Lucius Priscus, brother of the late Emperor Philip.",
+ "debrief": "In the accounts of Dexippus, Jordanes and others, Cniva surprised and beat the Emperor Decius at Beroe, then besieged Philippopolis. The governor Priscus came to terms with the Goths, who made him Emperor; the city was sacked, with many killed or captured. Priscus was soon killed. The details are uncertain and partly preserved in fragments. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    200,
+    120,
+    14
+   ]
+  ],
+  "river": {
+   "horizontal": true,
+   "y": 230,
+   "w": 20
+  },
+  "grass": "#7f9a4d"
+ },
+ "units": {
+  "gar": {
+   "x": 200,
+   "y": 200,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Garrison of Philippopolis",
+   "model": "legionary"
+  },
+  "wall": {
+   "x": 200,
+   "y": 170,
+   "w": 260,
+   "h": 4,
+   "side": "roman",
+   "name": "City walls",
+   "model": "levy"
+  },
+  "pri": {
+   "x": 80,
+   "y": 230,
+   "w": 40,
+   "h": 6,
+   "side": "roman",
+   "name": "Governor Priscus",
+   "model": "cav_roman"
+  },
+  "got": {
+   "x": 200,
+   "y": 80,
+   "w": 220,
+   "h": 14,
+   "side": "enemy",
+   "name": "Cniva’s Goths",
+   "model": "barbarian",
+   "scales": true
+  },
+  "dec": {
+   "x": 340,
+   "y": 40,
+   "w": 60,
+   "h": 10,
+   "side": "enemy",
+   "name": "Decius’s relief army (beaten at Beroe)",
+   "model": "legionary",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The walls hold.",
+   "Decius comes back.",
+   "Philippopolis is saved."
+  ],
+  "lose": [
+   "Decius is beaten at Beroe.",
+   "Priscus betrays the city.",
+   "Philippopolis is sacked."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Walls",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Held",
+     "tone": "g"
+    },
+    {
+     "text": "Cut down outside",
+     "tone": "r"
+    },
+    {
+     "text": "Gold taken",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Goths",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "News",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Hope",
+     "tone": "a"
+    },
+    {
+     "text": "Morale sinks",
+     "tone": "r"
+    },
+    {
+     "text": "Messengers",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Beroe",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Assault",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Burned",
+     "tone": "g"
+    },
+    {
+     "text": "Costly",
+     "tone": "a"
+    },
+    {
+     "text": "Outer wall lost",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Ladders",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Priscus",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Traitor",
+     "tone": "r"
+    },
+    {
+     "text": "Loyal",
+     "tone": "g"
+    },
+    {
+     "text": "Suspected",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Cniva’s offer",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The Goths",
+   "text": "The Goths under King Cniva have crossed the Danube. You are the garrison of Philippopolis in Thrace. The governor is Lucius Priscus, brother of the late Emperor Philip.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Emperor Decius is marching to help you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold the walls and wait for Decius."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold the walls and wait",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -20,
+       "text": "You hold the walls."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Sally out to fight them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Your men are cut down outside."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "gar": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "gar",
+        "got"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Pay them to go away",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "They take the gold and stay."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Beroe",
+   "text": "News comes: Decius’s army has been surprised and beaten at Beroe by Cniva.",
+   "intel": {
+    "hint": [
+     {
+      "text": "No help is coming soon."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep up the people’s hope."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Tell the people help is still coming",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They hope."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Tell them the truth",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Morale sinks."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send messengers to Decius",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "set": {
+        "msg": 1
+       },
+       "text": "Decius promises to come again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The siege",
+   "text": "The Goths try to storm the walls with ladders.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Fire works on siege engines."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Burn them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Burn the ladders and towers",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -17,
+       "text": "Your men throw fire on the Gothic towers."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "gar",
+        "got"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Stand and fight on the walls",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "Many fall."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "gar",
+        "got"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Abandon the outer wall",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The Goths climb in."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Priscus",
+   "text": "The governor Priscus talks to Cniva. Cniva offers to make him Emperor.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Treason may save the city, or doom it."
+     }
+    ],
+    "scout": [
+     {
+      "text": "What does Priscus do?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Accept Cniva’s offer",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "msg": true
+       },
+       "r": -6,
+       "e": -4,
+       "text": "Priscus accepts, but some officers resist him."
+      },
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Priscus accepts. He opens the gates and is proclaimed Emperor."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Refuse",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "text": "The city fights on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Pretend to accept",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Cniva grows suspicious."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The sack",
+   "text": "The Goths enter Philippopolis.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Perhaps 100,000 people are in the city."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Save who you can."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Flee",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Philippopolis is sacked. Many are killed or taken captive. Priscus’s brief reign ends in death."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight in the streets",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Few survive."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "gar",
+        "got"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold the citadel",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Some hold out."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Siege of Philippopolis (250) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Siege_of_Philippopolis_(250)"
+  }
+ ],
+ "winAt": 50
+}

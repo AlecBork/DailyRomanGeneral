@@ -1,0 +1,681 @@
+{
+ "id": "abritus",
+ "name": "Battle of Abritus",
+ "date": "251 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 43.52,
+  "lon": 26.53,
+  "place": "Abritus, Moesia",
+  "short": "Abritus",
+  "x": 519,
+  "y": 84
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Goths",
+  "commander": "Decius",
+  "foe": "Cniva"
+ },
+ "intro": "Abritus (near Razgrad, Bulgaria), summer 251 AD. The Goths are heading home from sacking Philippopolis. You are the Emperor Decius, with your son Herennius Etruscus.",
+ "debrief": "In Jordanes’s and other accounts, Decius caught the Goths near Abritus. His son was killed by an arrow early on, and Decius is said to have told his men the loss of one soldier mattered little. Two Gothic lines broke, but the Romans chased them into a marsh where the third line waited. Decius and much of his army died; his body was never found. He was the first emperor killed by a foreign enemy. Trebonianus Gallus let the Goths go home. The other choices are what-ifs.",
+ "terrain": {
+  "marsh": [
+   [
+    200,
+    70,
+    240,
+    20
+   ]
+  ],
+  "forests": [
+   [
+    60,
+    40,
+    60,
+    16
+   ],
+   [
+    340,
+    40,
+    60,
+    16
+   ]
+  ],
+  "grass": "#6f8a4a"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 200,
+   "h": 14,
+   "side": "roman",
+   "name": "Decius’s legions",
+   "model": "legionary"
+  },
+  "son": {
+   "x": 80,
+   "y": 215,
+   "w": 50,
+   "h": 8,
+   "side": "roman",
+   "name": "Herennius Etruscus, Decius’s son",
+   "model": "cav_roman"
+  },
+  "g1": {
+   "x": 200,
+   "y": 110,
+   "w": 160,
+   "h": 12,
+   "side": "enemy",
+   "name": "Goths (first line)",
+   "model": "barbarian",
+   "scales": true
+  },
+  "marsh": {
+   "x": 200,
+   "y": 70,
+   "w": 240,
+   "h": 6,
+   "side": "enemy",
+   "name": "The marsh",
+   "model": "levy",
+   "scales": true,
+   "hidden": true
+  },
+  "g3": {
+   "x": 200,
+   "y": 30,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Goths beyond the marsh",
+   "model": "barbarian",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The marsh is avoided.",
+   "The Goths are beaten.",
+   "Decius survives."
+  ],
+  "lose": [
+   "The legions sink in the marsh.",
+   "Decius dies.",
+   "An emperor is killed by foreign enemies."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Approach",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Hurried",
+     "tone": "r"
+    },
+    {
+     "text": "Scouted",
+     "tone": "g"
+    },
+    {
+     "text": "Wrong crossing",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Gothic loot",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Son",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Fighting on",
+     "tone": "a"
+    },
+    {
+     "text": "Mourning",
+     "tone": "r"
+    },
+    {
+     "text": "Charging",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Arrow",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Marsh",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Plunged in",
+     "tone": "r"
+    },
+    {
+     "text": "Halted",
+     "tone": "g"
+    },
+    {
+     "text": "No way round",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Third line",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Stuck",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Some escape",
+     "tone": "g"
+    },
+    {
+     "text": "Lost",
+     "tone": "r"
+    },
+    {
+     "text": "Can’t form",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Mud",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Cniva",
+   "text": "The Goths are heading home with loot from Philippopolis. You are the Emperor Decius, with your son Herennius Etruscus. You mean to catch them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Cniva knows the land; you don’t."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Scout the ground."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hurry after them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "You catch up with the Goths near Abritus."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Scout the ground",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -20,
+       "set": {
+        "scout": 1
+       },
+       "text": "Your scouts find a marsh behind the Gothic line."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "marsh": [
+         200,
+         70,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Cut them off at the Danube",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "They choose another crossing."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The son",
+   "text": "Early in the battle your son is killed by an arrow.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The army watches you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Speak to them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "'One soldier lost is no great loss'",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "You tell the army that the loss of one soldier means little, and fight on."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "son": [
+         80,
+         215,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fall back and mourn",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The army loses heart."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge in grief",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Your men follow you hard."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "g1"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The first line",
+   "text": "The first two Gothic lines break.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The third line waits beyond a marsh."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Halt at the marsh."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Chase them into the marsh",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "scout": true
+       },
+       "r": -4,
+       "e": -8,
+       "text": "You know about the marsh and go around it."
+      },
+      {
+       "r": -14,
+       "e": 0,
+       "text": "Your legions plunge into the marsh, where they sink and are shot down by the third Gothic line."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         70
+        ],
+        "marsh": [
+         200,
+         70,
+         1
+        ],
+        "g3": [
+         200,
+         40,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "g3"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Halt at the marsh",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -17,
+       "text": "You hold at the edge of the marsh."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the cavalry round",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "They find no way through."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Trapped",
+   "text": "Your army is stuck in the marsh. The Goths shoot from the firm ground.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Get out."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fall back."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fall back",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "Some legions struggle out."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Push on through the mud",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": 0,
+       "text": "Decius and most of his army die in the marsh. His body is never found."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         70,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold and form up in the marsh",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -10,
+       "e": -8,
+       "text": "You cannot form up."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "After",
+   "text": "An emperor has been killed by foreign enemies for the first time.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Trebonianus Gallus commands the rest."
+     }
+    ],
+    "scout": [
+     {
+      "text": "What does Gallus do?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pay the Goths to go home",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Gallus is proclaimed Emperor and lets the Goths go home with their loot and captives, paying them each year."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The army is broken."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Block the Danube crossings",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "The Goths must fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Abritus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Abritus"
+  }
+ ],
+ "winAt": 50
+}

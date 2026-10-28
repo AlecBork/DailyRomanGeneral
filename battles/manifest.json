@@ -1305,6 +1305,51 @@
    "lon": 40.07,
    "result": "win",
    "naval": false
+  },
+  {
+   "id": "misiche",
+   "name": "Misiche",
+   "date": "244 AD",
+   "lat": 33.35,
+   "lon": 43.78,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "verona249",
+   "name": "Verona",
+   "date": "249 AD",
+   "lat": 45.44,
+   "lon": 10.99,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "philippopolis",
+   "name": "Philippopolis",
+   "date": "250 AD",
+   "lat": 42.15,
+   "lon": 24.75,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "abritus",
+   "name": "Abritus",
+   "date": "251 AD",
+   "lat": 43.52,
+   "lon": 26.53,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "barbalissos",
+   "name": "Barbalissos",
+   "date": "252 AD",
+   "lat": 36.06,
+   "lon": 38.13,
+   "result": "loss",
+   "naval": false
   }
  ]
 }

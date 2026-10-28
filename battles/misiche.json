@@ -1,0 +1,630 @@
+{
+ "id": "misiche",
+ "name": "Battle of Misiche",
+ "date": "244 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 33.35,
+  "lon": 43.78,
+  "place": "Misiche, on the Euphrates",
+  "short": "Misiche",
+  "x": 739,
+  "y": 262
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Sasanian Persia",
+  "commander": "Gordian III’s generals",
+  "foe": "Shapur I"
+ },
+ "intro": "Misiche, on the Euphrates near modern Fallujah, early 244 AD. Timesitheus is dead. The young Emperor Gordian III marches on Ctesiphon, with Philip the Arab as Prefect.",
+ "debrief": "Shapur’s inscription at Naqsh-e Rostam claims a great victory at Misiche and the death of Gordian. Roman sources say little of the battle and blame Philip, who may have kept the army short of supplies, for Gordian’s death soon after. Philip became Emperor and made peace by paying Shapur 500,000 gold pieces. Shapur carved the victory on rock reliefs. The exact events are disputed. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 150,
+   "w": 20
+  },
+  "grass": "#a8a163",
+  "ground": "#c4ad76"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Gordian III’s army",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 60,
+   "y": 220,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "phi": {
+   "x": 320,
+   "y": 240,
+   "w": 60,
+   "h": 8,
+   "side": "roman",
+   "name": "Philip the Arab’s guard",
+   "model": "veteran"
+  },
+  "per": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Shapur’s cataphracts",
+   "model": "cav_heavy",
+   "scales": true
+  },
+  "riv": {
+   "x": 200,
+   "y": 150,
+   "w": 260,
+   "h": 4,
+   "side": "enemy",
+   "name": "Euphrates canals",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The canals slow the cataphracts.",
+   "Gordian is safe.",
+   "Shapur falls back."
+  ],
+  "lose": [
+   "The cataphracts break the line.",
+   "Gordian dies.",
+   "Philip pays for peace."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Supplies",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Short",
+     "tone": "r"
+    },
+    {
+     "text": "Checked",
+     "tone": "g"
+    },
+    {
+     "text": "Foraging",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Philip",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Battle",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Line broken",
+     "tone": "r"
+    },
+    {
+     "text": "Canals",
+     "tone": "g"
+    },
+    {
+     "text": "Retreat",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Misiche",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Emperor",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Wounded",
+     "tone": "r"
+    },
+    {
+     "text": "Safe",
+     "tone": "g"
+    },
+    {
+     "text": "Seen leaving",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Gordian",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Philip",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Watched",
+     "tone": "g"
+    },
+    {
+     "text": "Emperor",
+     "tone": "r"
+    },
+    {
+     "text": "Riots",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Muttering",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Down the Euphrates",
+   "text": "Timesitheus is dead. You command for the young Gordian III, marching down the Euphrates toward Ctesiphon. Philip the Arab, the new Prefect, controls the supplies.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Philip may be holding back supplies."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Check the supplies yourself."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Trust Philip with the supplies",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Your army runs short of food."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Check the supplies yourself",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -18,
+       "set": {
+        "fed": 1
+       },
+       "text": "You find depots kept short, and fix it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Live off the land as you march",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The land is poor."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Misiche",
+   "text": "Shapur waits near Misiche, where canals cross the plain.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Canals break up a cavalry charge."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fight among the canals."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight on the open plain",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "fed": true
+       },
+       "r": -4,
+       "e": -6,
+       "text": "Your fed army holds the charge."
+      },
+      {
+       "r": -12,
+       "e": 0,
+       "text": "The cataphracts break your line."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "per": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "per"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Fight among the canals",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -18,
+       "text": "The canals slow the Persian horse."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fall back up the river",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Shapur follows."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Gordian",
+   "text": "The young Emperor is in danger.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He must not be captured."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep him safe."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let him lead the charge",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Gordian is wounded, some say by a fall from his horse."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Keep him with the guard",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "He is safe."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send him back to the camp",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The men see him leave."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Retreat",
+   "text": "The army pulls back up the river. Philip’s men are muttering.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Philip wants the throne."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Watch Philip."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Watch Philip",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "You keep Philip close."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let Philip take the army north",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Gordian dies near Zaitha. Philip becomes Emperor."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Arrest Philip",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "His men riot."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Peace",
+   "text": "Philip, now Emperor, makes peace with Shapur.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Shapur carves the victory on rock."
+     }
+    ],
+    "scout": [
+     {
+      "text": "What terms?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pay Shapur 500,000 gold pieces",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Philip pays and goes back to Rome. Shapur carves the victory on a cliff in Persia."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The army is broken."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Pay less, keep Mesopotamia",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "text": "Shapur agrees."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Misiche (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Misiche"
+  }
+ ],
+ "winAt": 50
+}
