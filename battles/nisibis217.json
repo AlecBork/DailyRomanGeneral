@@ -1,0 +1,639 @@
+{
+ "id": "nisibis217",
+ "name": "Battle of Nisibis",
+ "date": "217 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 37.07,
+  "lon": 41.21,
+  "place": "near Nisibis, Mesopotamia",
+  "short": "Nisibis",
+  "x": 706,
+  "y": 197
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Parthia",
+  "commander": "Macrinus",
+  "foe": "Artabanus IV"
+ },
+ "intro": "Near Nisibis in Mesopotamia, 217 AD. The Emperor Caracalla has been murdered. You are Macrinus, his Praetorian Prefect and now Emperor. The Parthian king Artabanus has invaded, furious at Caracalla’s treachery.",
+ "debrief": "In Herodian’s and Cassius Dio’s accounts, the battle lasted three days. The Romans scattered caltrops that brought down the Parthian cataphracts and camel riders, but the Parthians overlapped the Roman line. After huge losses, Macrinus made peace by paying Artabanus about 200 million sesterces. His soldiers despised the payment, and he was overthrown within a year. It was the last great battle against Parthia, which soon fell to the Persians. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#a8a163",
+  "ground": "#c4ad76"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Macrinus’s legions",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 60,
+   "y": 220,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Moorish cavalry",
+   "model": "cav_numidian"
+  },
+  "cal": {
+   "x": 200,
+   "y": 160,
+   "w": 200,
+   "h": 4,
+   "side": "roman",
+   "name": "Caltrops",
+   "model": "levy",
+   "scales": true,
+   "hidden": true
+  },
+  "cat": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Artabanus’s cataphracts and horse archers",
+   "model": "cav_heavy",
+   "scales": true
+  },
+  "cam": {
+   "x": 340,
+   "y": 80,
+   "w": 80,
+   "h": 10,
+   "side": "enemy",
+   "name": "Camel-mounted lancers",
+   "model": "cav_eastern"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Caltrops stop the cataphracts.",
+   "Artabanus accepts terms.",
+   "Macrinus keeps his army."
+  ],
+  "lose": [
+   "Three days of slaughter.",
+   "Macrinus pays a huge sum.",
+   "His soldiers turn against him."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Plan",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Fighting",
+     "tone": "r"
+    },
+    {
+     "text": "Talks",
+     "tone": "g"
+    },
+    {
+     "text": "Retreat",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Parthian invasion",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Charge",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Caltrops",
+     "tone": "g"
+    },
+    {
+     "text": "Ridden down",
+     "tone": "r"
+    },
+    {
+     "text": "Pursued",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Cataphracts",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Line",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Stretched",
+     "tone": "a"
+    },
+    {
+     "text": "Shot down",
+     "tone": "r"
+    },
+    {
+     "text": "Square",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Overlapped",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Day three",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Mounting losses",
+     "tone": "r"
+    },
+    {
+     "text": "Anger cools",
+     "tone": "g"
+    },
+    {
+     "text": "Night retreat",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Exhausted",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Caracalla’s war",
+   "text": "Caracalla has been murdered. You are Macrinus, his Praetorian Prefect, who arranged it, now Emperor. The Parthian king Artabanus, angry at Caracalla’s treachery, has invaded with a huge army.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Artabanus can be bought off."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Offer him gold."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight him",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "You march to meet him near Nisibis."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer him gold",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -17,
+       "set": {
+        "talks": 1
+       },
+       "text": "Artabanus considers your offer."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fall back to Antioch",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Mesopotamia is lost."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Caltrops",
+   "text": "The Parthian cataphracts and camel lancers charge.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Scatter caltrops before your line."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Scatter caltrops."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Scatter caltrops",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -20,
+       "text": "Your men scatter iron caltrops. Horses and camels fall."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cal": [
+         200,
+         160,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "cat"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Meet them with your cavalry",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The cataphracts ride them down."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         100,
+         140
+        ]
+       },
+       "f": [
+        "cav",
+        "cat"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Pull back to your camp",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The horse archers follow."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Day two",
+   "text": "The battle goes on into a second day.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your flanks are being overlapped."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Lengthen your line."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Lengthen your line",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "talks": true
+       },
+       "r": -2,
+       "e": -12,
+       "text": "Your line holds."
+      },
+      {
+       "r": -8,
+       "e": -8,
+       "text": "Your line is stretched thin."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge their centre",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The horse archers shoot you down."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "cat"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Form a hollow square",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -13,
+       "text": "They cannot get round you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Day three",
+   "text": "On the third day both armies are exhausted and the dead are piled high.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Artabanus has not yet heard that Caracalla is dead."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Tell him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight on for one more day",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Your losses mount."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send word",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -17,
+       "text": "Artabanus’s anger cools."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Retreat in the night toward Nisibis",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The Parthians claim victory."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Peace",
+   "text": "Artabanus agrees to talk.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He wants money."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pay him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pay what he asks to end it",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "You pay 200 million sesterces for peace. Your soldiers despise you; within a year they overthrow you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Refuse to pay and fight on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The war goes on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Bargain",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "Artabanus accepts."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Nisibis (217) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Nisibis_(217)"
+  }
+ ],
+ "winAt": 50
+}

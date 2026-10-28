@@ -1,0 +1,639 @@
+{
+ "id": "resaena",
+ "name": "Battle of Resaena",
+ "date": "243 AD",
+ "result": "win",
+ "loc": {
+  "lat": 36.85,
+  "lon": 40.07,
+  "place": "Resaena, Mesopotamia",
+  "short": "Resaena",
+  "x": 692,
+  "y": 200
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Sasanian Persia",
+  "commander": "Timesitheus",
+  "foe": "Shapur I"
+ },
+ "intro": "Near Resaena in northern Mesopotamia, 243 AD. The Sasanian Persians have replaced the Parthians. Shapur I has taken Roman cities. You are Timesitheus, Praetorian Prefect and father-in-law of the teenage Emperor Gordian III.",
+ "debrief": "Timesitheus was known for careful organisation of supplies. The Roman army recovered Carrhae and beat Shapur near Resaena, then retook Nisibis and Singara. Details of the battle itself are scarce. Soon after, Timesitheus died of illness and was replaced by Philip the Arab; within a year Gordian was dead and Philip was Emperor. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#a8a163",
+  "ground": "#c4ad76"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Gordian III’s legions",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 60,
+   "y": 220,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "arc": {
+   "x": 320,
+   "y": 215,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Archers",
+   "model": "archer"
+  },
+  "per": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Shapur’s Persians",
+   "model": "cav_heavy",
+   "scales": true
+  },
+  "ha": {
+   "x": 340,
+   "y": 80,
+   "w": 80,
+   "h": 10,
+   "side": "enemy",
+   "name": "Horse archers",
+   "model": "cav_eastern"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The archers shoot down the charge.",
+   "Shapur is beaten.",
+   "Nisibis is Roman again."
+  ],
+  "lose": [
+   "Shapur’s horse archers surround the legions.",
+   "Gordian’s army breaks.",
+   "Mesopotamia stays Persian."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Supplies",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Stocked",
+     "tone": "g"
+    },
+    {
+     "text": "Starving",
+     "tone": "r"
+    },
+    {
+     "text": "Mocked",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Persian threat",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Flanks",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Covered",
+     "tone": "g"
+    },
+    {
+     "text": "Surrounded",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Resaena",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Charge",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Shot down",
+     "tone": "g"
+    },
+    {
+     "text": "Ridden down",
+     "tone": "r"
+    },
+    {
+     "text": "Ridden round",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Heavy horse",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Cities",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Retaken",
+     "tone": "g"
+    },
+    {
+     "text": "Chasing",
+     "tone": "a"
+    },
+    {
+     "text": "Lost",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Nisibis",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The Persians",
+   "text": "Parthia has fallen to the Sasanian Persians, more aggressive than the Parthians. Shapur I has taken Nisibis, Carrhae and Hatra. You are Timesitheus, Praetorian Prefect and father-in-law of the teenage Emperor Gordian III.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Supplies win wars."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Organise supplies first."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Supplies first",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "sup": 1
+       },
+       "text": "You stock depots of food and arms all along the road east."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hurry east at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Your army starves on the way."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ask Shapur for peace",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "He laughs."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Carrhae",
+   "text": "You recover Carrhae and march on Nisibis. Shapur meets you near Resaena.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His horse archers will try to surround you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep your flanks covered."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cover the flanks",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "sup": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "Your well-fed army forms with archers and cavalry covering its flanks."
+      },
+      {
+       "r": -6,
+       "e": -7,
+       "text": "Your flanks are covered, barely."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         60,
+         180
+        ],
+        "arc": [
+         340,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge before they form",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The horse archers ride round you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "per"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Dig in and wait",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Shapur waits too."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The clash",
+   "text": "Shapur’s heavy cavalry charges.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Archers break a charge."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Shoot."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Shoot, then close",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -16,
+       "text": "Your archers shoot down the charge, then the legions close in. Shapur is beaten."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "per": [
+         200,
+         60
+        ]
+       },
+       "f": [
+        "leg",
+        "per"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Meet them with your cavalry",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The heavy horse wins."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "cav",
+        "per"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Hold in close order",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "They ride round."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Nisibis",
+   "text": "Shapur falls back. Nisibis lies ahead.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Retake the cities."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Retake Nisibis."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Retake Nisibis",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "You retake Nisibis and Singara. Rome holds Mesopotamia again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase Shapur",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "He gets away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Halt and make peace",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "Shapur keeps Nisibis."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Timesitheus",
+   "text": "You fall ill. The young Gordian depends on you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your deputy Philip the Arab is ambitious."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Who takes over?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Leave the army to Philip",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Timesitheus dies of illness. Philip takes his place. Within a year Gordian is dead, and Philip is Emperor."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hand command to Gordian himself",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "He is young."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Make Gordian go home to Rome",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The army loses heart."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Resaena (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Resaena"
+  }
+ ]
+}

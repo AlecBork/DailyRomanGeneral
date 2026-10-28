@@ -1260,6 +1260,51 @@
    "lon": 4.83,
    "result": "win",
    "naval": false
+  },
+  {
+   "id": "ctesiphon198",
+   "name": "Ctesiphon (198)",
+   "date": "198 AD",
+   "lat": 33.09,
+   "lon": 44.58,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "hatra199",
+   "name": "Hatra (199)",
+   "date": "199 AD",
+   "lat": 35.59,
+   "lon": 42.72,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "nisibis217",
+   "name": "Nisibis",
+   "date": "217 AD",
+   "lat": 37.07,
+   "lon": 41.21,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "antioch218",
+   "name": "Antioch (218)",
+   "date": "218 AD",
+   "lat": 36.2,
+   "lon": 36.16,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "resaena",
+   "name": "Resaena",
+   "date": "243 AD",
+   "lat": 36.85,
+   "lon": 40.07,
+   "result": "win",
+   "naval": false
   }
  ]
 }

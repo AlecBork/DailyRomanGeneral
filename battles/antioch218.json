@@ -1,0 +1,660 @@
+{
+ "id": "antioch218",
+ "name": "Battle of Antioch",
+ "date": "218 AD",
+ "result": "win",
+ "loc": {
+  "lat": 36.2,
+  "lon": 36.16,
+  "place": "near Antioch, Syria",
+  "short": "Antioch (218)",
+  "x": 642,
+  "y": 212
+ },
+ "names": {
+  "rome": "Elagabalus",
+  "enemy": "Macrinus",
+  "commander": "Gannys",
+  "foe": "Macrinus"
+ },
+ "intro": "Near Antioch in Syria, 8 June 218 AD. Julia Maesa claims her fourteen-year-old grandson is Caracalla’s son, and the Third Legion has proclaimed him Emperor. You are Gannys, the boy’s tutor, commanding his army against Macrinus.",
+ "debrief": "In Cassius Dio’s account, Macrinus’s Praetorians pushed back Gannys’s men until Julia Maesa and Julia Soaemias leapt from their chariots to rally them, and the boy Elagabalus rode out with a drawn sword. Macrinus fled the field; his Praetorians fought on until told he was gone, then came over. Macrinus was caught and killed, and Elagabalus became Emperor. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#a8a163",
+  "ground": "#c4ad76",
+  "hills": [
+   [
+    340,
+    40,
+    80,
+    14
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Legion III Gallica, for the boy Elagabalus",
+   "model": "legionary"
+  },
+  "jm": {
+   "x": 80,
+   "y": 240,
+   "w": 40,
+   "h": 6,
+   "side": "roman",
+   "name": "Julia Maesa and Julia Soaemias",
+   "model": "levy"
+  },
+  "el": {
+   "x": 200,
+   "y": 240,
+   "w": 30,
+   "h": 6,
+   "side": "roman",
+   "name": "The boy Elagabalus",
+   "model": "cav_roman"
+  },
+  "mac": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Macrinus’s Praetorians",
+   "model": "veteran",
+   "scales": true
+  },
+  "m": {
+   "x": 200,
+   "y": 40,
+   "w": 30,
+   "h": 6,
+   "side": "enemy",
+   "name": "Macrinus",
+   "model": "cav_roman"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The women rally the army.",
+   "The boy leads a charge.",
+   "Macrinus’s Praetorians come over."
+  ],
+  "lose": [
+   "The Praetorians break the Third Legion.",
+   "The boy is captured.",
+   "Macrinus keeps the throne."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Gold",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Defectors",
+     "tone": "g"
+    },
+    {
+     "text": "Strong Praetorians",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Two emperors",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Rout",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Women rally them",
+     "tone": "g"
+    },
+    {
+     "text": "Slowed",
+     "tone": "a"
+    },
+    {
+     "text": "Scattered",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Praetorians",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Boy",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Leading the charge",
+     "tone": "g"
+    },
+    {
+     "text": "In the rear",
+     "tone": "a"
+    },
+    {
+     "text": "Sent away",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Elagabalus",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Praetorians",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Come over",
+     "tone": "g"
+    },
+    {
+     "text": "Fight to death",
+     "tone": "r"
+    },
+    {
+     "text": "Fighting on",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Macrinus fled",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "A boy emperor",
+   "text": "Julia Maesa, Caracalla’s aunt, claims her fourteen-year-old grandson is Caracalla’s son. The Third Legion has proclaimed him Emperor. You are Gannys, the boy’s tutor, now commanding his army against Macrinus.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Macrinus’s soldiers have no love for him."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pay the defectors well."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Promise gold to any who defect",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "gold": 1
+       },
+       "text": "Maesa’s money and promises draw soldiers from Macrinus."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack Macrinus at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "His Praetorians are strong."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait behind your walls at Emesa",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Macrinus gathers men."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Praetorians",
+   "text": "Macrinus’s Praetorians fight hard and push your men back.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men begin to run."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Stop the rout."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Bring the women forward",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -12,
+       "set": {
+        "women": 1
+       },
+       "text": "Maesa and Soaemias leap from their chariots and beg the fleeing men to turn back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "jm": [
+         140,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Throw in your reserve",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "It slows them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "mac"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Pull back to Emesa",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "The army scatters."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The boy",
+   "text": "The boy Elagabalus himself is there.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The men will follow him."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let him ride out."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let him ride out",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "women": true
+       },
+       "r": -4,
+       "e": -16,
+       "text": "The boy rides out sword in hand. His men turn and charge."
+      },
+      {
+       "r": -8,
+       "e": -7,
+       "text": "He rides out, but few follow."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "el": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "mac"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Keep him safe in the rear",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The men waver."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send him away to Emesa",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The army loses heart."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Macrinus",
+   "text": "Macrinus, seeing the fight turning, flees the field.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His Praetorians fight on."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Offer the Praetorians terms."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Offer pardon",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "gold": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "The Praetorians, told Macrinus has fled, accept the pardon and come over."
+      },
+      {
+       "r": -6,
+       "e": -7,
+       "text": "Some come over."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mac": [
+         200,
+         60,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Kill them all before they can rally",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "They fight to the death."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "mac"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Chase Macrinus before he escapes",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The Praetorians keep fighting."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Emperor",
+   "text": "Macrinus flees disguised. He is caught and killed.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The boy is Emperor."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Go to Rome."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Go to Rome",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Elagabalus goes to Rome, bringing the sacred black stone of his sun god. His rule will be short and scandalous."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rule from Antioch",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Rome grows restless."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let the army choose",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The army is divided."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Antioch (218) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Antioch_(218)"
+  }
+ ]
+}

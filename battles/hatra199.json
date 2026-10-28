@@ -1,0 +1,649 @@
+{
+ "id": "hatra199",
+ "name": "Second Siege of Hatra",
+ "date": "199 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 35.59,
+  "lon": 42.72,
+  "place": "Hatra, Mesopotamia",
+  "short": "Hatra (199)",
+  "x": 726,
+  "y": 222
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Hatra",
+  "commander": "Septimius Severus",
+  "foe": "Hatra’s king"
+ },
+ "intro": "Hatra in the Mesopotamian desert, 199 AD. The city beat Trajan in 117. You are Septimius Severus, just back from sacking Ctesiphon.",
+ "debrief": "In Cassius Dio’s account, Severus besieged Hatra twice. The defenders burned his engines with naphtha and threw pots of stinging insects at the attackers. When a breach was made, Severus called off the attack, expecting the city to surrender to save its temple treasures; the walls were rebuilt overnight. His European troops then refused to attack, and the Syrians who did were cut down. After twenty days he gave up. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#c4ad76",
+  "ground": "#d0b37a"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 220,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Severus’s legions",
+   "model": "legionary"
+  },
+  "eng": {
+   "x": 200,
+   "y": 185,
+   "w": 160,
+   "h": 6,
+   "side": "roman",
+   "name": "Siege engines",
+   "model": "velites"
+  },
+  "eu": {
+   "x": 320,
+   "y": 220,
+   "w": 80,
+   "h": 10,
+   "side": "roman",
+   "name": "European troops",
+   "model": "legionary"
+  },
+  "hat": {
+   "x": 200,
+   "y": 70,
+   "w": 160,
+   "h": 12,
+   "side": "enemy",
+   "name": "Hatra’s walls",
+   "model": "levy",
+   "scales": true
+  },
+  "nap": {
+   "x": 200,
+   "y": 100,
+   "w": 160,
+   "h": 6,
+   "side": "enemy",
+   "name": "Naphtha and scorpion pots",
+   "model": "archer",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The engines survive.",
+   "The breach is stormed.",
+   "Hatra falls."
+  ],
+  "lose": [
+   "Naphtha burns the engines.",
+   "The breach is rebuilt overnight.",
+   "Hatra beats two emperors."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Season",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Summer heat",
+     "tone": "r"
+    },
+    {
+     "text": "Autumn",
+     "tone": "g"
+    },
+    {
+     "text": "Gone home",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Desert",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Engines",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Burned",
+     "tone": "r"
+    },
+    {
+     "text": "Hides on",
+     "tone": "g"
+    },
+    {
+     "text": "Pulled back",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Naphtha",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Pots",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Stalled",
+     "tone": "a"
+    },
+    {
+     "text": "Enduring",
+     "tone": "g"
+    },
+    {
+     "text": "Screens broken",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Insects",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Breach",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Rebuilt",
+     "tone": "r"
+    },
+    {
+     "text": "Stormed",
+     "tone": "g"
+    },
+    {
+     "text": "Refused",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Wall down",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Again",
+   "text": "Hatra beat Trajan. You are Severus, back from Ctesiphon, and you mean to take it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The desert is hot, and your men are tired."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wait for cooler weather."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Besiege it now",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Your army arrives in the heat."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for autumn",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -15,
+       "set": {
+        "cool": 1
+       },
+       "text": "You come back with a rested army in cooler weather."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Leave it alone and go home",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Hatra boasts it beat two emperors."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Fire",
+   "text": "The defenders throw burning naphtha on your engines.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hide your engines."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cover the engines with wet hides."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Push the engines on through the fire",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "cool": true
+       },
+       "r": -4,
+       "e": -6,
+       "text": "Some engines burn."
+      },
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Burning naphtha destroys your engines."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "nap": [
+         200,
+         100,
+         1
+        ],
+        "eng": [
+         200,
+         185,
+         0.2
+        ]
+       },
+       "f": [
+        "eng",
+        "hat"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wet hides",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -15,
+       "text": "The hides keep the fire off."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Pull the engines back",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The walls go untouched."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Scorpions",
+   "text": "The defenders throw clay pots full of stinging insects onto your men.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men are stung."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep at it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pull the men back out of range",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The attack stalls."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Push on regardless",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "Your men endure and keep at the walls."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eu": [
+         300,
+         120
+        ]
+       },
+       "f": [
+        "eu",
+        "hat"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Build screens",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The pots break over them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The breach",
+   "text": "Part of the wall falls. Your European troops beg to attack.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Attack."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack the breach."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Call off the attack, hoping the city will surrender",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "You call off the attack, sure Hatra will surrender to save its temple treasures. By morning the breach is rebuilt."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -15,
+       "text": "Your troops go into the breach."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eu": [
+         200,
+         90
+        ]
+       },
+       "f": [
+        "eu",
+        "hat"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send the Syrian troops in instead",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "They refuse."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Mutiny",
+   "text": "Your European troops, angry, refuse to attack. The Syrian troops are cut down.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hatra has beaten you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Give up."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Give up the siege",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "After twenty days you give up. Hatra has beaten two emperors."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Force the men on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "They refuse."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Punish the leaders",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -9,
+       "text": "Order returns."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Siege of Hatra (199) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Siege_of_Hatra_(199)"
+  }
+ ],
+ "winAt": 50
+}

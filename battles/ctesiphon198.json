@@ -1,0 +1,657 @@
+{
+ "id": "ctesiphon198",
+ "name": "Sack of Ctesiphon",
+ "date": "198 AD",
+ "result": "win",
+ "loc": {
+  "lat": 33.09,
+  "lon": 44.58,
+  "place": "Ctesiphon, Mesopotamia",
+  "short": "Ctesiphon (198)",
+  "x": 750,
+  "y": 266
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Parthia",
+  "commander": "Septimius Severus",
+  "foe": "Vologases V"
+ },
+ "intro": "Ctesiphon, the Parthian capital on the Tigris, winter 197-198 AD. The Parthians attacked Roman Mesopotamia while Rome fought its civil wars. You are Septimius Severus, now sole Emperor.",
+ "debrief": "In Cassius Dio’s and the Historia Augusta’s accounts, Severus sailed down the Euphrates, crossed to the Tigris, took the abandoned city of Seleucia and stormed Ctesiphon, taking 100,000 captives. He took the title Parthicus Maximus on the anniversary of Trajan’s accession, but shortage of food soon forced him to withdraw. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 150,
+   "w": 30
+  },
+  "grass": "#a8a163",
+  "ground": "#c4ad76"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 220,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Severus’s legions",
+   "model": "legionary"
+  },
+  "fleet": {
+   "x": 80,
+   "y": 190,
+   "w": 70,
+   "h": 10,
+   "side": "roman",
+   "name": "River fleet on the Euphrates",
+   "model": "galley_roman"
+  },
+  "cav": {
+   "x": 340,
+   "y": 225,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "cte": {
+   "x": 200,
+   "y": 70,
+   "w": 180,
+   "h": 12,
+   "side": "enemy",
+   "name": "Ctesiphon",
+   "model": "levy",
+   "scales": true
+  },
+  "par": {
+   "x": 340,
+   "y": 100,
+   "w": 80,
+   "h": 12,
+   "side": "enemy",
+   "name": "Vologases’s horsemen",
+   "model": "cav_eastern"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The fleet passes Trajan’s canal.",
+   "Ctesiphon is stormed.",
+   "Severus is Parthicus Maximus."
+  ],
+  "lose": [
+   "The army starves in the desert.",
+   "Ctesiphon holds.",
+   "Severus goes home empty-handed."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Route",
+   "decision": 0,
+   "options": [
+    {
+     "text": "By river",
+     "tone": "g"
+    },
+    {
+     "text": "Thirsty",
+     "tone": "r"
+    },
+    {
+     "text": "Nisibis only",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Into Parthia",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Canal",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Cleared",
+     "tone": "g"
+    },
+    {
+     "text": "Dragging",
+     "tone": "a"
+    },
+    {
+     "text": "No fleet",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Silted",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Seleucia",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Taken",
+     "tone": "g"
+    },
+    {
+     "text": "Resting",
+     "tone": "a"
+    },
+    {
+     "text": "Talks",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Twin cities",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Ctesiphon",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Stormed",
+     "tone": "g"
+    },
+    {
+     "text": "Lured away",
+     "tone": "r"
+    },
+    {
+     "text": "Siege",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Horsemen",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Revenge",
+   "text": "The Parthians attacked Nisibis while you fought Albinus. You are Septimius Severus, now sole Emperor, with new legions raised for this war.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The rivers lead to Ctesiphon."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Go by river."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Go by river",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "river": 1
+       },
+       "text": "You build a fleet on the Euphrates and sail down it with the army marching alongside."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fleet": [
+         80,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "March across the desert, straight at Ctesiphon",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Your army runs short of water."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Retake Nisibis and stop there for the year",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "The Parthians are untouched."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The canal",
+   "text": "Your fleet must get from the Euphrates to the Tigris.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Trajan’s old canal is silted up."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Clear it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Clear it",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "river": true
+       },
+       "r": -2,
+       "e": -15,
+       "text": "Your men clear Trajan’s old canal, and the fleet passes into the Tigris."
+      },
+      {
+       "r": -6,
+       "e": -6,
+       "text": "The fleet is slow."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fleet": [
+         150,
+         120
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Drag the ships overland on rollers",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "It takes weeks."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Leave the fleet and march on without it",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Supply suffers."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Seleucia",
+   "text": "You reach the twin cities of Seleucia and Ctesiphon. Seleucia is abandoned.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Parthian king is in Ctesiphon."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take Seleucia and press on."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Press on",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "text": "You take empty Seleucia and press on to Ctesiphon."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         130
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Loot Seleucia and rest the men",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Vologases prepares."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send envoys to Vologases",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "He stalls."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Assault",
+   "text": "Vologases’s horsemen ride out of Ctesiphon to fight.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your legions are strong."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold, then storm."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Beat off the horsemen, then storm",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -15,
+       "text": "Your legions beat off the horsemen and storm Ctesiphon. Vologases flees."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cte": [
+         200,
+         70,
+         0.2
+        ],
+        "par": [
+         380,
+         60
+        ]
+       },
+       "f": [
+        "leg",
+        "cte"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Chase the horsemen with your own cavalry",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "They lead you away."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         380,
+         80
+        ]
+       },
+       "f": [
+        "cav",
+        "par"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Besiege it for the whole winter",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Supplies run low."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Spoils",
+   "text": "Ctesiphon is yours. You take 100,000 captives and great treasure.",
+   "intel": {
+    "hint": [
+     {
+      "text": "It is 28 January, the anniversary of Trajan’s accession."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Claim the title."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Claim the title",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "You take the title, as Trajan did. But your army is short of food and soon withdraws."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Annex all of Parthia",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "You cannot hold it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Return the city in exchange for a treaty",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Parthia rebuilds."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Roman%E2%80%93Parthian War of 195%E2%80%93198 (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Roman%E2%80%93Parthian_War_of_195%E2%80%93198"
+  }
+ ]
+}
