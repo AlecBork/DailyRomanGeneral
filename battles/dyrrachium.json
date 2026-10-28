@@ -1,0 +1,694 @@
+{
+ "id": "dyrrachium",
+ "name": "Battle of Dyrrachium",
+ "date": "48 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 41.32,
+  "lon": 19.45,
+  "place": "Dyrrachium, on the Adriatic",
+  "short": "Dyrrachium",
+  "x": 428,
+  "y": 122
+ },
+ "names": {
+  "rome": "Caesar’s army",
+  "enemy": "Pompey’s army",
+  "commander": "Caesar",
+  "foe": "Pompey"
+ },
+ "intro": "Near Dyrrachium (Durrës), on the Adriatic coast of Greece, 48 BC. You are Julius Caesar, trying to besiege the larger army of Pompey with siege lines seventeen miles long.",
+ "debrief": "In Caesar’s account, both armies suffered: Caesar’s men ate bread made of roots, Pompey’s horses starved. Two Gallic deserters told Pompey where the lines were unfinished at the southern end by the sea, and he attacked there by land and sea, routing the Ninth Legion. Caesar’s counter-attack went wrong and his men panicked; he lost about 1,000 men and 32 officers. Pompey did not follow up, and Caesar remarked that the enemy would have won if they had a commander who knew how to win. He marched away to Thessaly, and beat Pompey at Pharsalus a month later. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    40,
+    180,
+    18
+   ],
+   [
+    60,
+    200,
+    60,
+    14
+   ]
+  ],
+  "lakes": [
+   [
+    440,
+    180,
+    80,
+    120
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 190,
+   "w": 170,
+   "h": 14,
+   "side": "roman",
+   "name": "Caesar’s legions on the siege lines",
+   "model": "legionary"
+  },
+  "line": {
+   "x": 200,
+   "y": 165,
+   "w": 240,
+   "h": 6,
+   "side": "roman",
+   "name": "Caesar’s 17-mile siege line",
+   "model": "levy"
+  },
+  "x9": {
+   "x": 340,
+   "y": 220,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Ninth Legion (unfinished south end)",
+   "model": "legionary"
+  },
+  "pom": {
+   "x": 200,
+   "y": 90,
+   "w": 170,
+   "h": 14,
+   "side": "enemy",
+   "name": "Pompey’s army inside the lines",
+   "model": "hastati",
+   "scales": true
+  },
+  "pfl": {
+   "x": 340,
+   "y": 150,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Pompey’s landing by sea",
+   "model": "hastati",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The south end holds.",
+   "Pompey is still besieged.",
+   "Caesar’s gamble works."
+  ],
+  "lose": [
+   "Pompey breaks out at the south end.",
+   "Caesar’s men flee in panic.",
+   "‘They would have won, if they had a general who knew how to win.’"
+  ],
+  "cams": [
+   "right",
+   "clash",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Lines",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Stretched thin",
+     "tone": "r"
+    },
+    {
+     "text": "South end finished",
+     "tone": "g"
+    },
+    {
+     "text": "Abandoned",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Seventeen miles",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Hunger",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Eating roots",
+     "tone": "a"
+    },
+    {
+     "text": "His water cut",
+     "tone": "g"
+    },
+    {
+     "text": "Attack failed",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Both sides",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "South end",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Broken",
+     "tone": "r"
+    },
+    {
+     "text": "Reinforced",
+     "tone": "g"
+    },
+    {
+     "text": "Struck anyway",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Betrayed",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Counter-attack",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Panic",
+     "tone": "r"
+    },
+    {
+     "text": "Withdrawn",
+     "tone": "g"
+    },
+    {
+     "text": "Fighting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "33 cohorts",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Besieging a bigger army",
+   "text": "Pompey has a larger army and holds the sea. You are Caesar, and you have done something strange: you are building lines seventeen miles long to besiege his larger army near Dyrrachium.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your lines are too long to man everywhere."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Finish the southern end by the sea first."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Keep extending the lines everywhere",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "set": {
+        "long": 1
+       },
+       "text": "Your lines stretch on, thin in many places."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Finish the southern end by the sea first",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -18,
+       "set": {
+        "south": 1
+       },
+       "text": "The south end of your line, by the sea, is finished with a double wall."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "line": [
+         200,
+         160
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Give up the lines and march on Dyrrachium",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Pompey follows you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Hunger",
+   "text": "Your army is eating roots, made into a kind of bread. Pompey’s horses are dying for lack of fodder.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men throw the root-bread over the lines to taunt Pompey’s men."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep up the pressure."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Keep up the siege",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Pompey sees your men can eat roots and says he is fighting wild beasts."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Dam his streams",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "Pompey’s army suffers from thirst."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack his lines before your men starve",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "His lines hold."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "pom"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Deserters",
+   "text": "Two Gallic brothers desert to Pompey and tell him where your lines are weak, at the unfinished southern end.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He will strike there."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send reinforcements to the south end."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Trust the line to hold",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "south": true
+       },
+       "r": -2,
+       "e": -8,
+       "text": "Pompey lands by sea at the south end, but the finished wall holds."
+      },
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Pompey lands troops by sea behind the unfinished southern line and attacks it from both sides. The Ninth Legion is routed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pfl": [
+         340,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "x9",
+        "pfl"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Move cohorts to the south end",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "The cohorts arrive in time."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "x9": [
+         340,
+         190
+        ],
+        "pfl": [
+         340,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "x9",
+        "pfl"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Attack Pompey elsewhere to distract him",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "He strikes the south anyway."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pfl": [
+         340,
+         150,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Counter-attack",
+   "text": "You counter-attack with 33 cohorts at a Pompeian position, but your men get lost among old walls. Pompey brings up his legion and cavalry. Panic: your men run, and even the standard-bearers flee.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You try to stop them with your own hands."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fall back before Pompey follows up."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Try to stop the fleeing men yourself",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "A fleeing standard-bearer turns his standard on you. Nearly 1,000 men and 32 tribunes and centurions are lost."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Pull back in order to the camp",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "The army falls back with few losses."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         215
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Throw in the reserve",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "The fight goes on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Pompey hesitates",
+   "text": "Pompey does not follow up his victory. ‘Today the enemy would have won,’ you say, ‘if they had a commander who knew how to win.’",
+   "intel": {
+    "hint": [
+     {
+      "text": "You must leave and regroup."
+     }
+    ],
+    "scout": [
+     {
+      "text": "March away into Thessaly."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March into Thessaly",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -15,
+       "text": "You march away into Thessaly to rest and feed the army. Pompey follows. The war will be decided at Pharsalus."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Renew the siege",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The army is shaken."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Sail for Italy and raise a new army",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Pompey holds the sea."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Dyrrhachium (48 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Dyrrhachium_(48_BC)"
+  }
+ ],
+ "winAt": 50,
+ "quotes": [
+  {
+   "text": "Today the enemy would have won, if they had a commander who knew how to win.",
+   "who": "Caesar after Dyrrachium, as Plutarch reports"
+  }
+ ]
+}

@@ -1,0 +1,723 @@
+{
+ "id": "atuatuca",
+ "name": "Battle of Atuatuca",
+ "date": "54 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 50.78,
+  "lon": 5.46,
+  "place": "Atuatuca, land of the Eburones",
+  "short": "Atuatuca",
+  "x": 249,
+  "y": -43
+ },
+ "names": {
+  "rome": "Caesar’s army",
+  "enemy": "The Eburones",
+  "commander": "Sabinus and Cotta",
+  "foe": "Ambiorix"
+ },
+ "intro": "Atuatuca, the winter camp of a legion and a half in the land of the Eburones, northern Gaul, winter 54 BC. You are the legates Sabinus and Cotta. King Ambiorix has warned you that Gaul is rising, and offers you safe passage.",
+ "debrief": "In Caesar’s account, Sabinus wanted to accept Ambiorix’s offer and Cotta to stay in the camp; Sabinus prevailed after a night of argument. The column marched out laden with baggage and was ambushed in a deep valley. The Romans formed a circle while the Eburones threw javelins and fell back from every charge. Sabinus went to parley and was killed; Cotta died fighting. The eagle-bearer threw the eagle inside the rampart, and the last survivors killed themselves that night. Caesar is said to have sworn not to cut his hair until he was avenged. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    60,
+    110,
+    70,
+    26
+   ],
+   [
+    340,
+    110,
+    70,
+    26
+   ]
+  ],
+  "forests": [
+   [
+    60,
+    90,
+    50,
+    20
+   ],
+   [
+    340,
+    90,
+    50,
+    20
+   ]
+  ],
+  "weather": "snow"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 190,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Sabinus and Cotta’s legion and a half",
+   "model": "legionary"
+  },
+  "camp": {
+   "x": 200,
+   "y": 230,
+   "w": 90,
+   "h": 10,
+   "side": "roman",
+   "name": "Winter camp",
+   "model": "levy"
+  },
+  "amb1": {
+   "x": 60,
+   "y": 110,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "Eburones in the valley",
+   "model": "gaul",
+   "scales": true,
+   "hidden": true
+  },
+  "amb2": {
+   "x": 340,
+   "y": 110,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "Eburones in the valley",
+   "model": "gaul",
+   "scales": true,
+   "hidden": true
+  },
+  "amb": {
+   "x": 200,
+   "y": 60,
+   "w": 120,
+   "h": 14,
+   "side": "enemy",
+   "name": "Ambiorix",
+   "model": "gaul",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Eburones break on the rampart.",
+   "The legion and a half are saved.",
+   "Caesar arrives in time."
+  ],
+  "lose": [
+   "Sabinus is killed at the parley.",
+   "A legion and a half are destroyed.",
+   "Caesar swears not to cut his hair until he is avenged."
+  ],
+  "cams": [
+   "clash",
+   "wide",
+   "wide"
+  ],
+  "anim": {
+   "lose": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Decision",
+   "decision": 0,
+   "options": [
+    {
+     "text": "March out",
+     "tone": "r"
+    },
+    {
+     "text": "Stay in camp",
+     "tone": "g"
+    },
+    {
+     "text": "Messenger",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Ambiorix’s warning",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Column",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Long and laden",
+     "tone": "r"
+    },
+    {
+     "text": "Square",
+     "tone": "g"
+    },
+    {
+     "text": "Back in camp",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Marching",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Ambush",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Circle",
+     "tone": "a"
+    },
+    {
+     "text": "Cut off",
+     "tone": "r"
+    },
+    {
+     "text": "Back to the rampart",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "In the valley",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Parley",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Sabinus killed",
+     "tone": "r"
+    },
+    {
+     "text": "Fighting on",
+     "tone": "g"
+    },
+    {
+     "text": "Officer killed",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Asked for",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "A friendly warning",
+   "text": "You are the legates Quintus Titurius Sabinus and Lucius Aurunculeius Cotta, wintering at Atuatuca with a legion and a half. Ambiorix, king of the Eburones, who owes Caesar favours, warns you that all Gaul is rising and the Germans are crossing the Rhine. He offers you safe passage to the next camp.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Why would an enemy warn you?"
+     }
+    ],
+    "scout": [
+     {
+      "text": "Stay behind your rampart; you have food and walls."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Accept his offer and march out at dawn",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "set": {
+        "out": 1
+       },
+       "text": "After a night of argument, Sabinus prevails. The army will march out at dawn."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stay in the camp and wait for Caesar",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -17,
+       "set": {
+        "stay": 1
+       },
+       "text": "Cotta prevails. You stay behind the rampart. The Eburones have no siege skill."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send a messenger to Caesar first",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "The messenger is caught."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The march",
+   "text": "The column marches out in a long line, laden with baggage, into a deep valley two miles from camp.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The valley is perfect for an ambush."
+     }
+    ],
+    "scout": [
+     {
+      "text": "March in fighting order, not in a long column."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March in a long column with the baggage",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The column straggles into the valley."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March in a square, ready to fight",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "if": {
+        "stay": true
+       },
+       "r": 0,
+       "e": -17,
+       "text": "You stay in camp."
+      },
+      {
+       "r": -2,
+       "e": -15,
+       "text": "The army marches in a hollow square."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Turn back to the camp",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The army returns behind the rampart."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         215
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Ambush",
+   "text": "The Eburones rise from both sides of the valley.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are throwing javelins and falling back when you charge."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Form a circle and do not charge out."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form a circle round the baggage",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "stay": true
+       },
+       "r": -2,
+       "e": -12,
+       "text": "In the camp, the attack breaks on the rampart."
+      },
+      {
+       "r": -10,
+       "e": -8,
+       "text": "You form a circle. The Eburones throw javelins and fall back whenever a cohort charges."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "amb1": [
+         120,
+         150,
+         1
+        ],
+        "amb2": [
+         280,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "amb1",
+        "amb2"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge up the slopes after them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "Cohorts charge out and are cut off."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "amb1": [
+         120,
+         150,
+         1
+        ],
+        "amb2": [
+         280,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "amb1"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Fight your way back to the camp",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -12,
+       "text": "Most reach the rampart."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         225
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "A parley",
+   "text": "Sabinus asks to parley with Ambiorix. Cotta, wounded in the face by a sling stone, refuses to go.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Ambiorix will not keep his word."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Do not go."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Sabinus goes to parley",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": 0,
+       "text": "Sabinus goes to Ambiorix, is told to lay down his arms, and is killed. The Eburones charge. Cotta dies fighting."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "amb": [
+         200,
+         100,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "amb",
+        "amb1",
+        "amb2"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Refuse and fight on",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -12,
+       "text": "The circle fights on until dark."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Send an officer in your place",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "The officer is killed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The eagle",
+   "text": "The survivors fight their way back toward the camp. The eagle-bearer is mortally wounded.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The eagle must not be taken."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Throw it over the rampart."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Throw the eagle over the rampart",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The eagle-bearer throws the eagle inside the rampart and dies. That night the last survivors kill themselves rather than be taken. A handful escape to Labienus."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight to the last around it",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The eagle is taken."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Break out by night",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -9,
+       "text": "Some reach Labienus’s camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Atuatuca (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Atuatuca"
+  }
+ ],
+ "winAt": 50
+}

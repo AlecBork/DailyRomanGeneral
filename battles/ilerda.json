@@ -1,0 +1,674 @@
+{
+ "id": "ilerda",
+ "name": "Battle of Ilerda",
+ "date": "49 BC",
+ "result": "win",
+ "loc": {
+  "lat": 41.62,
+  "lon": 0.62,
+  "place": "Ilerda (Lleida), Spain",
+  "short": "Ilerda",
+  "x": 187,
+  "y": 117
+ },
+ "names": {
+  "rome": "Caesar’s army",
+  "enemy": "Pompey’s legions",
+  "commander": "Caesar",
+  "foe": "Afranius and Petreius"
+ },
+ "intro": "Ilerda (Lleida) on the river Sicoris, Spain, 49 BC, at the start of the civil war. You are Julius Caesar, who has crossed the Rubicon and taken Italy. Pompey’s legates Afranius and Petreius hold Spain with five legions.",
+ "debrief": "In Caesar’s account, a flood swept away his bridges and cut him off, until he built light boats like those he had seen in Britain and re-bridged the river. When the Pompeians retreated toward the Ebro, his infantry waded the river and outmarched them to the hills. Cut off from water, and with soldiers of both sides fraternising, the Pompeian army surrendered. Caesar let them go home or join him freely. He had won Spain almost without bloodshed. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 140,
+   "w": 24
+  },
+  "hills": [
+   [
+    60,
+    40,
+    70,
+    20
+   ],
+   [
+    340,
+    40,
+    90,
+    20
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 200,
+   "w": 160,
+   "h": 14,
+   "side": "roman",
+   "name": "Caesar’s legions",
+   "model": "legionary"
+  },
+  "eq": {
+   "x": 340,
+   "y": 215,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Caesar’s cavalry",
+   "model": "cav_roman"
+  },
+  "pom": {
+   "x": 200,
+   "y": 90,
+   "w": 170,
+   "h": 14,
+   "side": "enemy",
+   "name": "Afranius and Petreius (Pompeians)",
+   "model": "hastati",
+   "scales": true
+  },
+  "town": {
+   "x": 60,
+   "y": 40,
+   "w": 80,
+   "h": 10,
+   "side": "enemy",
+   "name": "Ilerda",
+   "model": "levy"
+  },
+  "riv": {
+   "x": 200,
+   "y": 140,
+   "w": 280,
+   "h": 6,
+   "side": "enemy",
+   "name": "The Sicoris",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Pompeians surrender without a battle.",
+   "Five legions go home.",
+   "Spain is Caesar’s."
+  ],
+  "lose": [
+   "The Pompeians reach the Ebro.",
+   "Spain stays with Pompey.",
+   "Caesar is caught between two armies."
+  ],
+  "cams": [
+   "wide",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Plan",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Manoeuvre",
+     "tone": "g"
+    },
+    {
+     "text": "Assault failed",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Before Ilerda",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Bridges",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Coracles",
+     "tone": "g"
+    },
+    {
+     "text": "Hungry",
+     "tone": "a"
+    },
+    {
+     "text": "Men drowned",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Swept away",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Race",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Hills blocked",
+     "tone": "g"
+    },
+    {
+     "text": "Harassing",
+     "tone": "a"
+    },
+    {
+     "text": "They escaped",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "To the Ebro",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Lines",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Mercy shown",
+     "tone": "g"
+    },
+    {
+     "text": "Romans killing Romans",
+     "tone": "r"
+    },
+    {
+     "text": "Hostages",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Talking",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Pompey’s Spain",
+   "text": "You are Caesar. You have crossed the Rubicon and taken Italy. Now you march on Pompey’s armies in Spain, under his legates Afranius and Petreius, at Ilerda.",
+   "intel": {
+    "hint": [
+     {
+      "text": "‘I go to fight an army without a general,’ you say, ‘and then a general without an army.’"
+     }
+    ],
+    "scout": [
+     {
+      "text": "Win in Spain by manoeuvre, not slaughter. These are Roman soldiers."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Win by manoeuvre",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "spare": 1
+       },
+       "text": "You set out to beat them without a great battle."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm Ilerda at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The attack on the hill near the town fails."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         120,
+         100
+        ]
+       },
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Wait for them to come out and fight in the open",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "They have the better supplies."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The flood",
+   "text": "A sudden flood sweeps away your bridges over the Sicoris. Your army is cut off from its supplies and the Pompeians are delighted.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You saw coracles in Britain, made of wicker and hide."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Build coracles and cross upstream."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Build coracles",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "set": {
+        "boats": 1
+       },
+       "text": "Your men build light wicker boats like the ones you saw in Britain, carry them upstream and re-bridge the river."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for the flood to fall before crossing again",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Your army goes hungry."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Force the river",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "Men drown."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "They retreat",
+   "text": "The Pompeians try to retreat south to the Ebro. They must reach the hills before you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You are on the wrong side of the river, without a bridge."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wade the river with the infantry, up to their necks."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Wade the river",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "boats": true
+       },
+       "r": -2,
+       "e": -20,
+       "text": "Your legions wade the river, the cavalry forming a line upstream to break the current, and race past the Pompeians to block the hills."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The legions wade across."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send only the cavalry after them to slow them",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The cavalry harasses their march."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         320,
+         100
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Let them go",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "They reach the Ebro."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Trapped without water",
+   "text": "The Pompeians are cut off from water and supplies. Your soldiers and theirs are talking across the lines; many are old comrades.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Petreius has ordered your men in his camp killed."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send his men back safely. Show mercy."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send their men back",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -18,
+       "text": "You send back the Pompeian soldiers who came to your camp, unharmed. Their comrades see the difference."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm their camp",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "Romans kill Romans."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "leg",
+        "pom"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Keep them as hostages for your own men",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -4,
+       "text": "The Pompeians fight harder."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Surrender",
+   "text": "Without water, the Pompeian army surrenders.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Five legions are in your hands."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Release them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let them go home",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -15,
+       "text": "You disband them and let them go home; any who wish may join you. Spain is yours with almost no blood spilled."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pom": [
+         200,
+         60,
+         0.3
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Enlist them all into your own legions",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "Unwilling soldiers desert."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Execute the leaders",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Your clemency is forgotten."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Ilerda (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Ilerda"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "I am going to fight an army without a general, and then a general without an army.",
+   "who": "Caesar, leaving for Spain, as Suetonius reports"
+  }
+ ]
+}

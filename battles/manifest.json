@@ -909,6 +909,96 @@
    "lon": 4.1,
    "result": "win",
    "naval": false
+  },
+  {
+   "id": "morbihan",
+   "name": "Morbihan",
+   "date": "56 BC",
+   "lat": 47.5,
+   "lon": -3,
+   "result": "win",
+   "naval": true
+  },
+  {
+   "id": "britain55",
+   "name": "Britain (55)",
+   "date": "55 BC",
+   "lat": 51.2,
+   "lon": 1.4,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "atuatuca",
+   "name": "Atuatuca",
+   "date": "54 BC",
+   "lat": 50.78,
+   "lon": 5.46,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "avaricum",
+   "name": "Avaricum",
+   "date": "52 BC",
+   "lat": 47.08,
+   "lon": 2.4,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "lutetia",
+   "name": "Lutetia",
+   "date": "52 BC",
+   "lat": 48.85,
+   "lon": 2.35,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "uxellodunum",
+   "name": "Uxellodunum",
+   "date": "51 BC",
+   "lat": 44.95,
+   "lon": 1.65,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "ilerda",
+   "name": "Ilerda",
+   "date": "49 BC",
+   "lat": 41.62,
+   "lon": 0.62,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "massilia",
+   "name": "Massilia",
+   "date": "49 BC",
+   "lat": 43.3,
+   "lon": 5.37,
+   "result": "win",
+   "naval": true
+  },
+  {
+   "id": "bagradas49",
+   "name": "Bagradas (49)",
+   "date": "49 BC",
+   "lat": 36.95,
+   "lon": 10.05,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "dyrrachium",
+   "name": "Dyrrachium",
+   "date": "48 BC",
+   "lat": 41.32,
+   "lon": 19.45,
+   "result": "loss",
+   "naval": false
   }
  ]
 }

@@ -1,0 +1,698 @@
+{
+ "id": "avaricum",
+ "name": "Siege of Avaricum",
+ "date": "52 BC",
+ "result": "win",
+ "loc": {
+  "lat": 47.08,
+  "lon": 2.4,
+  "place": "Avaricum (Bourges), Gaul",
+  "short": "Avaricum",
+  "x": 210,
+  "y": 21
+ },
+ "names": {
+  "rome": "Caesar’s army",
+  "enemy": "The Gauls",
+  "commander": "Caesar",
+  "foe": "Vercingetorix"
+ },
+ "intro": "Avaricum (Bourges), the chief town of the Bituriges, early 52 BC. Vercingetorix has led Gaul in revolt and is burning towns and crops; only Avaricum has been spared. You are Julius Caesar.",
+ "debrief": "In Caesar’s account, the town was protected by marsh and river except on one side, where the Romans built a huge siege terrace in 25 days despite hunger; Caesar offered to lift the siege, but the legions begged him not to. The Gauls dug under the terrace and set it on fire while sallying, but were beaten back. During a heavy rainstorm, with the guards sheltering, the Romans stormed the wall. Remembering the massacre of Romans at Cenabum, they spared no one; Caesar says only 800 of 40,000 escaped. The other choices are what-ifs.",
+ "terrain": {
+  "marsh": [
+   [
+    60,
+    110,
+    60,
+    60
+   ],
+   [
+    340,
+    110,
+    60,
+    60
+   ]
+  ],
+  "hills": [
+   [
+    200,
+    70,
+    120,
+    12
+   ]
+  ],
+  "weather": "rain"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 170,
+   "h": 14,
+   "side": "roman",
+   "name": "Caesar’s legions",
+   "model": "legionary"
+  },
+  "ramp": {
+   "x": 200,
+   "y": 160,
+   "w": 90,
+   "h": 14,
+   "side": "roman",
+   "name": "Siege terrace and towers",
+   "model": "levy"
+  },
+  "walls": {
+   "x": 200,
+   "y": 110,
+   "w": 240,
+   "h": 10,
+   "side": "enemy",
+   "name": "Walls of Avaricum",
+   "model": "levy"
+  },
+  "gar": {
+   "x": 200,
+   "y": 80,
+   "w": 160,
+   "h": 12,
+   "side": "enemy",
+   "name": "The Bituriges in Avaricum",
+   "model": "gaul",
+   "scales": true
+  },
+  "ver": {
+   "x": 360,
+   "y": 40,
+   "w": 70,
+   "h": 12,
+   "side": "enemy",
+   "name": "Vercingetorix’s army outside",
+   "model": "gaul",
+   "scales": true
+  },
+  "marsh": {
+   "x": 60,
+   "y": 110,
+   "w": 60,
+   "h": 60,
+   "side": "enemy",
+   "name": "Marsh around the town",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The legions go over the wall in the rain.",
+   "Avaricum falls.",
+   "Vercingetorix loses his finest town."
+  ],
+  "lose": [
+   "The terrace burns.",
+   "Caesar lifts the siege.",
+   "All Gaul joins Vercingetorix."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ],
+  "anim": {
+   "win": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Siege",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Terrace building",
+     "tone": "g"
+    },
+    {
+     "text": "Starving",
+     "tone": "a"
+    },
+    {
+     "text": "Assault failed",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "One dry side",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Hunger",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Men beg to go on",
+     "tone": "g"
+    },
+    {
+     "text": "Siege lifted",
+     "tone": "r"
+    },
+    {
+     "text": "Foragers hunted",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Starving",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Terrace",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Saved",
+     "tone": "g"
+    },
+    {
+     "text": "Burned",
+     "tone": "a"
+    },
+    {
+     "text": "Gates held",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Mined and burning",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Wall",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Stormed in the rain",
+     "tone": "g"
+    },
+    {
+     "text": "Guards back",
+     "tone": "a"
+    },
+    {
+     "text": "Chance lost",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Rain",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Scorched earth",
+   "text": "Vercingetorix has led all Gaul in revolt. He is burning the towns and crops so you will starve. Only Avaricum, the finest town in Gaul, has been spared at its people’s request. You are Julius Caesar.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Avaricum is ringed by marsh and river except on one side."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Build a terrace there and bring towers up to the wall."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Build a siege terrace",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "ramp": 1
+       },
+       "text": "Your men build a great terrace of timber and earth, 330 feet wide, toward the wall."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ramp": [
+         200,
+         160
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Starve the town out behind its marshes",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "You are the one starving."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the walls at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The Gallic walls of stone and timber hold."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "leg",
+        "walls"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Hunger",
+   "text": "Your army is starving. You offer to lift the siege if the men wish.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your soldiers remember past glories."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let them decide."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let the men decide",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -13,
+       "set": {
+        "spirit": 1
+       },
+       "text": "The legions beg you not to dishonour them. They eat meat from the herds instead of bread, and keep working."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Lift the siege",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Vercingetorix triumphs."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Raid the countryside for food",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Vercingetorix’s cavalry hunts your foragers."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Fire and mines",
+   "text": "The defenders dig mines under your terrace and set it on fire, sallying from two gates at night.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men are tired."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep two legions on watch all night."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Keep two legions on watch",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "ramp": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "The legions on watch put out the fires and drive the sallies back. One Gaul after another steps up to throw pitch on the fire and is killed in turn."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The fire is put out."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "gar": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "ramp",
+        "gar"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Rebuild the terrace in the morning",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "Much of the terrace burns."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ramp": [
+         200,
+         160,
+         0.4
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Counter-attack through the gates",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "The gates are well held."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Rain",
+   "text": "A heavy rainstorm. The guards on the wall have taken shelter.",
+   "intel": {
+    "hint": [
+     {
+      "text": "No one is watching."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack now."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack in the rain",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -20,
+       "text": "Your men storm over the wall in the rain while the guards shelter. The defenders flee to the market place."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         100
+        ],
+        "gar": [
+         200,
+         70
+        ]
+       },
+       "f": [
+        "leg",
+        "gar"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for the rain to stop",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "The guards return."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Use the rain to rebuild",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The chance passes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Cenabum",
+   "text": "Your soldiers remember the Romans massacred at Cenabum at the start of the revolt.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They want blood."
+     }
+    ],
+    "scout": [
+     {
+      "text": "You cannot stop them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let the soldiers have their way",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "No one is spared. Of 40,000 people, Caesar says, only 800 reach Vercingetorix."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "gar": [
+         200,
+         70,
+         0.1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Order mercy for some",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "Some are spared; the soldiers grumble."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold the army back",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The army is furious."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Siege of Avaricum (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Siege_of_Avaricum"
+  }
+ ]
+}

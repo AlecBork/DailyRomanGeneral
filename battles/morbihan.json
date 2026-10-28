@@ -1,0 +1,643 @@
+{
+ "id": "morbihan",
+ "name": "Battle of Morbihan",
+ "date": "56 BC",
+ "result": "win",
+ "loc": {
+  "lat": 47.5,
+  "lon": -3,
+  "place": "Quiberon Bay, Brittany",
+  "short": "Morbihan",
+  "x": 141,
+  "y": 14
+ },
+ "names": {
+  "rome": "Caesar’s fleet",
+  "enemy": "The Veneti",
+  "commander": "Decimus Brutus",
+  "foe": "the Veneti"
+ },
+ "intro": "Quiberon Bay, off the coast of Brittany, 56 BC. The Veneti, a seafaring people, have risen against Caesar. You are Decimus Junius Brutus, commanding Caesar’s newly built galleys against about 220 tall sailing ships of oak.",
+ "debrief": "In Caesar’s account, the Veneti ships were too high and strong for ramming. The Romans used sharp hooks on long poles to cut the halyards, bringing down the yards and leaving the ships helpless, then boarded them. Caesar and the army watched from the shore. When the wind dropped, the remaining Veneti ships were becalmed and taken one by one. Caesar executed the Veneti council and sold the people, because they had held Roman envoys. The other choices are what-ifs.",
+ "terrain": {
+  "ground": "#3d6f94",
+  "grass": "#34668c",
+  "sky": "#b9d4e4",
+  "trees": 0,
+  "flat": true,
+  "hills": [
+   [
+    200,
+    262,
+    200,
+    12
+   ]
+  ]
+ },
+ "units": {
+  "r1": {
+   "x": 200,
+   "y": 200,
+   "w": 200,
+   "h": 17,
+   "side": "roman",
+   "name": "Brutus’s galleys",
+   "model": "galley_roman"
+  },
+  "hook": {
+   "x": 200,
+   "y": 170,
+   "w": 80,
+   "h": 6,
+   "side": "roman",
+   "name": "Sharp hooks on long poles",
+   "model": "levy"
+  },
+  "ven": {
+   "x": 200,
+   "y": 80,
+   "w": 220,
+   "h": 17,
+   "side": "enemy",
+   "name": "Veneti sailing ships (220)",
+   "model": "galley_greek",
+   "scales": true
+  },
+  "shore": {
+   "x": 200,
+   "y": 245,
+   "w": 240,
+   "h": 8,
+   "side": "roman",
+   "name": "Caesar’s army on the cliffs",
+   "model": "legionary"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The yards come crashing down.",
+   "The becalmed fleet is taken.",
+   "The sea power of the Veneti is ended."
+  ],
+  "lose": [
+   "The sailing ships ride over the galleys.",
+   "The Roman fleet is scattered.",
+   "Brittany is free."
+  ],
+  "cams": [
+   "clash",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Tactic",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Hooks ready",
+     "tone": "g"
+    },
+    {
+     "text": "Rams useless",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Oak ships",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Place",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Under Caesar’s eyes",
+     "tone": "g"
+    },
+    {
+     "text": "Open sea",
+     "tone": "a"
+    },
+    {
+     "text": "Waiting",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Quiberon Bay",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Rigging",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Cut",
+     "tone": "g"
+    },
+    {
+     "text": "Climbing",
+     "tone": "a"
+    },
+    {
+     "text": "Burning",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Closing",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Calm",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Ships taken",
+     "tone": "g"
+    },
+    {
+     "text": "Drifting",
+     "tone": "a"
+    },
+    {
+     "text": "Saved",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Wind dropping",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Ships of oak",
+   "text": "The Veneti of Brittany have risen. Their ships are tall, built of oak, with leather sails: your rams cannot hurt them and their decks are higher than your towers. You are Decimus Junius Brutus, commanding Caesar’s new fleet.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their ships have only sails, no oars."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cut their rigging and they are helpless."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cut their rigging with hooks",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "hooks": 1
+       },
+       "text": "Your crews fix sickle-shaped blades to long poles."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hook": [
+         200,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ram them as you would a galley",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The rams bounce off the oak."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Wait for the army to take their towns on the headlands",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Their towns, on headlands, are supplied by sea."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Under the army’s eyes",
+   "text": "The Veneti fleet, 220 ships, sails out to meet you in Quiberon Bay. Caesar and the army watch from the cliffs.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Every brave deed will be seen."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fight close to the shore."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight close in, under the army’s eyes",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "set": {
+        "watched": 1
+       },
+       "text": "You lead the galleys close in. Every man knows Caesar is watching."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight out at sea, away from the cliffs",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The wind favours the sailing ships."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for a calmer day",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "They choose the day."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The hooks",
+   "text": "Your galleys close in. Two or three galleys surround each tall ship.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their sails are their only power."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cut the halyards and bring down the yards."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cut the halyards with the hooks",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "hooks": true
+       },
+       "r": -2,
+       "e": -19,
+       "text": "Your men hook the halyards and row hard. The yards crash down; the sailing ships are helpless, and your marines board."
+      },
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Some ships are boarded."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "r1": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "r1",
+        "ven"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Board them from below with ladders",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "The high decks are hard to climb."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Throw fire onto their sails",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -4,
+       "text": "The leather sails do not burn well."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The wind drops",
+   "text": "The wind dies. The remaining Veneti ships cannot move.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are becalmed."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take them one by one."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Take them one by one",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "The wind fails completely. Your galleys take ship after ship until nightfall. Few escape."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ven": [
+         200,
+         60,
+         0.3
+        ]
+       },
+       "f": [
+        "r1",
+        "ven"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Wait for them to drift ashore where the army waits",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "Some escape when the wind returns."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Return to harbour",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "They are saved."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Veneti",
+   "text": "Their fleet and fighting men are lost. The Veneti surrender.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They held Roman envoys prisoner."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Make an example of them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Make an example of their leaders",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "Caesar executes their council and sells the people as slaves, to warn all Gaul about the rights of envoys."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Spare them for their ships",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "Their ships and sailors serve Rome."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Burn their towns",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The coast is in ruins."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Morbihan (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Morbihan"
+  }
+ ]
+}

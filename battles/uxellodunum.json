@@ -1,0 +1,674 @@
+{
+ "id": "uxellodunum",
+ "name": "Siege of Uxellodunum",
+ "date": "51 BC",
+ "result": "win",
+ "loc": {
+  "lat": 44.95,
+  "lon": 1.65,
+  "place": "Uxellodunum, south-western Gaul",
+  "short": "Uxellodunum",
+  "x": 200,
+  "y": 59
+ },
+ "names": {
+  "rome": "Caesar’s army",
+  "enemy": "The Gauls",
+  "commander": "Caesar",
+  "foe": "Drappes and Lucterius"
+ },
+ "intro": "Uxellodunum, a fortified town on cliffs above a river in south-western Gaul, 51 BC. The last Gallic rebels have taken refuge there with food for years. You are Julius Caesar.",
+ "debrief": "In Hirtius’s account (the eighth book of Caesar’s Gallic War), Caesar posted archers and slingers to stop the defenders drawing water from the river, then built a terrace and a ten-storey tower to command the spring beneath the walls. The defenders rolled down burning barrels, but Caesar ordered attacks on every side to distract them. Finally his engineers tunnelled to the spring’s source and cut it, and the town surrendered. Caesar cut off the hands of all who had borne arms, as a warning to Gaul. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    50,
+    150,
+    36
+   ]
+  ],
+  "river": {
+   "horizontal": true,
+   "y": 245,
+   "w": 20
+  }
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 170,
+   "h": 14,
+   "side": "roman",
+   "name": "Caesar’s legions",
+   "model": "legionary"
+  },
+  "tow": {
+   "x": 340,
+   "y": 160,
+   "w": 40,
+   "h": 30,
+   "side": "roman",
+   "name": "Ten-storey tower over the spring",
+   "model": "levy"
+  },
+  "min": {
+   "x": 320,
+   "y": 190,
+   "w": 40,
+   "h": 10,
+   "side": "roman",
+   "name": "Tunnellers",
+   "model": "levy",
+   "hidden": true
+  },
+  "town": {
+   "x": 200,
+   "y": 60,
+   "w": 140,
+   "h": 12,
+   "side": "enemy",
+   "name": "Uxellodunum (on the cliff)",
+   "model": "gaul",
+   "scales": true
+  },
+  "spr": {
+   "x": 340,
+   "y": 110,
+   "w": 40,
+   "h": 10,
+   "side": "enemy",
+   "name": "The spring below the walls",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The spring dries up.",
+   "Uxellodunum surrenders.",
+   "Gaul will not rise again."
+  ],
+  "lose": [
+   "The town holds out.",
+   "The terrace burns.",
+   "Gaul watches and waits."
+  ],
+  "cams": [
+   "right",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "River",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Under fire",
+     "tone": "g"
+    },
+    {
+     "text": "Assault failed",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Water source",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Spring",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Tower over it",
+     "tone": "g"
+    },
+    {
+     "text": "Fought for",
+     "tone": "a"
+    },
+    {
+     "text": "Untouched",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Under the walls",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Fire",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Put out",
+     "tone": "g"
+    },
+    {
+     "text": "Terrace burned",
+     "tone": "a"
+    },
+    {
+     "text": "Pulled back",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Barrels rolling",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Tunnel",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Spring cut",
+     "tone": "g"
+    },
+    {
+     "text": "Running low",
+     "tone": "a"
+    },
+    {
+     "text": "Assault failed",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Engineers digging",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The last stronghold",
+   "text": "Gaul is beaten, but rebels have taken refuge in Uxellodunum, a town on cliffs above a river, with food for years. You are Julius Caesar.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The town gets its water from a river below and a spring under the walls."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cut off the water."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cover the river with archers",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "set": {
+        "river": 1
+       },
+       "text": "Archers and slingers on the river bank make it deadly to fetch water. Only the spring is left."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the cliffs",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The cliffs are too steep."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for their food to run out, however long it takes",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "They have food for years."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The spring",
+   "text": "The defenders still draw water from a spring at the foot of the wall.",
+   "intel": {
+    "hint": [
+     {
+      "text": "A tower can be built to command it."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Build a terrace and a ten-storey tower over the spring."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Build a tower over the spring",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "set": {
+        "tower": 1
+       },
+       "text": "A ten-storey tower rises. Missiles from it rain on anyone fetching water."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "tow": [
+         340,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Attack the spring directly with a picked force",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "The defenders fight hard for it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Poison the spring",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "Your officers refuse."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Burning barrels",
+   "text": "The defenders roll down barrels of burning pitch and tallow onto your terrace.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men are fighting the fire."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack the walls everywhere at once so they cannot keep it up."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack on every side",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "tower": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "You order attacks on every side with shouting. The defenders rush to the walls and the fire is put out."
+      },
+      {
+       "r": -6,
+       "e": -9,
+       "text": "The fire is fought."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Let the terrace burn and rebuild it later",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Days are lost."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Pull back from the walls",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The defenders cheer."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Under the hill",
+   "text": "Your engineers think they can tunnel to the spring’s source and divert it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Without the spring the town must surrender."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Tunnel."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Tunnel to the spring",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "river": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "The tunnel reaches the veins of the spring and cuts them. The spring dries up. The defenders think the gods have abandoned them."
+      },
+      {
+       "r": -4,
+       "e": -12,
+       "text": "The spring runs low."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "min": [
+         330,
+         140,
+         1
+        ],
+        "spr": [
+         340,
+         110,
+         0.3
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Keep up the missile fire until they give up",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Some water still gets in."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the town now",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The defenders fight like men with nothing to lose."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Surrender",
+   "text": "The town surrenders. Caesar wants no more revolts in Gaul.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your clemency is famous, but Gaul keeps rising."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Make an example."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cut off the hands of those who bore arms",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "You spare their lives but cut off the hands of every man who fought, as a warning to all Gaul. There are no more revolts."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Pardon them",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Gaul sees your mercy."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Sell them as slaves",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The money is welcome."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Siege of Uxellodunum (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Siege_of_Uxellodunum"
+  }
+ ]
+}
