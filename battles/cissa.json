@@ -1,0 +1,660 @@
+{
+ "id": "cissa",
+ "name": "Battle of Cissa",
+ "date": "218 BC",
+ "result": "win",
+ "loc": {
+  "lat": 41.12,
+  "lon": 1.25,
+  "place": "Cissa, near Tarraco, Spain",
+  "short": "Cissa",
+  "x": 195,
+  "y": 126
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Gnaeus Scipio",
+  "foe": "Hanno"
+ },
+ "intro": "Near Cissa (Kese), north of the Ebro in Spain, late 218 BC. Hannibal has marched for Italy, leaving Hanno to hold the region. You are Gnaeus Cornelius Scipio, landed at Emporiae with two legions.",
+ "debrief": "Polybius and Livy report that Gnaeus Scipio landed at Emporiae, won over coastal tribes and defeated Hanno near Cissa before Hasdrubal could join him. Hanno was captured, and so was the heavy baggage Hannibal had left behind. Hasdrubal arrived too late and could only raid Roman sailors near Tarraco. The battle itself is not described in detail; the moves here are a reconstruction, and the other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    60,
+    40,
+    60,
+    12
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 190,
+   "w": 160,
+   "h": 14,
+   "side": "roman",
+   "name": "Gnaeus Scipio’s legions",
+   "model": "hastati"
+  },
+  "eq": {
+   "x": 340,
+   "y": 205,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Roman horse",
+   "model": "cav_roman"
+  },
+  "han": {
+   "x": 200,
+   "y": 95,
+   "w": 150,
+   "h": 14,
+   "side": "enemy",
+   "name": "Hanno’s army",
+   "model": "african",
+   "scales": true
+  },
+  "ib": {
+   "x": 330,
+   "y": 100,
+   "w": 70,
+   "h": 12,
+   "side": "enemy",
+   "name": "Iberian allies",
+   "model": "auxiliary",
+   "scales": true
+  },
+  "bag": {
+   "x": 60,
+   "y": 50,
+   "w": 70,
+   "h": 10,
+   "side": "enemy",
+   "name": "Hannibal’s heavy baggage",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Hanno is captured.",
+   "Hannibal’s baggage is taken.",
+   "Spain north of the Ebro is Roman."
+  ],
+  "lose": [
+   "Hanno holds.",
+   "Hasdrubal joins him.",
+   "Scipio is driven back to the coast."
+  ],
+  "cams": [
+   "right",
+   "left",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "March",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Fast to Hanno",
+     "tone": "g"
+    },
+    {
+     "text": "Winning tribes",
+     "tone": "a"
+    },
+    {
+     "text": "Waiting",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "In Spain",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Battle",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Joined",
+     "tone": "g"
+    },
+    {
+     "text": "Hanno hesitating",
+     "tone": "a"
+    },
+    {
+     "text": "Not followed",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Offered",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Iberians",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Broken",
+     "tone": "g"
+    },
+    {
+     "text": "Holding",
+     "tone": "a"
+    },
+    {
+     "text": "Steady",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Wavering",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Camp",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Taken with the baggage",
+     "tone": "g"
+    },
+    {
+     "text": "Holding a day",
+     "tone": "a"
+    },
+    {
+     "text": "Escaped",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Behind the line",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Spain behind Hannibal",
+   "text": "Hannibal has marched for Italy, leaving Hanno to hold the land north of the Ebro with 10,000 foot and 1,000 horse, and his heavy baggage. You are Gnaeus Cornelius Scipio, landed at Emporiae with two legions.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hasdrubal, Hannibal’s brother, is coming north with another army."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike Hanno before Hasdrubal can join him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March on Hanno at once",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "set": {
+        "fast": 1
+       },
+       "text": "You march fast down the coast toward Hanno."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Win over the coastal tribes first",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Some tribes join you; Hasdrubal comes closer."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fortify Emporiae and wait for reinforcements from Rome",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "Hanno and Hasdrubal join forces."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Hanno offers battle",
+   "text": "Hanno, not waiting for Hasdrubal, comes out to fight you near Cissa.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His army is smaller than yours."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fight now, on open ground, while he is alone."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Accept battle at once",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "text": "The two armies meet near Cissa."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         160
+        ]
+       },
+       "f": [
+        "leg",
+        "han"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hold a strong position and make him attack",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Hanno hesitates."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Feint a retreat to draw him further",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "Hanno does not follow."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Iberians",
+   "text": "The Iberian allies on Hanno’s right are wavering.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They fight for pay, not for Carthage."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hit them hard and they will run."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the horse at the Iberians",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "set": {
+        "ib": 1
+       },
+       "text": "Your horse charge the Iberians, who break and flee."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         320,
+         120
+        ],
+        "ib": [
+         360,
+         60,
+         0.4
+        ]
+       },
+       "f": [
+        "eq",
+        "ib"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Press the Carthaginian centre instead",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The centre holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hold and see what they do",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The Iberians steady."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The camp",
+   "text": "Hanno’s line is broken. He and many of his men are taken.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His camp holds Hannibal’s heavy baggage."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take the camp."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Storm the camp",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "ib": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "You storm the camp. Hanno is captured, and so is the heavy baggage Hannibal left behind for Italy."
+      },
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The camp falls."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         120,
+         70
+        ],
+        "bag": [
+         60,
+         50,
+         0.3
+        ]
+       },
+       "f": [
+        "leg",
+        "bag"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Pursue the fleeing troops",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Many are taken; the camp holds out a day."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Halt and rest the army before the next fight",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The baggage is carried off."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Hasdrubal arrives",
+   "text": "Hasdrubal arrives too late, and raids your sailors near Tarraco.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your fleet’s crews are scattered ashore."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep the crews close to the ships."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Punish the officers; secure the coast",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "You punish the officers whose crews were caught, and winter at Tarraco. Spain north of the Ebro is Roman."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March out to fight Hasdrubal",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Hasdrubal retreats over the Ebro."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Withdraw to Emporiae, where the fleet can protect you",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "You give back what you won."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Cissa (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Cissa"
+  }
+ ]
+}

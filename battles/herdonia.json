@@ -1,0 +1,688 @@
+{
+ "id": "herdonia",
+ "name": "Battle of Herdonia",
+ "date": "210 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 41.32,
+  "lon": 15.62,
+  "place": "Herdonia, Apulia",
+  "short": "Herdonia",
+  "x": 379,
+  "y": 122
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Hannibal",
+  "commander": "Fulvius",
+  "foe": "Hannibal"
+ },
+ "intro": "Herdonia in Apulia, 210 BC. The town, which went over to Hannibal, is ready to return to Rome. You are the proconsul Gnaeus Fulvius Centumalus, camped nearby with two legions.",
+ "debrief": "In Livy’s account, Fulvius camped carelessly near Herdonia. Hannibal marched quickly and offered battle; Fulvius drew up in a long, thin line, and Hannibal’s hidden cavalry fell on his camp and rear. Fulvius and eleven military tribunes were killed, and Livy gives Roman losses as between 7,000 and 13,000. Hannibal burned Herdonia and moved its people. It was one of two Roman defeats at Herdonia, the other in 212 BC. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    340,
+    150,
+    50,
+    10
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 185,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Fulvius’s army",
+   "model": "hastati"
+  },
+  "camp": {
+   "x": 200,
+   "y": 225,
+   "w": 90,
+   "h": 10,
+   "side": "roman",
+   "name": "Roman camp",
+   "model": "levy"
+  },
+  "han": {
+   "x": 200,
+   "y": 95,
+   "w": 160,
+   "h": 14,
+   "side": "enemy",
+   "name": "Hannibal’s army",
+   "model": "african",
+   "scales": true
+  },
+  "ncav": {
+   "x": 60,
+   "y": 90,
+   "w": 50,
+   "h": 12,
+   "side": "enemy",
+   "name": "Numidian horse",
+   "model": "cav_numidian",
+   "scales": true
+  },
+  "amb": {
+   "x": 340,
+   "y": 150,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Hidden cavalry",
+   "model": "cav_numidian",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Romans hold behind their rampart.",
+   "Hannibal’s trap fails.",
+   "Herdonia comes back to Rome."
+  ],
+  "lose": [
+   "Hidden horse strike the rear.",
+   "Fulvius dies with eleven tribunes.",
+   "Herdonia burns."
+  ],
+  "cams": [
+   "clash",
+   "wide",
+   "wide"
+  ],
+  "anim": {
+   "lose": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Camp",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Careless",
+     "tone": "r"
+    },
+    {
+     "text": "Strong, scouts out",
+     "tone": "g"
+    },
+    {
+     "text": "Town taken",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Near Herdonia",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Battle",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Offered",
+     "tone": "r"
+    },
+    {
+     "text": "Behind the rampart",
+     "tone": "g"
+    },
+    {
+     "text": "Retreating",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Hannibal at dawn",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Line",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Long and thin",
+     "tone": "r"
+    },
+    {
+     "text": "Deeper",
+     "tone": "g"
+    },
+    {
+     "text": "Charging",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Attacked",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Rear",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Surrounded",
+     "tone": "r"
+    },
+    {
+     "text": "Breaking out",
+     "tone": "g"
+    },
+    {
+     "text": "Camp overrun",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Cavalry coming",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Herdonia betrays Hannibal",
+   "text": "The town of Herdonia, which went over to Hannibal, is ready to come back to Rome. You are the proconsul Gnaeus Fulvius Centumalus, camped near it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hannibal’s spies will hear of it."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fortify your camp strongly; Hannibal moves fast."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Camp carelessly close to the town",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "set": {
+        "lax": 1
+       },
+       "text": "Your army camps by the town with only a light rampart."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Build a strong camp; scout the roads",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -16,
+       "set": {
+        "scouts": 1
+       },
+       "text": "Your scouts watch the roads."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Take the town quickly and move on before he hears",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "You are in the town before Hannibal hears."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Hannibal is here",
+   "text": "Hannibal has marched fast and appears before you at dawn, ready for battle.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He has hidden cavalry somewhere."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Do not offer battle on his terms. Stay behind the rampart."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Draw up and fight",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "You draw up your two legions in a long, thin line."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stay behind the rampart",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -16,
+       "set": {
+        "stay": 1
+       },
+       "text": "Hannibal cannot force a battle."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Retreat toward Rome’s other army",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The Numidians harry your march."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         220
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The thin line",
+   "text": "Your line is long and thin, with no reserve. Hannibal attacks it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Watch the flanks and rear."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Thicken the line by pulling back the ends."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold the long line",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The line holds for a time."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "han"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Pull back the ends",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -16,
+       "set": {
+        "deep": 1
+       },
+       "text": "The line is shorter and deeper."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         195
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge to break his centre before he can use his horse",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "The charge makes some ground."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "han"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Horse in the rear",
+   "text": "Hidden Numidian cavalry falls on your camp and the rear of your line.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You are surrounded."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cut your way out."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stand and fight to the end",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "deep": true
+       },
+       "r": -8,
+       "e": -6,
+       "text": "The deeper line fights back, but the ring closes."
+      },
+      {
+       "r": -14,
+       "e": -2,
+       "text": "The army is surrounded. Fulvius and eleven tribunes die; perhaps 13,000 men are lost."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "amb": [
+         300,
+         210,
+         1
+        ],
+        "ncav": [
+         100,
+         210
+        ]
+       },
+       "f": [
+        "leg",
+        "amb",
+        "ncav"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Break out to the north",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -12,
+       "text": "Part of the army cuts its way out."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         240
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fall back into the camp",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -8,
+       "text": "The camp is overrun."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         225
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Herdonia",
+   "text": "Hannibal has won. He knows the town meant to betray him.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The survivors are scattered."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Gather what men you can."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Flee to Marcellus’s army",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The survivors reach Marcellus. Hannibal burns Herdonia and moves its people away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold out in the hills",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "The survivors wait for a chance."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Try to save the town",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "Hannibal cuts down the rescue."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Herdonia (210 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Herdonia_(210_BC)"
+  }
+ ],
+ "winAt": 50
+}

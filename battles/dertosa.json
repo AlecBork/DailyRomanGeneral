@@ -1,0 +1,683 @@
+{
+ "id": "dertosa",
+ "name": "Battle of Dertosa",
+ "date": "215 BC",
+ "result": "win",
+ "loc": {
+  "lat": 40.81,
+  "lon": 0.52,
+  "place": "Dertosa, on the Ebro, Spain",
+  "short": "Dertosa",
+  "x": 186,
+  "y": 131
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "the Scipios",
+  "foe": "Hasdrubal Barca"
+ },
+ "intro": "Near Ibera on the Ebro, across from Dertosa (Tortosa), Spain, 215 BC. Carthage has ordered Hasdrubal Barca to march to Italy and join Hannibal. You are the brothers Gnaeus and Publius Cornelius Scipio, with the Roman armies in Spain.",
+ "debrief": "In Livy’s account, the Scipios besieged Ibera to bring Hasdrubal to battle. He drew up with Iberians in the centre and Africans and mercenaries on the wings. The Iberians, reluctant to go to Italy, broke at the first attack, and the Romans turned on the African wings. Hasdrubal’s army was destroyed and he escaped with few men. The victory kept him in Spain for years. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 245,
+   "w": 24
+  }
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 185,
+   "w": 140,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman legions (centre)",
+   "model": "hastati"
+  },
+  "eqL": {
+   "x": 60,
+   "y": 200,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Roman horse",
+   "model": "cav_roman"
+  },
+  "eqR": {
+   "x": 340,
+   "y": 200,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Roman horse",
+   "model": "cav_roman"
+  },
+  "ib": {
+   "x": 200,
+   "y": 95,
+   "w": 130,
+   "h": 14,
+   "side": "enemy",
+   "name": "Iberian centre",
+   "model": "auxiliary",
+   "scales": true
+  },
+  "afL": {
+   "x": 80,
+   "y": 95,
+   "w": 70,
+   "h": 14,
+   "side": "enemy",
+   "name": "Africans and mercenaries",
+   "model": "african",
+   "scales": true
+  },
+  "afR": {
+   "x": 320,
+   "y": 95,
+   "w": 70,
+   "h": 14,
+   "side": "enemy",
+   "name": "Africans and mercenaries",
+   "model": "african",
+   "scales": true
+  },
+  "ncav": {
+   "x": 360,
+   "y": 60,
+   "w": 50,
+   "h": 12,
+   "side": "enemy",
+   "name": "Numidian horse",
+   "model": "cav_numidian"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Iberian centre breaks.",
+   "The Africans are taken in the flank.",
+   "Hasdrubal will not reach Italy."
+  ],
+  "lose": [
+   "The Roman legions are surrounded.",
+   "Hasdrubal crosses the Ebro.",
+   "He marches for Italy."
+  ],
+  "cams": [
+   "clash",
+   "front",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Plan",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Ibera besieged",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Marched south",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Hasdrubal ordered to Italy",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Centre",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Iberians broken",
+     "tone": "g"
+    },
+    {
+     "text": "Wings fighting",
+     "tone": "a"
+    },
+    {
+     "text": "Defending",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Facing them",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Wings",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Taken in the flank",
+     "tone": "g"
+    },
+    {
+     "text": "Pulling back",
+     "tone": "a"
+    },
+    {
+     "text": "Closed",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Africans",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Camp",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Taken",
+     "tone": "g"
+    },
+    {
+     "text": "Hasdrubal escaped",
+     "tone": "a"
+    },
+    {
+     "text": "Survivors",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Open",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Hasdrubal must march",
+   "text": "Carthage has ordered Hasdrubal to march to Italy and join his brother Hannibal. You are the brothers Gnaeus and Publius Scipio, with the Roman armies in Spain.",
+   "intel": {
+    "hint": [
+     {
+      "text": "If Hasdrubal reaches Italy, Rome may fall."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Bring him to battle before he can cross the Ebro."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Besiege Ibera to make him fight",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -9,
+       "set": {
+        "lure": 1
+       },
+       "text": "You besiege Ibera, a town loyal to Carthage near the Ebro. Hasdrubal must come to save it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait at the Ebro crossings he has to use",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Hasdrubal looks for another way across."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March south to attack his base",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Hasdrubal marches north behind you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Hasdrubal’s line",
+   "text": "Hasdrubal draws up with his Iberians in the centre, Africans and mercenaries on the wings, and Numidians beyond them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His Iberians do not want to leave Spain for Italy."
+     }
+    ],
+    "scout": [
+     {
+      "text": "His centre is his weak point; yours is strong."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Press the Iberian centre hard",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "lure": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "Your legions go straight at the Iberians, who have no wish to fight their way to Italy. They break almost at once."
+      },
+      {
+       "r": -4,
+       "e": -12,
+       "text": "The Iberian centre gives way."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "ib"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Attack both wings first, where his best troops are",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The Africans fight hard."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eqL": [
+         80,
+         130
+        ],
+        "eqR": [
+         320,
+         130
+        ]
+       },
+       "f": [
+        "eqL",
+        "eqR",
+        "afL",
+        "afR"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stand on the defensive",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "Hasdrubal attacks your wings."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Broken in the middle",
+   "text": "The Iberian centre has fled. The African wings are still fighting.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your legions are through the centre."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Turn them outward on the African wings."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Turn on both wings",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -16,
+       "set": {
+        "turn": 1
+       },
+       "text": "Your legions turn left and right and take the Africans in the flank."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         100
+        ]
+       },
+       "f": [
+        "leg",
+        "afL",
+        "afR"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Chase the Iberians before they can rally",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The Africans pull back in order."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         70
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Halt and re-form",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The Africans close the gap."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The camp",
+   "text": "Hasdrubal’s army is beaten. He escapes with a few men.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His camp is open."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Take the camp",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "You take Hasdrubal’s camp. His army has been destroyed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         60
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Pursue Hasdrubal himself",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Hasdrubal escapes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let them go",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The survivors gather again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Italy saved",
+   "text": "Hasdrubal cannot march for Italy now.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Many Spanish tribes are wavering toward Rome."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Win them over."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Win over the Spanish tribes",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Many tribes go over to Rome. Hasdrubal will not reach Italy for nine years."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Cross the Ebro and march south",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "You overreach."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send troops back to Italy",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "Spain is weakened."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Dertosa (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Dertosa"
+  }
+ ]
+}

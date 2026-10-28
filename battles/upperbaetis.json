@@ -1,0 +1,733 @@
+{
+ "id": "upperbaetis",
+ "name": "Battle of the Upper Baetis",
+ "date": "211 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 37.95,
+  "lon": -3.1,
+  "place": "the upper Baetis valley, Spain",
+  "short": "Upper Baetis",
+  "x": 139,
+  "y": 181
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "the Scipios",
+  "foe": "Hasdrubal Barca"
+ },
+ "intro": "The upper valley of the Baetis (Guadalquivir), southern Spain, 211 BC. You are the brothers Publius and Gnaeus Cornelius Scipio, who have fought in Spain for seven years, against three Carthaginian armies.",
+ "debrief": "In Livy’s account, the brothers split their forces. Gnaeus’s Celtiberian mercenaries were bribed to leave. Publius, harried by Masinissa’s Numidians, marched by night to stop Indibilis from joining them, was caught by the Carthaginian armies and killed. Gnaeus, retreating, was overtaken and made a last stand on a bare hill with baggage for a wall, and was killed too. The knight Lucius Marcius rallied the survivors north of the Ebro. The father and uncle of Scipio Africanus died within a month. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    300,
+    170,
+    50,
+    14
+   ]
+  ],
+  "river": {
+   "horizontal": true,
+   "y": 25,
+   "w": 20
+  }
+ },
+ "units": {
+  "pub": {
+   "x": 120,
+   "y": 190,
+   "w": 110,
+   "h": 14,
+   "side": "roman",
+   "name": "Publius Scipio’s army",
+   "model": "hastati"
+  },
+  "gn": {
+   "x": 300,
+   "y": 190,
+   "w": 110,
+   "h": 14,
+   "side": "roman",
+   "name": "Gnaeus Scipio’s army",
+   "model": "principes"
+  },
+  "celt": {
+   "x": 300,
+   "y": 215,
+   "w": 80,
+   "h": 10,
+   "side": "roman",
+   "name": "Celtiberian mercenaries",
+   "model": "auxiliary"
+  },
+  "has": {
+   "x": 200,
+   "y": 90,
+   "w": 160,
+   "h": 14,
+   "side": "enemy",
+   "name": "Three Carthaginian armies",
+   "model": "african",
+   "scales": true
+  },
+  "mas": {
+   "x": 60,
+   "y": 90,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Masinissa’s Numidians",
+   "model": "cav_numidian",
+   "scales": true
+  },
+  "ind": {
+   "x": 60,
+   "y": 140,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Indibilis’s Iberians",
+   "model": "auxiliary",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The brothers fight their way out.",
+   "The Roman army in Spain survives.",
+   "Carthage’s victory is incomplete."
+  ],
+  "lose": [
+   "Both Scipios are killed.",
+   "Their armies are destroyed.",
+   "Spain south of the Ebro is lost."
+  ],
+  "cams": [
+   "clash",
+   "wide",
+   "wide"
+  ],
+  "anim": {
+   "lose": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Plan",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Split in two",
+     "tone": "r"
+    },
+    {
+     "text": "Together",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Three enemies",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Celtiberians",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Bought off",
+     "tone": "r"
+    },
+    {
+     "text": "Paid",
+     "tone": "g"
+    },
+    {
+     "text": "Watched",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Talking",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Publius",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Night march",
+     "tone": "a"
+    },
+    {
+     "text": "Joining his brother",
+     "tone": "g"
+    },
+    {
+     "text": "Ring closing",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Harried",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Gnaeus",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Retreating",
+     "tone": "a"
+    },
+    {
+     "text": "Crushed",
+     "tone": "r"
+    },
+    {
+     "text": "In the hills",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Alone",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Three enemies",
+   "text": "Three Carthaginian armies are in southern Spain. You are the brothers Publius and Gnaeus Scipio. You have hired 20,000 Celtiberian mercenaries.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The three Carthaginian armies are far apart."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Stay together and strike one army at a time."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Split up and attack two armies at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "set": {
+        "split": 1
+       },
+       "text": "Publius marches against Mago and Hasdrubal Gisco; Gnaeus against Hasdrubal Barca."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pub": [
+         100,
+         190
+        ],
+        "gn": [
+         320,
+         190
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep both armies together",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -16,
+       "set": {
+        "together": 1
+       },
+       "text": "The brothers march together."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pub": [
+         160,
+         190
+        ],
+        "gn": [
+         240,
+         190
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait north of the Ebro for more men",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Carthage grows stronger in the south."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The mercenaries",
+   "text": "Hasdrubal Barca’s agents are talking to your Celtiberian mercenaries.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Mercenaries go where the money is."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pay them more, or watch them closely."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Trust their contract",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "set": {
+        "lost": 1
+       },
+       "text": "The Celtiberians are bribed and march home. Gnaeus is left with only his Romans."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "celt": [
+         380,
+         250,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Outbid Carthage",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -16,
+       "text": "The Celtiberians stay."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Put Roman troops among them to keep watch",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Some leave anyway."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Publius surrounded",
+   "text": "Publius’s army is harried day and night by Masinissa’s Numidians. Now word comes that Indibilis and 7,500 Iberians are coming to join them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "If Indibilis joins, you will be surrounded."
+     }
+    ],
+    "scout": [
+     {
+      "text": "March out at night and strike Indibilis before he arrives."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March by night against Indibilis",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "together": true
+       },
+       "r": -4,
+       "e": -14,
+       "text": "With Gnaeus’s army close by, you beat Indibilis and fall back safely."
+      },
+      {
+       "r": -12,
+       "e": -8,
+       "text": "You catch Indibilis, but the Numidians and then the Carthaginian armies fall on you. Publius is killed and his army destroyed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pub": [
+         80,
+         150
+        ],
+        "ind": [
+         60,
+         140,
+         1
+        ],
+        "mas": [
+         60,
+         100
+        ]
+       },
+       "f": [
+        "pub",
+        "ind",
+        "mas"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Fall back to join Gnaeus",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -16,
+       "set": {
+        "joined": 1
+       },
+       "text": "You fall back toward your brother."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pub": [
+         200,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fortify your camp and hold",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The ring closes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Gnaeus alone",
+   "text": "Gnaeus learns his brother is dead. The Carthaginian armies are uniting against him.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He is outnumbered."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Retreat north by night toward the Ebro."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Retreat by night toward the Ebro",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "joined": true
+       },
+       "r": -4,
+       "e": -12,
+       "text": "The united army falls back in good order."
+      },
+      {
+       "r": -10,
+       "e": -6,
+       "text": "The Numidians catch the retreating army. Gnaeus makes a stand on a hill, with saddles and baggage for a wall."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "gn": [
+         320,
+         230
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stand and fight",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The three armies crush you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "has": [
+         260,
+         150
+        ]
+       },
+       "f": [
+        "gn",
+        "has"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hide in the hills",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "You slip away into the hills."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The last hill",
+   "text": "The survivors are on a bare, rocky hill. They cannot dig in. The Carthaginians close in.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Lucius Marcius, a knight, is rallying the survivors elsewhere."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Break out and join him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight on the hill",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "The hill is stormed. Gnaeus is killed. Both brothers are dead within a month."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "has": [
+         300,
+         170
+        ]
+       },
+       "f": [
+        "gn",
+        "has"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Break out to Marcius",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -12,
+       "text": "Some reach Marcius north of the Ebro."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "gn": [
+         320,
+         240
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Surrender to save the survivors’ lives",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -4,
+       "text": "The survivors are taken."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Upper Baetis (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Upper_Baetis"
+  }
+ ],
+ "winAt": 50
+}

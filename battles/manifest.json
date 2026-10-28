@@ -513,6 +513,114 @@
    "lon": 8.98,
    "result": "loss",
    "naval": false
+  },
+  {
+   "id": "cissa",
+   "name": "Cissa",
+   "date": "218 BC",
+   "lat": 41.12,
+   "lon": 1.25,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "ebro",
+   "name": "Ebro River",
+   "date": "217 BC",
+   "lat": 40.72,
+   "lon": 0.86,
+   "result": "win",
+   "naval": true
+  },
+  {
+   "id": "silvalitana",
+   "name": "Silva Litana",
+   "date": "216 BC",
+   "lat": 44.4,
+   "lon": 11,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "nola",
+   "name": "Nola",
+   "date": "216 BC",
+   "lat": 40.93,
+   "lon": 14.53,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "dertosa",
+   "name": "Dertosa",
+   "date": "215 BC",
+   "lat": 40.81,
+   "lon": 0.52,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "beneventum214",
+   "name": "Beneventum (214)",
+   "date": "214 BC",
+   "lat": 41.13,
+   "lon": 14.78,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "syracuse",
+   "name": "Syracuse",
+   "date": "212 BC",
+   "lat": 37.08,
+   "lon": 15.28,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "capua",
+   "name": "Capua",
+   "date": "211 BC",
+   "lat": 41.08,
+   "lon": 14.25,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "upperbaetis",
+   "name": "Upper Baetis",
+   "date": "211 BC",
+   "lat": 37.95,
+   "lon": -3.1,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "herdonia",
+   "name": "Herdonia",
+   "date": "210 BC",
+   "lat": 41.32,
+   "lon": 15.62,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "newcarthage",
+   "name": "New Carthage",
+   "date": "209 BC",
+   "lat": 37.6,
+   "lon": -0.99,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "baecula",
+   "name": "Baecula",
+   "date": "208 BC",
+   "lat": 38.05,
+   "lon": -3.77,
+   "result": "win",
+   "naval": false
   }
  ]
 }

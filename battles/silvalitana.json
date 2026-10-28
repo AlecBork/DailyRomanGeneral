@@ -1,0 +1,741 @@
+{
+ "id": "silvalitana",
+ "name": "Battle of Silva Litana",
+ "date": "216 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 44.4,
+  "lon": 11,
+  "place": "the Litana forest, Gallic Italy",
+  "short": "Silva Litana",
+  "x": 320,
+  "y": 68
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Boii",
+  "commander": "Postumius",
+  "foe": "the Boii"
+ },
+ "intro": "The Litana forest, in the land of the Boii Gauls south of the Po, late 216 BC, a few months after Cannae. You are Lucius Postumius Albinus, consul-elect, with 25,000 men.",
+ "debrief": "In Livy’s account, the Boii sawed the trees along the road almost through, leaving them standing. When the Roman column was among them, they pushed the outer trees, which brought down the rest on the column. Almost the whole army was destroyed; Postumius was killed, and the Boii covered his skull in gold and used it as a sacred cup. Only a few escaped. Some historians doubt parts of the story, but the disaster was real. The other choices are what-ifs.",
+ "terrain": {
+  "forests": [
+   [
+    60,
+    130,
+    70,
+    36
+   ],
+   [
+    340,
+    130,
+    70,
+    36
+   ],
+   [
+    200,
+    40,
+    170,
+    30
+   ]
+  ],
+  "roads": [
+   [
+    200,
+    250,
+    200,
+    0,
+    12
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 200,
+   "w": 140,
+   "h": 14,
+   "side": "roman",
+   "name": "Postumius’s column (25,000)",
+   "model": "hastati"
+  },
+  "eq": {
+   "x": 200,
+   "y": 225,
+   "w": 60,
+   "h": 10,
+   "side": "roman",
+   "name": "Roman horse",
+   "model": "cav_roman"
+  },
+  "trees": {
+   "x": 200,
+   "y": 120,
+   "w": 240,
+   "h": 10,
+   "side": "enemy",
+   "name": "Sawn trees along the road",
+   "model": "levy"
+  },
+  "boi1": {
+   "x": 50,
+   "y": 110,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "Boii in the forest",
+   "model": "gaul",
+   "scales": true,
+   "hidden": true
+  },
+  "boi2": {
+   "x": 350,
+   "y": 110,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "Boii in the forest",
+   "model": "gaul",
+   "scales": true,
+   "hidden": true
+  },
+  "boi3": {
+   "x": 200,
+   "y": 40,
+   "w": 120,
+   "h": 14,
+   "side": "enemy",
+   "name": "Boii blocking the road",
+   "model": "gaul",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The column fights its way out of the forest.",
+   "The Boii trap fails.",
+   "The army survives."
+  ],
+  "lose": [
+   "The trees fall on the column.",
+   "Postumius is killed.",
+   "His skull becomes a Gallic cup."
+  ],
+  "cams": [
+   "wide",
+   "clash",
+   "wide"
+  ],
+  "anim": {
+   "lose": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Road",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Into the forest",
+     "tone": "r"
+    },
+    {
+     "text": "Scouted",
+     "tone": "g"
+    },
+    {
+     "text": "Long way round",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Ahead",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Trees",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Ignored",
+     "tone": "r"
+    },
+    {
+     "text": "Felled",
+     "tone": "g"
+    },
+    {
+     "text": "Turned back",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Sawn",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Column",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Broken up",
+     "tone": "r"
+    },
+    {
+     "text": "Fighting out",
+     "tone": "g"
+    },
+    {
+     "text": "Charge broken",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Under the trees",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Survivors",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Killed at the bridge",
+     "tone": "r"
+    },
+    {
+     "text": "Hiding",
+     "tone": "a"
+    },
+    {
+     "text": "Captured",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Few",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The road through the forest",
+   "text": "You are Lucius Postumius Albinus, consul-elect, marching with 25,000 men against the Boii Gauls, a few months after Cannae. The road runs through the great forest the Gauls call Litana.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The forest is thick on both sides of the road."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send scouts into the woods before the column enters."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March straight in to catch the Boii before they gather",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": 0,
+       "set": {
+        "in": 1
+       },
+       "text": "The column marches into the forest."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Scout the woods first",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "found": 1
+       },
+       "text": "Your scouts find trees along the road cut almost through, ready to fall."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Go round the forest by the longer road",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The march takes days longer."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Strange trees",
+   "text": "The trees along the road have been sawn nearly through, left standing.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Push a tree and it falls on the next."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Halt and clear them before going on."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Keep marching; there is no time to fell a whole forest",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "The column marches on between the trees."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Halt and fell the trees yourself",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "found": true
+       },
+       "r": 0,
+       "e": -21,
+       "text": "Your men fell the trees under guard. The Gauls hiding behind them are found and driven off."
+      },
+      {
+       "r": -2,
+       "e": -14,
+       "text": "Your men fell the trees under guard."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "trees": [
+         200,
+         120,
+         0.3
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Turn back to open country",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The column turns back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         230
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The trees fall",
+   "text": "The Boii push the sawn trees. They fall onto each other and onto the column, crushing men and horses. The Gauls attack from both sides.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The front and rear are cut off from each other."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Form small groups and fight back toward the open."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Every unit fights where it is",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "The column is broken into pieces among the fallen trees."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "boi1": [
+         80,
+         150,
+         1
+        ],
+        "boi2": [
+         320,
+         150,
+         1
+        ],
+        "trees": [
+         200,
+         170
+        ]
+       },
+       "f": [
+        "leg",
+        "boi1",
+        "boi2"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Fight back to the forest edge together",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -14,
+       "text": "The survivors fight their way back toward open ground."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         225
+        ],
+        "boi1": [
+         80,
+         150,
+         1
+        ],
+        "boi2": [
+         320,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "boi1",
+        "boi2"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge the Gauls in the trees and drive them off",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -8,
+       "text": "The charge breaks up in the tangle."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "boi1": [
+         80,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "boi1"
+       ]
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "The bridge",
+   "text": "A small group reaches a river bridge, but the Gauls hold it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Only a few remain."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cut a way through."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Charge the bridge while you still have the strength",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The charge fails. Almost all are killed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "boi3": [
+         200,
+         40,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "boi3"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hide until night",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -11,
+       "text": "Some escape in the dark."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Surrender",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "The Gauls take the survivors."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Postumius",
+   "text": "The consul-elect is still fighting.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Boii will make a trophy of a Roman leader."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Die fighting or try to escape."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight to the death beside your men",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "Postumius is killed. The Boii make his skull into a gold-covered cup for their temple."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Escape with the survivors",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -11,
+       "text": "A few hundred reach safety."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold out for terms",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "The Gauls give no terms."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Silva Litana (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Silva_Litana"
+  }
+ ],
+ "winAt": 50
+}

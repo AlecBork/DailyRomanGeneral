@@ -1,0 +1,692 @@
+{
+ "id": "newcarthage",
+ "name": "Siege of New Carthage",
+ "date": "209 BC",
+ "result": "win",
+ "loc": {
+  "lat": 37.6,
+  "lon": -0.99,
+  "place": "New Carthage (Cartagena), Spain",
+  "short": "New Carthage",
+  "x": 166,
+  "y": 187
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Scipio",
+  "foe": "Mago"
+ },
+ "intro": "New Carthage (Cartagena), Spain, 209 BC. You are Publius Cornelius Scipio, twenty-five years old, sent to Spain after your father and uncle were killed. The three Carthaginian field armies are far from their base.",
+ "debrief": "In Polybius’s account, Scipio marched on New Carthage in secret while his friend Laelius brought the fleet. He attacked the gate on the isthmus to draw the defenders, then at low tide sent 500 men with ladders across the shallow lagoon to the undefended north wall, telling his men that Neptune had promised him help. The city fell in a day. Scipio sent home the Spanish hostages he found there, winning many tribes to Rome. The other choices are what-ifs.",
+ "terrain": {
+  "lakes": [
+   [
+    60,
+    120,
+    70,
+    60
+   ]
+  ],
+  "hills": [
+   [
+    200,
+    60,
+    120,
+    16
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 170,
+   "h": 14,
+   "side": "roman",
+   "name": "Scipio’s army",
+   "model": "hastati"
+  },
+  "lag": {
+   "x": 60,
+   "y": 120,
+   "w": 60,
+   "h": 40,
+   "side": "enemy",
+   "name": "The lagoon",
+   "model": "levy"
+  },
+  "fleet": {
+   "x": 360,
+   "y": 60,
+   "w": 60,
+   "h": 17,
+   "side": "roman",
+   "name": "Laelius’s fleet",
+   "model": "galley_roman"
+  },
+  "wade": {
+   "x": 80,
+   "y": 200,
+   "w": 60,
+   "h": 10,
+   "side": "roman",
+   "name": "Five hundred men with ladders",
+   "model": "velites"
+  },
+  "walls": {
+   "x": 200,
+   "y": 100,
+   "w": 240,
+   "h": 10,
+   "side": "enemy",
+   "name": "Walls of New Carthage",
+   "model": "levy"
+  },
+  "gar": {
+   "x": 200,
+   "y": 70,
+   "w": 140,
+   "h": 12,
+   "side": "enemy",
+   "name": "Mago’s garrison and armed citizens",
+   "model": "african",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The army floods through the gate.",
+   "New Carthage falls in a day.",
+   "Spain turns toward Rome."
+  ],
+  "lose": [
+   "The defenders hold the gate.",
+   "The tide comes back.",
+   "The Carthaginian armies march to help."
+  ],
+  "cams": [
+   "front",
+   "left",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Target",
+   "decision": 0,
+   "options": [
+    {
+     "text": "New Carthage",
+     "tone": "g"
+    },
+    {
+     "text": "A field army",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Three armies far off",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Plan",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Gate attack, lagoon secret",
+     "tone": "g"
+    },
+    {
+     "text": "Seen in the lagoon",
+     "tone": "a"
+    },
+    {
+     "text": "Gate only",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Before the walls",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Lagoon",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Crossed",
+     "tone": "g"
+    },
+    {
+     "text": "Bloody gate",
+     "tone": "a"
+    },
+    {
+     "text": "Tide back",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Draining",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "City",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Gate opened",
+     "tone": "g"
+    },
+    {
+     "text": "Hard pressed",
+     "tone": "a"
+    },
+    {
+     "text": "Counter-attacked",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Inside",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "A young general",
+   "text": "You are Publius Cornelius Scipio, twenty-five, sent to Spain after your father and uncle were killed. The three Carthaginian armies are all far from their base, New Carthage.",
+   "intel": {
+    "hint": [
+     {
+      "text": "New Carthage holds their treasury, hostages and stores, and a small garrison."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike it by surprise before the field armies can return."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March fast on New Carthage",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "set": {
+        "fast": 1
+       },
+       "text": "In seven days you march your army down the coast, while Laelius brings the fleet."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Seek out one of the field armies",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The other two come to help it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rebuild your strength north of the Ebro",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "A year passes."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The lagoon",
+   "text": "Fishermen tell you the lagoon on the city’s north side becomes shallow enough to wade at low tide in the evening.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The wall by the lagoon is hardly guarded."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep it secret, and attack the main gate first to draw the defenders."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack the main gate first",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "set": {
+        "secret": 1
+       },
+       "text": "Your main attack hits the isthmus gate. Defenders crowd to it."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "walls"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send everyone across the lagoon at once",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The defenders see you coming."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         100,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Ignore the fishermen’s tale",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "You attack the gate alone."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "walls"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Low tide",
+   "text": "The sally from the gate has been beaten back. The tide is going out.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men think the gods are draining the lagoon for them."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send 500 men with ladders across the lagoon now."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send 500 across with ladders",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "secret": true
+       },
+       "r": -2,
+       "e": -22,
+       "text": "The 500 wade across the shallows and climb the empty wall. You tell the army Neptune promised this."
+      },
+      {
+       "r": -4,
+       "e": -13,
+       "text": "The men cross the lagoon and climb."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "wade": [
+         80,
+         110
+        ]
+       },
+       "f": [
+        "wade",
+        "walls"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Throw the ladders at the main gate again",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "The gate fight is bloody."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "walls"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for night",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The tide comes back in."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Inside the walls",
+   "text": "Your men are inside. Mago is holding the citadel.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The gate can be opened from inside."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Open it and let the army in."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Open the gate and pour in",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "Your men open the gate. The army floods into the city, and Mago surrenders the citadel."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         80
+        ],
+        "gar": [
+         200,
+         70,
+         0.3
+        ]
+       },
+       "f": [
+        "leg",
+        "gar"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Fight to the citadel with the 500",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The small force is hard pressed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "wade": [
+         160,
+         70
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold the wall and wait for reinforcements",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "Mago counter-attacks."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The hostages",
+   "text": "Inside you find 300 Spanish hostages held by Carthage, and the treasury.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Spanish tribes have hated Carthage for taking their children."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send them home with gifts."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the hostages home with gifts",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "You return the hostages to their families. Tribe after tribe comes over to Rome."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep them to make the tribes obey",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "The tribes obey, and hate you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Sell them as slaves",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "Spain turns against you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Cartagena (209 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Cartagena_(209_BC)"
+  }
+ ]
+}

@@ -1,0 +1,663 @@
+{
+ "id": "ebro",
+ "name": "Battle of the Ebro River",
+ "date": "217 BC",
+ "result": "win",
+ "loc": {
+  "lat": 40.72,
+  "lon": 0.86,
+  "place": "the mouth of the Ebro, Spain",
+  "short": "Ebro River",
+  "x": 190,
+  "y": 133
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Gnaeus Scipio",
+  "foe": "Himilco"
+ },
+ "intro": "Off the mouth of the Ebro, Spain, spring 217 BC. Hasdrubal has moved north with his army and fleet together. You are Gnaeus Cornelius Scipio, with 35 Roman ships and 20 from Massilia, Rome’s Greek ally.",
+ "debrief": "In Polybius’s account, Massiliot scouts found the Carthaginian fleet at anchor near the Ebro. Taken by surprise, with many crews ashore, the Carthaginians put out in disorder; after a short fight they fled for the beach, where Hasdrubal’s army stood, and the Romans towed off 25 of their 40 ships. Rome held the Spanish sea for the rest of the war. The other choices are what-ifs.",
+ "terrain": {
+  "ground": "#3d6f94",
+  "grass": "#34668c",
+  "sky": "#b9d4e4",
+  "trees": 0,
+  "flat": true,
+  "hills": [
+   [
+    60,
+    20,
+    90,
+    10
+   ]
+  ]
+ },
+ "units": {
+  "r1": {
+   "x": 200,
+   "y": 200,
+   "w": 180,
+   "h": 17,
+   "side": "roman",
+   "name": "Roman and Massiliot fleet (55 ships)",
+   "model": "galley_roman"
+  },
+  "mas": {
+   "x": 330,
+   "y": 180,
+   "w": 50,
+   "h": 17,
+   "side": "roman",
+   "name": "Massiliot scout ships",
+   "model": "galley_greek"
+  },
+  "c1": {
+   "x": 200,
+   "y": 80,
+   "w": 180,
+   "h": 17,
+   "side": "enemy",
+   "name": "Carthaginian fleet (40 ships)",
+   "model": "galley_punic",
+   "scales": true
+  },
+  "army": {
+   "x": 60,
+   "y": 40,
+   "w": 100,
+   "h": 10,
+   "side": "enemy",
+   "name": "Hasdrubal’s army on the shore",
+   "model": "african"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Carthaginian fleet is broken.",
+   "Twenty-five ships are towed away.",
+   "Rome rules the Spanish sea."
+  ],
+  "lose": [
+   "The Carthaginians form their line.",
+   "The Roman ships are driven off.",
+   "Carthage keeps the Spanish coast."
+  ],
+  "cams": [
+   "clash",
+   "left",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Scouts",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Fleet found",
+     "tone": "g"
+    },
+    {
+     "text": "Seen coming",
+     "tone": "a"
+    },
+    {
+     "text": "Waiting",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "At sea",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Attack",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Crews caught ashore",
+     "tone": "g"
+    },
+    {
+     "text": "They form a line",
+     "tone": "a"
+    },
+    {
+     "text": "Thrown back",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Surprise",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Enemy fleet",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Picked off",
+     "tone": "g"
+    },
+    {
+     "text": "Forming",
+     "tone": "a"
+    },
+    {
+     "text": "In the shallows",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "In disorder",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Beached ships",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Towed off",
+     "tone": "g"
+    },
+    {
+     "text": "Thrown back",
+     "tone": "r"
+    },
+    {
+     "text": "Saved for Carthage",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Fleeing",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The fleet at the river mouth",
+   "text": "Hasdrubal has come north with his army and his fleet together, the fleet anchored off the mouth of the Ebro. You are Gnaeus Scipio, with 35 Roman ships and 20 from Rome’s Greek ally Massilia.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Massiliot sailors know these waters."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send the fast Massiliot ships ahead to find the enemy."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send two Massiliot ships ahead to scout",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -9,
+       "set": {
+        "scout": 1
+       },
+       "text": "The Massiliot scouts find the Carthaginian fleet at anchor near the river mouth."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mas": [
+         300,
+         120
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Sail straight down the coast in battle order",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The fleet sails down the coast, seen from far off."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for Hasdrubal to come to you",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "Hasdrubal’s fleet and army move together."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Surprise",
+   "text": "Carthaginian lookouts see you only at the last moment. Many of their crews are ashore.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their crews are scattered on land."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack at once before they can man their ships."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack at once, before they man the ships",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "scout": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "You fall on the Carthaginian fleet as its crews scramble aboard in disorder."
+      },
+      {
+       "r": -4,
+       "e": -12,
+       "text": "You attack while they are still in disorder."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "r1": [
+         200,
+         130
+        ]
+       },
+       "f": [
+        "r1",
+        "c1"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Form a line and wait for them to come out",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "They man their ships and come out in order."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Land and attack the crews on the beach",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "Hasdrubal’s army is on the beach."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "r1": [
+         120,
+         80
+        ]
+       },
+       "f": [
+        "r1",
+        "army"
+       ]
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Confusion",
+   "text": "The Carthaginian ships put out in disorder. Some crews are still running from the shore.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their ships are not in line."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Ram and board them one by one."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ram and board them one by one",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -16,
+       "set": {
+        "took": 1
+       },
+       "text": "Your ships pick off the disordered enemy, ramming and boarding."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c1": [
+         200,
+         100
+        ]
+       },
+       "f": [
+        "r1",
+        "c1"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Keep your line and fire missiles",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "The Carthaginians begin to form a line."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Chase the ships that flee toward the shore",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -4,
+       "text": "You chase ships into the shallows."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Toward the shore",
+   "text": "The beaten Carthaginian ships run for the beach, where Hasdrubal’s army stands.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The army will protect beached ships."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Tow off what you can from the shallows, under cover of your own missiles."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Tow off the beached ships",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "Your ships drag off 25 Carthaginian ships from the beach, under the eyes of Hasdrubal’s army."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "r1": [
+         150,
+         90
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Land and fight the army for the ships",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "Hasdrubal’s infantry throws you back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "r1": [
+         120,
+         60
+        ]
+       },
+       "f": [
+        "r1",
+        "army"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Let them go and return to sea to hunt the rest",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The ships are saved for Carthage."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Command of the sea",
+   "text": "The Carthaginian fleet in Spain is broken.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The coast is open."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Use the sea to raid far down the coast."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Raid far down the coast",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "Your fleet raids the coast as far as New Carthage. Rome rules the Spanish sea."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Return to Tarraco and refit",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The Carthaginians rebuild."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Land the army south of the Ebro",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "The army is too small to stay."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Ebro River (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Ebro_River"
+  }
+ ]
+}

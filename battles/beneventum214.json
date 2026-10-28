@@ -1,0 +1,681 @@
+{
+ "id": "beneventum214",
+ "name": "Battle of Beneventum (214 BC)",
+ "date": "214 BC",
+ "result": "win",
+ "loc": {
+  "lat": 41.13,
+  "lon": 14.78,
+  "place": "Beneventum, Samnium",
+  "short": "Beneventum (214)",
+  "x": 368,
+  "y": 125
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Gracchus",
+  "foe": "Hanno"
+ },
+ "intro": "Near Beneventum in Samnium, 214 BC. You are Tiberius Sempronius Gracchus, commanding an army largely made of slaves bought by the state after Cannae. Hanno is marching to join Hannibal.",
+ "debrief": "In Livy’s account, Gracchus promised freedom to every slave who brought back an enemy head. When his men stopped fighting to cut off heads, he announced that freedom depended on victory alone. After four hours, the Romans broke Hanno’s army and stormed his camp; Hanno escaped with about 2,000 men. Gracchus freed the slaves, but those who had held back had to eat standing for the rest of their service. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    30,
+    140,
+    14
+   ]
+  ]
+ },
+ "units": {
+  "vol": {
+   "x": 200,
+   "y": 190,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Gracchus’s slave volunteers",
+   "model": "levy"
+  },
+  "eq": {
+   "x": 340,
+   "y": 205,
+   "w": 50,
+   "h": 12,
+   "side": "roman",
+   "name": "Roman horse",
+   "model": "cav_roman"
+  },
+  "han": {
+   "x": 200,
+   "y": 95,
+   "w": 160,
+   "h": 14,
+   "side": "enemy",
+   "name": "Hanno’s army",
+   "model": "african",
+   "scales": true
+  },
+  "bru": {
+   "x": 330,
+   "y": 95,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Bruttians and Lucanians",
+   "model": "auxiliary",
+   "scales": true
+  },
+  "ncav": {
+   "x": 60,
+   "y": 90,
+   "w": 50,
+   "h": 12,
+   "side": "enemy",
+   "name": "Numidian horse",
+   "model": "cav_numidian"
+  },
+  "camp": {
+   "x": 200,
+   "y": 35,
+   "w": 90,
+   "h": 10,
+   "side": "enemy",
+   "name": "Hanno’s camp",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Hanno’s army breaks.",
+   "Its camp is stormed.",
+   "The slaves are free."
+  ],
+  "lose": [
+   "Hanno holds his ground.",
+   "The volunteers waver.",
+   "Hanno joins Hannibal."
+  ],
+  "cams": [
+   "right",
+   "front",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Promise",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Freedom for a head",
+     "tone": "a"
+    },
+    {
+     "text": "Freedom for victory",
+     "tone": "g"
+    },
+    {
+     "text": "Nothing",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Volunteers waiting",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Ranks",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Fighting for victory",
+     "tone": "g"
+    },
+    {
+     "text": "Head-hunting",
+     "tone": "r"
+    },
+    {
+     "text": "Re-forming",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Engaged",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Flank",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Turned by the horse",
+     "tone": "g"
+    },
+    {
+     "text": "Centre lurching",
+     "tone": "a"
+    },
+    {
+     "text": "Waiting",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Even",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Camp",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Stormed",
+     "tone": "g"
+    },
+    {
+     "text": "Escaped",
+     "tone": "a"
+    },
+    {
+     "text": "Holding",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Ahead",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "An army of slaves",
+   "text": "After Cannae, Rome bought 8,000 slaves to fight. They have served two years. You are Tiberius Sempronius Gracchus, their commander. Hanno is marching toward Beneventum to join Hannibal.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The slaves want their freedom."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Promise freedom to every man who brings back an enemy head."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Promise freedom to every man who kills a foe",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "set": {
+        "heads": 1
+       },
+       "text": "The volunteers cheer. Every man means to bring back a head."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Promise freedom to all if the army wins",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "set": {
+        "all": 1
+       },
+       "text": "The volunteers will fight for victory together."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Promise nothing; they must obey",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "The volunteers grumble."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Heads",
+   "text": "The battle begins. Your men stop to cut off heads to prove their kills, and lose time and order.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Carrying heads, they cannot fight."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Tell them that freedom now depends only on victory."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Announce that only victory frees them",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "all": true
+       },
+       "r": -2,
+       "e": -15,
+       "text": "The volunteers fight as one body for victory."
+      },
+      {
+       "r": -2,
+       "e": -13,
+       "text": "You announce that no one will be freed unless the enemy is beaten. The volunteers drop the heads and fight in earnest."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vol": [
+         200,
+         160
+        ]
+       },
+       "f": [
+        "vol",
+        "han"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Let them carry on: each head is a kill",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "The ranks dissolve into head-hunting."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Pull back for a moment to put the ranks in order",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The ranks re-form slowly."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vol": [
+         200,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Four hours",
+   "text": "After four hours, the fighting is still even. Hanno’s Bruttians hold firm.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your horse are fresh on the right."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike the Numidian flank with the horse."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the horse round the flank",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "set": {
+        "flank": 1
+       },
+       "text": "Your horse charge the Numidians and turn the enemy flank."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         330,
+         110
+        ]
+       },
+       "f": [
+        "eq",
+        "bru",
+        "ncav"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Throw the last reserves into the centre",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The centre lurches forward."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Hold on and wait for night",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "Night ends nothing."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The camp",
+   "text": "Hanno’s army is breaking. It flees to its camp.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your volunteers are tired but eager."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Storm the camp at once."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Storm the camp at once",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "flank": true
+       },
+       "r": -2,
+       "e": -17,
+       "text": "The volunteers storm the camp. Hanno escapes with about 2,000 men."
+      },
+      {
+       "r": -4,
+       "e": -11,
+       "text": "The camp falls after a hard fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vol": [
+         200,
+         60
+        ],
+        "camp": [
+         200,
+         35,
+         0.3
+        ]
+       },
+       "f": [
+        "vol",
+        "camp"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for morning and storm it rested",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Hanno escapes in the night."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send only the horse",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The horse cannot take the camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "Freedom",
+   "text": "The battle is won. The volunteers wait for your word.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Some fought poorly."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep your promise."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Free them all, as you promised",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "You free them all. Those who held back must eat their meals standing for the rest of their service. Beneventum holds a feast in the streets."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Free only the bravest and keep the rest serving",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The rest grumble."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Free none until the war is over",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "The army is bitter."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Beneventum (214 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Beneventum_(214_BC)"
+  }
+ ]
+}
