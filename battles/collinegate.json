@@ -1,0 +1,672 @@
+{
+ "id": "collinegate",
+ "name": "Battle of the Colline Gate",
+ "date": "82 BC",
+ "result": "win",
+ "loc": {
+  "lat": 41.91,
+  "lon": 12.5,
+  "place": "the Colline Gate, Rome",
+  "short": "Colline Gate",
+  "x": 339,
+  "y": 112
+ },
+ "names": {
+  "rome": "Sulla’s army",
+  "enemy": "Samnites and Marians",
+  "commander": "Sulla",
+  "foe": "Pontius Telesinus"
+ },
+ "intro": "Outside the Colline Gate of Rome, 1 November 82 BC, at the end of the civil war between Sulla and the followers of Marius. The Samnites under Pontius Telesinus, with Marian and Lucanian forces, are at the walls. You are Lucius Cornelius Sulla.",
+ "debrief": "In Plutarch’s and Appian’s accounts, Sulla attacked late in the afternoon against advice. His own left wing was broken and pushed back to the walls, where the defenders dropped the gate. Sulla himself was nearly killed. The fighting went on into the night until a messenger brought word that Marcus Crassus had routed the enemy on the right. At dawn the Samnites were destroyed and Telesinus was found dying. Sulla had thousands of prisoners killed while the Senate listened nearby, and began his proscriptions. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    262,
+    180,
+    10
+   ]
+  ],
+  "roads": [
+   [
+    200,
+    250,
+    200,
+    0,
+    10
+   ]
+  ]
+ },
+ "units": {
+  "crl": {
+   "x": 120,
+   "y": 195,
+   "w": 110,
+   "h": 14,
+   "side": "roman",
+   "name": "Sulla’s left wing",
+   "model": "hastati"
+  },
+  "crr": {
+   "x": 290,
+   "y": 195,
+   "w": 110,
+   "h": 14,
+   "side": "roman",
+   "name": "Crassus’s right wing",
+   "model": "principes"
+  },
+  "gate": {
+   "x": 200,
+   "y": 240,
+   "w": 70,
+   "h": 10,
+   "side": "roman",
+   "name": "Colline Gate (Rome behind you)",
+   "model": "levy"
+  },
+  "sam": {
+   "x": 120,
+   "y": 95,
+   "w": 120,
+   "h": 14,
+   "side": "enemy",
+   "name": "Samnites under Pontius Telesinus",
+   "model": "auxiliary",
+   "scales": true
+  },
+  "luc": {
+   "x": 290,
+   "y": 95,
+   "w": 110,
+   "h": 14,
+   "side": "enemy",
+   "name": "Lucanians and Marians",
+   "model": "hastati",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The two wings close on the Samnites.",
+   "Telesinus dies on the field.",
+   "Sulla is master of Rome."
+  ],
+  "lose": [
+   "The Samnites break into Rome.",
+   "The city burns.",
+   "The wolves’ lair is destroyed."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ],
+  "anim": {
+   "win": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Timing",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Attacking at once",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Horse ahead",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "At the gate",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Left wing",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Gate shut, fighting",
+     "tone": "g"
+    },
+    {
+     "text": "Enemy inside",
+     "tone": "r"
+    },
+    {
+     "text": "Sulla nearly killed",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Broken",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Night",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Holding",
+     "tone": "g"
+    },
+    {
+     "text": "Walls lost",
+     "tone": "r"
+    },
+    {
+     "text": "Chaos",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Fighting on",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Right wing",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Attacking together",
+     "tone": "g"
+    },
+    {
+     "text": "Crassus alone",
+     "tone": "a"
+    },
+    {
+     "text": "Enemy escaped",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Crassus winning",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Rome in danger",
+   "text": "You are Sulla, back from the East. The Samnites, under Pontius Telesinus, and the last Marian armies have slipped past you and are at the Colline Gate. Telesinus has sworn to destroy Rome, ‘the lair of the wolves’.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your army has marched all day."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Your officers want you to rest the men till morning."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight at once, late in the afternoon",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -13,
+       "set": {
+        "now": 1
+       },
+       "text": "You attack at once, though the day is ending and your men are tired."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rest the men and fight in the morning",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The Samnites attack the gate in the night."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "sam": [
+         150,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send cavalry ahead to hold the gate",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The cavalry are too few."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Your wing breaks",
+   "text": "Your own left wing is broken by the Samnites and is being pushed back against the walls. Some of your men are fleeing into the city.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The gate must not be opened to fugitives with the enemy behind them."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Close the gates and make them fight."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Close the gates",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -13,
+       "set": {
+        "gate": 1
+       },
+       "text": "The defenders drop the gate, crushing some. Your men, with nowhere to run, turn and fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "gate": [
+         200,
+         240
+        ]
+       },
+       "f": [
+        "crl",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Let them into the city to re-form behind the walls",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "The Samnites follow them in."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "sam": [
+         160,
+         220
+        ]
+       },
+       "f": [
+        "sam",
+        "gate"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Ride along the line to rally them",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "You are nearly killed; a white horse saves you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Night",
+   "text": "Fighting goes on into the night. You do not know what has happened on the right.",
+   "intel": {
+    "hint": [
+     {
+      "text": "No messenger has come from Crassus."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold your ground till dawn."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold your ground",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -13,
+       "text": "Your wing holds at the walls through the night."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Withdraw into the city",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The Samnites take the walls."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Counter-attack in the dark while they are tired",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "In the dark, men kill their own side."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "News from Crassus",
+   "text": "At midnight a messenger from Marcus Crassus arrives. His right wing has routed the enemy and chased them to Antemnae.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The enemy in front of you is now isolated."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack them at dawn from both sides."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack from both sides",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "gate": true
+       },
+       "r": -2,
+       "e": -23,
+       "text": "At dawn the two wings close on the Samnites. Telesinus is found dying on the field."
+      },
+      {
+       "r": -4,
+       "e": -13,
+       "text": "The wings close in."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "crr": [
+         200,
+         120
+        ],
+        "crl": [
+         120,
+         150
+        ]
+       },
+       "f": [
+        "crr",
+        "crl",
+        "sam"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Let Crassus finish it while your wing rests",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "The Samnites escape north."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rest and wait",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "The enemy slips away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Prisoners",
+   "text": "You hold thousands of Samnite prisoners. The Senate meets nearby, in the temple of Bellona.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Samnites have fought Rome for centuries."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Mercy, or terror?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Spare the prisoners",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "You spare them, and Rome breathes again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Execute them all",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "As the Senate hears their screams, you tell it calmly that some criminals are being punished. Then come the proscriptions."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Sell them as slaves",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -4,
+       "text": "Samnium burns with hatred."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Colline Gate (82 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Colline_Gate_(82_BC)"
+  }
+ ]
+}

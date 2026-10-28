@@ -1,0 +1,749 @@
+{
+ "id": "chaeronea86",
+ "name": "Battle of Chaeronea (86 BC)",
+ "date": "86 BC",
+ "result": "win",
+ "loc": {
+  "lat": 38.5,
+  "lon": 22.85,
+  "place": "Chaeronea, Boeotia",
+  "short": "Chaeronea",
+  "x": 471,
+  "y": 171
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Pontus",
+  "commander": "Sulla",
+  "foe": "Archelaus"
+ },
+ "intro": "Near Chaeronea in Boeotia, Greece, 86 BC, in the First Mithridatic War. Archelaus, general of King Mithridates of Pontus, has a huge army with scythed chariots and cavalry. You are Lucius Cornelius Sulla, with perhaps 30,000 men.",
+ "debrief": "In Plutarch’s account (he came from Chaeronea) and Appian’s, Sulla dug palisades on his flanks against the cavalry, and two local men led a force up a hidden path to drive a Pontic post off Mount Thurium. Archelaus’s scythed chariots, launched from too short a distance, were stopped and killed, while the Romans clapped and called for more as at the races. The reserve held the left flank, and Sulla led the cavalry on the right. The Pontic army was routed. Sulla’s claim to have lost only fourteen men is not believed. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    340,
+    40,
+    70,
+    26
+   ],
+   [
+    60,
+    40,
+    70,
+    20
+   ]
+  ],
+  "river": {
+   "horizontal": true,
+   "y": 245,
+   "w": 14
+  }
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 200,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Sulla’s legions",
+   "model": "hastati"
+  },
+  "stk": {
+   "x": 200,
+   "y": 170,
+   "w": 180,
+   "h": 6,
+   "side": "roman",
+   "name": "Palisades on the flanks",
+   "model": "levy"
+  },
+  "eq": {
+   "x": 340,
+   "y": 215,
+   "w": 50,
+   "h": 10,
+   "side": "roman",
+   "name": "Roman horse",
+   "model": "cav_roman"
+  },
+  "res": {
+   "x": 200,
+   "y": 232,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Reserve cohorts",
+   "model": "triarii"
+  },
+  "cha": {
+   "x": 200,
+   "y": 125,
+   "w": 120,
+   "h": 8,
+   "side": "enemy",
+   "name": "Scythed chariots",
+   "model": "cav_eastern"
+  },
+  "phal": {
+   "x": 200,
+   "y": 85,
+   "w": 170,
+   "h": 14,
+   "side": "enemy",
+   "name": "Archelaus’s phalanx (freed slaves)",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "pcav": {
+   "x": 60,
+   "y": 80,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Pontic horse",
+   "model": "cav_eastern",
+   "scales": true
+  },
+  "thu": {
+   "x": 340,
+   "y": 40,
+   "w": 40,
+   "h": 10,
+   "side": "enemy",
+   "name": "Pontic post on Mount Thurium",
+   "model": "auxiliary",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Sulla leads the horse in.",
+   "Archelaus’s army breaks.",
+   "Greece is won back from Pontus."
+  ],
+  "lose": [
+   "The Pontic horse get round the flanks.",
+   "The legions fall back.",
+   "Mithridates holds Greece."
+  ],
+  "cams": [
+   "right",
+   "clash",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Flanks",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Palisaded",
+     "tone": "g"
+    },
+    {
+     "text": "Open",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Narrow plain",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Mount Thurium",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Taken from above",
+     "tone": "g"
+    },
+    {
+     "text": "Watching you",
+     "tone": "a"
+    },
+    {
+     "text": "Costly climb",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Pontic post",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Chariots",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Killed at the stakes",
+     "tone": "g"
+    },
+    {
+     "text": "Stopped early",
+     "tone": "a"
+    },
+    {
+     "text": "Through the line",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Charging",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Phalanx",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Flank saved",
+     "tone": "g"
+    },
+    {
+     "text": "Charge stopped",
+     "tone": "r"
+    },
+    {
+     "text": "Falling back",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Advancing",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Mithridates in Greece",
+   "text": "King Mithridates of Pontus has overrun Greece. His general Archelaus has a huge army: chariots, a phalanx and cavalry, far outnumbering you. You are Lucius Cornelius Sulla.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His strength is cavalry and chariots, which need open ground."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fight where the plain is narrow, and dig palisades on your flanks."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Dig palisades on both flanks",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "set": {
+        "stakes": 1
+       },
+       "text": "Your men dig trenches and stake palisades along both flanks. The cavalry cannot get round you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "stk": [
+         200,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight on the open plain at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The Pontic horse have room to ride round you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for Archelaus to run short of food",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Archelaus ravages the land around you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The hill above them",
+   "text": "A Pontic detachment holds Mount Thurium above the battlefield. Two men of Chaeronea offer to lead troops up by a hidden path.",
+   "intel": {
+    "hint": [
+     {
+      "text": "From the hill, the Pontic post could throw the battle."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take the hill from above."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send men up the hidden path",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "set": {
+        "hill": 1
+       },
+       "text": "The Chaeroneans lead your men above the Pontic post. They fall on it from above, and it flees down onto its own army."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "thu": [
+         340,
+         60,
+         0.3
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Ignore the hill and keep the army together",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The post on the hill watches your every move."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack the hill head-on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The climb is costly."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         320,
+         80
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  },
+  {
+   "title": "The chariots",
+   "text": "Archelaus sends sixty scythed chariots at your line.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Chariots need a long run to reach full speed."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let them come; the front rank steps back behind the stakes, and the javelins fly."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Let them come",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "stakes": true
+       },
+       "r": -2,
+       "e": -16,
+       "text": "The chariots charge from too close to reach speed. Your men let them in and kill the horses with javelins, laughing and calling for more, as at the races."
+      },
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The chariots are stopped, at a cost."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cha": [
+         200,
+         160,
+         0.3
+        ]
+       },
+       "f": [
+        "leg",
+        "cha"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Charge the chariots before they can get moving",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "Some are stopped before they start."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "cha"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Open lanes and let them through",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "They drive through and turn."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The phalanx",
+   "text": "Archelaus’s phalanx, made up partly of freed slaves, advances.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Pontic horse are trying your left flank."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold the front and send your reserve to whichever flank is threatened."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the reserve to the flank",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "set": {
+        "res": 1
+       },
+       "text": "Your reserve cohorts swing to the left flank and stop the Pontic horse."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "res": [
+         100,
+         200
+        ]
+       },
+       "f": [
+        "res",
+        "pcav",
+        "leg",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Charge the phalanx head-on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -4,
+       "text": "The pikes stop the charge."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "leg",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Fall back behind the stakes and let them come on",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The phalanx comes on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Sulla leads",
+   "text": "The Pontic line is wavering. Sulla’s horse are ready on the right.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Sulla is famous for his luck."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Lead the horse in yourself."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Lead the horse in yourself",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "res": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "You lead the horse into the Pontic flank. Archelaus’s army breaks; of perhaps 120,000 men, only about 10,000 reach Chalcis. Sulla claims he lost fourteen men."
+      },
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The charge breaks them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         320,
+         90
+        ],
+        "leg": [
+         200,
+         110
+        ],
+        "phal": [
+         200,
+         60
+        ]
+       },
+       "f": [
+        "eq",
+        "leg",
+        "phal"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Send the legions in",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "The phalanx falls back in order."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Wait for them to retreat",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Archelaus withdraws."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Chaeronea (86 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Chaeronea_(86_BC)"
+  }
+ ]
+}

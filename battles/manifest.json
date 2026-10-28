@@ -720,6 +720,105 @@
    "lon": 14.4,
    "result": "loss",
    "naval": false
+  },
+  {
+   "id": "suthul",
+   "name": "Suthul",
+   "date": "110 BC",
+   "lat": 36,
+   "lon": 8.5,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "muthul",
+   "name": "Muthul",
+   "date": "109 BC",
+   "lat": 36.6,
+   "lon": 9,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "burdigala",
+   "name": "Burdigala",
+   "date": "107 BC",
+   "lat": 44.84,
+   "lon": -0.58,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "tolenus",
+   "name": "Tolenus",
+   "date": "90 BC",
+   "lat": 42.25,
+   "lon": 13,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "fucinelake",
+   "name": "Fucine Lake",
+   "date": "89 BC",
+   "lat": 42,
+   "lon": 13.55,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "asculum89",
+   "name": "Asculum (89)",
+   "date": "89 BC",
+   "lat": 42.85,
+   "lon": 13.58,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "chaeronea86",
+   "name": "Chaeronea",
+   "date": "86 BC",
+   "lat": 38.5,
+   "lon": 22.85,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "orchomenus",
+   "name": "Orchomenus",
+   "date": "85 BC",
+   "lat": 38.49,
+   "lon": 22.97,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "collinegate",
+   "name": "Colline Gate",
+   "date": "82 BC",
+   "lat": 41.91,
+   "lon": 12.5,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "lauron",
+   "name": "Lauron",
+   "date": "76 BC",
+   "lat": 39.2,
+   "lon": -0.4,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "cyzicus",
+   "name": "Cyzicus",
+   "date": "73 BC",
+   "lat": 40.38,
+   "lon": 27.89,
+   "result": "win",
+   "naval": false
   }
  ]
 }

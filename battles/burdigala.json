@@ -1,0 +1,698 @@
+{
+ "id": "burdigala",
+ "name": "Battle of Burdigala",
+ "date": "107 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 44.84,
+  "lon": -0.58,
+  "place": "near Burdigala, Aquitania",
+  "short": "Burdigala",
+  "x": 172,
+  "y": 61
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Tigurini",
+  "commander": "Cassius Longinus",
+  "foe": "Divico"
+ },
+ "intro": "In Aquitania, near Burdigala (Bordeaux) or Agen on the Garonne, 107 BC. The Tigurini, allies of the Cimbri, have raided southern Gaul. You are the consul Lucius Cassius Longinus, pursuing them. The sources are brief.",
+ "debrief": "Caesar, Livy’s summary and Orosius report that Cassius was ambushed and killed by the Tigurini, perhaps under the young Divico, along with his legate Piso, and that the survivors under Gaius Popillius had to give hostages and half their baggage and pass under the yoke. Popillius was tried for the terms. Caesar later avenged the defeat at the Arar in 58 BC. The exact place is uncertain. The other choices are what-ifs.",
+ "terrain": {
+  "forests": [
+   [
+    60,
+    110,
+    60,
+    30
+   ],
+   [
+    340,
+    110,
+    60,
+    30
+   ],
+   [
+    200,
+    40,
+    150,
+    20
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 200,
+   "w": 150,
+   "h": 14,
+   "side": "roman",
+   "name": "Cassius Longinus’s army",
+   "model": "hastati"
+  },
+  "bag": {
+   "x": 200,
+   "y": 230,
+   "w": 90,
+   "h": 8,
+   "side": "roman",
+   "name": "Baggage",
+   "model": "levy"
+  },
+  "tig": {
+   "x": 200,
+   "y": 100,
+   "w": 150,
+   "h": 14,
+   "side": "enemy",
+   "name": "Tigurini under Divico",
+   "model": "gaul",
+   "scales": true
+  },
+  "amb": {
+   "x": 60,
+   "y": 110,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Tigurini in the woods",
+   "model": "gaul",
+   "scales": true,
+   "hidden": true
+  },
+  "amb2": {
+   "x": 340,
+   "y": 110,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Tigurini in the woods",
+   "model": "gaul",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Tigurini are caught in the open.",
+   "They retreat.",
+   "The province is safe."
+  ],
+  "lose": [
+   "The consul is killed.",
+   "The army passes under the yoke.",
+   "The Cimbrian war grows darker."
+  ],
+  "cams": [
+   "wide",
+   "clash",
+   "wide"
+  ],
+  "anim": {
+   "lose": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Pursuit",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Chasing hard",
+     "tone": "r"
+    },
+    {
+     "text": "Scouted",
+     "tone": "g"
+    },
+    {
+     "text": "Camped",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "West to the Garonne",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Woods",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Marched in",
+     "tone": "r"
+    },
+    {
+     "text": "Formed for battle",
+     "tone": "g"
+    },
+    {
+     "text": "Burning",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Ahead",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Army",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Surrounded",
+     "tone": "r"
+    },
+    {
+     "text": "Circled",
+     "tone": "g"
+    },
+    {
+     "text": "Breaking out",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Ambushed",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Survivors",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Under the yoke",
+     "tone": "r"
+    },
+    {
+     "text": "Dying",
+     "tone": "r"
+    },
+    {
+     "text": "Escaping",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Trapped",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Into Aquitania",
+   "text": "The Tigurini, a Helvetian people allied with the Cimbri, are raiding southern Gaul. You are the consul Lucius Cassius Longinus. You have chased them west toward the Garonne.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Tigurini are falling back before you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "A retreating enemy may be leading you on."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Chase them hard",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "set": {
+        "chase": 1
+       },
+       "text": "You push on fast after them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Advance carefully with scouts",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -16,
+       "set": {
+        "scout": 1
+       },
+       "text": "Your scouts find the Tigurini waiting in woods ahead."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Make camp and wait for them to come",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "They raid around you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The woods",
+   "text": "The road enters woodland. The Tigurini are out of sight.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Woods hide armies."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Do not enter in column."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March straight in",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The column enters the woods."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         160
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Form for battle",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "scout": true
+       },
+       "r": 0,
+       "e": -24,
+       "text": "You form for battle at the wood’s edge. The Tigurini, found out, must fight in the open."
+      },
+      {
+       "r": -2,
+       "e": -16,
+       "text": "The army forms for battle."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Burn the edge of the woods to drive them out",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Smoke drifts over the trees."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Ambush",
+   "text": "The Tigurini fall on you from the woods on both sides.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your consul is in the thick of it."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold the line together."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight where you are",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": -2,
+       "text": "Cassius is killed, and so is his legate Piso. The army is surrounded."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "amb": [
+         120,
+         170,
+         1
+        ],
+        "amb2": [
+         280,
+         170,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "amb",
+        "amb2"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Form a circle",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -16,
+       "text": "The circle holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "amb": [
+         120,
+         170,
+         1
+        ],
+        "amb2": [
+         280,
+         170,
+         1
+        ],
+        "leg": [
+         200,
+         215
+        ]
+       },
+       "f": [
+        "leg",
+        "amb",
+        "amb2"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge one side to break out of the trap",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -8,
+       "text": "Part of the army breaks out."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "amb": [
+         120,
+         170,
+         1
+        ]
+       },
+       "f": [
+        "leg",
+        "amb"
+       ]
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Terms",
+   "text": "The survivors are trapped. Gaius Popillius, the senior officer left, asks for terms.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Tigurini demand hostages, half the baggage, and that you pass under the yoke."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Live to fight again."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Accept and pass under the yoke",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The survivors give up hostages and half the baggage, and pass under the yoke."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight to the death",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -10,
+       "text": "The last Romans die fighting."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Break out at night",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "Some escape in the dark."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         240
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Rome’s shame",
+   "text": "Rome hears of a consul dead and an army under the yoke.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Popillius will be tried for the surrender."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Learn from it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the survivors home",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "Popillius is tried for the shameful terms. Two years later comes Arausio."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack the Tigurini again",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "The beaten men cannot fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold the Roman province",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "The province is held."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Burdigala (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Burdigala"
+  }
+ ],
+ "winAt": 50
+}

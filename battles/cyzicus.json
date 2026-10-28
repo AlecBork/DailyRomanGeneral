@@ -1,0 +1,705 @@
+{
+ "id": "cyzicus",
+ "name": "Siege of Cyzicus",
+ "date": "73 BC",
+ "result": "win",
+ "loc": {
+  "lat": 40.38,
+  "lon": 27.89,
+  "place": "Cyzicus, on the Sea of Marmara",
+  "short": "Cyzicus",
+  "x": 536,
+  "y": 139
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Pontus",
+  "commander": "Lucullus",
+  "foe": "Mithridates VI"
+ },
+ "intro": "Cyzicus, on the Sea of Marmara, winter 73-72 BC, in the Third Mithridatic War. King Mithridates besieges the city with a vast army. You are the consul Lucius Licinius Lucullus, with perhaps 30,000 men.",
+ "debrief": "In Plutarch’s and Appian’s accounts, Lucullus refused to fight the huge Pontic army and instead seized ground commanding its supply routes. Through the winter, Mithridates’s men starved. When he sent his cavalry and pack animals away, Lucullus caught them crossing the Rhyndacus in snow, and when Mithridates gave up the siege, Lucullus destroyed his retreating army at the flooded rivers Aesepus and Granicus. Lucullus won the war of hunger without a pitched battle. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    340,
+    170,
+    50,
+    16
+   ]
+  ],
+  "lakes": [
+   [
+    200,
+    -20,
+    200,
+    40
+   ]
+  ],
+  "river": {
+   "x": 40,
+   "w": 20
+  },
+  "weather": "snow"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 160,
+   "h": 14,
+   "side": "roman",
+   "name": "Lucullus’s army",
+   "model": "hastati"
+  },
+  "hill": {
+   "x": 340,
+   "y": 170,
+   "w": 60,
+   "h": 12,
+   "side": "roman",
+   "name": "Lucullus’s hill camp",
+   "model": "principes"
+  },
+  "mit": {
+   "x": 200,
+   "y": 100,
+   "w": 180,
+   "h": 14,
+   "side": "enemy",
+   "name": "Mithridates’s besieging army",
+   "model": "greek_phalanx",
+   "scales": true
+  },
+  "town": {
+   "x": 200,
+   "y": 40,
+   "w": 100,
+   "h": 10,
+   "side": "enemy",
+   "name": "Cyzicus (besieged, loyal to Rome)",
+   "model": "levy"
+  },
+  "pcav": {
+   "x": 60,
+   "y": 100,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Pontic horse",
+   "model": "cav_eastern",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Mithridates’s army starves.",
+   "It is destroyed at the rivers.",
+   "Cyzicus is saved."
+  ],
+  "lose": [
+   "Mithridates takes Cyzicus.",
+   "Asia is his again.",
+   "Lucullus is outnumbered."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ],
+  "anim": {
+   "win": "drown"
+  }
+ },
+ "status": [
+  {
+   "label": "Supply road",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Hill taken",
+     "tone": "g"
+    },
+    {
+     "text": "Attack failed",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Cyzicus besieged",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Winter",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Starving them",
+     "tone": "g"
+    },
+    {
+     "text": "Attacked",
+     "tone": "a"
+    },
+    {
+     "text": "Talking",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Hunger",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Cavalry",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Caught at the river",
+     "tone": "g"
+    },
+    {
+     "text": "Escaped",
+     "tone": "a"
+    },
+    {
+     "text": "Camp attacked",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Sent away",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Retreat",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Destroyed at the rivers",
+     "tone": "g"
+    },
+    {
+     "text": "Escaped",
+     "tone": "a"
+    },
+    {
+     "text": "No ships",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Fleeing",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Cyzicus besieged",
+   "text": "Mithridates has invaded Asia again and besieges Cyzicus, a city loyal to Rome, with a vast army. You are the consul Lucius Licinius Lucullus, with a much smaller force.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His army is huge and must eat."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Do not fight it. Cut off its food."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Seize the hill above his supply road",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "set": {
+        "hill": 1
+       },
+       "text": "You take a hill that commands the road his supplies must use."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hill": [
+         340,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Attack the besiegers to save the city",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "His army is too large."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "mit"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Wait for more legions from Rome",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The city weakens."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Winter comes",
+   "text": "Mithridates’s army is starving. Your men want to attack.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hunger and winter are fighting for you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wait."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Wait and let hunger work",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "hill": true
+       },
+       "r": 0,
+       "e": -15,
+       "text": "Through the winter, his supply roads are cut. His soldiers eat their pack animals, then the dead."
+      },
+      {
+       "r": -2,
+       "e": -8,
+       "text": "His army grows hungry."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack now while they are weak",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "Hungry men still fight hard."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "mit"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Offer Mithridates terms",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "He refuses."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The cavalry sent away",
+   "text": "Mithridates sends his cavalry and pack animals away to find food in Bithynia.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They will cross the river Rhyndacus."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Catch them at the river."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Catch the cavalry at the Rhyndacus",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "set": {
+        "cav": 1
+       },
+       "text": "You fall on the Pontic cavalry crossing the river in snow, killing many and taking thousands of horses."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pcav": [
+         40,
+         160,
+         0.3
+        ],
+        "leg": [
+         100,
+         170
+        ]
+       },
+       "f": [
+        "leg",
+        "pcav"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Let them go and watch the camp",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "They escape."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack the camp while they are away",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "The infantry holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "mit"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Mithridates flees",
+   "text": "Mithridates abandons the siege. His army retreats in two parts, by land and sea.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The land army must cross the rivers Aesepus and Granicus."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Catch it at the rivers."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Catch them at the rivers",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "cav": true
+       },
+       "r": -2,
+       "e": -19,
+       "text": "You catch the starving army at the flooded Aesepus and Granicus and destroy it."
+      },
+      {
+       "r": -4,
+       "e": -11,
+       "text": "Part of the army is caught."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         100
+        ],
+        "mit": [
+         200,
+         60,
+         0.3
+        ]
+       },
+       "f": [
+        "leg",
+        "mit"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Let them go home to starve in Pontus",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "They escape to Pontus."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Pursue the fleet",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "You have no ships."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Cyzicus saved",
+   "text": "The siege is broken. Mithridates has lost most of his army.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He has fled by sea."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Follow him into Pontus."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Follow him",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "text": "Next year you invade Pontus itself."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rest the army in Asia for the winter",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Mithridates rebuilds."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Make peace",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "He will be back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Siege of Cyzicus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Siege_of_Cyzicus"
+  }
+ ]
+}
