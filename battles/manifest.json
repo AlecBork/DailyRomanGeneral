@@ -1575,6 +1575,51 @@
    "lon": 5.33,
    "result": "win",
    "naval": false
+  },
+  {
+   "id": "fidenae437",
+   "name": "Fidenae",
+   "date": "437 BC",
+   "lat": 41.97,
+   "lon": 12.52,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "suessula",
+   "name": "Suessula",
+   "date": "343 BC",
+   "lat": 41,
+   "lon": 14.4,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "trifanum",
+   "name": "Trifanum",
+   "date": "340 BC",
+   "lat": 41.2,
+   "lon": 13.9,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "faesulae",
+   "name": "Faesulae",
+   "date": "225 BC",
+   "lat": 43.81,
+   "lon": 11.29,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "lilybaeum",
+   "name": "Lilybaeum",
+   "date": "250 BC",
+   "lat": 37.8,
+   "lon": 12.43,
+   "result": "loss",
+   "naval": false
   }
  ]
 }

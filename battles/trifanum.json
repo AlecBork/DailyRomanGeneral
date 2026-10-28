@@ -1,0 +1,616 @@
+{
+ "id": "trifanum",
+ "name": "Battle of Trifanum",
+ "date": "340 BC",
+ "result": "win",
+ "loc": {
+  "lat": 41.2,
+  "lon": 13.9,
+  "place": "Trifanum, Campania",
+  "short": "Trifanum",
+  "x": 357,
+  "y": 124
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Latins and Campanians",
+  "commander": "Manlius Torquatus",
+  "foe": "Numisius"
+ },
+ "intro": "Trifanum, between Minturnae and Sinuessa, 340 BC. The Latins were beaten near Vesuvius but have raised a new army. You are the consul Titus Manlius Torquatus.",
+ "debrief": "In Livy’s account, Torquatus marched quickly and attacked the Latins at Trifanum before they were ready, defeating them. Their towns surrendered one by one. Rome dissolved the Latin League and dealt with each town separately, a key step in Rome’s rise. Livy says only old men greeted Torquatus on his return, because he had executed his son. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#7f9a4d",
+  "hills": [
+   [
+    340,
+    40,
+    100,
+    16
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Torquatus’s legions",
+   "model": "hastati"
+  },
+  "sam": {
+   "x": 60,
+   "y": 215,
+   "w": 70,
+   "h": 10,
+   "side": "roman",
+   "name": "Samnite allies",
+   "model": "hastati"
+  },
+  "lat": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Latins and Campanians (survivors of Vesuvius)",
+   "model": "hastati",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Latins are caught forming up.",
+   "Town after town surrenders.",
+   "The Latin League ends."
+  ],
+  "lose": [
+   "The Latins hold.",
+   "Rome’s war drags on.",
+   "Latium stays free."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Speed",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Fast",
+     "tone": "g"
+    },
+    {
+     "text": "Resting",
+     "tone": "a"
+    },
+    {
+     "text": "Refused",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Vescia",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Clash",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Caught forming",
+     "tone": "g"
+    },
+    {
+     "text": "Formed up",
+     "tone": "r"
+    },
+    {
+     "text": "Hard fight",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Trifanum",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Lands",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Ravaged",
+     "tone": "g"
+    },
+    {
+     "text": "Scattered",
+     "tone": "a"
+    },
+    {
+     "text": "Recovered",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Latin towns",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Settlement",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Divided",
+     "tone": "g"
+    },
+    {
+     "text": "Destroyed",
+     "tone": "r"
+    },
+    {
+     "text": "United",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Surrender",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "After Vesuvius",
+   "text": "The Latins were beaten near Vesuvius, where Decius Mus gave his life. They have gathered new men at Vescia. You are Titus Manlius Torquatus, the consul who executed his own son for disobeying orders.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are not ready."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike fast."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Strike fast",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "fast": 1
+       },
+       "text": "You march fast to catch them before they are ready."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rest your men",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "The Latins gather more men."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer them terms",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "They refuse."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Trifanum",
+   "text": "You meet them at Trifanum.",
+   "intel": {
+    "hint": [
+     {
+      "text": "No time for them to form properly."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack straight from the march."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack from the march",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "fast": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "You hit them as they form. They break."
+      },
+      {
+       "r": -6,
+       "e": -7,
+       "text": "They are ready."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "leg",
+        "lat"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Build a camp first",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "They form up."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send your Samnites first",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "A hard fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "sam",
+        "lat"
+       ]
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Pursuit",
+   "text": "The Latins flee.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their towns are open."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Ravage their lands."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ravage their lands",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "You ravage their lands. Town after town surrenders."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase the soldiers",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "They scatter."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Go home",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "They recover."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Surrender",
+   "text": "The Latin towns surrender.",
+   "intel": {
+    "hint": [
+     {
+      "text": "How to treat them?"
+     }
+    ],
+    "scout": [
+     {
+      "text": "Choose."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Divide them",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "text": "Rome deals with each town separately, some becoming citizens, some allies. The Latin League is dissolved."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Destroy the rebel towns",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Italy turns against Rome."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Treat them all alike",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "They stay united."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Torquatus",
+   "text": "You return to Rome.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The young men will not come out to greet you, because of your son."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Accept it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Accept it",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "Only the old men come out to meet Torquatus. The young never forgive him for executing his son."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Demand a triumph",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "It is grudging."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stay away from Rome",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "Rumours spread."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Trifanum (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Trifanum"
+  }
+ ]
+}

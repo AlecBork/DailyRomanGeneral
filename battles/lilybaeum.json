@@ -1,0 +1,644 @@
+{
+ "id": "lilybaeum",
+ "name": "Siege of Lilybaeum",
+ "date": "250 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 37.8,
+  "lon": 12.43,
+  "place": "Lilybaeum, Sicily",
+  "short": "Lilybaeum",
+  "x": 338,
+  "y": 184
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "The consuls",
+  "foe": "Himilco"
+ },
+ "intro": "Lilybaeum (Marsala), Carthage’s great fortress in western Sicily, 250 BC. You command the Roman army and fleet besieging it by land and sea.",
+ "debrief": "In Polybius’s account, the Romans tried to block the harbour mouth, but a Carthaginian captain, Hannibal the Rhodian, sailed in and out at will until his ship was caught; the Romans copied a captured fast ship. A storm-driven fire set by Greek mercenaries destroyed the siege works. The consul Claudius Pulcher lost most of the fleet attacking Drepana. Lilybaeum never fell; it was handed over in the peace of 241 BC. The other choices are what-ifs.",
+ "terrain": {
+  "lakes": [
+   [
+    30,
+    120,
+    60,
+    200
+   ]
+  ],
+  "grass": "#b8a06e"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 200,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman besiegers (four legions)",
+   "model": "hastati"
+  },
+  "eng": {
+   "x": 200,
+   "y": 180,
+   "w": 160,
+   "h": 6,
+   "side": "roman",
+   "name": "Siege towers and rams",
+   "model": "velites"
+  },
+  "fl": {
+   "x": 60,
+   "y": 180,
+   "w": 60,
+   "h": 10,
+   "side": "roman",
+   "name": "Blockading fleet",
+   "model": "galley_roman"
+  },
+  "lil": {
+   "x": 200,
+   "y": 70,
+   "w": 180,
+   "h": 12,
+   "side": "enemy",
+   "name": "Lilybaeum, Himilco’s garrison",
+   "model": "african",
+   "scales": true
+  },
+  "han": {
+   "x": 60,
+   "y": 90,
+   "w": 40,
+   "h": 8,
+   "side": "enemy",
+   "name": "Hannibal the Rhodian’s fast ship",
+   "model": "galley_punic",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The harbour is blocked.",
+   "The siege works survive.",
+   "Lilybaeum falls."
+  ],
+  "lose": [
+   "The Rhodian runs the blockade.",
+   "Fire destroys the works.",
+   "Lilybaeum holds for nine years."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Harbour",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Mole",
+     "tone": "g"
+    },
+    {
+     "text": "Assault fails",
+     "tone": "r"
+    },
+    {
+     "text": "Ships get in",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Lilybaeum",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Rhodian",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Free",
+     "tone": "r"
+    },
+    {
+     "text": "Caught",
+     "tone": "g"
+    },
+    {
+     "text": "Outrun",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Fast ship",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Works",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Guarded",
+     "tone": "g"
+    },
+    {
+     "text": "Burned",
+     "tone": "r"
+    },
+    {
+     "text": "Abandoned",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Storm wind",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Fleet",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Lost at Drepana",
+     "tone": "r"
+    },
+    {
+     "text": "Holding",
+     "tone": "g"
+    },
+    {
+     "text": "Talks",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Next move",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Lilybaeum",
+   "text": "After the victory at Panormus, Rome besieges Lilybaeum, Carthage’s great fortress in western Sicily, by land and sea. You command the besiegers.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Its harbour is hard to blockade."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Block the harbour mouth."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Block it with a mole",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -17,
+       "set": {
+        "mole": 1
+       },
+       "text": "You try to fill the harbour mouth with stones and timber."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Storm the walls",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "The walls are strong."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "lil"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Starve it by land only",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Ships still come in."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Rhodian",
+   "text": "A Carthaginian captain, Hannibal the Rhodian, sails in and out of the harbour every day in a fast ship, taunting you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His ship is fast; a captured one could match it."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Catch him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ignore him and keep up the siege",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "He brings news and supplies."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "han": [
+         60,
+         90,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Copy his ship",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "if": {
+        "mole": true
+       },
+       "r": -2,
+       "e": -17,
+       "text": "A ship stuck on your mole is copied, and the Rhodian is caught."
+      },
+      {
+       "r": -4,
+       "e": -9,
+       "text": "You try."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Chase him with your whole fleet",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "He outruns you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Fire",
+   "text": "A storm wind blows toward your siege works.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The garrison will try fire."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Guard the towers."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Guard the towers",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "Your sentries are ready."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Trust the storm to keep them inside",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Greek mercenaries sally out and set fire to your towers. The wind spreads the fire and destroys your works."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eng": [
+         200,
+         180,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Pull the towers back",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Your works are abandoned."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Drepana",
+   "text": "You need a victory.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Carthaginian fleet is at Drepana."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Stay at Lilybaeum."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack Drepana",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Claudius Pulcher attacks Drepana and loses most of the fleet."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stay put",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "The siege goes on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ask Carthage for peace",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Carthage asks too much."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Years",
+   "text": "The siege drags on for nine years.",
+   "intel": {
+    "hint": [
+     {
+      "text": "It will only end with peace."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep at it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Keep the siege",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Lilybaeum never falls by force. It is handed over in the peace after the Aegates Islands in 241 BC."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Give up the siege",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Carthage is encouraged."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "One last assault",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -9,
+       "text": "It fails, but bleeds them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "lil"
+       ]
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Siege of Lilybaeum (250%E2%80%93241 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Siege_of_Lilybaeum_(250%E2%80%93241_BC)"
+  }
+ ],
+ "winAt": 50
+}

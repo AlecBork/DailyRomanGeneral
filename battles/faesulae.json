@@ -1,0 +1,640 @@
+{
+ "id": "faesulae",
+ "name": "Battle of Faesulae",
+ "date": "225 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 43.81,
+  "lon": 11.29,
+  "place": "near Faesulae, Etruria",
+  "short": "Faesulae",
+  "x": 324,
+  "y": 79
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Gauls (Gaesatae, Boii, Insubres)",
+  "commander": "A Roman praetor",
+  "foe": "Concolitanus & Aneroestes"
+ },
+ "intro": "Near Faesulae (Fiesole) in Etruria, 225 BC. A huge Gallic army with Gaesatae mercenaries from beyond the Alps is plundering its way toward Rome. You command a Roman praetor’s army.",
+ "debrief": "In Polybius’s account, the Gauls lit their fires at dusk and pretended to retreat, leaving their cavalry behind. At dawn the Romans chased the cavalry into the Gallic infantry waiting in ambush near Faesulae, and about 6,000 Romans died. The survivors held a hill until the consul Aemilius Papus arrived. The Gauls then marched north and were destroyed at Telamon between two consular armies. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    240,
+    100,
+    14
+   ],
+   [
+    340,
+    80,
+    90,
+    20
+   ]
+  ],
+  "forests": [
+   [
+    340,
+    90,
+    60,
+    16
+   ]
+  ],
+  "grass": "#7f9a4d"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Praetor’s army",
+   "model": "hastati"
+  },
+  "cav": {
+   "x": 60,
+   "y": 220,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "gal": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Gaesatae and Boii",
+   "model": "gaul",
+   "scales": true
+  },
+  "amb": {
+   "x": 340,
+   "y": 90,
+   "w": 80,
+   "h": 12,
+   "side": "enemy",
+   "name": "Gallic infantry in ambush",
+   "model": "gaul",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The false retreat is seen through.",
+   "The praetor waits for the consuls.",
+   "The Gauls are caught."
+  ],
+  "lose": [
+   "The Romans chase into an ambush.",
+   "6,000 die near Faesulae.",
+   "Etruria is plundered."
+  ],
+  "cams": [
+   "right",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Approach",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Following",
+     "tone": "r"
+    },
+    {
+     "text": "Shadowing",
+     "tone": "g"
+    },
+    {
+     "text": "Bypassed",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Gauls",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Dawn",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Ambushed",
+     "tone": "r"
+    },
+    {
+     "text": "Held camp",
+     "tone": "g"
+    },
+    {
+     "text": "Half-seen",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "False retreat",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Hill",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Holding",
+     "tone": "g"
+    },
+    {
+     "text": "Cut down",
+     "tone": "r"
+    },
+    {
+     "text": "Prisoners killed",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Survivors",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Consul",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Joined",
+     "tone": "g"
+    },
+    {
+     "text": "Missed",
+     "tone": "a"
+    },
+    {
+     "text": "Beaten again",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Aemilius",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Gauls in Etruria",
+   "text": "A great Gallic army, with hired Gaesatae from beyond the Alps, has crossed into Etruria and is plundering toward Rome. You are a Roman praetor with an army near Faesulae (Fiesole).",
+   "intel": {
+    "hint": [
+     {
+      "text": "The consuls are coming."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Shadow them; don’t fight alone."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Follow and attack",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "You follow the Gauls closely."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Shadow them",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -21,
+       "set": {
+        "shadow": 1
+       },
+       "text": "You keep your distance and send for the consuls."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Block the road to Rome",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They go round you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Retreat",
+   "text": "At dusk the Gauls light fires and seem to retreat. Their cavalry stays behind.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The infantry has gone on to set an ambush."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Don’t chase."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Chase their cavalry at dawn",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "shadow": true
+       },
+       "r": -4,
+       "e": -6,
+       "text": "You chase cautiously."
+      },
+      {
+       "r": -12,
+       "e": 0,
+       "text": "You chase the cavalry straight into the Gallic infantry waiting near Faesulae. 6,000 Romans die."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "amb": [
+         300,
+         150,
+         1
+        ]
+       },
+       "f": [
+        "amb",
+        "leg"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Don’t chase",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -18,
+       "text": "You hold your camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Scout first",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The ambush is half-seen."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The hill",
+   "text": "The survivors flee to a hill.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hold the hill."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -14,
+       "text": "You hold the hill through the night."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Break out",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Many die."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Surrender",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -8,
+       "text": "The Gauls kill prisoners."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Aemilius",
+   "text": "The consul Aemilius Papus arrives. The Gauls pull away.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are loaded with loot."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Join him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Join him",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -14,
+       "text": "You join him and follow the Gauls."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stay on the hill",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "You miss the fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack alone",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "You are beaten again."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Telamon",
+   "text": "The Gauls march north up the coast, straight toward the other consul’s army landing from Sardinia.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They will be caught between two armies."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Follow."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Follow them",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "At Telamon, the Gauls are trapped between both consuls and destroyed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Race ahead",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "text": "You help block them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Go home",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "You miss the victory."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Faesulae (225 BC) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Faesulae_(225_BC)"
+  }
+ ],
+ "winAt": 50
+}
