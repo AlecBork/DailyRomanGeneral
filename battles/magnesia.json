@@ -349,7 +349,7 @@
      "cam": "wide"
     },
     {
-     "label": "Storm the Seleucid camp",
+     "label": "Storm their camp at dawn, before the elephants are harnessed",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -458,7 +458,7 @@
      "cam": "wide"
     },
     {
-     "label": "Pull back to camp until the weather clears",
+     "label": "Pull back until it clears; mist favours the bigger army",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -533,7 +533,7 @@
      "cam": "right"
     },
     {
-     "label": "Charge the chariots with Eumenes’s cavalry",
+     "label": "Ride the chariots down with Eumenes’s horse before they gather speed",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -669,7 +669,7 @@
      "cam": "right"
     },
     {
-     "label": "Send the cavalry round behind the phalanx at once",
+     "label": "Swing the cavalry behind the phalanx while it is pinned",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -788,7 +788,7 @@
      "cam": "left"
     },
     {
-     "label": "Let the left go and attack the phalanx",
+     "label": "Trust the camp guard and hit the phalanx while the king is away",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -878,7 +878,7 @@
      "cam": "front"
     },
     {
-     "label": "Charge the pikes now, before they get away",
+     "label": "Charge now: a phalanx that escapes will fight again",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -939,5 +939,6 @@
    "text": "Quite enough for the Romans, however greedy they are.",
    "who": "Hannibal, asked by Antiochus whether his splendid army would be enough"
   }
- ]
+ ],
+ "winAt": 41
 }

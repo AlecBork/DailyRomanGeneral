@@ -310,7 +310,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Assault their hill camps head-on before your supplies run out",
+     "label": "Assault their camps before your supplies run out",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -445,7 +445,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send the cavalry round the marsh to take him in the rear",
+     "label": "Send cavalry round the marsh to hit him from behind",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -553,7 +553,7 @@
      "cam": "left"
     },
     {
-     "label": "Chase Cassius’s men into the hills",
+     "label": "Chase Cassius’s men before they can re-form",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -625,7 +625,7 @@
      "cam": "wide"
     },
     {
-     "label": "Assault Brutus’s camp",
+     "label": "Assault Brutus’s camp while his army is quarrelling",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -759,7 +759,7 @@
      "cam": "clash"
     },
     {
-     "label": "Attack his strongest wing and break his spirit",
+     "label": "Break his strongest wing and the rest will run",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -794,5 +794,6 @@
    "title": "Battle of Philippi (Wikipedia)",
    "url": "https://en.wikipedia.org/wiki/Battle_of_Philippi"
   }
- ]
+ ],
+ "winAt": 44
 }

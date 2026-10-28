@@ -308,7 +308,7 @@
      "cam": "wide"
     },
     {
-     "label": "Throw the legions across at once",
+     "label": "Cross with the legions in one mass, so none are cut off",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -418,7 +418,7 @@
      "cam": "wide"
     },
     {
-     "label": "Double the guard on the gates and say nothing",
+     "label": "Double the guard quietly, so the enemy learns nothing",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -527,7 +527,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send the legions in first",
+     "label": "Send the legions in first, before their courage fails",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -648,7 +648,7 @@
      "cam": "clash"
     },
     {
-     "label": "Charge the hill with the legions",
+     "label": "Take the hill with the legions; the high ground wins",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -794,5 +794,7 @@
    "text": "Follow the Roman birds, the true gods of the legions!",
    "who": "Germanicus, as eagles flew toward the woods"
   }
- ]
+ ],
+ "ytax": 2,
+ "winAt": 44
 }

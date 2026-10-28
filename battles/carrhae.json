@@ -331,7 +331,7 @@
    },
    "choices": [
     {
-     "label": "Follow Ariamnes straight across the plain",
+     "label": "Follow Ariamnes: he knows where the Parthians are",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -424,7 +424,7 @@
    },
    "choices": [
     {
-     "label": "March on with Publius and fight at once",
+     "label": "Fight at once, before Surena can bring up more men",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -605,7 +605,7 @@
      "cam": "rightflank"
     },
     {
-     "label": "Spread into a battle line and charge them",
+     "label": "Spread out wide so the archers cannot surround you",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -652,7 +652,7 @@
    },
    "choices": [
     {
-     "label": "Let Publius ride out after them",
+     "label": "Let Publius drive off the archers with his Gallic horse",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -771,7 +771,7 @@
    },
    "choices": [
     {
-     "label": "Hurry to Carrhae by night, leaving the wounded behind",
+     "label": "Hurry to Carrhae’s walls by night while it is dark",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -874,7 +874,7 @@
    },
    "choices": [
     {
-     "label": "Ride out to meet Surena",
+     "label": "Ride out to meet Surena; the men demand it",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -947,7 +947,7 @@
    "url": "https://en.wikipedia.org/wiki/Battle_of_Carrhae"
   }
  ],
- "winAt": 50,
+ "winAt": 52,
  "stages": {
   "stream": {
    "label": "Days later",
@@ -1169,5 +1169,6 @@
     ]
    }
   }
- }
+ },
+ "ytax": 3
 }

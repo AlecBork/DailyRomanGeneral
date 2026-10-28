@@ -345,7 +345,7 @@
      "cam": "wide"
     },
     {
-     "label": "Stay in camp until he comes closer",
+     "label": "Stay in camp until he is further from his own",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -383,7 +383,7 @@
    },
    "choices": [
     {
-     "label": "Anchor on the river; thin the lines to match his front",
+     "label": "Anchor on the river; thin your lines",
      "quality": 2,
      "cost": 1,
      "style": "M",
@@ -432,7 +432,7 @@
      "cam": "wide"
     },
     {
-     "label": "Move off the river to open ground where you can manoeuvre",
+     "label": "Move to open ground where veterans can manoeuvre",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -519,7 +519,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send him back to guard the camp",
+     "label": "Keep your best centurion safe to guard the camp",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -588,7 +588,7 @@
      "cam": "rightclose"
     },
     {
-     "label": "Put the cohorts in the front line",
+     "label": "Put the cohorts in the front line to lengthen it",
      "quality": 1,
      "cost": 1,
      "style": "M",
@@ -608,7 +608,7 @@
      "cam": "clash"
     },
     {
-     "label": "Keep them back with the baggage as a last reserve",
+     "label": "Keep them as a last reserve by the camp",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -695,7 +695,7 @@
      "cam": "clash"
     },
     {
-     "label": "Charge straight across the gap while the men are eager",
+     "label": "Charge straight across while the men are eager",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -839,7 +839,7 @@
      "cam": "right"
     },
     {
-     "label": "Ignore the cavalry and push the infantry on",
+     "label": "Push the infantry; win in the centre before the cavalry tells",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -881,5 +881,7 @@
    "text": "Today, general, I will earn your thanks, alive or dead.",
    "who": "The centurion Crastinus, before the first charge"
   }
- ]
+ ],
+ "ytax": 1,
+ "winAt": 40
 }

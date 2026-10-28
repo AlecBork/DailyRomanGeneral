@@ -264,7 +264,7 @@
      "cam": "wide"
     },
     {
-     "label": "Attack his fleet inside the gulf while it is crowded",
+     "label": "Attack his fleet in the crowded gulf where it cannot move",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -354,7 +354,7 @@
      "cam": "wide"
     },
     {
-     "label": "Charge at once and ram before his archers find the range",
+     "label": "Ram at once, before his archers find the range",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -468,7 +468,7 @@
      "cam": "left"
     },
     {
-     "label": "Fight his big ships head-on, where your crews are best",
+     "label": "Close with his big ships, where your crews are best",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -602,7 +602,7 @@
      "cam": "wide"
     },
     {
-     "label": "Break off and regroup",
+     "label": "Break off and re-form before the giants can grapple",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -687,7 +687,7 @@
      "cam": "wide"
     },
     {
-     "label": "Chase Cleopatra with your fastest ships and take the treasure",
+     "label": "Chase Cleopatra’s treasure ships; money pays his army",
      "quality": 0,
      "cost": 0,
      "style": "A",

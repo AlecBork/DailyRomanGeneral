@@ -300,7 +300,7 @@
      "cam": "high"
     },
     {
-     "label": "Storm the hill at once, before the relief army can gather",
+     "label": "Storm the hill before the Gallic relief army gathers",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -328,7 +328,7 @@
      "cam": "front"
     },
     {
-     "label": "Build both rings, wide enough to take in the north hill",
+     "label": "Build both rings, taking in the north hill",
      "quality": 2,
      "cost": 1,
      "style": "C",
@@ -427,7 +427,7 @@
      "cam": "wide"
     },
     {
-     "label": "Send the legions out onto the plain",
+     "label": "Send the legions out to crush their cavalry on the plain",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -537,7 +537,7 @@
      "cam": "romanrear"
     },
     {
-     "label": "Sally out against the relief army",
+     "label": "Sally out and catch the relief army in the dark",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -654,7 +654,7 @@
      "cam": "rightclose"
     },
     {
-     "label": "Let the camp fall and form a new line behind",
+     "label": "Give up the camp and form a strong new line behind it",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -775,7 +775,7 @@
      "cam": "rightclose"
     },
     {
-     "label": "Send the cavalry alone",
+     "label": "Send the cavalry round to their rear; stay where you can direct",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -807,5 +807,6 @@
    "title": "Battle of Alesia (Wikipedia)",
    "url": "https://en.wikipedia.org/wiki/Battle_of_Alesia"
   }
- ]
+ ],
+ "winAt": 39
 }

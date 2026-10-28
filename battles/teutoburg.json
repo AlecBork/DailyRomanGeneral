@@ -307,7 +307,7 @@
    },
    "choices": [
     {
-     "label": "Dismiss the warning as a family quarrel",
+     "label": "Dismiss it: Segestes hates Arminius over his daughter",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -392,7 +392,7 @@
    },
    "choices": [
     {
-     "label": "Take Arminius’s shorter road",
+     "label": "Take the shorter road to crush the revolt quickly",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -595,7 +595,7 @@
      "cam": "high"
     },
     {
-     "label": "Charge into the trees after them",
+     "label": "Drive them out of the trees before the rain gets worse",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -652,7 +652,7 @@
    },
    "choices": [
     {
-     "label": "March on by night along the guides’ route",
+     "label": "March on by night while the Germans cannot see",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -792,7 +792,7 @@
    },
    "choices": [
     {
-     "label": "Attack along the whole wall",
+     "label": "Attack the whole wall so they cannot shift men",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -930,7 +930,7 @@
    "url": "https://en.wikipedia.org/wiki/Battle_of_the_Teutoburg_Forest"
   }
  ],
- "winAt": 50,
+ "winAt": 49,
  "quotes": [
   {
    "text": "Quintilius Varus, give me back my legions!",

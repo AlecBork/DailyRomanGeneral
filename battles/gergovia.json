@@ -277,7 +277,7 @@
      "cam": "wide"
     },
     {
-     "label": "Storm the plateau at once while your men are fresh",
+     "label": "Storm the plateau before Vercingetorix’s camps are finished",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -392,7 +392,7 @@
      "cam": "wide"
     },
     {
-     "label": "Ignore them and press the siege",
+     "label": "Press the siege; taking Gergovia will settle the Aedui",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -481,7 +481,7 @@
      "cam": "front"
     },
     {
-     "label": "Attack the town walls directly where they are weakest",
+     "label": "Attack the walls where your scouts say they are weakest",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -547,7 +547,7 @@
    },
    "choices": [
     {
-     "label": "Sound the recall and leave it at that",
+     "label": "Sound the recall; the men know the trumpet",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -656,7 +656,7 @@
    },
    "choices": [
     {
-     "label": "Attack the newcomers before they strike",
+     "label": "Strike the newcomers before they can form up",
      "quality": 0,
      "cost": 0,
      "style": "A",

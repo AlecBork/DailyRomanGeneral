@@ -60,6 +60,8 @@ function step(B,st,i,nr,ne){
  const d=B.decisions[st.step],c=d.choices[i],x=outcome(c,st.S);
  Object.assign(st.S,x.set);
  let dr=x.r+(nr||0),de=x.e+(ne||0),pen="";
+ // "ytax": a merely fair (yellow) call gives the enemy this much back, so winning needs mostly best calls
+ if((x.q!==undefined?x.q:c.quality)===1)de+=B.ytax||0;
  const prev=st.step>0?B.decisions[st.step-1].choices[st.picks[st.step-1]].style:null;
  if(prev&&prev===c.style){
   if(c.style==="A"){dr-=8;pen="A"}else if(c.style==="C"){de+=8;pen="C"}else{de+=5;dr-=3;pen="M"}}

@@ -681,5 +681,7 @@
    "text": "Leap down, soldiers, unless you wish to betray your eagle to the enemy!",
    "who": "The eagle-bearer of the Tenth Legion, as Caesar records"
   }
- ]
+ ],
+ "ytax": 2,
+ "winAt": 43
 }

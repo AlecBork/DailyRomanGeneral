@@ -316,7 +316,7 @@
      "cam": "wide"
     },
     {
-     "label": "Hold Londinium with what you have",
+     "label": "Hold Londinium; its people are counting on you",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -403,7 +403,7 @@
      "cam": "wide"
     },
     {
-     "label": "Fight on the open plain where your discipline tells",
+     "label": "Fight on the open plain where discipline tells",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -503,7 +503,7 @@
      "cam": "clash"
     },
     {
-     "label": "Charge out to meet them before their numbers tell",
+     "label": "Charge before their numbers can surround you",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -656,7 +656,7 @@
      "cam": "clash"
     },
     {
-     "label": "Send the auxiliaries in alone",
+     "label": "Send the auxiliaries in first to save the legions",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -757,7 +757,7 @@
      "cam": "wide"
     },
     {
-     "label": "Pursue with the legions alone",
+     "label": "Pursue with the legions so none escape to rise again",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -968,5 +968,7 @@
     ]
    }
   }
- }
+ },
+ "ytax": 1,
+ "winAt": 46
 }

@@ -269,7 +269,7 @@
      "cam": "wide"
     },
     {
-     "label": "Offer them land to settle",
+     "label": "Offer them poor land in the north to buy time",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -395,7 +395,7 @@
      "cam": "wide"
     },
     {
-     "label": "Let them choose the ground",
+     "label": "Let them choose, and learn where they mean to fight",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -473,7 +473,7 @@
      "cam": "right"
     },
     {
-     "label": "Let the legions chase the horse",
+     "label": "Send the legions after the horse while it flees",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -610,7 +610,7 @@
      "cam": "right"
     },
     {
-     "label": "Send the cavalry round to their wagons",
+     "label": "Send the cavalry to burn the wagons and their families’ supplies",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -733,7 +733,7 @@
      "cam": "clash"
     },
     {
-     "label": "Wait for the heat to finish them",
+     "label": "Hold back; the heat is already beating them for you",
      "quality": 0,
      "cost": 0,
      "style": "C",

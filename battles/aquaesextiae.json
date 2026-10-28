@@ -308,7 +308,7 @@
      "cam": "front"
     },
     {
-     "label": "March out and fight them now",
+     "label": "March out now while your men are angry for a fight",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -431,7 +431,7 @@
      "cam": "clash"
     },
     {
-     "label": "Stay in the fort",
+     "label": "Stay in the fort; they will tire and turn back",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -536,7 +536,7 @@
      "cam": "right"
     },
     {
-     "label": "Let the Ligurians fight alone",
+     "label": "Let the Ligurians hold them; keep the legions fresh",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -612,7 +612,7 @@
      "cam": "wide"
     },
     {
-     "label": "Keep every man in the main line: you are outnumbered",
+     "label": "Keep every man in the line: you are outnumbered",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -718,7 +718,7 @@
      "cam": "enemyrear"
     },
     {
-     "label": "Charge down the hill to meet them with all your weight",
+     "label": "Charge down the hill and use the slope’s weight",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -983,5 +983,7 @@
     ]
    }
   }
- }
+ },
+ "ytax": 2,
+ "winAt": 43
 }

@@ -316,7 +316,7 @@
      "cam": "wide"
     },
     {
-     "label": "Storm the river line head-on before Perseus is reinforced",
+     "label": "Force the river now, before Perseus’s reinforcements arrive",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -406,7 +406,7 @@
      "cam": "wide"
     },
     {
-     "label": "Attack at once while they are frightened",
+     "label": "Attack now: the Macedonians think the eclipse is an omen against them",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -516,7 +516,7 @@
      "cam": "front"
     },
     {
-     "label": "Stand and push against the pikes",
+     "label": "Lock shields and hold; the pikes cannot push forever",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -652,7 +652,7 @@
      "cam": "front"
     },
     {
-     "label": "Charge the whole line at once",
+     "label": "Press the whole line so the gaps cannot close",
      "quality": 0,
      "cost": 0,
      "style": "M",
@@ -771,7 +771,7 @@
      "cam": "clash"
     },
     {
-     "label": "Send the right wing after Perseus",
+     "label": "Send the right wing to capture Perseus and end the war",
      "quality": 0,
      "cost": 0,
      "style": "A",

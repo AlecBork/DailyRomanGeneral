@@ -177,7 +177,9 @@ function turn(){
 // Choices are shown in a shuffled order that is fixed for each battle, so their position gives nothing away.
 function ord(k){const n=B.turns[k].c.length,a=[...Array(n).keys()];let h=2166136261;for(const ch of B.id+":"+k){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}
  for(let i=n-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
-function prevNote(){if(!PREV||!PREV.q||PREV.q[step]===undefined||PREV.q[step]>=2)return"";const bad=PREV.q[step]===0;return `<div class="card" style="border-left:4px solid ${bad?"var(--bad)":"#c9a227"};padding:12px 14px"><div class="hist">${bad?"🟥":"🟨"} <b>Last attempt:</b> you chose “${B.turns[step].c[PREV.p[step]].l}” here, and it ${bad?"went badly":"was only fair"}.</div></div>`}
+// Between attempts the game only says how many calls were the best ones, never which, so a retry takes thought.
+function prevNote(){if(!PREV||!PREV.p||PREV.p[step]==null||PREV.won)return"";return `<div class="card" style="border-left:4px solid var(--line);padding:12px 14px"><div class="hist">📜 <b>Last attempt:</b> you chose “${B.turns[step].c[PREV.p[step]].l}” here.</div></div>`}
+function gHide(q){return q.map(()=>"⬛").join("")}
 function pick(i){
  const k=step,c=B.turns[k].c[i];if(!PRACTICE)track(`${B.id}/attempt${ATT.length+1}/decision${k+1}/choice${i}-q${c.q}`,`${B.name}: ${B.turns[k].h}: ${c.l}`);const R0=R,E0=E;SFX.click();try{const I=B.decisions[k].intel;SC[k]=I?Rules.text(I.scout,S):""}catch(e){SC[k]=""}
  const st={S,R,E,CP,step,picks,quals},res=Rules.step(B,st,i,Math.round((rnd(k)-.5)*6),Math.round((rnd(k+9)-.5)*6));
@@ -312,10 +314,10 @@ function shareImage(gs,r,hit,tot,streak){return new Promise(res=>{try{
 function end(r){
  const over=!!r.atts||r.won||ATT.length>=3,left=3-ATT.length;scout=true;R=r.R;E=r.E;bars();
  const gs=r.atts||(ATT.length?ATT:[r]);
- const gh=gs.map((a,k)=>`<div class="grow"><span class="gn">${k+1}</span><span class="mono">${gOf(a.q)}</span><span>${a.won?"✔":"✘"}</span></div>`).join("");
+ const gh=gs.map((a,k)=>`<div class="grow"><span class="gn">${k+1}</span><span class="mono">${over?gOf(a.q):gHide(a.q)}</span><span>${a.won?"✔":"✘"}</span></div>`).join("");
  const head=r.won?(r.E<=25?"Decisive victory":"Victory"):(r.rout?"Your army is routed":"Defeat");
- if(!over){const w=r.q.indexOf(Math.min(...r.q));
-  hud("over",Object.assign(r.q.slice(),{won:false}));V.innerHTML=`<div class="card res lose"><div class="kicker"><span>Attempt ${ATT.length} of 3</span></div><div class="big">${head}</div>${gh}<p class="hist">Your weakest call came at decision ${w+1}, <b>${B.turns[w].h}</b>. ${r.p&&r.p[w]!=null?"You ordered: “"+B.turns[w].c[r.p[w]].l+"”.":""}</p><p class="hist">Next time, each decision that went badly will be flagged, but working out the better move is up to you.</p><button class="primary" id="rt">Try again · ${left} left</button></div>`;
+ if(!over){
+  hud("over",Object.assign(r.q.map(()=>null),{won:false}));const good=r.q.filter(v=>v>=2).length;V.innerHTML=`<div class="card res lose"><div class="kicker"><span>Attempt ${ATT.length} of 3</span></div><div class="big">${head}</div>${gh}<p class="hist"><b>${good} of ${r.q.length}</b> of your calls were the best available. The rest were not, and it is up to you to work out which.</p><p class="hist">Each call’s colour is revealed when the battle is over.</p><button class="primary" id="rt">Try again · ${left} left</button></div>`;
   $("rt").onclick=retry;return}
  const cmp=(r.p||[]).map((v,k)=>{const t=B.turns[k],h=B.hist[k],ok=v===h;return `<div class="row"><span>${ok?"✅":"❌"}</span><span><b>${t.h}:</b> ${ok?"You matched "+B.hn+".":"You chose “"+t.c[v].l+"”. "+B.hn+": “"+t.c[h].l+"”."}</span></div>`}).join("");
  const fresh=PRACTICE?[]:newHonours(),honHTML=(SAVED?`<div class="toast">🙏 <span>The gods were kind: one missed day this month was forgiven, and your streak lives on.</span></div>`:"")+fresh.map(a=>`<div class="toast"><span style="font-size:1.4rem">${a[1]}</span><span><b>New honour: ${a[2]}</b><br><span class="sub">${a[3]}</span></span></div>`).join("");

@@ -307,7 +307,7 @@
      "cam": "wide"
     },
     {
-     "label": "Ignore him and fight alone",
+     "label": "Fight with your own army; a divided command is worse",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -348,7 +348,7 @@
    },
    "choices": [
     {
-     "label": "Camp on the level ground by the river",
+     "label": "Camp by the river, close to water and Caepio",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -447,7 +447,7 @@
    },
    "choices": [
     {
-     "label": "Stay in camp: it is his fight",
+     "label": "Stay in camp: if he fails, your army is still whole",
      "quality": 0,
      "cost": 0,
      "style": "C",
@@ -572,7 +572,7 @@
    },
    "choices": [
     {
-     "label": "Fight where you stand",
+     "label": "Fight from the camp’s rampart where you stand",
      "quality": 0,
      "cost": 0,
      "style": "A",
@@ -687,7 +687,7 @@
    },
    "choices": [
     {
-     "label": "Every man for himself",
+     "label": "Break up and make for the river in small groups",
      "quality": 0,
      "cost": 0,
      "style": "A",
