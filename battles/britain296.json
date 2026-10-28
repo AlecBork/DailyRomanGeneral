@@ -1,0 +1,643 @@
+{
+ "id": "britain296",
+ "name": "Recovery of Britain",
+ "date": "296 AD",
+ "result": "win",
+ "loc": {
+  "lat": 51.05,
+  "lon": -1.2,
+  "place": "southern Britain",
+  "short": "Britain (296)",
+  "x": 164,
+  "y": -48
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Allectus",
+  "commander": "Asclepiodotus",
+  "foe": "Allectus"
+ },
+ "intro": "Southern Britain, 296 AD. For ten years Britain has had its own emperors, first Carausius and now his murderer Allectus. You are Asclepiodotus, Prefect of the Caesar Constantius Chlorus.",
+ "debrief": "In the Latin Panegyrics and later accounts, Asclepiodotus slipped past Allectus’s fleet in fog, landed and burned his ships. Allectus hurried to meet him and was killed, having taken off his insignia. Allectus’s Frankish mercenaries fled to London to loot it, but some of Constantius’s ships, lost in the fog, came up the Thames and cut them down. A gold medallion shows Constantius welcomed at London as 'restorer of the eternal light'. The other choices are what-ifs.",
+ "terrain": {
+  "forests": [
+   [
+    60,
+    60,
+    60,
+    16
+   ]
+  ],
+  "grass": "#6f8a4a",
+  "weather": "mist"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Asclepiodotus’s army",
+   "model": "legionary"
+  },
+  "fl": {
+   "x": 80,
+   "y": 240,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Fleet (ships burned on landing)",
+   "model": "galley_roman"
+  },
+  "all": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Allectus’s army (Frankish mercenaries)",
+   "model": "barbarian",
+   "scales": true
+  },
+  "al": {
+   "x": 340,
+   "y": 60,
+   "w": 40,
+   "h": 6,
+   "side": "enemy",
+   "name": "Allectus",
+   "model": "cav_roman"
+  },
+  "lon": {
+   "x": 340,
+   "y": 200,
+   "w": 60,
+   "h": 8,
+   "side": "roman",
+   "name": "Londinium",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The fleet slips through the fog.",
+   "Allectus is killed.",
+   "London is saved."
+  ],
+  "lose": [
+   "Allectus’s fleet stops the invasion.",
+   "Britain stays apart.",
+   "Allectus rules on."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Crossing",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Fog",
+     "tone": "g"
+    },
+    {
+     "text": "Fleet beaten",
+     "tone": "r"
+    },
+    {
+     "text": "Warned",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Isle of Wight",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Ships",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Burned",
+     "tone": "g"
+    },
+    {
+     "text": "Ready",
+     "tone": "a"
+    },
+    {
+     "text": "Sent back",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Landing",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Allectus",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Killed",
+     "tone": "g"
+    },
+    {
+     "text": "Reinforced",
+     "tone": "a"
+    },
+    {
+     "text": "Caught on the march",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Hurrying",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "London",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Saved",
+     "tone": "g"
+    },
+    {
+     "text": "Burning",
+     "tone": "r"
+    },
+    {
+     "text": "Plundered",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Looters",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Britain apart",
+   "text": "Britain has been ruled by its own emperors for ten years: first Carausius, now Allectus, who murdered him. You are Asclepiodotus, Praetorian Prefect of Constantius Chlorus, sailing to take it back.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Allectus’s fleet waits off the Isle of Wight."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Use the fog."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Sail through the fog",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "fog": 1
+       },
+       "text": "Your fleet slips past Allectus’s ships in thick fog and lands."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight his fleet first",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "His ships beat yours."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for Constantius’s fleet",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Allectus is warned."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The ships",
+   "text": "You land on the south coast.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men must not think of going back."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Burn the ships."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Burn the ships",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "text": "You burn your ships on the beach. Your men must win or die."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fl": [
+         80,
+         240,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Keep them ready",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Some men eye the beach."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send them back for more men",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "You are left with fewer men."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Allectus",
+   "text": "Allectus hurries to meet you with Frankish mercenaries, leaving many of his troops behind.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He is in a rush."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hit him before his men arrive."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hit him",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "fog": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "You catch Allectus before his full army arrives. Allectus is killed, having taken off his insignia so as not to be recognised."
+      },
+      {
+       "r": -6,
+       "e": -7,
+       "text": "A hard fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "leg",
+        "all"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for him to attack",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "More of his men arrive."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March on London",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "He catches you on the march."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "London",
+   "text": "Allectus’s defeated Franks run to London to loot it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Constantius’s ships have been lost in the fog, but some reached the Thames."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Save London."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Save London",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "Constantius’s lost ships come up the Thames and catch the looters in the streets."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lon": [
+         340,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Let them loot",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "London burns."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase the last of Allectus’s army",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "London is plundered."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Restorer",
+   "text": "Constantius arrives in London.",
+   "intel": {
+    "hint": [
+     {
+      "text": "A gold medallion will be struck."
+     }
+    ],
+    "scout": [
+     {
+      "text": "What does it say?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "'Restorer of light'",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "The Arras medallion shows Constantius at London’s gate, welcomed as REDDITOR LVCIS AETERNAE, restorer of the eternal light."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Punish the Britons who backed him",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "Britain resents Rome."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Execute Allectus’s officers",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Fear spreads."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Carausian revolt (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Carausian_revolt"
+  }
+ ]
+}

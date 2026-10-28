@@ -1440,6 +1440,51 @@
    "lon": 4.36,
    "result": "win",
    "naval": false
+  },
+  {
+   "id": "ctesiphon283",
+   "name": "Ctesiphon (283)",
+   "date": "283 AD",
+   "lat": 33.09,
+   "lon": 44.58,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "margus",
+   "name": "Margus",
+   "date": "285 AD",
+   "lat": 44.55,
+   "lon": 21.25,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "britain296",
+   "name": "Britain (296)",
+   "date": "296 AD",
+   "lat": 51.05,
+   "lon": -1.2,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "callinicum296",
+   "name": "Callinicum",
+   "date": "296 AD",
+   "lat": 35.95,
+   "lon": 39.01,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "satala",
+   "name": "Satala",
+   "date": "298 AD",
+   "lat": 40.02,
+   "lon": 39.6,
+   "result": "win",
+   "naval": false
   }
  ]
 }

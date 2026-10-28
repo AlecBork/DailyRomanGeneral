@@ -1,0 +1,631 @@
+{
+ "id": "margus",
+ "name": "Battle of the Margus",
+ "date": "285 AD",
+ "result": "win",
+ "loc": {
+  "lat": 44.55,
+  "lon": 21.25,
+  "place": "the Margus river, Moesia",
+  "short": "Margus",
+  "x": 451,
+  "y": 66
+ },
+ "names": {
+  "rome": "Diocletian",
+  "enemy": "Carinus",
+  "commander": "Diocletian",
+  "foe": "Carinus"
+ },
+ "intro": "Near the Margus river (the Morava, Serbia), 285 AD. You are Diocletian, proclaimed Emperor by the eastern army. Carinus, son of Carus, rules the West.",
+ "debrief": "The accounts are brief. Carinus’s army seemed to be winning when he was killed by one of his own officers, said to be a man whose wife he had seduced. His army accepted Diocletian, who kept many of Carinus’s officials. Diocletian went on to share power in the Tetrarchy and, unusually, retired in 305, famously preferring to grow cabbages. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "x": -214,
+   "w": 26
+  },
+  "grass": "#7f9a4d"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Diocletian’s eastern army",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 60,
+   "y": 220,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "car": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Carinus’s western army",
+   "model": "legionary",
+   "scales": true
+  },
+  "ck": {
+   "x": 340,
+   "y": 60,
+   "w": 40,
+   "h": 6,
+   "side": "enemy",
+   "name": "Emperor Carinus",
+   "model": "cav_roman"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Carinus is killed by his own officer.",
+   "His army accepts Diocletian.",
+   "The Tetrarchy begins."
+  ],
+  "lose": [
+   "Carinus breaks Diocletian’s army.",
+   "Diocletian dies.",
+   "Carinus rules alone."
+  ],
+  "cams": [
+   "wide",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Plan",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Officers won",
+     "tone": "g"
+    },
+    {
+     "text": "Hard fight",
+     "tone": "a"
+    },
+    {
+     "text": "Waiting",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Margus",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Line",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Holding",
+     "tone": "g"
+    },
+    {
+     "text": "Broken",
+     "tone": "r"
+    },
+    {
+     "text": "Retreating",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Pushed back",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Carinus",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Killed by his officer",
+     "tone": "g"
+    },
+    {
+     "text": "Guard holds",
+     "tone": "a"
+    },
+    {
+     "text": "Refused",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "At the front",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Army",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Won over",
+     "tone": "g"
+    },
+    {
+     "text": "Slaughter",
+     "tone": "r"
+    },
+    {
+     "text": "Scattered",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Leaderless",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Two emperors",
+   "text": "You are Diocletian, proclaimed by the eastern army. Carinus, son of Carus, rules the West and has beaten one rival already. You meet near the Margus river.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Carinus is said to have seduced his officers’ wives."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Win over his officers."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Bribe officers",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "plot": 1
+       },
+       "text": "Your agents talk to Carinus’s officers. Some are angry with him."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack at once",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "His army is strong."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "car"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait in the East for him to come",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "He comes to you, stronger."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Battle",
+   "text": "Carinus’s army attacks hard and pushes you back.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hold."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold the line."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -12,
+       "text": "Your line bends but holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "car"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Charge",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Your army is broken."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "car"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Retreat",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "Carinus follows."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Carinus",
+   "text": "Carinus is near the front.",
+   "intel": {
+    "hint": [
+     {
+      "text": "One of his own officers hates him."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wait."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Wait",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "plot": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "Carinus is killed by one of his own officers. His army stops fighting."
+      },
+      {
+       "r": -6,
+       "e": -7,
+       "text": "Carinus fights on."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ck": [
+         340,
+         60,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Send your cavalry at him",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "His guard holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "cav",
+        "car"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Ask for talks",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "He refuses."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "His army",
+   "text": "Carinus’s army has no Emperor.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They are Roman soldiers."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Win them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pardon them",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "text": "Carinus’s army accepts you. You keep his officers, even his Prefect."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Romans kill Romans."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "car"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Dismiss them to their homes",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They scatter."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The empire",
+   "text": "You are sole Emperor.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The empire is too big for one man."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Share it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Share it",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "You make Maximian your co-emperor, and later add two Caesars: the Tetrarchy. Twenty years later you retire to grow cabbages."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rule alone",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Revolts break out."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Make your son heir",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "You have only a daughter."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Margus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Margus"
+  }
+ ]
+}

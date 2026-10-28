@@ -1,0 +1,621 @@
+{
+ "id": "ctesiphon283",
+ "name": "Capture of Ctesiphon",
+ "date": "283 AD",
+ "result": "win",
+ "loc": {
+  "lat": 33.09,
+  "lon": 44.58,
+  "place": "Ctesiphon, Mesopotamia",
+  "short": "Ctesiphon (283)",
+  "x": 750,
+  "y": 266
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Sasanian Persia",
+  "commander": "Carus",
+  "foe": "Bahram II"
+ },
+ "intro": "Ctesiphon on the Tigris, 283 AD. Persia is divided by civil war. You are Carus, an old soldier just made Emperor.",
+ "debrief": "Carus marched down the rivers and took Ctesiphon while the Persian king was busy elsewhere. Soon after, he died in his camp; the sources say he was struck by lightning, though some suspected murder. His son Numerian led the army home but was found dead in his litter. The Prefect Aper was blamed and killed by Diocles, who became the Emperor Diocletian. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 150,
+   "w": 30
+  },
+  "grass": "#a8a163",
+  "ground": "#c4ad76",
+  "weather": "rain"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 220,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Carus’s legions",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 320,
+   "y": 225,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_heavy"
+  },
+  "cte": {
+   "x": 200,
+   "y": 70,
+   "w": 180,
+   "h": 12,
+   "side": "enemy",
+   "name": "Ctesiphon",
+   "model": "levy",
+   "scales": true
+  },
+  "per": {
+   "x": 340,
+   "y": 110,
+   "w": 80,
+   "h": 10,
+   "side": "enemy",
+   "name": "Persian garrison",
+   "model": "cav_heavy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Ctesiphon is stormed.",
+   "Persia is humbled.",
+   "The army returns in triumph."
+  ],
+  "lose": [
+   "Bahram gathers his army.",
+   "Ctesiphon holds.",
+   "Carus retreats."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Speed",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Fast",
+     "tone": "g"
+    },
+    {
+     "text": "Slow",
+     "tone": "a"
+    },
+    {
+     "text": "Stalled",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Persia divided",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "City",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Stormed",
+     "tone": "g"
+    },
+    {
+     "text": "Besieged",
+     "tone": "a"
+    },
+    {
+     "text": "Bypassed",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Ctesiphon",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Beyond",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Pushing on",
+     "tone": "a"
+    },
+    {
+     "text": "Holding",
+     "tone": "g"
+    },
+    {
+     "text": "Gone home",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Tigris",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Carus",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Numerian",
+     "tone": "g"
+    },
+    {
+     "text": "Aper",
+     "tone": "r"
+    },
+    {
+     "text": "Divided",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Dead",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Carus",
+   "text": "Persia is distracted by civil war. You are Carus, an old soldier who has just become Emperor, marching down the Euphrates.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Persian king Bahram II is busy in the east."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Move fast."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Move fast",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -15,
+       "set": {
+        "fast": 1
+       },
+       "text": "Your army races down the rivers before Bahram can gather his forces."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Advance slowly and secure Mesopotamia first",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Bahram gathers men."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer peace in return for Armenia",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Bahram stalls."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Ctesiphon",
+   "text": "Ctesiphon is weakly held.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Storm it before help comes."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Storm it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Storm it",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "fast": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "Your legions storm the weakly held city."
+      },
+      {
+       "r": -8,
+       "e": -8,
+       "text": "The garrison is ready."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "leg",
+        "cte"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Besiege it",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "It takes weeks."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Bypass it and push deeper into Persia",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Your rear is exposed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Beyond",
+   "text": "Ctesiphon is yours.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your soldiers want to go on."
+     }
+    ],
+    "scout": [
+     {
+      "text": "How far?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Push on beyond the Tigris",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -13,
+       "text": "You march beyond Ctesiphon."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold Ctesiphon",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "You hold your conquest."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Go home with the loot",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "Persia recovers."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Lightning",
+   "text": "A great storm breaks over the camp. Carus is found dead in his tent.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Some say lightning killed him. Others blame his Prefect, Aper."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Who rules?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Make his son Numerian Emperor",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "The army hails Numerian. But a story says the gods forbid Romans to go beyond Ctesiphon."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let the Prefect Aper take command",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The officers mistrust him."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Elect a general",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The army is divided."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Home",
+   "text": "The army turns for home.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Numerian falls ill with his eyes and travels in a closed litter."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Watch Aper."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Watch Aper",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "Numerian is found dead in his litter. The army blames Aper, and Diocles, the commander of the guard, kills him and becomes Emperor Diocletian."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Trust Aper",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "No one sees inside the litter."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hurry home",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The march is hard."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Carus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Carus"
+  }
+ ]
+}

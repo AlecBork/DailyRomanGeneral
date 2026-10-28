@@ -1,0 +1,651 @@
+{
+ "id": "satala",
+ "name": "Battle of Satala",
+ "date": "298 AD",
+ "result": "win",
+ "loc": {
+  "lat": 40.02,
+  "lon": 39.6,
+  "place": "near Satala, Armenia",
+  "short": "Satala",
+  "x": 686,
+  "y": 145
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Sasanian Persia",
+  "commander": "Galerius",
+  "foe": "Narseh"
+ },
+ "intro": "Near Satala in Armenia, 298 AD. After his defeat at Callinicum, Galerius returns with 25,000 Danube veterans. You are Galerius.",
+ "debrief": "In the accounts of Festus, Eutropius and others, Galerius went through Armenia, where the terrain suited his infantry. He is said to have scouted Narseh’s camp himself with two horsemen, then surprised it. Narseh fled wounded, and Galerius captured his wives, family and treasury. In the Peace of Nisibis, Persia gave up land beyond the Tigris; the peace lasted about forty years. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    60,
+    60,
+    80,
+    24
+   ],
+   [
+    340,
+    60,
+    80,
+    24
+   ]
+  ],
+  "grass": "#7f9a4d"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Galerius’s Danube veterans",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 320,
+   "y": 220,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "arm": {
+   "x": 60,
+   "y": 220,
+   "w": 60,
+   "h": 8,
+   "side": "roman",
+   "name": "Armenian allies",
+   "model": "cav_eastern"
+  },
+  "per": {
+   "x": 200,
+   "y": 90,
+   "w": 220,
+   "h": 14,
+   "side": "enemy",
+   "name": "Narseh’s camp and army",
+   "model": "cav_heavy",
+   "scales": true
+  },
+  "har": {
+   "x": 340,
+   "y": 40,
+   "w": 80,
+   "h": 6,
+   "side": "enemy",
+   "name": "Narseh’s harem and treasury",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Galerius surprises Narseh’s camp.",
+   "The Persian royal family is captured.",
+   "Rome gains land beyond the Tigris."
+  ],
+  "lose": [
+   "The Persians beat Galerius again.",
+   "Armenia is lost.",
+   "Narseh keeps Mesopotamia."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Route",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Through Armenia",
+     "tone": "g"
+    },
+    {
+     "text": "On the plains",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Second try",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Scouting",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Seen himself",
+     "tone": "g"
+    },
+    {
+     "text": "Partial",
+     "tone": "a"
+    },
+    {
+     "text": "Blind",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Narseh’s camp",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Attack",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Surprise",
+     "tone": "g"
+    },
+    {
+     "text": "Formed up",
+     "tone": "a"
+    },
+    {
+     "text": "Spotted",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Camp",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Spoils",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Family taken",
+     "tone": "g"
+    },
+    {
+     "text": "Narseh escapes",
+     "tone": "a"
+    },
+    {
+     "text": "Scattered",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Narseh flees",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Armenia",
+   "text": "You are Galerius, back with 25,000 hardened Danube veterans. This time you go through Armenia, where the hills suit infantry and the people support you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hills and friends."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Go through Armenia."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Go through Armenia",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "arm": 1
+       },
+       "text": "You march through the Armenian hills, with Armenian help."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "arm": [
+         60,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Go through Mesopotamia again",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The plains favour his horse."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait in Syria",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Narseh raids."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Scouting",
+   "text": "You scout Narseh’s camp yourself, in disguise, with two horsemen.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Risky, but you will see the truth."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Go."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Go yourself",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "seen": 1
+       },
+       "text": "You see the camp is badly guarded."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send scouts",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "They see less."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack blind",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "You hit his strongest part."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The camp",
+   "text": "Narseh’s army is camped, not expecting you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Attack at night or dawn."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Surprise them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Surprise them",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "seen": true
+       },
+       "r": -2,
+       "e": -17,
+       "text": "You strike the camp by surprise. The Persians cannot form up."
+      },
+      {
+       "r": -6,
+       "e": -6,
+       "text": "The camp is roused."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "leg",
+        "per"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Draw them out to fight",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "They form up."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for them to move",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "They see you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Narseh",
+   "text": "Narseh flees, wounded. His harem, wives and treasury are in the camp.",
+   "intel": {
+    "hint": [
+     {
+      "text": "These are precious hostages."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Take them",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "text": "You capture Narseh’s wives, sisters and children, and his treasury."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "har": [
+         340,
+         40,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Chase Narseh",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "He gets away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Loot the camp",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Your men scatter."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Peace",
+   "text": "Narseh asks for his family back.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He will give a lot."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Make terms."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Make terms",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "In the Peace of Nisibis, Persia gives up land beyond the Tigris. It is Rome’s best peace with Persia, and lasts forty years."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March on Ctesiphon",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Diocletian holds you back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep the family",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The war goes on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Satala (298) (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Satala_(298)"
+  }
+ ]
+}

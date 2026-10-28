@@ -1,0 +1,627 @@
+{
+ "id": "callinicum296",
+ "name": "Battle of Callinicum",
+ "date": "296 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 35.95,
+  "lon": 39.01,
+  "place": "near Callinicum, Mesopotamia",
+  "short": "Callinicum",
+  "x": 678,
+  "y": 216
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Sasanian Persia",
+  "commander": "Galerius",
+  "foe": "Narseh"
+ },
+ "intro": "Between Callinicum and Carrhae in Mesopotamia, 296 or 297 AD. The Persian king Narseh has invaded. You are Galerius, Caesar of the East under Diocletian.",
+ "debrief": "Galerius, with a smaller army, was beaten by Narseh near Carrhae, where Crassus had died. The sources say little about the battle. Afterwards, Diocletian is said to have made Galerius walk a mile in his purple robes in front of the imperial carriage. Galerius returned the next year with a bigger army and won at Satala. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#a8a163",
+  "ground": "#c4ad76"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Galerius’s army",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 60,
+   "y": 220,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "per": {
+   "x": 200,
+   "y": 90,
+   "w": 220,
+   "h": 14,
+   "side": "enemy",
+   "name": "Narseh’s Persian army",
+   "model": "cav_heavy",
+   "scales": true
+  },
+  "ha": {
+   "x": 340,
+   "y": 80,
+   "w": 80,
+   "h": 10,
+   "side": "enemy",
+   "name": "Horse archers",
+   "model": "cav_eastern"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The army holds on broken ground.",
+   "Narseh is stopped.",
+   "Mesopotamia is safe."
+  ],
+  "lose": [
+   "The horse archers surround Galerius.",
+   "His army is beaten.",
+   "Diocletian makes him walk."
+  ],
+  "cams": [
+   "wide",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Army",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Small",
+     "tone": "r"
+    },
+    {
+     "text": "Reinforced",
+     "tone": "g"
+    },
+    {
+     "text": "Raiding",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Narseh",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Ground",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Surrounded",
+     "tone": "r"
+    },
+    {
+     "text": "Broken ground",
+     "tone": "g"
+    },
+    {
+     "text": "Retreating",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Near Carrhae",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Charge",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Holds",
+     "tone": "g"
+    },
+    {
+     "text": "Broken",
+     "tone": "r"
+    },
+    {
+     "text": "Crushed",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Cataphracts",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Rout",
+   "decision": 3,
+   "options": [
+    {
+     "text": "In order",
+     "tone": "g"
+    },
+    {
+     "text": "Scattered",
+     "tone": "r"
+    },
+    {
+     "text": "Cut down",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Beaten",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Narseh",
+   "text": "The new Persian king Narseh has invaded Roman Armenia and Mesopotamia. You are Galerius, Diocletian’s Caesar.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Diocletian is gathering more men."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wait for him."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack with what you have",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "You march out with a small army."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for more troops",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -23,
+       "set": {
+        "big": 1
+       },
+       "text": "Your army grows."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Raid Persian lands to draw him off",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "Narseh ignores it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The plain",
+   "text": "You meet Narseh between Callinicum and Carrhae, near where Crassus died.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Horse country."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Find broken ground."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight on the open plain",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "big": true
+       },
+       "r": -4,
+       "e": -6,
+       "text": "Your bigger army holds."
+      },
+      {
+       "r": -12,
+       "e": 0,
+       "text": "The horse archers surround you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ha": [
+         300,
+         180
+        ]
+       },
+       "f": [
+        "leg",
+        "per"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Find broken ground",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -19,
+       "text": "You fight from hills."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fall back to the Euphrates",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -6,
+       "text": "Narseh follows."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Cataphracts",
+   "text": "Narseh’s heavy horse charges.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Lock shields."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Lock shields."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Lock shields",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -19,
+       "text": "The charge breaks."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Counter-charge",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Your line breaks."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "per": [
+         200,
+         170
+        ]
+       },
+       "f": [
+        "leg",
+        "per"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send the cavalry",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -6,
+       "text": "They are crushed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "cav",
+        "per"
+       ]
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Rout",
+   "text": "Your army is beaten.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Save what you can."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Retreat."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Retreat in order",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -11,
+       "text": "Some get away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Flee to Antioch",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Your army scatters."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight to the end",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": -6,
+       "text": "Few survive."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Diocletian",
+   "text": "You meet Diocletian at Antioch.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He is furious."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Accept his anger."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Walk beside his chariot",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Diocletian makes you walk a mile in your purple robes in front of his carriage. You swear to win next year."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Argue with him",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "He nearly dismisses you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ask for a new army",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "He gives you the Danube legions."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Callinicum (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Callinicum"
+  }
+ ],
+ "winAt": 50
+}
