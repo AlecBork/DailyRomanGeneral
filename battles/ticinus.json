@@ -1,0 +1,715 @@
+{
+ "id": "ticinus",
+ "name": "Battle of the Ticinus",
+ "date": "218 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 45.2,
+  "lon": 8.98,
+  "place": "the Ticinus, near the Po",
+  "short": "Ticinus",
+  "x": 294,
+  "y": 54
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Hannibal",
+  "commander": "Scipio",
+  "foe": "Hannibal"
+ },
+ "intro": "On the plain by the river Ticinus, north of the Po, late 218 BC. Hannibal has just crossed the Alps. You are the consul Publius Cornelius Scipio, riding out with your cavalry and javelin men to look at his army.",
+ "debrief": "In Polybius’s account, both generals rode out to reconnoitre with their cavalry and met on the plain. Scipio’s javelin men were in front, threw hardly at all, and fled back through the Roman horse. The cavalry fought hand to hand until Hannibal’s Numidians swept round the flanks and fell on the rear. Scipio was badly wounded; his seventeen-year-old son, the future Scipio Africanus, is said to have saved him. The Romans fell back across the Po. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "x": 380,
+   "w": 24
+  }
+ },
+ "units": {
+  "eq": {
+   "x": 200,
+   "y": 195,
+   "w": 130,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman and allied horse",
+   "model": "cav_roman"
+  },
+  "jav": {
+   "x": 200,
+   "y": 175,
+   "w": 120,
+   "h": 8,
+   "side": "roman",
+   "name": "Javelin men",
+   "model": "velites"
+  },
+  "sci": {
+   "x": 200,
+   "y": 215,
+   "w": 30,
+   "h": 8,
+   "side": "roman",
+   "name": "Scipio and his son",
+   "model": "cav_roman"
+  },
+  "pc": {
+   "x": 200,
+   "y": 95,
+   "w": 130,
+   "h": 14,
+   "side": "enemy",
+   "name": "Hannibal’s heavy horse",
+   "model": "cav_punic",
+   "scales": true
+  },
+  "n1": {
+   "x": 50,
+   "y": 80,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Numidians",
+   "model": "cav_numidian",
+   "scales": true
+  },
+  "n2": {
+   "x": 350,
+   "y": 80,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Numidians",
+   "model": "cav_numidian",
+   "scales": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Numidians are held off.",
+   "The Roman horse get home safely.",
+   "Hannibal learns respect."
+  ],
+  "lose": [
+   "The Numidians close the ring.",
+   "The consul is carried from the field.",
+   "Hannibal’s horse rule the plains."
+  ],
+  "cams": [
+   "clash",
+   "wide",
+   "wide"
+  ],
+  "anim": {
+   "lose": "encircle"
+  }
+ },
+ "status": [
+  {
+   "label": "Scouting",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Riding out",
+     "tone": "a"
+    },
+    {
+     "text": "Scouts out",
+     "tone": "g"
+    },
+    {
+     "text": "Army marching",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Hannibal near",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Javelin men",
+   "decision": 1,
+   "options": [
+    {
+     "text": "In front",
+     "tone": "r"
+    },
+    {
+     "text": "Behind, flanks guarded",
+     "tone": "g"
+    },
+    {
+     "text": "Charging",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Dust ahead",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Centre",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Hand to hand",
+     "tone": "a"
+    },
+    {
+     "text": "Turned to the flanks",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Charged",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Flanks",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Ring closing",
+     "tone": "r"
+    },
+    {
+     "text": "Retreating",
+     "tone": "a"
+    },
+    {
+     "text": "Surrounded",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Numidians",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Hannibal in Italy",
+   "text": "Hannibal has crossed the Alps. You are the consul Publius Cornelius Scipio, back from Massilia, and have crossed the Po to find him. You ride out with your cavalry and javelin men to see his army for yourself.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hannibal is also riding out with his cavalry to look at you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take your whole cavalry force, and keep the javelin men close behind it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ride out with horse and javelin men to look",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "You ride out with your horse and javelin men toward the Ticinus."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send scouts and keep the army together",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -15,
+       "set": {
+        "scouts": 1
+       },
+       "text": "Your scouts report a great dust cloud: Hannibal’s cavalry is near."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March the whole army straight at Hannibal",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The army marches into country Hannibal knows better."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Dust on the plain",
+   "text": "The dust of Hannibal’s horse is in sight. His heavy cavalry is in front, his Numidians on both wings.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Numidians are on both wings."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Keep the javelin men behind your horse, and watch your flanks."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Put the javelin men in front of your horse",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "set": {
+        "front": 1
+       },
+       "text": "The javelin men go in front, as usual."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "jav": [
+         200,
+         165
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Keep them behind and guard the flanks",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "set": {
+        "flanks": 1
+       },
+       "text": "Your javelin men stay behind the horse, and your wings are ready."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge at once, before they deploy",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "The horse charge into the dust."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "eq",
+        "pc"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The clash",
+   "text": "Hannibal’s heavy horse charges. Your javelin men in front have barely thrown before they run back through your own cavalry.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your horsemen are fighting hand to hand."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold the centre while the flanks are watched."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight it out in the centre",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "flanks": true
+       },
+       "r": -4,
+       "e": -12,
+       "text": "The centre fight is hard, but the flanks hold."
+      },
+      {
+       "r": -8,
+       "e": -10,
+       "text": "The centre fight is fierce. Many horsemen dismount to fight on foot."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         200,
+         150
+        ],
+        "pc": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "eq",
+        "pc"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Turn to face the flanks",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -15,
+       "text": "You turn to meet the Numidians."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         200,
+         190
+        ]
+       },
+       "f": [
+        "eq",
+        "n1"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send for the legions",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "The legions are hours away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The Numidians",
+   "text": "The Numidians sweep round both wings and fall on your javelin men and your rear.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You are being surrounded."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cut your way out before the ring closes."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Charge to break the ring",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "flanks": true
+       },
+       "r": -4,
+       "e": -12,
+       "text": "Your flank guards hold the Numidians off long enough."
+      },
+      {
+       "r": -10,
+       "e": -8,
+       "text": "In the charge you are badly wounded. Your seventeen-year-old son, Publius, rides into the melee and rescues you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "n1": [
+         100,
+         190
+        ],
+        "n2": [
+         300,
+         190
+        ],
+        "sci": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "sci",
+        "n1",
+        "pc"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Retreat at once to the camp",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -11,
+       "text": "The horse fall back in order to the camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         200,
+         230
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Stand and fight in a circle",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -12,
+       "e": -2,
+       "text": "The ring closes."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "n1": [
+         100,
+         190
+        ],
+        "n2": [
+         300,
+         190
+        ]
+       },
+       "f": [
+        "eq",
+        "n1",
+        "n2"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "Back across the Po",
+   "text": "Your cavalry is beaten. You are wounded. The plains belong to Hannibal’s horse.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The bridge over the Po is behind you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pull back across the Po and break the bridge, then wait for your colleague."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pull back across the Po and wait for Sempronius",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "You fall back across the river toward the Trebia, and send for your colleague."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer battle on the plain with the legions",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -2,
+       "text": "Hannibal’s horse rule the plain."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold the bridgehead with the legions",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "text": "The legions hold the river line."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Ticinus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Ticinus"
+  }
+ ],
+ "winAt": 50
+}

@@ -1,0 +1,705 @@
+{
+ "id": "panormus",
+ "name": "Battle of Panormus",
+ "date": "250 BC",
+ "result": "win",
+ "loc": {
+  "lat": 38.11,
+  "lon": 13.36,
+  "place": "Panormus (Palermo), Sicily",
+  "short": "Panormus",
+  "x": 350,
+  "y": 178
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Metellus",
+  "foe": "Hasdrubal"
+ },
+ "intro": "Outside Panormus (Palermo), Sicily, 250 BC. Hasdrubal has come with a large army and about a hundred elephants. Since the defeat in Africa five years ago, Roman troops have feared elephants. You are the proconsul Lucius Caecilius Metellus, inside the city.",
+ "debrief": "In Polybius’s account, Metellus kept his army inside Panormus until Hasdrubal came close, then posted light troops with stacks of javelins along the ditch before the walls. The elephant drivers charged ahead of their army, the elephants were wounded by the missiles and stampeded back into their own troops, and Metellus sallied from a side gate into the disordered Carthaginians. He captured the elephants and paraded them in his triumph. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 130,
+   "w": 14
+  },
+  "hills": [
+   [
+    200,
+    10,
+    180,
+    16
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 140,
+   "h": 14,
+   "side": "roman",
+   "name": "Metellus’s legions (inside the walls)",
+   "model": "hastati"
+  },
+  "vel": {
+   "x": 200,
+   "y": 165,
+   "w": 140,
+   "h": 8,
+   "side": "roman",
+   "name": "Light troops at the ditch",
+   "model": "velites"
+  },
+  "ditch": {
+   "x": 200,
+   "y": 180,
+   "w": 200,
+   "h": 4,
+   "side": "roman",
+   "name": "Ditch before the walls",
+   "model": "levy"
+  },
+  "ele": {
+   "x": 200,
+   "y": 95,
+   "w": 140,
+   "h": 12,
+   "side": "enemy",
+   "name": "Hasdrubal’s elephants (about 100)",
+   "model": "elephant"
+  },
+  "han": {
+   "x": 200,
+   "y": 60,
+   "w": 160,
+   "h": 14,
+   "side": "enemy",
+   "name": "Carthaginian army",
+   "model": "african",
+   "scales": true
+  },
+  "ships": {
+   "x": 380,
+   "y": 230,
+   "w": 40,
+   "h": 10,
+   "side": "roman",
+   "name": "Roman ships in the harbour",
+   "model": "galley_roman"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The elephants stampede into their own army.",
+   "The legions sally out.",
+   "The elephants are paraded through Rome."
+  ],
+  "lose": [
+   "The elephants break the Roman line.",
+   "Panormus is besieged.",
+   "Sicily wavers."
+  ],
+  "cams": [
+   "front",
+   "right",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Bait",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Hasdrubal drawn in",
+     "tone": "g"
+    },
+    {
+     "text": "Caught in the open",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting for help",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Harvest burning",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Ditch",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Javelin men ready",
+     "tone": "g"
+    },
+    {
+     "text": "Legions in front",
+     "tone": "r"
+    },
+    {
+     "text": "Stakes",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Before the walls",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Elephants",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Stampeding back",
+     "tone": "g"
+    },
+    {
+     "text": "Smashing outworks",
+     "tone": "r"
+    },
+    {
+     "text": "Horses panicked",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Charging",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Sally",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Flank attack",
+     "tone": "g"
+    },
+    {
+     "text": "Inside",
+     "tone": "a"
+    },
+    {
+     "text": "Head-on",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Ready",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Elephants before Panormus",
+   "text": "Hasdrubal marches on Panormus with an army and about a hundred elephants, ravaging the harvest. Since Regulus’s defeat in Africa, Roman soldiers dread the beasts. You are the proconsul Lucius Caecilius Metellus, inside the city.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hasdrubal thinks you are afraid to come out."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let him think so. Keep the army inside and let him come close."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stay inside the walls and let him come",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -9,
+       "set": {
+        "bait": 1
+       },
+       "text": "You stay inside. Hasdrubal grows bold and crosses the river toward the city."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "March out at once to save the harvest",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The elephants charge your army in the open."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         160
+        ]
+       },
+       "f": [
+        "leg",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Send for help from the other consul and hold the city till he comes",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Help will take time."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The ditch",
+   "text": "The elephants will charge the walls. A ditch runs in front of them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Elephants hate missiles and cannot cross a ditch at speed."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Put light troops with heaps of javelins along the ditch, with orders to fall back into it if pressed."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Line the ditch with javelin men",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "set": {
+        "ditch": 1
+       },
+       "text": "Light troops wait along the ditch with stacks of javelins. Men at the walls pass them more."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         200,
+         170
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Put the legions in the front line to face them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The legions will meet the elephants head-on."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Fill the ditch with sharpened stakes to stop the beasts",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "The stakes will slow the beasts."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The charge",
+   "text": "The elephant drivers, eager for glory, charge the walls ahead of their army.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The elephants are now within range of the ditch."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pour javelins into them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Shower them with javelins",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "ditch": true
+       },
+       "r": -2,
+       "e": -22,
+       "text": "Javelins pour down from the ditch and walls. The wounded elephants turn and stampede back into the Carthaginian infantry."
+      },
+      {
+       "r": -6,
+       "e": -9,
+       "text": "The javelins wound some elephants."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         200,
+         160
+        ]
+       },
+       "f": [
+        "vel",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Fall back inside and shut the gate",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The elephants smash the outworks."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         200,
+         215
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the cavalry out to drive them off",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "The horses panic at the smell."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The sally",
+   "text": "The elephants are trampling their own army. The Carthaginian ranks are in chaos.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your legions are fresh behind the gate."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Sally out now and take them in the flank."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Sally out from a side gate into their flank",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "set": {
+        "sally": 1
+       },
+       "text": "Your legions pour out of a side gate and take the disordered Carthaginians in the flank. They break."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         300,
+         120
+        ],
+        "han": [
+         200,
+         50
+        ]
+       },
+       "f": [
+        "leg",
+        "han"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Stay inside and let the elephants do the work",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "The Carthaginians recover and withdraw."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the whole army straight out of the main gate",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "You meet the stampeding elephants head-on."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The elephants",
+   "text": "The surviving elephants are wandering, their drivers dead.",
+   "intel": {
+    "hint": [
+     {
+      "text": "No Roman has ever captured elephants."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take them alive."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Round them up and take them alive",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "You capture the elephants and their drivers. They are shipped to Rome and paraded in your triumph."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         200,
+         120,
+         0.5
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Kill them where they stand",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "The beasts are killed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         200,
+         120,
+         0.1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let them go and pursue the army",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -4,
+       "text": "The elephants are recovered by Carthage."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Panormus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Panormus"
+  }
+ ]
+}

@@ -1,0 +1,686 @@
+{
+ "id": "clastidium",
+ "name": "Battle of Clastidium",
+ "date": "222 BC",
+ "result": "win",
+ "loc": {
+  "lat": 45.03,
+  "lon": 9.13,
+  "place": "Clastidium, northern Italy",
+  "short": "Clastidium",
+  "x": 296,
+  "y": 57
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Insubres",
+  "commander": "Marcellus",
+  "foe": "Viridomarus"
+ },
+ "intro": "Clastidium, south of the Po in northern Italy, 222 BC. The Insubres and their Gaesatae allies are besieging the town. You are the consul Marcus Claudius Marcellus, riding ahead with cavalry and light infantry. The sources are brief.",
+ "debrief": "In Plutarch’s account, Marcellus rode ahead with his cavalry and light troops, spread his line so as not to be surrounded, and killed King Viridomarus in single combat in front of both armies, winning the spolia opima, the rare honour of a Roman general who killed an enemy king with his own hand. The Gauls were routed, and Mediolanum was soon taken. Only three Romans in history were said to have won the spolia opima. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 20,
+   "w": 20
+  },
+  "hills": [
+   [
+    340,
+    40,
+    60,
+    14
+   ]
+  ]
+ },
+ "units": {
+  "eq": {
+   "x": 200,
+   "y": 195,
+   "w": 120,
+   "h": 14,
+   "side": "roman",
+   "name": "Marcellus’s horse",
+   "model": "cav_roman"
+  },
+  "lt": {
+   "x": 200,
+   "y": 215,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Light infantry",
+   "model": "velites"
+  },
+  "gae": {
+   "x": 200,
+   "y": 90,
+   "w": 180,
+   "h": 16,
+   "side": "enemy",
+   "name": "Gaesatae and Insubres",
+   "model": "gaul",
+   "scales": true
+  },
+  "vir": {
+   "x": 200,
+   "y": 120,
+   "w": 40,
+   "h": 10,
+   "side": "enemy",
+   "name": "King Viridomarus",
+   "model": "cav_heavy"
+  },
+  "town": {
+   "x": 340,
+   "y": 40,
+   "w": 70,
+   "h": 10,
+   "side": "enemy",
+   "name": "Clastidium (besieged)",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Viridomarus falls.",
+   "The Gauls break.",
+   "Marcellus carries the spolia opima to Jupiter."
+  ],
+  "lose": [
+   "The Gauls hold.",
+   "Clastidium falls.",
+   "The Insubres are unbeaten."
+  ],
+  "cams": [
+   "clash",
+   "front",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Race",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Caught them",
+     "tone": "g"
+    },
+    {
+     "text": "Siege going on",
+     "tone": "a"
+    },
+    {
+     "text": "Raiding",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Gauls at Clastidium",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Line",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Spread wide",
+     "tone": "g"
+    },
+    {
+     "text": "Outflanked",
+     "tone": "a"
+    },
+    {
+     "text": "Charge stuck",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Facing them",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The king",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Killed by your spear",
+     "tone": "g"
+    },
+    {
+     "text": "Wounded",
+     "tone": "a"
+    },
+    {
+     "text": "Ignored",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Challenging",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Gauls",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Broken",
+     "tone": "g"
+    },
+    {
+     "text": "Pushed",
+     "tone": "a"
+    },
+    {
+     "text": "Recovering",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Wavering",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "A race to Clastidium",
+   "text": "The Insubres and Gaesatae have crossed the Po and besieged Clastidium. You are the consul Marcus Claudius Marcellus, with a force of cavalry and light infantry, racing ahead of the main army.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You have only horse and light troops; the Gauls are many."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Speed matters more than numbers. Reach them before they take the town."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ride ahead with the horse",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -9,
+       "set": {
+        "fast": 1
+       },
+       "text": "You ride hard and catch the Gauls at Clastidium."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for the infantry to catch up",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The Gauls press the siege."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Raid their lands to draw them home",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "They ignore the raid."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "A spread line",
+   "text": "The Gauls come out to meet you, thinking your small force easy prey. Their line is long, with horse and foot together.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their line is longer than yours."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Spread your horse wide so you are not outflanked."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Spread your horse into a long, thin line",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "set": {
+        "wide": 1
+       },
+       "text": "Your horse spread out to match their front."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         200,
+         190
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep the horse in a deep mass in the centre",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The Gauls lap round both ends."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge their centre at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -4,
+       "text": "The charge plunges into the mass."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "eq",
+        "gae"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The king rides out",
+   "text": "King Viridomarus, in gold and painted armour, rides out ahead of his army and challenges you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The man who kills an enemy king in single combat wins the spolia opima, the rarest honour in Rome."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Accept, and pray. If you win, the Gauls will lose heart."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ride out and fight the king",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -16,
+       "set": {
+        "king": 1
+       },
+       "text": "You ride at Viridomarus, drive your spear through his breastplate and kill him. You strip his armour as the Gauls watch."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "eq",
+        "vir"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Send a champion in your place",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Your champion and the king fight; both are wounded."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Ignore him and charge the whole line",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -4,
+       "text": "The Gauls meet the charge."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "eq",
+        "gae"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The Gauls waver",
+   "text": "With their king dead, the Gauls waver.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your horse are fresh."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Charge now."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Charge the wavering line",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "king": true
+       },
+       "r": -2,
+       "e": -21,
+       "text": "Your horse charge the shaken line and the Gauls break, horse and foot together."
+      },
+      {
+       "r": -6,
+       "e": -9,
+       "text": "The charge pushes them back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "eq": [
+         200,
+         110
+        ],
+        "gae": [
+         200,
+         70
+        ]
+       },
+       "f": [
+        "eq",
+        "lt",
+        "gae"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Send the light troops in first",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "The skirmishers make some progress."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lt": [
+         200,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Fall back and wait for the infantry",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The Gauls recover."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Clastidium",
+   "text": "The Gauls are fleeing. The besieged town is free.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Mediolanum, the Insubres’ chief town, is not far."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Join your colleague and strike at their capital."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March on Mediolanum with your colleague",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "Together the consuls take Mediolanum. The Insubres surrender. You carry the king’s armour to Jupiter’s temple in Rome."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rest at Clastidium",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The Insubres regroup."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase the fugitives across the Po before they rally",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "Your horse are scattered across the river."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Clastidium (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Clastidium"
+  }
+ ],
+ "quotes": [
+  {
+   "text": "Marcellus vowed the finest armour of the enemy to Jupiter Feretrius.",
+   "who": "Plutarch, Life of Marcellus"
+  }
+ ]
+}

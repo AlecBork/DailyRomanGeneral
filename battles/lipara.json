@@ -1,0 +1,688 @@
+{
+ "id": "lipara",
+ "name": "Battle of the Lipari Islands",
+ "date": "260 BC",
+ "result": "loss",
+ "loc": {
+  "lat": 38.47,
+  "lon": 14.95,
+  "place": "Lipara, Aeolian Islands",
+  "short": "Lipara",
+  "x": 370,
+  "y": 172
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Scipio",
+  "foe": "Boodes"
+ },
+ "intro": "The harbour of Lipara, in the islands north of Sicily, 260 BC. Rome has just built its first war fleet. You are the consul Gnaeus Cornelius Scipio, sailing ahead with its first 17 ships.",
+ "debrief": "In Polybius’s account, Scipio sailed to Lipara hoping it would come over to Rome. The Carthaginian commander Boodes trapped his ships in the harbour by night. The inexperienced crews fled ashore, and Scipio was taken, some say lured aboard to talk. He was mocked as Asina, ‘the she-ass’. The rest of the Roman fleet soon beat a Carthaginian squadron, and won its first great victory at Mylae. The other choices are what-ifs.",
+ "terrain": {
+  "ground": "#3d6f94",
+  "grass": "#34668c",
+  "sky": "#b9d4e4",
+  "trees": 0,
+  "flat": true,
+  "hills": [
+   [
+    380,
+    235,
+    60,
+    16
+   ]
+  ]
+ },
+ "units": {
+  "r1": {
+   "x": 200,
+   "y": 190,
+   "w": 140,
+   "h": 17,
+   "side": "roman",
+   "name": "Scipio’s 17 ships",
+   "model": "galley_roman"
+  },
+  "c1": {
+   "x": 120,
+   "y": 80,
+   "w": 100,
+   "h": 17,
+   "side": "enemy",
+   "name": "Boodes’s squadron",
+   "model": "galley_punic",
+   "scales": true
+  },
+  "c2": {
+   "x": 300,
+   "y": 70,
+   "w": 100,
+   "h": 17,
+   "side": "enemy",
+   "name": "Carthaginian squadron",
+   "model": "galley_punic",
+   "scales": true,
+   "hidden": true
+  },
+  "town": {
+   "x": 360,
+   "y": 215,
+   "w": 60,
+   "h": 10,
+   "side": "roman",
+   "name": "Harbour of Lipara",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Roman ships break out of Lipara.",
+   "The trap closes on nothing.",
+   "Rome’s fleet survives its first test."
+  ],
+  "lose": [
+   "The ships are taken without a fight.",
+   "The consul is a prisoner.",
+   "Rome calls him ‘Asina’."
+  ],
+  "cams": [
+   "clash",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Plan",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Rushing in",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting for the fleet",
+     "tone": "g"
+    },
+    {
+     "text": "Scouting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "An offer",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Harbour",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Bottled up",
+     "tone": "r"
+    },
+    {
+     "text": "Out at sea",
+     "tone": "g"
+    },
+    {
+     "text": "Crews ashore",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Entered",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Crews",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Fled",
+     "tone": "r"
+    },
+    {
+     "text": "Fighting",
+     "tone": "g"
+    },
+    {
+     "text": "Breaking out",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Panicking",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Scipio",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Captured",
+     "tone": "r"
+    },
+    {
+     "text": "With his men",
+     "tone": "g"
+    },
+    {
+     "text": "Officer taken",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Invited",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "An offer from Lipara",
+   "text": "Rome has built its first real war fleet. You are the consul Gnaeus Cornelius Scipio, commanding the first 17 ships. Word comes that the town of Lipara, in the islands north of Sicily, will go over to Rome.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Lipara is close to the Carthaginian fleet base at Panormus."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wait for the rest of the fleet before sailing so close to the enemy."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Sail at once with your 17 ships to take it",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": 0,
+       "set": {
+        "rash": 1
+       },
+       "text": "You sail for Lipara with the first 17 ships."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for the rest of the fleet to be ready",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "set": {
+        "fleet": 1
+       },
+       "text": "You wait at Messana until the whole fleet is ready."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send one ship to check the offer is real",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "set": {
+        "scout": 1
+       },
+       "text": "The scout ship sees Carthaginian sails nearby."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "In the harbour",
+   "text": "You have entered the harbour of Lipara. At night, Carthaginian ships under Boodes slip in and block the entrance.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your crews are new to the sea."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Break out at once, before they close the harbour mouth."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Stay in the harbour and wait for daylight",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "At dawn the harbour mouth is closed by twenty Carthaginian ships."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c1": [
+         200,
+         120,
+         1
+        ],
+        "r1": [
+         300,
+         210
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Row out at once in the dark to break through",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "set": {
+        "out": 1
+       },
+       "text": "In the dark your ships force the mouth before it is closed, and get out to sea."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "r1": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "r1",
+        "c1"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Land the crews and hold the town until help comes",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The crews hold the town, but the ships are trapped."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "r1": [
+         330,
+         215
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Trapped",
+   "text": "The Carthaginian ships are drawn up across the harbour mouth. Your crews are panicking.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your crews are ready to flee ashore."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold them to their oars; a fight in the harbour is still better than none."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "The crews flee ashore",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -14,
+       "e": 0,
+       "text": "Your crews panic and flee onto the land. The ships are taken without a fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "r1": [
+         330,
+         215,
+         0.3
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Form a line and fight in the harbour",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "if": {
+        "out": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "Your ships, already outside, turn and fight on open water."
+      },
+      {
+       "r": -8,
+       "e": -10,
+       "text": "Your ships fight hard in the cramped harbour."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "r1": [
+         200,
+         170
+        ]
+       },
+       "f": [
+        "r1",
+        "c1"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Ram the nearest ship and try to break out",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "Two ships break out; the rest are taken."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "r1": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "r1",
+        "c1"
+       ]
+      }
+     ],
+     "cam": "clash"
+    }
+   ]
+  },
+  {
+   "title": "The consul’s choice",
+   "text": "Boodes invites you aboard his ship to talk terms.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Carthaginians have taken Roman leaders before."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Do not put yourself in his hands."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Go aboard to talk",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "You go aboard and are taken prisoner. Rome will call you Asina, the she-ass."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Refuse and stay with your men",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "You stay ashore with your crews, and they escape overland."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send an officer in your place",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The officer is taken; you are not."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Rome’s answer",
+   "text": "The rest of the Roman fleet, a hundred ships, is now at sea. Hannibal Gisco comes out to look for it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Romans are learning."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Meet the Carthaginians with your full fleet."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight with the full fleet",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "The main fleet beats Hannibal’s scouting squadron off Italy. Lipara will be avenged at Mylae."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "r1": [
+         200,
+         150
+        ],
+        "c2": [
+         300,
+         70,
+         1
+        ]
+       },
+       "f": [
+        "r1",
+        "c2"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Keep the fleet in port until it is trained",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Carthage rules the sea a while longer."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Raid the Carthaginian coast",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "The raid achieves little."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Lipari Islands (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Lipari_Islands"
+  }
+ ],
+ "winAt": 50
+}

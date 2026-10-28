@@ -1,0 +1,645 @@
+{
+ "id": "aegates",
+ "name": "Battle of the Aegates",
+ "date": "241 BC",
+ "result": "win",
+ "loc": {
+  "lat": 37.95,
+  "lon": 12.25,
+  "place": "the Aegates islands, off Sicily",
+  "short": "Aegates",
+  "x": 336,
+  "y": 181
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Lutatius Catulus",
+  "foe": "Hanno"
+ },
+ "intro": "Off the Aegates islands, west of Sicily, 241 BC, the last battle of the First Punic War. Rome’s new fleet of about 200 ships has been paid for by its richest citizens. You are the consul Gaius Lutatius Catulus.",
+ "debrief": "In Polybius’s account, Catulus trained his crews through the summer. Carthage sent a relief fleet under Hanno, laden with supplies and short of marines, meaning to unload in Sicily and take on soldiers. Catulus waited at the Aegates and attacked at dawn although the wind was against him; the heavy Carthaginian ships were no match. Fifty were sunk and seventy taken. Carthage made peace, giving up Sicily and paying a large indemnity. The other choices are what-ifs.",
+ "terrain": {
+  "ground": "#3d6f94",
+  "grass": "#34668c",
+  "sky": "#b9d4e4",
+  "trees": 0,
+  "flat": true,
+  "hills": [
+   [
+    60,
+    30,
+    60,
+    18
+   ]
+  ]
+ },
+ "units": {
+  "r1": {
+   "x": 200,
+   "y": 200,
+   "w": 220,
+   "h": 17,
+   "side": "roman",
+   "name": "Catulus’s fleet (200 ships)",
+   "model": "galley_roman"
+  },
+  "c1": {
+   "x": 200,
+   "y": 80,
+   "w": 220,
+   "h": 17,
+   "side": "enemy",
+   "name": "Hanno’s fleet, laden with grain",
+   "model": "galley_punic",
+   "scales": true
+  },
+  "isl": {
+   "x": 60,
+   "y": 40,
+   "w": 60,
+   "h": 14,
+   "side": "enemy",
+   "name": "The Aegates islands",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Carthaginian grain fleet is destroyed.",
+   "Carthage sues for peace.",
+   "Sicily is Roman."
+  ],
+  "lose": [
+   "Hanno’s fleet reaches Sicily.",
+   "Hamilcar is resupplied.",
+   "The war goes on."
+  ],
+  "cams": [
+   "clash",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Fleet",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Well trained",
+     "tone": "g"
+    },
+    {
+     "text": "At sea",
+     "tone": "a"
+    },
+    {
+     "text": "Waiting",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "New ships",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Ambush",
+   "decision": 1,
+   "options": [
+    {
+     "text": "At the islands",
+     "tone": "g"
+    },
+    {
+     "text": "At Lilybaeum",
+     "tone": "a"
+    },
+    {
+     "text": "Off Africa",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Grain fleet coming",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Wind",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Attacking into it",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Shadowing",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "From the west",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Enemy",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Rammed and boarded",
+     "tone": "g"
+    },
+    {
+     "text": "Rammed",
+     "tone": "a"
+    },
+    {
+     "text": "Escaping",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Laden",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "A fleet paid for by citizens",
+   "text": "After years of war, Rome’s treasury is empty. Rich citizens have paid for 200 new warships, built on a fast new design, as a loan to the state. You are the consul Gaius Lutatius Catulus.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Carthage has let its own fleet run down."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Train your crews hard before you fight. Carthage’s crews will be new levies."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Train the crews hard at sea all summer",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "set": {
+        "trained": 1
+       },
+       "text": "All summer your crews row, turn and ram in practice."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Sail at once to blockade the Carthaginian ports",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The blockade begins at once."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for the next year’s consul",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "A year is lost."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The grain fleet",
+   "text": "Carthage is sending a relief fleet under Hanno to its armies in Sicily. It is laden with grain and supplies, and carries few marines. It plans to unload, take on soldiers, and only then fight.",
+   "intel": {
+    "hint": [
+     {
+      "text": "A loaded ship is slow."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Catch the fleet before it can unload."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Wait at the islands with marines aboard",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "set": {
+        "marines": 1
+       },
+       "text": "You embark your best marines and wait at the Aegates islands, across Hanno’s path."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for them at Lilybaeum harbour, where your army can help",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Hanno may slip past."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Sail to meet them off Africa",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "You miss them on the open sea."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "A wind from the west",
+   "text": "At dawn the wind is blowing hard from the west, behind Hanno. His ships are running before it under sail. Your crews would row into rough seas.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Under sail, laden, they cannot fight."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Your crews are trained for this. Attack into the wind before they reach Sicily."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack now, rowing into the wind",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "trained": true
+       },
+       "r": -2,
+       "e": -17,
+       "text": "Your trained crews row hard into the swell and fall on the laden Carthaginian ships."
+      },
+      {
+       "r": -8,
+       "e": -8,
+       "text": "Your crews struggle in the swell."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "r1": [
+         200,
+         140
+        ],
+        "c1": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "r1",
+        "c1"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Wait for the wind to change",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Hanno runs past toward Sicily."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c1": [
+         300,
+         140
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Shadow them and attack when they unload",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "They unload and take on fighting men."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Heavy ships",
+   "text": "The Carthaginian ships are heavy with grain and poorly crewed. Yours are light and fast.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their decks are crowded with cargo, not soldiers."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Ram and board before they can lower their masts."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ram and board them",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "marines": true
+       },
+       "r": -2,
+       "e": -19,
+       "text": "Your ships ram and your marines board. Fifty Carthaginian ships are sunk and seventy taken."
+      },
+      {
+       "r": -4,
+       "e": -11,
+       "text": "Many ships are taken."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "c1": [
+         200,
+         100
+        ]
+       },
+       "f": [
+        "r1",
+        "c1"
+       ]
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Ram only, and keep your marines aboard",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "Many ships are sunk, but most escape."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Fire missiles at a distance",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -4,
+       "text": "The missiles do little."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Carthage asks for peace",
+   "text": "The relief fleet is destroyed. Carthage’s armies in Sicily are cut off.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hamilcar Barca is unbeaten on land."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Offer terms Carthage can accept now."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Offer peace for Sicily and money",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "Carthage gives up Sicily and pays an indemnity. The First Punic War, twenty-three years long, is over."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Demand Carthage’s surrender",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -2,
+       "text": "Carthage fights on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack Hamilcar’s army in Sicily",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "Hamilcar holds his mountain."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of the Aegates (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_the_Aegates"
+  }
+ ]
+}

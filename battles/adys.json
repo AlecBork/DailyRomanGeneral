@@ -1,0 +1,694 @@
+{
+ "id": "adys",
+ "name": "Battle of Adys",
+ "date": "255 BC",
+ "result": "win",
+ "loc": {
+  "lat": 36.75,
+  "lon": 10.25,
+  "place": "Adys, near Carthage",
+  "short": "Adys",
+  "x": 310,
+  "y": 202
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Carthage",
+  "commander": "Regulus",
+  "foe": "Bostar and Hasdrubal"
+ },
+ "intro": "Near Adys, south of Carthage in Africa, 256 or 255 BC. After the naval victory at Ecnomus, the consul Marcus Atilius Regulus has landed in Africa. You command his army, besieging Adys.",
+ "debrief": "In Polybius’s account, the Carthaginian generals camped on a rough hill above Adys, where their elephants and cavalry, their strongest arms, could not be used. Regulus attacked at dawn from two sides. The mercenaries charged and drove back one Roman column but were taken in the rear by the other and routed; the camp was captured, though the elephants and cavalry escaped. Tunis fell and Carthage asked for terms, but Regulus’s terms were so harsh that Carthage fought on, and the next year he was beaten at the Bagradas. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    80,
+    120,
+    30
+   ]
+  ],
+  "grass": "#a8a163",
+  "ground": "#c4ad76"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 160,
+   "h": 14,
+   "side": "roman",
+   "name": "Regulus’s legions",
+   "model": "hastati"
+  },
+  "vel": {
+   "x": 200,
+   "y": 195,
+   "w": 120,
+   "h": 8,
+   "side": "roman",
+   "name": "Light troops",
+   "model": "velites"
+  },
+  "hill": {
+   "x": 200,
+   "y": 90,
+   "w": 120,
+   "h": 16,
+   "side": "enemy",
+   "name": "Carthaginians on the hill",
+   "model": "african",
+   "scales": true
+  },
+  "ele": {
+   "x": 340,
+   "y": 170,
+   "w": 60,
+   "h": 10,
+   "side": "enemy",
+   "name": "Elephants (on the plain)",
+   "model": "elephant"
+  },
+  "pcav": {
+   "x": 60,
+   "y": 170,
+   "w": 60,
+   "h": 12,
+   "side": "enemy",
+   "name": "Carthaginian horse (on the plain)",
+   "model": "cav_punic"
+  },
+  "town": {
+   "x": 200,
+   "y": 30,
+   "w": 90,
+   "h": 10,
+   "side": "enemy",
+   "name": "Adys",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Carthaginians flee from the hill.",
+   "Their camp is taken.",
+   "Carthage is in despair."
+  ],
+  "lose": [
+   "The mercenaries hold the hill.",
+   "The Romans fall back to the siege.",
+   "Carthage takes heart."
+  ],
+  "cams": [
+   "front",
+   "high",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Enemy camp",
+   "decision": 0,
+   "options": [
+    {
+     "text": "On a bad hill",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "r"
+    },
+    {
+     "text": "Marching",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Relieving Adys",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Attack",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Two columns",
+     "tone": "g"
+    },
+    {
+     "text": "One column",
+     "tone": "a"
+    },
+    {
+     "text": "Missiles",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Dawn",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Mercenaries",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Taken in the rear",
+     "tone": "g"
+    },
+    {
+     "text": "Fighting on",
+     "tone": "a"
+    },
+    {
+     "text": "Attack given up",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Charging",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Carthage",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Camp taken",
+     "tone": "g"
+    },
+    {
+     "text": "Elephants at bay",
+     "tone": "a"
+    },
+    {
+     "text": "Escaped",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Fleeing",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Africa",
+   "text": "After the great sea victory at Ecnomus, you have landed in Africa itself. You are the consul Marcus Atilius Regulus. Your army is ravaging the land around Carthage and besieges the town of Adys.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Carthaginian army has come to relieve Adys and camped on a hill above it."
+     }
+    ],
+    "scout": [
+     {
+      "text": "On a hill, their elephants and cavalry, their best arms, are useless."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack the hill camp before they come down",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "set": {
+        "seen": 1
+       },
+       "text": "You see the mistake: they have camped on a rough hill where their elephants and cavalry cannot fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for them to come down to the plain to fight",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "They might, in their own time."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Lift the siege and march on Carthage",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "The army moves off; the Carthaginians follow."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "A dawn attack",
+   "text": "You will attack the hill at dawn from two sides.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their mercenaries are the best of their infantry."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike from two sides at once so they cannot face both."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack the hill from two sides",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -15,
+       "set": {
+        "two": 1
+       },
+       "text": "Two columns climb the hill at first light from opposite sides."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "hill"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "One great column straight up the slope",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -10,
+       "text": "The column fights its way up."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         140
+        ]
+       },
+       "f": [
+        "leg",
+        "hill"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Shower the hill with missiles first",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -2,
+       "text": "The defenders shelter."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "vel": [
+         200,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "The mercenaries charge",
+   "text": "The Carthaginian mercenaries charge down the hill and drive back one of your columns.",
+   "intel": {
+    "hint": [
+     {
+      "text": "They have left their position on the hilltop."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Let the other column take them in the rear while they pursue."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "The other column takes them from behind",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "two": true
+       },
+       "r": -2,
+       "e": -20,
+       "text": "As the mercenaries pursue, the second column comes over the crest behind them. They break and run."
+      },
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The mercenaries are checked."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "leg",
+        "hill"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Rally the beaten column and stand where it is",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The column rallies and the fight goes on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "clash"
+    },
+    {
+     "label": "Pull both columns back down",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -2,
+       "text": "The attack is given up."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         215
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The camp",
+   "text": "The Carthaginians are fleeing from the hill. Their elephants and cavalry, useless all day, escape onto the plain.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Their camp is on the hill."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Take the camp, then pursue."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Take the camp; pursue the infantry",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "The Romans take the camp and cut down the fleeing infantry. The elephants and horse get away."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "hill": [
+         200,
+         60,
+         0.3
+        ],
+        "ele": [
+         380,
+         170,
+         0.4
+        ],
+        "pcav": [
+         20,
+         170,
+         0.4
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Chase the elephants onto the plain and kill them",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "The elephants turn at bay."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         300,
+         180
+        ]
+       },
+       "f": [
+        "leg",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Hold the hill and rest",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The Carthaginians escape in order."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Peace on your terms?",
+   "text": "Carthage is in despair. Tunis falls to you. Carthage sends envoys.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your consulship ends soon, and a new consul could take the glory."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Offer terms they can accept, or fight on through the winter."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Demand terms so hard they must refuse",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -10,
+       "text": "Carthage refuses your terms and hires the Spartan Xanthippus."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer fair terms and end the war now",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "Carthage accepts. The war ends with Rome in Africa."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Break off talks and march on Carthage",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "Carthage’s walls are too strong."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Adys (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Adys"
+  }
+ ]
+}

@@ -423,6 +423,96 @@
    "lon": 14.78,
    "result": "win",
    "naval": false
+  },
+  {
+   "id": "arretium",
+   "name": "Arretium",
+   "date": "284 BC",
+   "lat": 43.46,
+   "lon": 11.88,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "agrigentum",
+   "name": "Agrigentum",
+   "date": "262 BC",
+   "lat": 37.31,
+   "lon": 13.58,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "lipara",
+   "name": "Lipara",
+   "date": "260 BC",
+   "lat": 38.47,
+   "lon": 14.95,
+   "result": "loss",
+   "naval": true
+  },
+  {
+   "id": "mylae",
+   "name": "Mylae",
+   "date": "260 BC",
+   "lat": 38.22,
+   "lon": 15.24,
+   "result": "win",
+   "naval": true
+  },
+  {
+   "id": "adys",
+   "name": "Adys",
+   "date": "255 BC",
+   "lat": 36.75,
+   "lon": 10.25,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "panormus",
+   "name": "Panormus",
+   "date": "250 BC",
+   "lat": 38.11,
+   "lon": 13.36,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "drepana",
+   "name": "Drepana",
+   "date": "249 BC",
+   "lat": 38.02,
+   "lon": 12.5,
+   "result": "loss",
+   "naval": true
+  },
+  {
+   "id": "aegates",
+   "name": "Aegates",
+   "date": "241 BC",
+   "lat": 37.95,
+   "lon": 12.25,
+   "result": "win",
+   "naval": true
+  },
+  {
+   "id": "clastidium",
+   "name": "Clastidium",
+   "date": "222 BC",
+   "lat": 45.03,
+   "lon": 9.13,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "ticinus",
+   "name": "Ticinus",
+   "date": "218 BC",
+   "lat": 45.2,
+   "lon": 8.98,
+   "result": "loss",
+   "naval": false
   }
  ]
 }
