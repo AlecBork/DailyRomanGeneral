@@ -1,0 +1,658 @@
+{
+ "id": "tapae86",
+ "name": "First Battle of Tapae",
+ "date": "86 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 45.5,
+  "lon": 22.7,
+  "place": "Tapae, Dacia",
+  "short": "Tapae (first)",
+  "x": 470,
+  "y": 49
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Dacia",
+  "commander": "Cornelius Fuscus",
+  "foe": "Decebalus"
+ },
+ "intro": "The pass of Tapae in Dacia, 86 or 87 AD. The Dacians have killed the governor of Moesia. You are Cornelius Fuscus, Praetorian Prefect, sent by Domitian.",
+ "debrief": "The sources are brief. Fuscus crossed the Danube on a bridge of boats and advanced into Dacia, where his army was ambushed, probably near Tapae. Fuscus was killed and a standard, perhaps of the Praetorians, was lost; Trajan is said to have recovered it in Dacia. Tettius Julianus won at Tapae two years later. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    60,
+    80,
+    90,
+    26
+   ],
+   [
+    340,
+    100,
+    90,
+    26
+   ]
+  ],
+  "forests": [
+   [
+    340,
+    120,
+    60,
+    16
+   ]
+  ],
+  "grass": "#5f7f41"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Cornelius Fuscus’s army",
+   "model": "legionary"
+  },
+  "pr": {
+   "x": 80,
+   "y": 220,
+   "w": 70,
+   "h": 10,
+   "side": "roman",
+   "name": "Praetorian Guard",
+   "model": "veteran"
+  },
+  "dac": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Dacians under Diurpaneus (Decebalus)",
+   "model": "barbarian",
+   "scales": true
+  },
+  "amb": {
+   "x": 340,
+   "y": 120,
+   "w": 80,
+   "h": 12,
+   "side": "enemy",
+   "name": "Dacians in ambush",
+   "model": "barbarian",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The ambush is found.",
+   "Fuscus breaks the Dacians.",
+   "Dacia is humbled."
+  ],
+  "lose": [
+   "The column is ambushed at Tapae.",
+   "Fuscus is killed.",
+   "A standard is lost."
+  ],
+  "cams": [
+   "right",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Plan",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Invading",
+     "tone": "r"
+    },
+    {
+     "text": "Peace",
+     "tone": "a"
+    },
+    {
+     "text": "Prepared",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Dacian raid",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Pass",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Ambushed",
+     "tone": "r"
+    },
+    {
+     "text": "Scouted",
+     "tone": "g"
+    },
+    {
+     "text": "Long march",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Tapae",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Ambush",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Formed",
+     "tone": "g"
+    },
+    {
+     "text": "Lost in woods",
+     "tone": "r"
+    },
+    {
+     "text": "Retreating",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Column",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Fuscus",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Killed",
+     "tone": "r"
+    },
+    {
+     "text": "Saved",
+     "tone": "g"
+    },
+    {
+     "text": "Holding",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "In the fight",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Revenge",
+   "text": "The Dacians have raided Moesia and killed its governor. You are Cornelius Fuscus, Prefect of the Praetorian Guard, sent by Domitian. You are brave, and said to be rash.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Decebalus has offered peace."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Make him pay first."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Refuse and invade Dacia",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "You cross the Danube on a bridge of boats."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Accept peace on his terms",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Domitian is not pleased."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Demand hostages",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -19,
+       "set": {
+        "prep": 1
+       },
+       "text": "Decebalus stalls; you gain time to prepare."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The pass",
+   "text": "The road to Sarmizegetusa goes through the pass at Tapae.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Scout first."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Scout."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March through the pass",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "prep": true
+       },
+       "r": -4,
+       "e": -6,
+       "text": "Your prepared army is ready for the ambush."
+      },
+      {
+       "r": -12,
+       "e": 0,
+       "text": "The Dacians fall on your column from the woods."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "amb": [
+         340,
+         170,
+         1
+        ]
+       },
+       "f": [
+        "amb",
+        "leg"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Scout the heights",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -19,
+       "text": "You find the ambush."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "amb": [
+         340,
+         120,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Go round",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -6,
+       "text": "A long march."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Ambush",
+   "text": "Your column is ambushed.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Form up."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Form a square."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Form up",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -19,
+       "text": "Your men form up."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge the woods",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Your men are lost among the trees."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "amb"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Retreat",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -6,
+       "text": "The Dacians follow."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Fuscus",
+   "text": "Fuscus is in the thick of it.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Pull him out."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pull back."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Fight on",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "Fuscus is killed. The Praetorians’ standard is captured."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pr": [
+         80,
+         220,
+         0.2
+        ]
+       },
+       "f": [
+        "pr",
+        "dac"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Pull him out",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "Fuscus survives."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold around him",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "Many die."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Aftermath",
+   "text": "The army is beaten.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Domitian will send another general."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Who?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Tettius Julianus",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Two years later, Tettius Julianus wins at Tapae. Trajan will find Fuscus’s lost standard in Dacia."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Domitian himself",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "He stays back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "No one",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -11,
+       "text": "Peace is made."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "First Battle of Tapae (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/First_Battle_of_Tapae"
+  }
+ ],
+ "winAt": 50
+}

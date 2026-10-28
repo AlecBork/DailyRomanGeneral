@@ -1,0 +1,634 @@
+{
+ "id": "rigodulum",
+ "name": "Battle of Rigodulum",
+ "date": "70 AD",
+ "result": "win",
+ "loc": {
+  "lat": 49.85,
+  "lon": 6.8,
+  "place": "Rigodulum, on the Moselle",
+  "short": "Rigodulum",
+  "x": 266,
+  "y": -27
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "The Treveri",
+  "commander": "Petillius Cerialis",
+  "foe": "Julius Valentinus"
+ },
+ "intro": "Rigodulum (Riol) on the Moselle, 70 AD. Gallic tribes have joined Civilis’s Batavian revolt and declared a 'Gallic Empire'. You are Quintus Petillius Cerialis, sent by Vespasian.",
+ "debrief": "In Tacitus’s account, Cerialis marched fast and attacked the Treveri on their steep, fortified hill, sending infantry up the front and cavalry up the gentler slope. They broke, and their leader Valentinus was captured. Cerialis stopped his troops burning Trier and told the Gauls that Rome’s armies kept the Germans out. Civilis later surprised his camp while he was away, but Cerialis rallied his men; the revolt ended later that year. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    60,
+    240,
+    26
+   ]
+  ],
+  "river": {
+   "horizontal": true,
+   "y": 230,
+   "w": 24
+  },
+  "grass": "#6f8a4a"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Cerialis’s legions",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 320,
+   "y": 220,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "tre": {
+   "x": 200,
+   "y": 80,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Treveri under Julius Valentinus",
+   "model": "gaul",
+   "scales": true
+  },
+  "hill": {
+   "x": 200,
+   "y": 50,
+   "w": 240,
+   "h": 10,
+   "side": "enemy",
+   "name": "Steep hill by the Moselle",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The hill is stormed from two sides.",
+   "Valentinus is captured.",
+   "Gaul returns to Rome."
+  ],
+  "lose": [
+   "The Treveri hold the hill.",
+   "The Gallic Empire grows.",
+   "The Rhine is lost."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Speed",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Fast",
+     "tone": "g"
+    },
+    {
+     "text": "Slow",
+     "tone": "a"
+    },
+    {
+     "text": "Refused",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Rigodulum",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Hill",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Stormed",
+     "tone": "g"
+    },
+    {
+     "text": "Stones",
+     "tone": "r"
+    },
+    {
+     "text": "Starving",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Steep",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Treves",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Spared",
+     "tone": "g"
+    },
+    {
+     "text": "Burned",
+     "tone": "r"
+    },
+    {
+     "text": "Martyr",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "City",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Gauls",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Persuaded",
+     "tone": "g"
+    },
+    {
+     "text": "Fearful",
+     "tone": "a"
+    },
+    {
+     "text": "Unsure",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Speech",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Cerialis",
+   "text": "The Gallic tribes have joined Civilis and declared a 'Gallic Empire'. You are Quintus Petillius Cerialis, sent by Vespasian. The Treveri hold a steep hill at Rigodulum on the Moselle.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Speed beats their preparations."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack at once."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack at once",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -14,
+       "set": {
+        "fast": 1
+       },
+       "text": "You march fast and attack before more Gauls come."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for all your legions",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The rebels gather."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer pardon to the Treveri",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "They refuse."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The hill",
+   "text": "The Treveri hold a steep hill with ditches and stone walls, the river behind you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Infantry up the front, cavalry up the gentle side."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Both at once."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Both at once",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "fast": true
+       },
+       "r": -2,
+       "e": -18,
+       "text": "Your legions climb the front while the cavalry rides up the gentle side. The Treveri break."
+      },
+      {
+       "r": -6,
+       "e": -9,
+       "text": "The climb is hard."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         110
+        ],
+        "cav": [
+         340,
+         80
+        ]
+       },
+       "f": [
+        "leg",
+        "tre"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Only infantry up the front",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Stones roll down on them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "tre"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Starve them",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "They have food."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Valentinus",
+   "text": "The Treveri flee. Their leader Valentinus is captured.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Treves (Trier) is near."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Go to Treves."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Go to Treves",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "You enter Treves. Your soldiers want to burn it; you stop them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Burn Treves",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Gaul hates you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Execute Valentinus at once",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "He becomes a martyr."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Speech",
+   "text": "The Gallic chiefs are assembled. You speak to them.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Rome keeps the peace."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Explain."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Explain",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -12,
+       "text": "You tell them Rome’s armies keep the Germans out; without Rome there would be only war. Many Gauls lay down their arms."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Threaten them with the legions",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "They fear you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Say nothing",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "They stay unsure."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Civilis",
+   "text": "Civilis attacks your camp at Treves while you are away for the night.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Get back fast."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Ride back."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ride back",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -12,
+       "text": "You ride back half-armed and rally your men; Civilis is driven off. Later you beat him at Vetera and he makes peace."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let your officers handle it",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They panic."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait till morning",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The camp falls."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Rigodulum (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Rigodulum"
+  }
+ ]
+}

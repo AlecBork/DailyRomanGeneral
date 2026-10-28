@@ -1530,6 +1530,51 @@
    "lon": 0.9,
    "result": "loss",
    "naval": false
+  },
+  {
+   "id": "vetera",
+   "name": "Vetera",
+   "date": "70 AD",
+   "lat": 51.65,
+   "lon": 6.43,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "rigodulum",
+   "name": "Rigodulum",
+   "date": "70 AD",
+   "lat": 49.85,
+   "lon": 6.8,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "tapae86",
+   "name": "Tapae (first)",
+   "date": "86 AD",
+   "lat": 45.5,
+   "lon": 22.7,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "athens267",
+   "name": "Athens",
+   "date": "267 AD",
+   "lat": 37.97,
+   "lon": 23.73,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "lingones",
+   "name": "Lingones",
+   "date": "298 AD",
+   "lat": 47.86,
+   "lon": 5.33,
+   "result": "win",
+   "naval": false
   }
  ]
 }

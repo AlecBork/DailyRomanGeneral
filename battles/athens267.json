@@ -1,0 +1,654 @@
+{
+ "id": "athens267",
+ "name": "Battle of Athens",
+ "date": "267 AD",
+ "result": "win",
+ "loc": {
+  "lat": 37.97,
+  "lon": 23.73,
+  "place": "Athens, Achaea",
+  "short": "Athens",
+  "x": 483,
+  "y": 181
+ },
+ "names": {
+  "rome": "Athenians and Rome",
+  "enemy": "The Heruli",
+  "commander": "Dexippus",
+  "foe": "Heruli chiefs"
+ },
+ "intro": "Athens, 267 AD. The Heruli, Germanic sea raiders, have sacked the city. You are Publius Herennius Dexippus, historian and leading Athenian, with 2,000 men hiding in the olive groves.",
+ "debrief": "Dexippus himself wrote of this, and recently found fragments of his history survive. He led about 2,000 Athenians in raids from the countryside, encouraging them with a speech recalling past glories. A Roman fleet arrived, and the Heruli left Athens. An inscription in Athens honours Dexippus. The details are uncertain. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    60,
+    140,
+    24
+   ]
+  ],
+  "forests": [
+   [
+    340,
+    190,
+    60,
+    16
+   ]
+  ],
+  "lakes": [
+   [
+    30,
+    220,
+    50,
+    60
+   ]
+  ],
+  "grass": "#a8a163"
+ },
+ "units": {
+  "mil": {
+   "x": 200,
+   "y": 215,
+   "w": 120,
+   "h": 12,
+   "side": "roman",
+   "name": "Dexippus’s 2,000 Athenians",
+   "model": "hastati"
+  },
+  "fl": {
+   "x": 60,
+   "y": 240,
+   "w": 60,
+   "h": 8,
+   "side": "roman",
+   "name": "Roman fleet",
+   "model": "galley_roman"
+  },
+  "her": {
+   "x": 200,
+   "y": 80,
+   "w": 220,
+   "h": 14,
+   "side": "enemy",
+   "name": "Heruli raiders in Athens",
+   "model": "barbarian",
+   "scales": true
+  },
+  "ol": {
+   "x": 340,
+   "y": 190,
+   "w": 70,
+   "h": 10,
+   "side": "roman",
+   "name": "Olive groves",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The Athenians strike from the olive groves.",
+   "The fleet lands.",
+   "The Heruli flee Athens."
+  ],
+  "lose": [
+   "Dexippus’s men are cut down.",
+   "Athens is looted.",
+   "Greece burns."
+  ],
+  "cams": [
+   "right",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Groves",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Waiting",
+     "tone": "g"
+    },
+    {
+     "text": "Cut down",
+     "tone": "r"
+    },
+    {
+     "text": "Fled",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Athens fallen",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Speech",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Marathon",
+     "tone": "g"
+    },
+    {
+     "text": "Loot",
+     "tone": "a"
+    },
+    {
+     "text": "Desertions",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Fear",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Ambush",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Struck",
+     "tone": "g"
+    },
+    {
+     "text": "Charged",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Foragers",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Fleet",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Together",
+     "tone": "g"
+    },
+    {
+     "text": "Alone",
+     "tone": "a"
+    },
+    {
+     "text": "Escaped",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Piraeus",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "Athens falls",
+   "text": "The Heruli, Germanic sea raiders, have taken Athens. You are Publius Herennius Dexippus, a historian and leading citizen. You have 2,000 men in the olive groves outside the city.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Roman fleet is near."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wait for the fleet."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Wait in the groves",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "wait": 1
+       },
+       "text": "Your men hide in the olive groves and harry the raiders."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mil": [
+         320,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Attack the city at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "The raiders cut you down."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "mil",
+        "her"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Flee to the islands",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Athens is looted."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Speech",
+   "text": "Your men are afraid.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Remind them who they are."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Speak."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Speak",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "text": "You remind them of Marathon and Thermopylae. They will fight."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Promise loot",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Some are tempted."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Say nothing",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Some slip away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Ambush",
+   "text": "The Heruli forage outside the walls.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Strike from the trees."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Ambush them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Ambush",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "wait": true
+       },
+       "r": -2,
+       "e": -15,
+       "text": "Your men strike foragers from the olive groves and vanish again."
+      },
+      {
+       "r": -6,
+       "e": -6,
+       "text": "A small win."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mil": [
+         260,
+         140
+        ]
+       },
+       "f": [
+        "mil",
+        "her"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Fight in the open",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "They charge you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "They gather loot."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The fleet",
+   "text": "The Roman fleet arrives at Piraeus.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Strike together."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Attack with the fleet."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack together",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -15,
+       "text": "The fleet lands men while you attack from the land. The Heruli flee Athens."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fl": [
+         100,
+         150
+        ]
+       },
+       "f": [
+        "mil",
+        "her"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Let the fleet go alone",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "They are beaten back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep hiding",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The Heruli escape with everything."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "History",
+   "text": "The Heruli are gone.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You will write about it."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Write it down."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Write it down",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "Dexippus writes the history of these wars. Fragments survive. An inscription honours him in Athens."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Rebuild the walls",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "A smaller wall is built."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Chase the raiders",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "They sail away."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Dexippus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Dexippus"
+  }
+ ]
+}
