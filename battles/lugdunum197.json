@@ -1,0 +1,646 @@
+{
+ "id": "lugdunum197",
+ "name": "Battle of Lugdunum",
+ "date": "197 AD",
+ "result": "win",
+ "loc": {
+  "lat": 45.76,
+  "lon": 4.83,
+  "place": "Lugdunum, Gaul",
+  "short": "Lugdunum",
+  "x": 241,
+  "y": 44
+ },
+ "names": {
+  "rome": "Septimius Severus",
+  "enemy": "Clodius Albinus",
+  "commander": "Septimius Severus",
+  "foe": "Clodius Albinus"
+ },
+ "intro": "Outside Lugdunum (Lyon), 19 February 197 AD. Clodius Albinus, governor of Britain, has crossed into Gaul and declared himself Emperor. You are Septimius Severus. Cassius Dio claims 150,000 men fought on each side.",
+ "debrief": "In Cassius Dio’s account, Albinus’s right wing feigned retreat and lured Severus’s men into hidden pits. In the chaos, Severus’s horse was killed and he tore off his cloak and rallied his men on foot. The cavalry under Laetus, who some said was waiting to see who would win, finally charged and decided the battle. Albinus died, Lugdunum was sacked, and Severus ruled alone. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    40,
+    160,
+    14
+   ]
+  ],
+  "grass": "#7f9a4d"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Severus’s legions",
+   "model": "legionary"
+  },
+  "pr": {
+   "x": 80,
+   "y": 215,
+   "w": 80,
+   "h": 10,
+   "side": "roman",
+   "name": "Praetorian Guard",
+   "model": "veteran"
+  },
+  "cav": {
+   "x": 340,
+   "y": 230,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry under Laetus",
+   "model": "cav_roman"
+  },
+  "alb": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Albinus’s British and Gallic legions",
+   "model": "legionary",
+   "scales": true
+  },
+  "pit": {
+   "x": 80,
+   "y": 140,
+   "w": 90,
+   "h": 6,
+   "side": "enemy",
+   "name": "Hidden pits",
+   "model": "levy",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Severus rallies his men.",
+   "Laetus’s cavalry charges.",
+   "Albinus is beaten."
+  ],
+  "lose": [
+   "The pits break the Severan line.",
+   "Laetus never comes.",
+   "Albinus becomes Emperor."
+  ],
+  "cams": [
+   "left",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Command",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Severus leads",
+     "tone": "g"
+    },
+    {
+     "text": "Quarrelling",
+     "tone": "r"
+    },
+    {
+     "text": "Refused",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Lugdunum",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Pits",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Avoided",
+     "tone": "g"
+    },
+    {
+     "text": "Fallen in",
+     "tone": "r"
+    },
+    {
+     "text": "Slowed",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "False retreat",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Rally",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Rallied",
+     "tone": "g"
+    },
+    {
+     "text": "Broken",
+     "tone": "r"
+    },
+    {
+     "text": "Nearly killed",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Chaos",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Laetus",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Charged",
+     "tone": "g"
+    },
+    {
+     "text": "Holding back",
+     "tone": "r"
+    },
+    {
+     "text": "Exhausted",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Waiting",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The last rival",
+   "text": "Clodius Albinus, governor of Britain, has crossed into Gaul and declared himself Emperor. You are Septimius Severus. Some 150,000 men are said to face each other outside Lugdunum.",
+   "intel": {
+    "hint": [
+     {
+      "text": "This will be the biggest Roman battle in generations."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Lead it yourself."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Lead it",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -16,
+       "text": "You lead the army in person."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Leave it to your generals and stay in Rome",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Your generals quarrel."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer Albinus a share of power again",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "He refuses."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The pits",
+   "text": "Albinus’s right wing pretends to fall back. Hidden ahead are pits covered with earth.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The retreat is too orderly."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Don’t chase it."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hold",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -16,
+       "text": "Your men hold back from the pits."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Chase the retreating wing",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "set": {
+        "pits": 1
+       },
+       "text": "Your front ranks fall into the hidden pits."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pr": [
+         80,
+         140
+        ],
+        "pit": [
+         80,
+         140,
+         1
+        ]
+       },
+       "f": [
+        "pr",
+        "alb"
+       ]
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Send the cavalry round the wing",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "They are slowed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Severus",
+   "text": "Your men are in chaos. Your horse is killed under you.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The men need to see you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Rally them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Rally them on foot",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "pits": true
+       },
+       "r": -6,
+       "e": -16,
+       "text": "You tear off your cloak, draw your sword and rally the fleeing men on foot."
+      },
+      {
+       "r": -2,
+       "e": -16,
+       "text": "You rally them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Fall back to your camp and regroup",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The army breaks."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Charge on alone with the guard",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -8,
+       "text": "You nearly die."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Laetus",
+   "text": "Your cavalry under Laetus has waited, some say to see who would win.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He must come in now."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Order Laetus in."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Order Laetus in",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -18,
+       "text": "Laetus charges at last. Albinus’s army breaks."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         340,
+         90
+        ]
+       },
+       "f": [
+        "cav",
+        "alb"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Keep him in reserve a little longer",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Albinus’s men press on."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the Praetorians in again instead",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": -8,
+       "text": "They are exhausted."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "Lugdunum",
+   "text": "Albinus flees into Lugdunum and dies.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Severus is sole Emperor."
+     }
+    ],
+    "scout": [
+     {
+      "text": "And Lugdunum?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Sack Lugdunum",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "text": "Your army sacks Lugdunum. Severus has Albinus’s head sent to Rome. Laetus is later executed."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Spare the city",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -10,
+       "text": "Gaul is grateful."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hand the city to your soldiers to plunder and rule",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Gaul hates you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Battle of Lugdunum (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Lugdunum"
+  }
+ ]
+}

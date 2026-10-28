@@ -1,0 +1,675 @@
+{
+ "id": "betar",
+ "name": "Siege of Betar",
+ "date": "135 AD",
+ "result": "win",
+ "loc": {
+  "lat": 31.73,
+  "lon": 35.14,
+  "place": "Betar, Judaea",
+  "short": "Betar",
+  "x": 629,
+  "y": 290
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Jewish rebels",
+  "commander": "Julius Severus",
+  "foe": "Simon bar Kokhba"
+ },
+ "intro": "Judaea, 132-135 AD. Simon bar Kokhba leads a great revolt and rules as a prince. Rebels hide in caves and tunnels. You are Sextus Julius Severus, Hadrian’s best general, brought from Britain.",
+ "debrief": "In Cassius Dio’s account, Severus avoided pitched battle and wore the rebels down by cutting off small groups and starving them. Rebel hiding places in caves have been found with letters of Bar Kokhba. The last stronghold, Betar, was walled in and stormed, and Bar Kokhba was killed. Losses on both sides were huge; Hadrian left out the usual 'I and the army are well' in his letter to the Senate, refounded Jerusalem as Aelia Capitolina and renamed the province. The other choices are what-ifs.",
+ "terrain": {
+  "hills": [
+   [
+    200,
+    70,
+    160,
+    28
+   ],
+   [
+    60,
+    100,
+    60,
+    20
+   ]
+  ],
+  "grass": "#a8a163",
+  "ground": "#c4ad76"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 225,
+   "w": 200,
+   "h": 14,
+   "side": "roman",
+   "name": "Julius Severus’s legions",
+   "model": "legionary"
+  },
+  "wall": {
+   "x": 200,
+   "y": 190,
+   "w": 260,
+   "h": 4,
+   "side": "roman",
+   "name": "Siege wall",
+   "model": "levy"
+  },
+  "aux": {
+   "x": 320,
+   "y": 215,
+   "w": 80,
+   "h": 10,
+   "side": "roman",
+   "name": "Auxiliaries",
+   "model": "auxiliary"
+  },
+  "bet": {
+   "x": 200,
+   "y": 70,
+   "w": 150,
+   "h": 12,
+   "side": "enemy",
+   "name": "Betar, Bar Kokhba’s last fortress",
+   "model": "levy",
+   "scales": true
+  },
+  "caves": {
+   "x": 60,
+   "y": 100,
+   "w": 60,
+   "h": 8,
+   "side": "enemy",
+   "name": "Rebels in the caves",
+   "model": "levy",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The caves are blocked.",
+   "Betar falls.",
+   "Bar Kokhba is killed."
+  ],
+  "lose": [
+   "The rebels rule the hills.",
+   "Betar holds.",
+   "Hadrian loses Judaea."
+  ],
+  "cams": [
+   "high",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Method",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Starving them",
+     "tone": "g"
+    },
+    {
+     "text": "Melting away",
+     "tone": "r"
+    },
+    {
+     "text": "Amnesty",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Revolt",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Caves",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Blocked",
+     "tone": "g"
+    },
+    {
+     "text": "Ambushed",
+     "tone": "r"
+    },
+    {
+     "text": "Raids",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Hidden",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Betar",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Walled in",
+     "tone": "g"
+    },
+    {
+     "text": "Thrown back",
+     "tone": "r"
+    },
+    {
+     "text": "Refused",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Fortress",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Assault",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Betar falls",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Walls thick",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Starving",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The second revolt",
+   "text": "Judaea has risen again under Simon bar Kokhba, who rules as a prince and strikes his own coins. Rebels hide in caves and tunnels and ambush Roman columns. You are Sextus Julius Severus, brought from Britain by Hadrian.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Pitched battles go badly in this country."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Fight small: cut them off and starve them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cut off small groups and starve them",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -13,
+       "set": {
+        "slow": 1
+       },
+       "text": "You avoid pitched battle. You surround rebel villages and caves one by one and starve them."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Seek a great pitched battle",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "The rebels melt into the hills."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer an amnesty to all who lay down arms",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "Few take it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Caves",
+   "text": "Rebels hide in caves with hidden entrances.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Block the entrances."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Block them."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Block the caves",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "slow": true
+       },
+       "r": -2,
+       "e": -15,
+       "text": "Your men find and block the caves. Those inside starve."
+      },
+      {
+       "r": -6,
+       "e": -6,
+       "text": "Some escape."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "caves": [
+         60,
+         100,
+         0.2
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Send men into the caves after them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": 0,
+       "text": "Your men are ambushed in the dark."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    },
+    {
+     "label": "Ignore the caves and march on Betar",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They raid your supply lines."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Betar",
+   "text": "Bar Kokhba holds out in the hill fortress of Betar near Jerusalem.",
+   "intel": {
+    "hint": [
+     {
+      "text": "It has a spring."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wall it in."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Wall it in",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -13,
+       "set": {
+        "wall": 1
+       },
+       "text": "Your legions wall Betar in. Its remains still stand."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "wall": [
+         200,
+         180
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Storm at once from every side before they dig in",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "The rebels throw you back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         110
+        ]
+       },
+       "f": [
+        "leg",
+        "bet"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Offer Bar Kokhba his life if he surrenders",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "He refuses."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Assault",
+   "text": "Betar is starving.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Attack."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Storm the fortress."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Storm",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "wall": true
+       },
+       "r": -4,
+       "e": -17,
+       "text": "Betar falls. Bar Kokhba is killed."
+      },
+      {
+       "r": -10,
+       "e": -6,
+       "text": "The walls hold for now."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         80
+        ],
+        "bet": [
+         200,
+         70,
+         0.2
+        ]
+       },
+       "f": [
+        "leg",
+        "bet"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for them to starve to the last man",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -10,
+       "text": "Weeks go by."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Use engines only, from a distance",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -2,
+       "text": "The walls are thick."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ]
+  },
+  {
+   "title": "Judaea",
+   "text": "The revolt is over. The losses were terrible on both sides.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hadrian decides Judaea’s fate."
+     }
+    ],
+    "scout": [
+     {
+      "text": "What does Hadrian do?"
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hadrian renames it",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -11,
+       "text": "Hadrian does not write to the Senate the usual 'I and the army are well'. Jerusalem becomes the Roman colony Aelia Capitolina; Judaea is renamed Syria Palaestina."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let the province return to how it was",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -2,
+       "text": "Unrest stays."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Garrison it with three legions",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": 0,
+       "e": -8,
+       "text": "The cost is huge."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Siege of Betar (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Siege_of_Betar"
+  }
+ ]
+}

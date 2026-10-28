@@ -1,0 +1,667 @@
+{
+ "id": "carnuntum170",
+ "name": "Battle of Carnuntum",
+ "date": "170 AD",
+ "result": "loss",
+ "loc": {
+  "lat": 48.11,
+  "lon": 16.86,
+  "place": "near Carnuntum, Pannonia",
+  "short": "Carnuntum",
+  "x": 395,
+  "y": 3
+ },
+ "names": {
+  "rome": "Rome",
+  "enemy": "Marcomanni and Quadi",
+  "commander": "Marcus Aurelius’s generals",
+  "foe": "Ballomar"
+ },
+ "intro": "North of the Danube near Carnuntum (in modern Austria), 170 AD. Plague is killing Romans, and Marcus Aurelius has raised new troops from slaves and gladiators. You command his army against the Marcomanni.",
+ "debrief": "The details are poorly recorded. Ancient writers say a Roman army was badly beaten, perhaps with 20,000 dead, and the Marcomanni and Quadi crossed the Alps into Italy, besieging Aquileia and burning Opitergium, the first invasion of Italy in centuries. A Praetorian Prefect was killed. Marcus Aurelius spent most of his remaining years fighting on the Danube, where he wrote his Meditations. The other choices are what-ifs.",
+ "terrain": {
+  "river": {
+   "horizontal": true,
+   "y": 180,
+   "w": 28
+  },
+  "forests": [
+   [
+    60,
+    60,
+    60,
+    16
+   ],
+   [
+    340,
+    80,
+    60,
+    16
+   ]
+  ],
+  "grass": "#5f7f41"
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 180,
+   "h": 14,
+   "side": "roman",
+   "name": "Roman army on the Danube",
+   "model": "legionary"
+  },
+  "cav": {
+   "x": 60,
+   "y": 220,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Cavalry",
+   "model": "cav_roman"
+  },
+  "pr": {
+   "x": 200,
+   "y": 240,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Praetorian Guard",
+   "model": "veteran"
+  },
+  "mar": {
+   "x": 200,
+   "y": 90,
+   "w": 200,
+   "h": 14,
+   "side": "enemy",
+   "name": "Marcomanni and Quadi",
+   "model": "barbarian",
+   "scales": true
+  },
+  "way": {
+   "x": 340,
+   "y": 40,
+   "w": 80,
+   "h": 8,
+   "side": "enemy",
+   "name": "The road to Italy",
+   "model": "levy",
+   "scales": true,
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 5
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The new army holds.",
+   "The Alps are closed.",
+   "Italy is safe."
+  ],
+  "lose": [
+   "The legions break north of the Danube.",
+   "Barbarians cross the Alps.",
+   "Aquileia is besieged."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Army",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Rushed",
+     "tone": "r"
+    },
+    {
+     "text": "Drilled",
+     "tone": "g"
+    },
+    {
+     "text": "Bought off",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "New recruits",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Battle",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Broken",
+     "tone": "r"
+    },
+    {
+     "text": "Holding a hill",
+     "tone": "g"
+    },
+    {
+     "text": "Cavalry lost",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "North of the Danube",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Alps",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Open",
+     "tone": "r"
+    },
+    {
+     "text": "Closed",
+     "tone": "g"
+    },
+    {
+     "text": "Chasing",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Road to Italy",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Aquileia",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Prefect killed",
+     "tone": "a"
+    },
+    {
+     "text": "Barely holding",
+     "tone": "r"
+    },
+    {
+     "text": "Road cut",
+     "tone": "g"
+    }
+   ],
+   "default": {
+    "text": "Besieged",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The plague",
+   "text": "Plague brought back from the East is killing Romans. Marcus Aurelius has even sold palace treasures to pay for the war. You command the army he has gathered on the Danube. The Marcomanni under Ballomar are ready.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your army is new, made of slaves, gladiators and bandits."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Train them before you fight."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Attack across the Danube at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "set": {
+        "rash": 1
+       },
+       "text": "Your new army crosses the river into Marcomanni land."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Train them first",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": 0,
+       "e": -19,
+       "set": {
+        "drill": 1
+       },
+       "text": "Your army trains through the summer."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Buy the Marcomanni off with gold and land",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "They take the gold, and want more."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The battle",
+   "text": "The Marcomanni meet you north of the Danube.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hold a strong position."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hold a strong position."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Charge them",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "drill": true
+       },
+       "r": -4,
+       "e": -8,
+       "text": "Your drilled army holds its order."
+      },
+      {
+       "r": -14,
+       "e": 0,
+       "text": "The untrained legions break. Perhaps 20,000 Romans die."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "leg",
+        "mar"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Hold a hill",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -16,
+       "text": "They attack you uphill and are thrown back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the cavalry round",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -10,
+       "e": -6,
+       "text": "They are caught in the forest."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "left"
+    }
+   ]
+  },
+  {
+   "title": "The gap",
+   "text": "The road over the Alps to Italy lies open.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Close the passes."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Close the Alpine passes."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Pull back to the Danube forts",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -12,
+       "e": 0,
+       "text": "The Marcomanni pour through toward Italy."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "way": [
+         340,
+         40,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Close the passes",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -16,
+       "text": "Your troops hold the passes into Italy."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Chase them as they go",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -10,
+       "e": -6,
+       "text": "They are too fast."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Aquileia",
+   "text": "For the first time in nearly three hundred years, barbarians are in Italy. They besiege Aquileia and burn Opitergium.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Aquileia’s walls are old."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send what you can."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send the Praetorians",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -6,
+       "e": -10,
+       "text": "The Praetorian Prefect leads a force. He is killed."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pr": [
+         300,
+         100
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Let Aquileia hold alone",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The city holds, barely."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Cut their road home",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -12,
+       "text": "They are trapped in Italy."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Recovery",
+   "text": "The Marcomanni go home with loot.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Marcus will need years to win back the Danube."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Rebuild."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Rebuild and fight on for years",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "Marcus Aurelius spends the rest of his life on the Danube, writing his Meditations in camp."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Strike back at once",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": -9,
+       "text": "You catch them crossing back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "mar"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Make peace",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": 0,
+       "text": "They come back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Marcomannic Wars (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Marcomannic_Wars"
+  }
+ ],
+ "winAt": 50
+}

@@ -1215,6 +1215,51 @@
    "lon": 42.72,
    "result": "loss",
    "naval": false
+  },
+  {
+   "id": "betar",
+   "name": "Betar",
+   "date": "135 AD",
+   "lat": 31.73,
+   "lon": 35.14,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "carnuntum170",
+   "name": "Carnuntum",
+   "date": "170 AD",
+   "lat": 48.11,
+   "lon": 16.86,
+   "result": "loss",
+   "naval": false
+  },
+  {
+   "id": "rainmiracle",
+   "name": "Rain Miracle",
+   "date": "c. 172 AD",
+   "lat": 48.5,
+   "lon": 18,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "issus194",
+   "name": "Issus (194)",
+   "date": "194 AD",
+   "lat": 36.84,
+   "lon": 36.2,
+   "result": "win",
+   "naval": false
+  },
+  {
+   "id": "lugdunum197",
+   "name": "Lugdunum",
+   "date": "197 AD",
+   "lat": 45.76,
+   "lon": 4.83,
+   "result": "win",
+   "naval": false
   }
  ]
 }
