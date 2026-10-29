@@ -44,7 +44,7 @@ main{max-width:560px;margin:0 auto;padding:12px 16px 24px}
 #nar{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;text-align:center;color:#fff;font-style:italic;font-size:1rem;background:linear-gradient(transparent,rgba(0,0,0,.82));opacity:0;transition:opacity .6s;pointer-events:none}
 #fd{position:absolute;inset:0;background:#0b0906;opacity:0;transition:opacity .5s;pointer-events:none}#stc{position:absolute;left:12px;right:12px;top:50%;transform:translateY(-40%);text-align:center;pointer-events:none;opacity:0;transition:opacity .6s,transform .9s;color:#f3ead8;text-shadow:0 2px 10px #000}#stc.on{opacity:1;transform:translateY(-50%)}#stc::before{content:"";position:absolute;left:-12px;right:-12px;top:-30px;bottom:-30px;background:radial-gradient(ellipse at center,rgba(0,0,0,.55),transparent 70%);z-index:-1}#stc .a{font:700 11px/1 var(--body);letter-spacing:.22em;color:#d9b45a;text-transform:uppercase}#stc .b{font:800 22px/1.15 var(--disp);margin-top:7px}
 #lbls{position:absolute;inset:0;pointer-events:none}.vrow{display:flex;gap:8px}.vrow button{flex:1;margin:0}
-.tag{position:absolute;transform:translate(-50%,-100%);font:600 9px/1.2 var(--body);padding:1px 5px;border-radius:4px;background:rgba(0,0,0,.6);color:#fff;white-space:nowrap}
+.tag{position:absolute;transform:translate(-50%,-100%);font:600 9px/1.2 var(--body);padding:1px 5px;border-radius:4px;background:rgba(0,0,0,.6);color:#fff;white-space:nowrap;pointer-events:none}.tag.dot{font-size:0;padding:0;width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.75);box-shadow:0 0 0 1px rgba(0,0,0,.45);transform:translate(-50%,-50%)}
 /* cards */
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}
 .kicker{font:700 11px/1 var(--disp);letter-spacing:.2em;color:var(--red);text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between;gap:10px;align-items:center}
@@ -174,7 +174,7 @@ function turn(){
  if(scout){scout=false;bars()}let mvg=false;{const ns=stageFor(step);if(ns!==STG){goStage(ns);mvg=ok}}
  const T=B.turns[step],ev=B.decisions[step].event;hud("play");speak(T.h+". "+T.t);
  V.innerHTML=prevNote()+`<div class="card"><div class="kicker"><span>${ev?"⚡ Turn of fortune":"Decision "+(step+1)}</span><span class="cpw">🔭 ${SCN} scout${SCN===1?"":"s"} left</span></div><h2>${T.h}</h2><p>${T.t}</p>${ord(step).map(i=>`<button class="ch" data-i="${i}"><span class="l">${T.c[i].l}</span></button>`).join("")}${scout?"":SCN>0?`<button class="scout" id="sc">🔭 Send scouts (${SCN} of ${SCOUTS} left)</button>`:'<div class="sub" style="margin:10px 0 0;text-align:center">No scouts left this battle.</div>'}</div>`+intel()+sit();
- {const bs=V.querySelectorAll("button[data-i]");bs.forEach(b=>{b.onclick=()=>pick(+b.dataset.i);if(mvg)b.disabled=true});if(mvg)setTimeout(()=>bs.forEach(b=>b.disabled=false),2100*SPD)}STAGE_TAP=null;if(step>0)hudScroll(document.querySelector(".stage"));const sc=$("sc");if(sc)sc.onclick=()=>{SCN--;scout=true;SFX.click();bars();turn()};
+ {const bs=V.querySelectorAll("button[data-i]");bs.forEach(b=>{b.onclick=()=>pick(+b.dataset.i);if(mvg)b.disabled=true});if(mvg)setTimeout(()=>bs.forEach(b=>b.disabled=false),2100*SPD)}STAGE_TAP=null;FOCUS=null;if(!mvg&&step>0){clearTimeout(camT);CT.splice(0,6,...OV)}if(step>0)hudScroll(document.querySelector(".stage"));const sc=$("sc");if(sc)sc.onclick=()=>{SCN--;scout=true;SFX.click();bars();turn()};
 }
 // Choices are shown in a shuffled order that is fixed for each battle, so their position gives nothing away.
 function ord(k){const n=B.turns[k].c.length,a=[...Array(n).keys()];let h=2166136261;for(const ch of B.id+":"+k){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}
@@ -188,7 +188,7 @@ function pick(i){
  R=st.R;E=st.E;CP=st.CP;step=st.step;
  const x={o:res.text};
  let hm="";if(res.pen==="A")hm=B.fs+" had expected another assault and punished it.";else if(res.pen==="C")hm=B.fs+" used your caution to reform his line.";else if(res.pen==="M")hm=B.fs+" read your manoeuvre and adjusted.";
- bars();move(k,i);SFX.clash(Math.abs(R-R0)+Math.abs(E-E0));
+ bars();move(k,i,res);SFX.clash(Math.abs(R-R0)+Math.abs(E-E0));
  const fin=step>=B.turns.length||R<=0,win=E<=WIN;let nxt;
  if(fin)nxt=()=>finish({won:R>0&&win,rout:R<=0,sc:SC.slice(),q:quals.slice(),p:picks.slice(),R:Math.max(0,R),E:Math.max(0,E)});else nxt=turn;
  if(fin){const w=R>0&&win;climax(w);setTimeout(()=>SFX.horn(w),4500)}
@@ -492,10 +492,10 @@ function climax(win){const L=win?B.climax.win:B.climax.lose,K=B.climax.cams.map(
  clearTimeout(camT);const e=endAnim(win);startReplay(win,L);
  if(e&&e.mode==="drown"){const mx=(e.cx+e.wt[0])/2,mz=(e.cz+e.wt[1])/2,vx=e.wt[0]-e.cx,vz=e.wt[1]-e.cz,l=Math.hypot(vx,vz)||1,ux=vx/l,uz=vz/l;K[0]=[mx-ux*60,150,mz-uz*60+120,mx,0,mz];K[1]=[mx-uz*130,45,mz+ux*130,mx,0,mz];K[2]=[e.cx-ux*90,70,e.cz-uz*90+30,e.wt[0],0,e.wt[1]]}
  else if(e){const{cx,cz}=e;K[0]=[cx*.6,150,cz+165,cx,0,cz];K[1]=[cx+125,48,cz+40,cx,0,cz];K[2]=[cx*.5,95,cz+(e.away<0?120:-110),cx,0,cz+e.away*25]}
- CT.splice(0,6,...K[0]);show(L[0]);
- setTimeout(()=>{CT.splice(0,6,...K[1]);show(L[1])},3000);
- setTimeout(()=>{CT.splice(0,6,...K[2]);show(L[2])},6000);
- setTimeout(()=>{CT.splice(0,6,0,190,245,0,0,-10);nr.style.opacity=0},9400)}
+ LBL_OFF=true;CT.splice(0,6,...K[0]);show(L[0]);   // one wide shot, then one close shot that holds
+ setTimeout(()=>{CT.splice(0,6,...K[1]);show(L[1])},3600);
+ setTimeout(()=>{show(L[2])},6400);
+ setTimeout(()=>{CT.splice(0,6,0,190,245,0,0,-10);nr.style.opacity=0;LBL_OFF=false},9400)}
 // ---------- THE FINAL MOMENT: the losing side routs, is surrounded, or is driven into the water ----------
 // climax.anim in a battle file picks the picture: {"win":"rout|encircle|drown","lose":"..."}; default rout.
 let END=null;
@@ -587,15 +587,16 @@ function initGL(){tried=true;try{
   UN[id]={g,meshes,fx,tag,flag,std,dust,tx:0,tz:0,a:1,hit:0,k:1,ry:0}}
  addEventListener("resize",()=>{const w=$("map").parentNode.clientWidth;ren.setSize(w,w/1.5,false)});
  const v=new THREE.Vector3();
- (function loop(t){requestAnimationFrame(loop);const T=t/1000,dt=Math.min(.05,Math.max(.001,T-(LT||T-.016)));LT=T;for(let k=0;k<6;k++){const r=sdamp(CC[k],CT[k],CV[k],1.05*SPD,dt);CC[k]=r[0];CV[k]=r[1]}cam.position.set(CC[0]+Math.sin(T*.25)*(CT[1]>100?14:3),CC[1],CC[2]);cam.lookAt(CC[3],CC[4],CC[5]);
+ (function loop(t){requestAnimationFrame(loop);const T=t/1000,dt=Math.min(.05,Math.max(.001,T-(LT||T-.016)));LT=T;for(let k=0;k<6;k++){const r=sdamp(CC[k],CT[k],CV[k],1.35*SPD,dt);CC[k]=r[0];CV[k]=r[1]}cam.position.set(CC[0]+Math.sin(T*.25)*(CT[1]>100?14:3),CC[1],CC[2]);cam.lookAt(CC[3],CC[4],CC[5]);
   for(const id in UN){const o=UN[id],g=o.g,dx=o.tx-g.position.x,dz=o.tz-g.position.z,mv=Math.hypot(dx,dz),hit=performance.now()/1000<o.hit;
    {const rx=sdamp(g.position.x,o.tx,o.vx||0,.95*SPD,dt),rz=sdamp(g.position.z,o.tz,o.vz||0,.95*SPD,dt);g.position.x=rx[0];o.vx=rx[1];g.position.z=rz[0];o.vz=rz[1]}const spd=Math.hypot(o.vx,o.vz),sw=Math.min(1,spd/14);g.position.y+=(Math.max(0,gh(g.position.x,g.position.z))-g.position.y)*Math.min(1,dt*10);
    if(o.march&&mv<3&&!MARCHD)o.march=0;const mr=o.march||0;let ry=o.ry||0;if(!mr&&!o.fleeing&&!(END&&o.ry)&&mv>4&&spd>3&&U[id].model.indexOf("galley")<0){const f=U[id].s==="r"?Math.atan2(-o.vx,-o.vz):Math.atan2(o.vx,o.vz);if(Math.abs(f)<2.2)ry=f*.9}
+   if(o.face!=null&&performance.now()/1000<o.faceUntil&&!o.fleeing&&!mr)ry=o.face;
    g.rotation.y+=(ry-g.rotation.y)*(1-Math.exp(-dt*2.6));g.visible=o.a>.3;
    if(o.fleeing&&END){fleeStep(o,T);o.meshes.forEach(m=>{m.visible=m.userData.rnd<=Math.max(o.k,.5)})}else{o.bend=(o.bend||0)+((hit?1:0)-(o.bend||0))*(1-Math.exp(-dt*2.4));const bs=(U[id].s==="r"?1:-1)*3.2*o.bend;o.meshes.forEach((m,i)=>{const u=m.userData;m.rotation.y+=((mr?-mr*Math.PI/2:0)-m.rotation.y)*(1-Math.exp(-dt*4));m.position.y=u.by+Math.abs(Math.sin(T*9+i))*1.5*sw+(hit?Math.abs(Math.sin(T*14+i*2))*2.2:0);if(u.z0!=null)m.position.z=u.z0+bs*Math.cos(u.xn*Math.PI/2);m.visible=u.rnd<=o.k})}
    o.fx.material.opacity=hit?.28*Math.abs(Math.sin(T*8)):0;if(o.flag)o.flag.rotation.y=Math.sin(T*3+g.position.x)*.35;const dm=o.dust.material,isCav=/cav_/.test(U[id].model),want=hit?.45:(isCav?.7:.3)*sw;dm.size=isCav&&sw>.2?16:(SEA?6:12);dm.opacity+=(want-dm.opacity)*(1-Math.exp(-dt*3));o.dust.position.y=(T*6)%6;o.dust.visible=dm.opacity>.02;
-   v.set(g.position.x,14+g.position.y,g.position.z).project(cam);o.tag.style.display=g.visible?"block":"none";
-   o.tag.style.left=((v.x+1)/2*100)+"%";o.tag.style.top=((1-v.y)/2*100)+"%"}
+   v.set(g.position.x,14+g.position.y,g.position.z).project(cam);o.sx=(v.x+1)/2;o.sy=(1-v.y)/2;o.vis=g.visible&&v.z<1}
+  layoutTags();stepArrows(dt);
   if(SEA)GT.offset.x=(T*.004)%1;stepProj();if(WXF)WXF(T);ren.render(scene,cam);if(REC)REC.frame()})(0);
  ok=true}catch(e){ok=false;console.error(e)}}
 // The ground, water and trees for the current terrain (TF()). Rebuilt when the battle moves to a new place (see goStage).
@@ -717,7 +718,7 @@ function replayButton(){const w=$("vidw"),b=$("vid"),sv=$("vsave"),pv=$("vprev")
  if(CLIP)ready();else if(REC){b.disabled=true;CLIPWAIT.push(ready)}else{b.disabled=true;clipLoad().then(c=>{if(c){CLIP=c;ready()}else w.style.display="none"})}}
 function place(){if(!ok)return;for(const id in UN){const o=UN[id],p=P[id];o.tx=WX(p[0]);o.tz=WZ(p[1]);o.a=p[2]==null?1:p[2]}}
 function mapScale(){if(!ok)return;for(const id in UN){const u=U[id];UN[id].k=Math.max(.25,Math.min(1,u.s==="r"?R/100:u.sc?E/100:1))}}
-function resetMap(){endReset();if(tried||ok){goStage("start",true);const f=$("fd"),t=$("stc");if(f)f.style.opacity=0;if(t)t.classList.remove("on")}picks=[];CP=CPMAX;SCN=SCOUTS;scout=false;clearTimeout(camT);CT.splice(0,6,0,190,245,0,0,-10);if(!tried)initGL();P={};for(const id in U)P[id]=[U[id].x,U[id].y,U[id].hidden?0:1];place();if(ok)for(const id in UN){UN[id].g.position.set(UN[id].tx,Math.max(0,gh(UN[id].tx,UN[id].tz)),UN[id].tz);UN[id].vx=UN[id].vz=0;UN[id].hit=0}}
+function resetMap(){endReset();FOCUS=null;LBL_OFF=false;if(ok)clearArrows();for(const id in UN){UN[id].face=null;UN[id].push=null}if(tried||ok){goStage("start",true);const f=$("fd"),t=$("stc");if(f)f.style.opacity=0;if(t)t.classList.remove("on")}picks=[];CP=CPMAX;SCN=SCOUTS;scout=false;clearTimeout(camT);CT.splice(0,6,0,190,245,0,0,-10);if(!tried)initGL();P={};for(const id in U)P[id]=[U[id].x,U[id].y,U[id].hidden?0:1];place();if(ok)for(const id in UN){UN[id].g.position.set(UN[id].tx,Math.max(0,gh(UN[id].tx,UN[id].tz)),UN[id].tz);UN[id].vx=UN[id].vz=0;UN[id].hit=0}}
 // ---------- MOVING ON: a battle can move to new ground between decisions ----------
 // B.stages = {name:{label,title,terrain,weather,units:{id:[x,y,opacity]},dir:1|-1,cam}}. A decision's "stage" names the place it
 // happens in: a name, or a list [{"if":{...},"s":"name"},{"s":"name"}] so the place can follow earlier choices. "start" is the base terrain.
@@ -738,7 +739,11 @@ function goStage(n,instant){STGT.forEach(clearTimeout);STGT=[];MARCHD=0;if(!ok){
  STGT.push(setTimeout(()=>tt.classList.remove("on"),4000*SPD));STGT.push(setTimeout(()=>{MARCHD=0},2400*SPD))}
 const OV=[0,190,245,0,0,-10];
 let camT=0;
-function move(k,i){const m=Rules.moveFor(B,k,i,S);Object.assign(P,m.u);place();if(!ok)return;
+function move(k,i,res){const m=Rules.moveFor(B,k,i,S),mv=Object.keys(m.u||{}).filter(id=>UN[id]);if(!ok){Object.assign(P,m.u);place();return}
+ const from={};mv.forEach(id=>from[id]=[UN[id].g.position.x,UN[id].g.position.z]);Object.assign(P,m.u);
+ mv.forEach(id=>{const p=P[id];if(p[2]==null||p[2]>.3)arrow(id,from[id][0],from[id][1],WX(p[0]),WZ(p[1]))});
+ const inv=[...new Set([...mv,...(m.f||[])])];FOCUS=new Set(inv);FOCUS_UNTIL=performance.now()/1000+7*SPD;
+ setTimeout(()=>{place();contact(m.f||[],res)},(ARW.length?380:0)*SPD);
  (m.f||[]).forEach(id=>setTimeout(()=>{UN[id].hit=performance.now()/1000+3*SPD},1800*SPD));
  const kinds=(m.f||[]).map(id=>[id,U[id].model,(Rules.models[U[id].model]||{}).k]);
  if(kinds.some(x=>x[2]==="ele"))setTimeout(()=>SFX.trumpet(),900*SPD);
@@ -746,7 +751,49 @@ function move(k,i){const m=Rules.moveFor(B,k,i,S);Object.assign(P,m.u);place();i
  const shooters=kinds.filter(x=>/velites|archer|legionary|hastati|principes|auxiliary|veteran|triarii|galley/.test(x[1]));
  if(shooters.length){SFX.volley();shooters.forEach(([id])=>{const foe=kinds.filter(x=>U[x[0]].s!==U[id].s).map(x=>x[0]);if(!foe.length)return;
    const g=UN[id].g.position;let best=foe[0],bd=1e9;foe.forEach(f=>{const p=UN[f].g.position,d=Math.hypot(p.x-g.x,p.z-g.z);if(d<bd){bd=d;best=f}});setTimeout(()=>volley(id,best),(900+Math.random()*500)*SPD)})}
- let c=B.decisions[k].choices[i].cam;if(typeof c==="string")c=Rules.cams[c];clearTimeout(camT);if(c){CT.splice(0,6,...c);camT=setTimeout(()=>CT.splice(0,6,...OV),6200*SPD)}}
+ let c=B.decisions[k].choices[i].cam;clearTimeout(camT);
+ if(c==="wide"||c==="high"||Array.isArray(c)){if(typeof c==="string")c=Rules.cams[c];CT.splice(0,6,...c)}   // set-piece views stay as written
+ else{setTimeout(()=>{const fr=frame(inv);if(fr)CT.splice(0,6,...fr);else if(c)CT.splice(0,6,...Rules.cams[c])},(ARW.length?380:0)*SPD)}}
+
+// ---- unit names: during an action only the units involved are named (the rest become dots); names never overlap ----
+let FOCUS=null,FOCUS_UNTIL=0,LBL_OFF=false;
+function layoutTags(){const cv=$("map"),W=cv.clientWidth,H=cv.clientHeight,now=performance.now()/1000,foc=FOCUS&&now<FOCUS_UNTIL?FOCUS:null,placed=[];
+ const L=[];for(const id in UN){const o=UN[id],t=o.tag;if(!o.vis||LBL_OFF||o.sx<-.05||o.sx>1.05||o.sy<0||o.sy>1.05){if(t.style.display!=="none")t.style.display="none";continue}
+  if(t.style.display!=="block")t.style.display="block";const full=!foc||foc.has(id);L.push({o,id,full,x:o.sx*W,y:o.sy*H})}
+ L.sort((a,b)=>(b.full-a.full)||(b.y-a.y));
+ for(const e of L){const o=e.o,t=o.tag;let full=e.full;
+  if(full){const want=t.classList.contains("dot");if(want)t.classList.remove("dot");if(want||!o.tw){o.tw=t.offsetWidth;o.th=t.offsetHeight}
+   const w=o.tw+4,h=o.th+2,tries=[o.toff||0,0,-1,1,-2,2];let ok2=null;
+   const top=(($("map").parentNode.querySelector(".meters")||{}).offsetHeight||0)+6;for(const k of tries){const y=e.y+k*h,r=[e.x-w/2,y-h,e.x+w/2,y];if(r[1]<top)continue;if(!placed.some(q=>r[0]<q[2]&&r[2]>q[0]&&r[1]<q[3]&&r[3]>q[1])){ok2=[k,r];break}}
+   if(ok2){o.toff=ok2[0];placed.push(ok2[1]);t.style.left=e.x+"px";t.style.top=(e.y+ok2[0]*h)+"px";continue}full=false}
+  if(!t.classList.contains("dot"))t.classList.add("dot");t.style.left=e.x+"px";t.style.top=e.y+"px"}}
+// ---- order arrows: a sweeping arrow shows where each unit is ordered to go, just before it moves ----
+const ARW=[];
+function arrow(id,x1,z1,x2,z2){const dx=x2-x1,dz=z2-z1,L=Math.hypot(dx,dz);if(L<18)return;const r=U[id].s==="r",hw=Math.max(2.2,Math.min(4,U[id].w/40)),hd=Math.min(14,L*.35);
+ const sh=new THREE.Shape();sh.moveTo(0,-hw);sh.lineTo(L-hd,-hw);sh.lineTo(L-hd,-hw*2.6);sh.lineTo(L,0);sh.lineTo(L-hd,hw*2.6);sh.lineTo(L-hd,hw);sh.lineTo(0,hw);sh.lineTo(0,-hw);
+ const m=new THREE.Mesh(new THREE.ShapeGeometry(sh),new THREE.MeshBasicMaterial({color:r?0xd8382a:0xe6b33c,transparent:true,opacity:0,depthTest:false,depthWrite:false,side:THREE.DoubleSide}));
+ m.renderOrder=10;m.rotation.x=-Math.PI/2;m.rotation.z=Math.atan2(-dz,dx);const y=Math.max(gh(x1,z1),gh(x2,z2),gh((x1+x2)/2,(z1+z2)/2))+2;m.position.set(x1,y,z1);m.scale.set(.02,1,1);scene.add(m);ARW.push({m,t:0})}
+function stepArrows(dt){for(let i=ARW.length-1;i>=0;i--){const a=ARW[i];a.t+=dt/SPD;const t=a.t;a.m.scale.x=Math.min(1,Math.max(.02,t/.55));a.m.material.opacity=t<.25?t/.25*.85:t<1.9?.85:Math.max(0,.85-(t-1.9)*1.2);
+ if(t>2.7){scene.remove(a.m);a.m.geometry.dispose();a.m.material.dispose();ARW.splice(i,1)}}}
+function clearArrows(){ARW.splice(0).forEach(a=>{scene.remove(a.m);a.m.geometry.dispose();a.m.material.dispose()})}
+// ---- contact: fighting units meet at a shared front and face each other; the side doing better pushes the line back ----
+function half(id,nx,nz){const u=U[id];return Math.abs(nx)*u.w/2+Math.abs(nz)*u.h/2}
+function contact(ids,res){const R=ids.filter(id=>UN[id]&&U[id].s==="r"),E=ids.filter(id=>UN[id]&&U[id].s!=="r");if(!R.length||!E.length)return;
+ const now=performance.now()/1000,adv=res?Math.max(-14,Math.min(14,((res.dr||0)-(res.de||0))*.9)):0,pairs=[];
+ R.forEach(a=>{let b=E[0],bd=1e9;E.forEach(e=>{const d=Math.hypot(UN[e].tx-UN[a].tx,UN[e].tz-UN[a].tz);if(d<bd){bd=d;b=e}});pairs.push([a,b])});
+ E.forEach(e=>{if(!pairs.some(p=>p[1]===e)){let a=R[0],bd=1e9;R.forEach(r=>{const d=Math.hypot(UN[e].tx-UN[r].tx,UN[e].tz-UN[r].tz);if(d<bd){bd=d;a=r}});pairs.push([a,e])}});
+ for(const [a,b] of pairs){const A=UN[a],Bn=UN[b];let dx=Bn.tx-A.tx,dz=Bn.tz-A.tz,d=Math.hypot(dx,dz);if(d<.01){dx=0;dz=-1;d=1}const nx=dx/d,nz=dz/d,need=half(a,nx,nz)+half(b,nx,nz)+3;
+  const missile=/velites|archer|galley/.test(U[a].model+U[b].model);
+  if(!missile&&d<need+90){const mx=(A.tx+Bn.tx)/2,mz=(A.tz+Bn.tz)/2,ha=half(a,nx,nz)+1.5,hb=half(b,nx,nz)+1.5,c=(ha-hb)/2;   // seam between them
+   A.tx=mx-nx*(ha+c)+nx*0;A.tz=mz-nz*(ha+c);Bn.tx=mx+nx*(hb-c);Bn.tz=mz+nz*(hb-c);
+   A.push=[nx*adv,nz*adv];Bn.push=[nx*adv,nz*adv]}
+  A.face=Math.max(-1.4,Math.min(1.4,Math.atan2(-nx,-nz)));Bn.face=Math.max(-1.4,Math.min(1.4,Math.atan2(-nx,-nz)));A.faceUntil=Bn.faceUntil=now+6*SPD}
+ setTimeout(()=>{for(const [a,b] of pairs)for(const id of [a,b]){const o=UN[id];if(o.push){o.tx+=o.push[0];o.tz+=o.push[1];o.push=null}}},(1800+1300)*SPD)}
+// ---- one calm camera shot per decision: frame the units involved and hold until the next decision ----
+function frame(ids){const P2=[];ids.forEach(id=>{const o=UN[id];if(!o||o.a<.3)return;const u=U[id];P2.push([o.tx,o.tz,Math.max(u.w,u.h)/2],[o.g.position.x,o.g.position.z,Math.max(u.w,u.h)/2])});if(!P2.length)return null;
+ let x0=1e9,x1=-1e9,z0=1e9,z1=-1e9;P2.forEach(([x,z,r])=>{x0=Math.min(x0,x-r);x1=Math.max(x1,x+r);z0=Math.min(z0,z-r*.5);z1=Math.max(z1,z+r*.5)});
+ const cx=(x0+x1)/2,cz=(z0+z1)/2,R=Math.max((x1-x0)/2,(z1-z0)*.8,45),dist=Math.max(155,Math.min(255,R*1.7+85));
+ return[cx*.8,dist*.78,cz+dist,cx,0,cz-8]}
 // ---------- LOADING: battles are data files (see BATTLE_FORMAT.md) ----------
 const hx=v=>typeof v==="string"?parseInt(v.replace("#",""),16):v;
 function normalize(b){
