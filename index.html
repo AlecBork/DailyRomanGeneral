@@ -228,8 +228,10 @@ function countdown(){const el=$("cd");if(!el)return;if(dayNow()!==dayNum){el.par
 $("snd").onclick=()=>{SFX.toggle();sndLabel();SFX.click()};$("stb").onclick=showStats;$("cmpb").onclick=()=>MF&&showCampaign("map");sndLabel();
 let SAVED=false;
 function streak(won){const s=store.get("drg-streak")||{n:0,d:-9};if(s.d===dayNum)return;const mk=new Date().getFullYear()*12+new Date().getMonth();
- if(won&&s.d===dayNum-2&&s.n>0&&s.save!==mk){s.n++;s.save=mk;SAVED=true}   // one missed day a month is forgiven
- else s.n=won?(s.d===dayNum-1?s.n+1:1):0;
+ // the streak counts days played in a row, win or lose; "w" counts wins in a row
+ const gap1=s.d===dayNum-2&&s.n>0&&s.save!==mk;   // one missed day a month is forgiven
+ if(gap1){s.n++;s.save=mk;SAVED=true}else s.n=s.d===dayNum-1?s.n+1:1;
+ s.w=won?((s.d===dayNum-1||gap1)?(s.w||0)+1:1):0;s.wmax=Math.max(s.wmax||0,s.w);
  s.max=Math.max(s.max||0,s.n);s.d=dayNum;store.set("drg-streak",s)}
 function records(){return store.get("drg-rec")||{}}
 function saveRecord(out){const r=records(),hit=(out.p||[]).filter((v,k)=>v===B.hist[k]).length;
@@ -242,9 +244,9 @@ const ACH=[
  ["firsttry","🎯","First attempt","Win on your first try"],
  ["perfect","🟩","Flawless","Win with every decision the best one"],
  ["historian","📖","Historian","Make the same call as history in every decision"],
- ["streak3","🔥","Three in a row","A 3-day win streak"],
- ["streak7","⚔️","Week of war","A 7-day win streak"],
- ["streak30","👑","Triumph","A 30-day win streak"],
+ ["streak3","🔥","Three in a row","Play 3 days in a row"],
+ ["streak7","⚔️","Week of war","Play 7 days in a row"],
+ ["streak30","👑","Triumph","Play 30 days in a row"],
  ["cannae","🐘","Hannibal’s bane","Win Cannae"],
  ["teutoburg","🦅","Eagles saved","Win the Teutoburg Forest"],
  ["naval","⚓","Master of the sea","Win a sea battle"],
@@ -295,20 +297,23 @@ function named(){const n=ls.get("drg-legion");return !!n&&n!=="Legio I"}
 async function sb(path,opt={}){const r=await fetch(SB_URL+"/rest/v1/"+path,{...opt,headers:{apikey:SB_KEY,"Content-Type":"application/json",...(opt.headers||{})}});if(!r.ok)throw new Error(r.status+" "+await r.text());const t=await r.text();return t?JSON.parse(t):null}
 async function lbPost(out){if(!lbOn()||PRACTICE||!out||!out.atts||!named()||ls.get("drg-lb-"+DK)==="1")return;
  const st=store.get("drg-streak")||{n:0};
- const row={player:playerId(),name:LEGION.slice(0,24),day:BNUM,battle:B.id,won:!!out.won,attempts:Math.min(3,out.atts.length),calls:(out.q||[]).filter(v=>v>=2).length,total:B.turns.length,enemy:Math.round(Math.max(0,Math.min(200,out.E||0))),streak:out.won?(st.n||0):0};
+ const row={player:playerId(),name:LEGION.slice(0,24),day:BNUM,battle:B.id,won:!!out.won,attempts:Math.min(3,out.atts.length),calls:(out.q||[]).filter(v=>v>=2).length,total:B.turns.length,enemy:Math.round(Math.max(0,Math.min(200,out.E||0))),streak:st.n||0,points:Math.min(1000,pointsFor(out).t)};
  try{await sb("results?on_conflict=player,day",{method:"POST",headers:{Prefer:"resolution=ignore-duplicates,return=minimal"},body:JSON.stringify(row)});ls.set("drg-lb-"+DK,"1")}catch(e){console.warn("leaderboard",e)}}
-function lbLine(r){return r.won?`🏆 ${["1st","2nd","3rd"][r.attempts-1]} try · ${r.calls}/${r.total}`:`💀 lost`}
+// Points: a win scores 100 / 60 / 30 for the 1st / 2nd / 3rd attempt, +5 for each best call, plus a victory bonus that
+// grows faster the further the enemy is pushed below the win line (margin² / 4: 8 below = 16, 16 below = 64, 25 below = 156). A loss scores 0.
+function pointsFor(o){if(!o||!o.won)return{t:0,base:0,calls:0,bonus:0};const n=Math.min(3,(o.atts||[o]).length),base=[100,60,30][n-1],calls=5*(o.q||[]).filter(v=>v>=2).length,m=Math.max(0,WIN-Math.max(0,o.E||0)),bonus=Math.round(m*m/4);return{t:base+calls+bonus,base,calls,bonus}}
+function lbLine(r){return r.won?`<b style="color:var(--ink)">${r.points||0}</b> pts · ${["1st","2nd","3rd"][r.attempts-1]} try`:`💀 lost · 0 pts`}
 async function lbRender(el,tab){if(!el)return;tab=tab||"today";const me=playerId();
  const head=`<div class="kicker" style="color:var(--gold)"><span>🏆 Leaderboard</span><span class="cpw"><a href="#" data-t="today" style="color:${tab==="today"?"var(--gold)":"var(--mute)"}">Today</a> · <a href="#" data-t="all" style="color:${tab==="all"?"var(--gold)":"var(--mute)"}">All time</a></span></div>`;
  el.innerHTML=`<div class="card lb">${head}<div class="sub">Loading…</div></div>`;
  el.querySelectorAll("a[data-t]").forEach(a=>a.onclick=e=>{e.preventDefault();lbRender(el,a.dataset.t)});
  try{let rows,html;
-  if(tab==="today"){rows=await sb(`results?day=eq.${BNUM}&select=player,name,won,attempts,calls,total,enemy&order=won.desc,attempts.asc,calls.desc,enemy.asc,created_at.asc&limit=200`);
+  if(tab==="today"){rows=await sb(`results?day=eq.${BNUM}&select=player,name,won,attempts,calls,total,enemy,points&order=points.desc,won.desc,attempts.asc,created_at.asc&limit=200`);
    const line=(r,i)=>`<div class="lbr${r.player===me?" me":""}"><span>${i+1}</span><b>${esc(r.name)}</b><span>${lbLine(r)}</span></div>`;
    const mi=rows.findIndex(r=>r.player===me);html=rows.slice(0,10).map(line).join("")+(mi>=10?`<div class="lbr"><span>…</span></div>`+line(rows[mi],mi):"");
    if(!rows.length)html=`<div class="sub">No generals yet today. Be the first.</div>`;html=`<div class="sub" style="margin:0 0 6px">${rows.length} general${rows.length===1?"":"s"} on today’s board</div>`+html}
-  else{rows=await sb(`alltime?select=player,name,wins,firsts,played,best_streak&order=wins.desc,firsts.desc,best_streak.desc&limit=200`);
-   const line=(r,i)=>`<div class="lbr${r.player===me?" me":""}"><span>${i+1}</span><b>${esc(r.name)}</b><span>${r.wins} won · ${r.firsts} first-try · 🔥${r.best_streak}</span></div>`;
+  else{rows=await sb(`alltime?select=player,name,wins,losses,points,current_streak,best_streak&order=points.desc,wins.desc&limit=200`);
+   const line=(r,i)=>`<div class="lbr${r.player===me?" me":""}"><span>${i+1}</span><b>${esc(r.name)}</b><span><b style="color:var(--ink)">${r.points}</b> pts · ${r.wins}W ${r.losses}L · 🔥${r.current_streak} (best ${r.best_streak})</span></div>`;
    const mi=rows.findIndex(r=>r.player===me);html=rows.slice(0,10).map(line).join("")+(mi>=10?`<div class="lbr"><span>…</span></div>`+line(rows[mi],mi):"");if(!rows.length)html=`<div class="sub">No results yet.</div>`}
   let join="";if(!named())join=`<div class="lbj"><div class="sub" style="margin:10px 0 6px">Choose a name to join the board${tab==="today"&&!PRACTICE?" with today’s result":""}:</div><div style="display:flex;gap:8px"><input id="lbn" maxlength="24" placeholder="e.g. Marcus the Bold" style="flex:1;min-width:0;font:inherit;font-size:16px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card2);color:var(--ink)"><button id="lbg" class="primary" style="width:auto;margin:0;padding:8px 14px">Join</button></div></div>`;
   el.innerHTML=`<div class="card lb">${head}${html}${join}</div>`;
@@ -365,7 +370,7 @@ function end(r){
  ${PRACTICE||DEV?`<div class="card">${PRACTICE?'<button id="td">Back to today’s battle</button>':""}${DEV?'<button class="ghost" id="rs">Reset today (testing only)</button>':""}</div>`:""}`;
  $("sh").onclick=async()=>{const b=$("sh");   // text only, like Wordle: works in every messaging app
   try{if(navigator.share&&/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)){await navigator.share({text:txt});return}}catch(e){if(e&&e.name==="AbortError")return}
-  try{await navigator.clipboard.writeText(txt);b.textContent="Copied! Paste it to a friend"}catch(e){const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");b.textContent="Copied! Paste it to a friend"}catch(x){b.textContent="Copy failed"}ta.remove()}};countdown();replayButton();$("cmpe").onclick=()=>showCampaign("map");$("rem").onclick=reminderICS;others($("others"));if(lbOn()&&over)lbPost(r).then(()=>lbRender($("lbd")));
+  try{await navigator.clipboard.writeText(txt);b.textContent="Copied! Paste it to a friend"}catch(e){const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");b.textContent="Copied! Paste it to a friend"}catch(x){b.textContent="Copy failed"}ta.remove()}};countdown();replayButton();$("cmpe").onclick=()=>showCampaign("map");$("rem").onclick=reminderICS;others($("others"));if(over&&r.won){const P=pointsFor(r);$("lbd").insertAdjacentHTML("beforebegin",`<div class="card" style="text-align:center"><div class="kicker" style="justify-content:center"><span>Points</span></div><div class="big" style="color:var(--gold)">+${P.t}</div><div class="sub">${P.base} for winning on attempt ${Math.min(3,(r.atts||[r]).length)} · ${P.calls} for best calls${P.bonus?` · ${P.bonus} victory bonus`:""}</div></div>`)}if(lbOn()&&over)lbPost(r).then(()=>lbRender($("lbd")));
  if($("td"))$("td").onclick=()=>{try{localStorage.removeItem("drg-test-b")}catch(e){}reloadPage()};
  if($("rs"))$("rs").onclick=()=>{try{localStorage.removeItem("drg-"+DK);localStorage.removeItem("drg-att-"+DK)}catch(e){}location.reload()};
 }
