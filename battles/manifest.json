@@ -1675,6 +1675,16 @@
    "result": "win",
    "naval": false,
    "epic": true
+  },
+  {
+   "id": "scipioafricanus",
+   "name": "Scipio vs Carthage",
+   "date": "210 BC",
+   "lat": 37.6,
+   "lon": 0,
+   "result": "win",
+   "naval": false,
+   "epic": true
   }
  ]
 }

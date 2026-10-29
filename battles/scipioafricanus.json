@@ -1,0 +1,1504 @@
+{
+ "id": "scipioafricanus",
+ "name": "Scipio against Carthage",
+ "date": "210 BC",
+ "result": "win",
+ "loc": {
+  "lat": 37.6,
+  "lon": 0,
+  "place": "Spain and Africa",
+  "short": "Scipio vs Carthage",
+  "x": 179,
+  "y": 187,
+  "span": 8
+ },
+ "names": {
+  "rome": "Scipio’s army",
+  "enemy": "Carthage",
+  "commander": "Scipio",
+  "foe": "Hannibal"
+ },
+ "intro": "Spain and Africa, 210 to 202 BC. Hannibal has been in Italy for eight years. Your father and uncle have died fighting Carthage in Spain. You are Publius Cornelius Scipio, given command in Spain at twenty-five. Your war will take you from the walls of New Carthage to Hannibal himself at Zama.",
+ "debrief": "Scipio took New Carthage in a day, sending men across the lagoon at low tide, and won the Spanish tribes by returning their hostages. At Ilipa he changed his battle line at dawn and drove Carthage from Spain. He made Masinissa his ally, invaded Africa against the Senate’s wishes, and burned the camps of Syphax and Hasdrubal near Utica. At Zama, lanes in his line let Hannibal’s elephants pass, and Masinissa’s cavalry returned to strike Hannibal’s veterans from behind. Carthage made peace, and Scipio was named Africanus. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#a8a163",
+  "ground": "#c4ad76",
+  "tree": "#4f6a3a",
+  "trees": 40,
+  "lakes": [
+   [
+    200,
+    10,
+    200,
+    40
+   ]
+  ],
+  "hills": [
+   [
+    340,
+    60,
+    80,
+    16
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 170,
+   "h": 14,
+   "side": "roman",
+   "name": "Scipio’s legions",
+   "model": "hastati"
+  },
+  "vel": {
+   "x": 200,
+   "y": 190,
+   "w": 160,
+   "h": 6,
+   "side": "roman",
+   "name": "Velites",
+   "model": "velites"
+  },
+  "cav": {
+   "x": 60,
+   "y": 225,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Roman and Italian cavalry",
+   "model": "cav_roman"
+  },
+  "mas": {
+   "x": 340,
+   "y": 225,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Masinissa’s Numidians",
+   "model": "cav_numidian",
+   "hidden": true
+  },
+  "fl": {
+   "x": 60,
+   "y": 245,
+   "w": 80,
+   "h": 8,
+   "side": "roman",
+   "name": "Laelius’s fleet",
+   "model": "galley_roman",
+   "hidden": true
+  },
+  "car": {
+   "x": 200,
+   "y": 90,
+   "w": 220,
+   "h": 14,
+   "side": "enemy",
+   "name": "Carthaginian army",
+   "model": "african",
+   "scales": true,
+   "hidden": true
+  },
+  "ele": {
+   "x": 200,
+   "y": 115,
+   "w": 160,
+   "h": 8,
+   "side": "enemy",
+   "name": "War elephants",
+   "model": "elephant",
+   "hidden": true
+  },
+  "ncav": {
+   "x": 330,
+   "y": 80,
+   "w": 80,
+   "h": 8,
+   "side": "enemy",
+   "name": "Numidian horse (for Carthage)",
+   "model": "cav_numidian",
+   "hidden": true
+  },
+  "town": {
+   "x": 200,
+   "y": 45,
+   "w": 140,
+   "h": 10,
+   "side": "enemy",
+   "name": "New Carthage",
+   "model": "levy"
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 10
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "Masinissa strikes Hannibal from behind.",
+   "Hannibal is beaten at Zama.",
+   "Scipio is hailed Africanus."
+  ],
+  "lose": [
+   "Hannibal’s veterans break the legions.",
+   "Scipio is beaten at Zama.",
+   "Carthage wins the war."
+  ],
+  "cams": [
+   "front",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Spain",
+   "decision": 0,
+   "options": [
+    {
+     "text": "New Carthage",
+     "tone": "g"
+    },
+    {
+     "text": "Outnumbered",
+     "tone": "r"
+    },
+    {
+     "text": "Holding the Ebro",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Three armies",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Tribes",
+   "decision": 2,
+   "options": [
+    {
+     "text": "Allies",
+     "tone": "g"
+    },
+    {
+     "text": "Sullen",
+     "tone": "a"
+    },
+    {
+     "text": "Hostile",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Hostages",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Ilipa",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Spain won",
+     "tone": "g"
+    },
+    {
+     "text": "Held",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Two armies",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Numidians",
+   "decision": 4,
+   "options": [
+    {
+     "text": "Masinissa",
+     "tone": "g"
+    },
+    {
+     "text": "Syphax",
+     "tone": "r"
+    },
+    {
+     "text": "None",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Princes",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Africa",
+   "decision": 6,
+   "options": [
+    {
+     "text": "Camps burned",
+     "tone": "g"
+    },
+    {
+     "text": "Two armies",
+     "tone": "r"
+    },
+    {
+     "text": "Siege",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Utica",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Zama",
+   "decision": 8,
+   "options": [
+    {
+     "text": "Cavalry gone",
+     "tone": "g"
+    },
+    {
+     "text": "Flanks held",
+     "tone": "a"
+    },
+    {
+     "text": "Rear attacked",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "Hannibal",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The young general",
+   "text": "210 BC. Your father and uncle have been killed in Spain. No senior Roman wanted the command, so the people gave it to you, Publius Cornelius Scipio, twenty-five years old. Three Carthaginian armies are in Spain, each ten days’ march from New Carthage, their main base.",
+   "intel": {
+    "hint": [
+     {
+      "text": "New Carthage is held by only about a thousand men."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Strike their base, not their armies."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Strike their base",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -6,
+       "set": {
+        "base": 1
+       },
+       "text": "You march fast down the coast with the fleet beside you, telling only Laelius where you are going."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         160
+        ],
+        "fl": [
+         60,
+         245,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Attack the nearest Carthaginian army",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The other two armies join it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold the Ebro line and rebuild your army first",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -7,
+       "text": "Carthage holds Spain for another year."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The lagoon",
+   "text": "New Carthage stands on a peninsula with a lagoon behind it. Fishermen tell you the lagoon drains at low tide in the evening.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The walls facing the lagoon are hardly guarded."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wade the lagoon at low tide."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Wade the lagoon",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "base": true
+       },
+       "r": -2,
+       "e": -8,
+       "text": "As the main attack holds the defenders, 500 men wade the draining lagoon and climb the empty walls. You tell your men Neptune has opened the way. New Carthage falls in a day."
+      },
+      {
+       "r": -4,
+       "e": -3,
+       "text": "The lagoon attack works, at a cost."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         80
+        ],
+        "town": [
+         200,
+         45,
+         0.3
+        ]
+       },
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Storm the main gate with everything",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "The gate holds."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         90
+        ]
+       },
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Besiege it and wait for hunger",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -7,
+       "text": "The Carthaginian armies march to save it."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ],
+   "stage": "nc"
+  },
+  {
+   "title": "The hostages",
+   "text": "In New Carthage you find hundreds of hostages from the Spanish tribes, held by Carthage, and a captured young bride of a Spanish chief.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Spain’s tribes will follow whoever treats them well."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Send them home."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Send them all home with gifts",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -6,
+       "set": {
+        "tribes": 1
+       },
+       "text": "You return the hostages and the bride untouched to her betrothed, with her ransom as a wedding gift. Tribe after tribe comes over to you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Keep the hostages to force the tribes",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -7,
+       "text": "The tribes obey, sullenly."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Sell them as slaves to pay the army",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "All Spain turns against you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Ilipa",
+   "text": "206 BC, Ilipa. Hasdrubal Gisco and Mago face you with a larger army. For days both armies form up the same way: your Romans in the centre, his Africans in his.",
+   "intel": {
+    "hint": [
+     {
+      "text": "He expects you to form up the same way again."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Change your line at dawn."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Switch your line at dawn",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "tribes": true
+       },
+       "r": -2,
+       "e": -10,
+       "text": "At dawn you form up early, with your Spanish allies in the centre and your legions on the wings. Caught unfed, the Carthaginians form up as usual. Your wings swing in on his weak Spanish wings. Carthage loses Spain."
+      },
+      {
+       "r": -4,
+       "e": -3,
+       "text": "Your new line works, but your Spaniards are few."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         150
+        ]
+       },
+       "f": [
+        "leg",
+        "car"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Form up as usual and attack",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "His Africans hold your Romans."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "car"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Wait for him to attack you on your ground",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -3,
+       "e": -7,
+       "text": "He waits too."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ],
+   "stage": "ilipa"
+  },
+  {
+   "title": "Masinissa",
+   "text": "Masinissa, a young Numidian prince who fought you in Spain, comes secretly to meet you. His rival Syphax has taken his kingdom.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Numidian cavalry are the best in Africa."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Make him your ally."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Make him your ally",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -6,
+       "set": {
+        "mas": 1
+       },
+       "text": "You promise to help him win back his kingdom. He will bring his horsemen to Africa."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mas": [
+         340,
+         225,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Ally with Syphax instead",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "Syphax marries a Carthaginian noblewoman and goes over to Carthage."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Trust no Numidian",
+     "quality": 1,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -2,
+       "e": -7,
+       "text": "You will have to face their horse alone."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "To Africa",
+   "text": "205 BC. You are consul. The Senate, led by old Fabius, wants you to fight Hannibal in Italy. You want to invade Africa and make Hannibal come home.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The Senate gives you Sicily and permission to cross, but no new army."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Raise volunteers and cross."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Raise volunteers and invade Africa",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -7,
+       "text": "Volunteers flock to you. You train them in Sicily with the disgraced legions of Cannae, and land in Africa near Utica."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fl": [
+         60,
+         245,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Fight Hannibal in Italy as the Senate wants",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Hannibal holds out in the south for years."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Raid the African coast with the fleet",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -3,
+       "e": -7,
+       "text": "Carthage is alarmed but not beaten."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The burning camps",
+   "text": "Near Utica, Syphax and Hasdrubal camp with two large armies. Syphax’s men live in huts of reeds.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Peace talks would let your spies see the camps."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Talk, spy, then burn."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Talk, then burn",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "mas": true
+       },
+       "r": -2,
+       "e": -10,
+       "text": "Your officers, disguised as slaves, map the camps. Then Masinissa and Laelius fire the reed huts by night, and the second camp too. Both armies are destroyed."
+      },
+      {
+       "r": -4,
+       "e": -5,
+       "text": "You fire the camps, but without Numidian guides many escape."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mas": [
+         300,
+         110
+        ],
+        "ncav": [
+         330,
+         80,
+         1
+        ]
+       },
+       "f": [
+        "mas",
+        "ncav"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Attack the camps by day",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Two armies face you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "car"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Besiege Utica and keep watch on the camps",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -3,
+       "e": -7,
+       "text": "They grow stronger."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ],
+   "stage": "africa"
+  },
+  {
+   "title": "Zama: the elephants",
+   "text": "202 BC, Zama. Hannibal has come home. He leads 80 war elephants in front of his army.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Elephants charge straight and panic easily."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Leave lanes between your maniples."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Leave lanes between the maniples",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "text": "You line your maniples up one behind another, leaving lanes. Trumpets blare, the elephants panic, and many run down the lanes or back into their own cavalry."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         200,
+         160,
+         1
+        ]
+       },
+       "f": [
+        "vel",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Charge the elephants with the cavalry",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Your horses will not face them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         200,
+         160,
+         1
+        ]
+       },
+       "f": [
+        "cav",
+        "ele"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Fall back and let them tire",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -4,
+       "e": -7,
+       "text": "Your line is disordered."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "ele": [
+         200,
+         170,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "front"
+    }
+   ],
+   "stage": "zama"
+  },
+  {
+   "title": "Zama: the cavalry",
+   "text": "The elephants are gone. Masinissa and Laelius face Hannibal’s cavalry on the wings.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Hannibal’s cavalry may be leading you away on purpose."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Chase them off."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Chase his cavalry off the field",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "mas": true
+       },
+       "r": -2,
+       "e": -8,
+       "text": "Masinissa and Laelius drive Hannibal’s horse off the field and chase them away, out of sight."
+      },
+      {
+       "r": -4,
+       "e": -3,
+       "text": "Your few horsemen chase his away."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "mas": [
+         380,
+         60
+        ],
+        "cav": [
+         20,
+         60
+        ]
+       },
+       "f": [
+        "mas",
+        "ncav"
+       ]
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold the cavalry back to guard your flanks",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -3,
+       "e": -8,
+       "text": "His cavalry stays to threaten you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send the cavalry against his infantry",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "His cavalry falls on your rear."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Zama: Hannibal’s veterans",
+   "text": "The infantry lines grind together. Hannibal’s veterans from Italy wait fresh in his third line.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your cavalry will come back, in time."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Re-form your lines and hold."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Re-form into one long line and hold",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "mas": true
+       },
+       "r": -2,
+       "e": -10,
+       "text": "You move your principes and triarii out to the wings to make one long line against Hannibal’s veterans. Just in time, Masinissa and Laelius return and strike them from behind. Hannibal’s army is destroyed. Carthage asks for peace."
+      },
+      {
+       "r": -6,
+       "e": -5,
+       "text": "Your line holds, but no cavalry comes."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ],
+        "mas": [
+         340,
+         110
+        ],
+        "cav": [
+         60,
+         110
+        ]
+       },
+       "f": [
+        "leg",
+        "car"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Charge his veterans at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -9,
+       "e": 0,
+       "text": "His fresh veterans throw back your tired men."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": [
+        "leg",
+        "car"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Pull back and wait for the cavalry",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -7,
+       "text": "Hannibal presses you hard."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Scipio Africanus (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Scipio_Africanus"
+  }
+ ],
+ "epic": true,
+ "scouts": 3,
+ "stages": {
+  "nc": {
+   "label": "Spring 209 BC",
+   "title": "The walls of New Carthage",
+   "dir": 1,
+   "weather": "dusk",
+   "terrain": {
+    "grass": "#a8a163",
+    "ground": "#c4ad76",
+    "tree": "#4f6a3a",
+    "trees": 40,
+    "lakes": [
+     [
+      200,
+      15,
+      260,
+      40
+     ],
+     [
+      40,
+      120,
+      50,
+      80
+     ]
+    ],
+    "hills": [
+     [
+      200,
+      50,
+      140,
+      16
+     ]
+    ]
+   },
+   "units": {
+    "leg": [
+     200,
+     200
+    ],
+    "vel": [
+     200,
+     180
+    ],
+    "cav": [
+     60,
+     220
+    ],
+    "fl": [
+     60,
+     245,
+     1
+    ],
+    "town": [
+     200,
+     45,
+     1
+    ],
+    "car": [
+     200,
+     90,
+     0
+    ]
+   }
+  },
+  "ilipa": {
+   "label": "206 BC",
+   "title": "The plain of Ilipa",
+   "dir": 1,
+   "weather": null,
+   "terrain": {
+    "grass": "#a8a163",
+    "ground": "#c4ad76",
+    "tree": "#4f6a3a",
+    "trees": 40,
+    "river": {
+     "x": -214,
+     "w": 24
+    },
+    "hills": [
+     [
+      200,
+      20,
+      220,
+      12
+     ]
+    ]
+   },
+   "units": {
+    "leg": [
+     200,
+     210
+    ],
+    "vel": [
+     200,
+     190
+    ],
+    "cav": [
+     60,
+     220
+    ],
+    "car": [
+     200,
+     90,
+     1
+    ],
+    "town": [
+     200,
+     45,
+     0
+    ],
+    "fl": [
+     60,
+     245,
+     0
+    ]
+   }
+  },
+  "africa": {
+   "label": "204 BC",
+   "title": "Africa: the camps near Utica",
+   "dir": 1,
+   "weather": "night",
+   "terrain": {
+    "grass": "#b8a06e",
+    "ground": "#c9ab78",
+    "tree": "#4f6a3a",
+    "trees": 20,
+    "hills": [
+     [
+      200,
+      30,
+      200,
+      12
+     ]
+    ]
+   },
+   "units": {
+    "leg": [
+     200,
+     210
+    ],
+    "vel": [
+     200,
+     190
+    ],
+    "cav": [
+     60,
+     220
+    ],
+    "mas": [
+     340,
+     220,
+     1
+    ],
+    "car": [
+     120,
+     80,
+     1
+    ],
+    "ncav": [
+     330,
+     80,
+     1
+    ],
+    "fl": [
+     60,
+     245,
+     0
+    ]
+   }
+  },
+  "zama": {
+   "label": "October 202 BC",
+   "title": "The field of Zama",
+   "dir": 1,
+   "weather": "dust",
+   "terrain": {
+    "grass": "#b8a06e",
+    "ground": "#c9ab78",
+    "tree": "#4f6a3a",
+    "trees": 15
+   },
+   "units": {
+    "leg": [
+     200,
+     210
+    ],
+    "vel": [
+     200,
+     188
+    ],
+    "cav": [
+     60,
+     220
+    ],
+    "mas": [
+     340,
+     220,
+     1
+    ],
+    "car": [
+     200,
+     80,
+     1
+    ],
+    "ele": [
+     200,
+     115,
+     1
+    ],
+    "ncav": [
+     330,
+     80,
+     1
+    ]
+   }
+  }
+ },
+ "ytax": 2,
+ "winAt": 45
+}
