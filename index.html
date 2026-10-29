@@ -51,11 +51,11 @@ main{max-width:560px;margin:0 auto;padding:12px 16px 24px}
 .kicker .cpw{color:var(--mute);letter-spacing:.1em;display:flex;align-items:center;gap:6px;text-transform:none;font-size:11px}
 .coins{display:inline-flex;gap:3px}.coins i{width:8px;height:8px;border-radius:50%;background:var(--gold)}.coins i.sp{background:var(--line)}
 h2{font:700 21px/1.2 var(--disp);margin:0 0 8px;letter-spacing:.01em}
-.card p{margin:0 0 12px}
+.card p{margin:0 0 10px}
 .sub{color:var(--mute);font-size:.9rem;margin:2px 0 12px}
 button{font:inherit;color:inherit;text-align:left;width:100%;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:13px 14px;margin-top:8px;cursor:pointer;transition:border-color .15s,transform .1s;-webkit-tap-highlight-color:transparent}
 button:active{transform:scale(.985)}button:hover{border-color:var(--gold)}
-button.ch{display:flex;align-items:center;gap:12px;font-size:16.5px;line-height:1.3}button.ch .l{flex:1}
+button.ch{display:flex;align-items:center;gap:12px;font-size:16px;line-height:1.28;padding:11px 13px;margin-top:7px}button.ch .l{flex:1}
 .cost{flex:none;font:700 11px/1 var(--disp);letter-spacing:.08em;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:5px 8px;white-space:nowrap}
 button.ch[disabled]{opacity:.38;cursor:not-allowed}
 button.scout{border-style:dashed;border-color:var(--gold);text-align:center;color:var(--gold);font-size:15px;background:transparent}
@@ -144,9 +144,11 @@ if(HOSTED&&STATS_CODE){const sc=document.createElement("script");sc.async=true;s
 const LEGENDARY_SUNDAYS=false;  // set true to make every Sunday’s battle legendary (no scouts, harder to win)
 let LEG=false;
 const ls={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let FAST=ls.get("drg-fast","0")==="1",SPD=FAST?.5:1;   // "Fast battles": animations and pauses take half the time
+function hudScroll(el,gap){if(!el)return;const h=($("hud")||{}).offsetHeight||0,y=el.getBoundingClientRect().top+scrollY-h-(gap==null?10:gap);if(Math.abs(y-scrollY)>24)window.scrollTo({top:Math.max(0,y),behavior:"smooth"})}
 let LEGION=ls.get("drg-legion","Legio I"),VOICE=ls.get("drg-voice","0")==="1";
 let CB=(()=>{try{return localStorage.getItem("drg-cb")==="1"}catch(e){return false}})();document.documentElement.classList.toggle("cb",CB);
-let WIN=45,CPMAX=99,SCOUTS=3,SCN=3,SC=[],PREV=null;let S,step,R,E,quals,last,picks=[],CP=CPMAX,scout=false,ATT=[];
+var SITOPEN=false;let WIN=45,CPMAX=99,SCOUTS=3,SCN=3,SC=[],PREV=null;let S,step,R,E,quals,last,picks=[],CP=CPMAX,scout=false,ATT=[];
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 
 // Without a scout report the enemy bar is an estimate. The error stays the same all battle, so changes on the bar match the reported changes.
@@ -172,7 +174,7 @@ function turn(){
  if(scout){scout=false;bars()}let mvg=false;{const ns=stageFor(step);if(ns!==STG){goStage(ns);mvg=ok}}
  const T=B.turns[step],ev=B.decisions[step].event;hud("play");speak(T.h+". "+T.t);
  V.innerHTML=prevNote()+`<div class="card"><div class="kicker"><span>${ev?"⚡ Turn of fortune":"Decision "+(step+1)}</span><span class="cpw">🔭 ${SCN} scout${SCN===1?"":"s"} left</span></div><h2>${T.h}</h2><p>${T.t}</p>${ord(step).map(i=>`<button class="ch" data-i="${i}"><span class="l">${T.c[i].l}</span></button>`).join("")}${scout?"":SCN>0?`<button class="scout" id="sc">🔭 Send scouts (${SCN} of ${SCOUTS} left)</button>`:'<div class="sub" style="margin:10px 0 0;text-align:center">No scouts left this battle.</div>'}</div>`+intel()+sit();
- {const bs=V.querySelectorAll("button[data-i]");bs.forEach(b=>{b.onclick=()=>pick(+b.dataset.i);if(mvg)b.disabled=true});if(mvg)setTimeout(()=>bs.forEach(b=>b.disabled=false),2100)}const sc=$("sc");if(sc)sc.onclick=()=>{SCN--;scout=true;SFX.click();bars();turn()};
+ {const bs=V.querySelectorAll("button[data-i]");bs.forEach(b=>{b.onclick=()=>pick(+b.dataset.i);if(mvg)b.disabled=true});if(mvg)setTimeout(()=>bs.forEach(b=>b.disabled=false),2100*SPD)}STAGE_TAP=null;if(step>0)hudScroll(document.querySelector(".stage"));const sc=$("sc");if(sc)sc.onclick=()=>{SCN--;scout=true;SFX.click();bars();turn()};
 }
 // Choices are shown in a shuffled order that is fixed for each battle, so their position gives nothing away.
 function ord(k){const n=B.turns[k].c.length,a=[...Array(n).keys()];let h=2166136261;for(const ch of B.id+":"+k){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}
@@ -192,8 +194,12 @@ function pick(i){
  if(fin){const w=R>0&&win;climax(w);setTimeout(()=>SFX.horn(w),4500)}
  hud("play");if(!fin)$("plab").innerHTML=`<span class="pn">ORDERS GIVEN</span><span class="pt">${B.turns[k].h}</span>`;{const sg2=$("segs").children;if(sg2[k])sg2[k].className="seg done";}
  speak(x.o);V.innerHTML=`<div class="card"><div class="kicker"><span>Your orders are carried out</span></div><div id="oc" style="opacity:0;transition:opacity 1s"><div class="out">${x.o}${hm?"<br><i>"+hm+"</i>":""}</div><div class="delta"><span style="color:${R-R0<0?"var(--bad)":"var(--ok)"}">${B.rn} ${sg(Math.max(0,Math.min(100,R))-Math.max(0,Math.min(100,R0)))}</span><span style="color:${E-E0<0?"var(--ok)":"var(--bad)"}">${B.cn} ${sg(dispE()-dispE(E0))}</span></div></div><button class="primary" id="nx" disabled style="opacity:.5">Watching the battle…</button></div>`+(()=>{const w=scout;scout=false;const h=sit();scout=w;return h})();
- const QK=ATT.length>0;setTimeout(()=>{const o=$("oc");if(o)o.style.opacity=1},QK?250:600);
- setTimeout(()=>{const b=$("nx");if(!b)return;b.disabled=false;b.style.opacity=1;b.textContent=fin?"See the result ▸":"Next decision ▸";b.onclick=nxt},fin?(QK?2400:3200):(QK?800:1600))}
+ const QK=ATT.length>0,t0=performance.now();setTimeout(()=>{const o=$("oc");if(o)o.style.opacity=1},(QK?150:350)*SPD);
+ // the next step is one tap away: the button, the result card or the battle map; the final blow plays out for a moment first
+ const wait=fin?(QK?1600:2400)*SPD:350,b0=$("nx");let gone=false;const go=e=>{if(gone||performance.now()-t0<wait||(e&&e.target&&e.target.closest&&e.target.closest("a,input,select,details")))return;gone=true;STAGE_TAP=null;nxt()};
+ STAGE_TAP=go;V.firstElementChild.onclick=go;
+ setTimeout(()=>{const b=$("nx");if(!b||b!==b0)return;b.disabled=false;b.style.opacity=1;b.textContent=fin?"See the result ▸":"Next decision ▸";b.onclick=go;const t=document.createElement("div");t.className="sub";t.style.cssText="text-align:center;margin:6px 0 0;font-size:13px";t.textContent="or tap anywhere on the battle";b.after(t)},wait);
+ hudScroll(document.querySelector(".stage"))}
 
 // ---------- SOUND (synthesised, no files) ----------
 const SFX=(()=>{let ctx=null,out=null,amb=null,muted=false;try{muted=localStorage.getItem("drg-mute")==="1"}catch(e){}
@@ -222,11 +228,11 @@ function recordStats(rec,n){const s=stats();s.played++;if(rec.won){s.won++;s.dis
 function showStats(){const s=stats(),st=store.get("drg-streak")||{n:0,max:0},mx=Math.max(1,...s.dist,s.lost),ov=document.createElement("div");
  ov.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;display:flex;align-items:center;justify-content:center;padding:16px";
  const row=(l,v)=>`<div class="dist"><span style="width:70px">${l}</span><i style="width:${Math.round(v/mx*100)}%"></i><b>${v}</b></div>`;
- ov.innerHTML=`<div class="card" style="max-width:360px;width:100%;margin:0"><h2>Your record</h2><p class="sub" style="margin:-4px 0 10px">${LEGION}</p><div class="stat"><div><b>${s.played}</b>played</div><div><b>${s.played?Math.round(100*s.won/s.played):0}%</b>won</div><div><b>${st.n||0}</b>streak</div><div><b>${Math.max(st.max||0,st.n||0)}</b>best</div></div><div style="margin-top:12px" class="sub">Victories by attempt</div>${row("1st try",s.dist[0])}${row("2nd try",s.dist[1])}${row("3rd try",s.dist[2])}${row("Defeats",s.lost)}${lbOn()?'<button id="tlb" style="margin-top:12px">🏆 Leaderboard</button>':""}<div style="margin-top:14px" class="sub">Settings</div><div class="tgl"><span>Colour-blind squares (orange / blue)</span><button id="tcb">${CB?"ON":"OFF"}</button></div><div class="tgl"><span>Your legion’s name</span><input id="tlg" value="${LEGION.replace(/"/g,"&quot;")}" maxlength="28" style="width:48%;font:inherit;font-size:16px;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card2);color:var(--ink)"></div><div class="tgl"><span>Sound</span><button id="tsn">${SFX.muted?"OFF":"ON"}</button></div><div class="tgl"><span>Spoken narration</span><button id="tvo">${VOICE?"ON":"OFF"}</button></div><div class="tgl"><span>Daily reminder</span><button id="trm">ADD</button></div><div class="tgl"><span>Testing tools (reset, any battle)</span><button id="tdv">${DEV?"ON":"OFF"}</button></div><button class="primary" id="cl">Close</button></div>`;
- document.body.appendChild(ov);ov.querySelector("#cl").onclick=()=>ov.remove();if(ov.querySelector("#tlb"))ov.querySelector("#tlb").onclick=()=>{ov.remove();showBoard()};ov.querySelector("#tcb").onclick=e=>{CB=!CB;try{localStorage.setItem("drg-cb",CB?"1":"0")}catch(x){}document.documentElement.classList.toggle("cb",CB);e.target.textContent=CB?"ON":"OFF"};ov.querySelector("#tlg").onchange=e=>{LEGION=(e.target.value||"").trim()||"Legio I";ls.set("drg-legion",LEGION)};ov.querySelector("#tvo").onclick=e=>{VOICE=!VOICE;ls.set("drg-voice",VOICE?"1":"0");e.target.textContent=VOICE?"ON":"OFF";if(VOICE)speak("Narration is on. Ave, general.")};ov.querySelector("#trm").onclick=reminderICS;ov.querySelector("#tsn").onclick=e=>{SFX.toggle();sndLabel();e.target.textContent=SFX.muted?"OFF":"ON"};ov.querySelector("#tdv").onclick=()=>{ov.remove();const intro=document.getElementById("intro");if(intro){intro.remove();turn()}setDev(!DEV)};ov.onclick=e=>{if(e.target===ov)ov.remove()}}
+ ov.innerHTML=`<div class="card" style="max-width:360px;width:100%;margin:0"><h2>Your record</h2><p class="sub" style="margin:-4px 0 10px">${LEGION}</p><div class="stat"><div><b>${s.played}</b>played</div><div><b>${s.played?Math.round(100*s.won/s.played):0}%</b>won</div><div><b>${st.n||0}</b>streak</div><div><b>${Math.max(st.max||0,st.n||0)}</b>best</div></div><div style="margin-top:12px" class="sub">Victories by attempt</div>${row("1st try",s.dist[0])}${row("2nd try",s.dist[1])}${row("3rd try",s.dist[2])}${row("Defeats",s.lost)}${lbOn()?'<button id="tlb" style="margin-top:12px">🏆 Leaderboard</button>':""}<div style="margin-top:14px" class="sub">Settings</div><div class="tgl"><span>Colour-blind squares (orange / blue)</span><button id="tcb">${CB?"ON":"OFF"}</button></div><div class="tgl"><span>Your legion’s name</span><input id="tlg" value="${LEGION.replace(/"/g,"&quot;")}" maxlength="28" style="width:48%;font:inherit;font-size:16px;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card2);color:var(--ink)"></div><div class="tgl"><span>Fast battles (half the animation time)</span><button id="tfs">${FAST?"ON":"OFF"}</button></div><div class="tgl"><span>Sound</span><button id="tsn">${SFX.muted?"OFF":"ON"}</button></div><div class="tgl"><span>Spoken narration</span><button id="tvo">${VOICE?"ON":"OFF"}</button></div><div class="tgl"><span>Daily reminder</span><button id="trm">ADD</button></div><div class="tgl"><span>Testing tools (reset, any battle)</span><button id="tdv">${DEV?"ON":"OFF"}</button></div><button class="primary" id="cl">Close</button></div>`;
+ document.body.appendChild(ov);ov.querySelector("#cl").onclick=()=>ov.remove();if(ov.querySelector("#tlb"))ov.querySelector("#tlb").onclick=()=>{ov.remove();showBoard()};ov.querySelector("#tcb").onclick=e=>{CB=!CB;try{localStorage.setItem("drg-cb",CB?"1":"0")}catch(x){}document.documentElement.classList.toggle("cb",CB);e.target.textContent=CB?"ON":"OFF"};ov.querySelector("#tlg").onchange=e=>{LEGION=(e.target.value||"").trim()||"Legio I";ls.set("drg-legion",LEGION)};ov.querySelector("#tvo").onclick=e=>{VOICE=!VOICE;ls.set("drg-voice",VOICE?"1":"0");e.target.textContent=VOICE?"ON":"OFF";if(VOICE)speak("Narration is on. Ave, general.")};ov.querySelector("#trm").onclick=reminderICS;ov.querySelector("#tfs").onclick=e=>{FAST=!FAST;SPD=FAST?.5:1;ls.set("drg-fast",FAST?"1":"0");e.target.textContent=FAST?"ON":"OFF"};ov.querySelector("#tsn").onclick=e=>{SFX.toggle();sndLabel();e.target.textContent=SFX.muted?"OFF":"ON"};ov.querySelector("#tdv").onclick=()=>{ov.remove();const intro=document.getElementById("intro");if(intro){intro.remove();turn()}setDev(!DEV)};ov.onclick=e=>{if(e.target===ov)ov.remove()}}
 function countdown(){const el=$("cd");if(!el)return;if(dayNow()!==dayNum){el.parentNode.innerHTML='<button class="primary" onclick="location.reload()">A new battle is ready ▸</button>';return}const n=new Date(),m=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1),d=Math.max(0,m-n),p=x=>String(x).padStart(2,"0");el.textContent=p(Math.floor(d/36e5))+":"+p(Math.floor(d/6e4)%60)+":"+p(Math.floor(d/1e3)%60);setTimeout(countdown,1000)}
 $("snd").onclick=()=>{SFX.toggle();sndLabel();SFX.click()};$("stb").onclick=showStats;$("lbb").onclick=()=>{SFX.click();showBoard()};if(!HOSTED&&!window.LB_TEST)$("lbb").style.display="none";$("cmpb").onclick=()=>MF&&showCampaign("map");sndLabel();
-let SAVED=false;
+let SAVED=false,STAGE_TAP=null;document.querySelector(".stage").addEventListener("click",()=>{if(STAGE_TAP)STAGE_TAP()});
 function streak(won){const s=store.get("drg-streak")||{n:0,d:-9};if(s.d===dayNum)return;const mk=new Date().getFullYear()*12+new Date().getMonth();
  // the streak counts days played in a row, win or lose; "w" counts wins in a row
  const gap1=s.d===dayNum-2&&s.n>0&&s.save!==mk;   // one missed day a month is forgiven
@@ -470,7 +476,7 @@ function sit(){const rows=Rules.statusRows(B,picks,S),c={g:"var(--ok)",a:"var(--
  const rs=rows.map((r,k)=>{let txt=r[1],tone=r[2];if(!scout&&tone!=="n"){tone=rnd(step*7+k+3)<.2?"a":tone;txt=vg[tone]}
   return `<div class="row"><span style="color:${scout?c[r[2]]:c.n}">${scout?"●":"○"}</span><span><b>${r[0]}:</b> ${txt}</span></div>`}).join("");
  const h=scout&&step>0&&picks[step-1]!=null?`<div class="row"><span style="color:var(--gold)">\u25cf</span><span><b>${B.fs}:</b> ${HN[B.turns[step-1].c[picks[step-1]].style]}</span></div>`:"";
- return `<details class="card sit" open><summary><span class="kicker" style="margin:0">Situation report</span></summary><div class="sub" style="margin:8px 0 6px"><b style="color:${c[t[1]]}">${t[0]}</b>${scout?"":" <i>(unconfirmed)</i>"}</div>${rs}${h}</details>`}
+ return `<details class="card sit"${SITOPEN?" open":""} ontoggle="SITOPEN=this.open"><summary><span class="kicker" style="margin:0;white-space:nowrap">Situation</span><span class="sub" style="margin:0 8px 0 12px;text-align:right;flex:1;font-size:13px;line-height:1.3;color:${c[t[1]]}">${t[0]}</span></summary>${scout?'<div class="sub" style="margin:8px 0 6px">Confirmed by your scouts.</div>':'<div style="height:6px"></div>'}${rs}${h}</details>`}
 function climax(win){const L=win?B.climax.win:B.climax.lose,K=B.climax.cams.map(c=>typeof c==="string"?Rules.cams[c]:c);
  const nr=$("nar"),show=t=>{nr.style.opacity=0;speak(t);setTimeout(()=>{nr.textContent=t;nr.style.opacity=1},300)};
  clearTimeout(camT);const e=endAnim(win);startReplay(win,L);
@@ -571,9 +577,9 @@ function initGL(){tried=true;try{
   UN[id]={g,meshes,fx,tag,flag,std,dust,tx:0,tz:0,a:1,hit:0,k:1,ry:0}}
  addEventListener("resize",()=>{const w=$("map").parentNode.clientWidth;ren.setSize(w,w/1.5,false)});
  const v=new THREE.Vector3();
- (function loop(t){requestAnimationFrame(loop);const T=t/1000,dt=Math.min(.05,Math.max(.001,T-(LT||T-.016)));LT=T;for(let k=0;k<6;k++){const r=sdamp(CC[k],CT[k],CV[k],1.05,dt);CC[k]=r[0];CV[k]=r[1]}cam.position.set(CC[0]+Math.sin(T*.25)*(CT[1]>100?14:3),CC[1],CC[2]);cam.lookAt(CC[3],CC[4],CC[5]);
+ (function loop(t){requestAnimationFrame(loop);const T=t/1000,dt=Math.min(.05,Math.max(.001,T-(LT||T-.016)));LT=T;for(let k=0;k<6;k++){const r=sdamp(CC[k],CT[k],CV[k],1.05*SPD,dt);CC[k]=r[0];CV[k]=r[1]}cam.position.set(CC[0]+Math.sin(T*.25)*(CT[1]>100?14:3),CC[1],CC[2]);cam.lookAt(CC[3],CC[4],CC[5]);
   for(const id in UN){const o=UN[id],g=o.g,dx=o.tx-g.position.x,dz=o.tz-g.position.z,mv=Math.hypot(dx,dz),hit=performance.now()/1000<o.hit;
-   {const rx=sdamp(g.position.x,o.tx,o.vx||0,.95,dt),rz=sdamp(g.position.z,o.tz,o.vz||0,.95,dt);g.position.x=rx[0];o.vx=rx[1];g.position.z=rz[0];o.vz=rz[1]}const spd=Math.hypot(o.vx,o.vz),sw=Math.min(1,spd/14);g.position.y+=(Math.max(0,gh(g.position.x,g.position.z))-g.position.y)*Math.min(1,dt*10);
+   {const rx=sdamp(g.position.x,o.tx,o.vx||0,.95*SPD,dt),rz=sdamp(g.position.z,o.tz,o.vz||0,.95*SPD,dt);g.position.x=rx[0];o.vx=rx[1];g.position.z=rz[0];o.vz=rz[1]}const spd=Math.hypot(o.vx,o.vz),sw=Math.min(1,spd/14);g.position.y+=(Math.max(0,gh(g.position.x,g.position.z))-g.position.y)*Math.min(1,dt*10);
    if(o.march&&mv<3&&!MARCHD)o.march=0;const mr=o.march||0;let ry=o.ry||0;if(!mr&&!o.fleeing&&!(END&&o.ry)&&mv>4&&spd>3&&U[id].model.indexOf("galley")<0){const f=U[id].s==="r"?Math.atan2(-o.vx,-o.vz):Math.atan2(o.vx,o.vz);if(Math.abs(f)<2.2)ry=f*.9}
    g.rotation.y+=(ry-g.rotation.y)*(1-Math.exp(-dt*2.6));g.visible=o.a>.3;
    if(o.fleeing&&END){fleeStep(o,T);o.meshes.forEach(m=>{m.visible=m.userData.rnd<=Math.max(o.k,.5)})}else{o.bend=(o.bend||0)+((hit?1:0)-(o.bend||0))*(1-Math.exp(-dt*2.4));const bs=(U[id].s==="r"?1:-1)*3.2*o.bend;o.meshes.forEach((m,i)=>{const u=m.userData;m.rotation.y+=((mr?-mr*Math.PI/2:0)-m.rotation.y)*(1-Math.exp(-dt*4));m.position.y=u.by+Math.abs(Math.sin(T*9+i))*1.5*sw+(hit?Math.abs(Math.sin(T*14+i*2))*2.2:0);if(u.z0!=null)m.position.z=u.z0+bs*Math.cos(u.xn*Math.PI/2);m.visible=u.rnd<=o.k})}
@@ -714,23 +720,23 @@ function goStage(n,instant){STGT.forEach(clearTimeout);STGT=[];MARCHD=0;if(!ok){
  const tt=$("stc");tt.querySelector(".a").textContent=st.label||"";tt.querySelector(".b").textContent=st.title||"";tt.classList.add("on");SFX.drums&&SFX.drums();MARCHD=dir;
  // the army marches off in its direction of travel, the view darkens, and it marches onto the new ground
  for(const id in UN){const p=P[id];if(U[id].s==="r"&&(p[2]==null||p[2]>.3)){P[id]=[p[0]+dir*200,p[1],p[2]];UN[id].march=dir}}place();CT.splice(0,6,-dir*70,105,190,dir*70,0,25);
- STGT.push(setTimeout(()=>{$("fd").style.opacity=1},1200));
+ STGT.push(setTimeout(()=>{$("fd").style.opacity=1},1200*SPD));
  STGT.push(setTimeout(()=>{swap();const nu=st.units||{};
   for(const id in UN){const o=UN[id],p=(nu[id]||P[id]).slice(),ro=U[id].s==="r"&&(p[2]==null||p[2]>.3);if(ro&&!nu[id])p[0]-=dir*200;P[id]=p;
    const sx=WX(p[0])-(ro?dir*210:0),sz=WZ(p[1]);o.march=ro?dir:0;o.g.position.set(sx,Math.max(0,gh(sx,sz)),sz);o.vx=o.vz=0;o.hit=0}
-  place();for(let k=0;k<6;k++){CC[k]=[ -dir*90,100,185,-dir*30,0,15][k];CV[k]=0}CT.splice(0,6,...(st.cam||[dir*20,165,235,0,0,-5]));$("fd").style.opacity=0},1800));
- STGT.push(setTimeout(()=>tt.classList.remove("on"),4000));STGT.push(setTimeout(()=>{MARCHD=0},2400))}
+  place();for(let k=0;k<6;k++){CC[k]=[ -dir*90,100,185,-dir*30,0,15][k];CV[k]=0}CT.splice(0,6,...(st.cam||[dir*20,165,235,0,0,-5]));$("fd").style.opacity=0},1800*SPD));
+ STGT.push(setTimeout(()=>tt.classList.remove("on"),4000*SPD));STGT.push(setTimeout(()=>{MARCHD=0},2400*SPD))}
 const OV=[0,190,245,0,0,-10];
 let camT=0;
 function move(k,i){const m=Rules.moveFor(B,k,i,S);Object.assign(P,m.u);place();if(!ok)return;
- (m.f||[]).forEach(id=>setTimeout(()=>{UN[id].hit=performance.now()/1000+3},1800));
+ (m.f||[]).forEach(id=>setTimeout(()=>{UN[id].hit=performance.now()/1000+3*SPD},1800*SPD));
  const kinds=(m.f||[]).map(id=>[id,U[id].model,(Rules.models[U[id].model]||{}).k]);
- if(kinds.some(x=>x[2]==="ele"))setTimeout(()=>SFX.trumpet(),900);
+ if(kinds.some(x=>x[2]==="ele"))setTimeout(()=>SFX.trumpet(),900*SPD);
  if(kinds.some(x=>x[2]==="cav"))SFX.hooves(kinds.filter(x=>x[2]==="cav").length*4);
  const shooters=kinds.filter(x=>/velites|archer|legionary|hastati|principes|auxiliary|veteran|triarii|galley/.test(x[1]));
  if(shooters.length){SFX.volley();shooters.forEach(([id])=>{const foe=kinds.filter(x=>U[x[0]].s!==U[id].s).map(x=>x[0]);if(!foe.length)return;
-   const g=UN[id].g.position;let best=foe[0],bd=1e9;foe.forEach(f=>{const p=UN[f].g.position,d=Math.hypot(p.x-g.x,p.z-g.z);if(d<bd){bd=d;best=f}});setTimeout(()=>volley(id,best),900+Math.random()*500)})}
- let c=B.decisions[k].choices[i].cam;if(typeof c==="string")c=Rules.cams[c];clearTimeout(camT);if(c){CT.splice(0,6,...c);camT=setTimeout(()=>CT.splice(0,6,...OV),6200)}}
+   const g=UN[id].g.position;let best=foe[0],bd=1e9;foe.forEach(f=>{const p=UN[f].g.position,d=Math.hypot(p.x-g.x,p.z-g.z);if(d<bd){bd=d;best=f}});setTimeout(()=>volley(id,best),(900+Math.random()*500)*SPD)})}
+ let c=B.decisions[k].choices[i].cam;if(typeof c==="string")c=Rules.cams[c];clearTimeout(camT);if(c){CT.splice(0,6,...c);camT=setTimeout(()=>CT.splice(0,6,...OV),6200*SPD)}}
 // ---------- LOADING: battles are data files (see BATTLE_FORMAT.md) ----------
 const hx=v=>typeof v==="string"?parseInt(v.replace("#",""),16):v;
 function normalize(b){
