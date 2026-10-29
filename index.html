@@ -196,9 +196,9 @@ function pick(i){
  speak(x.o);V.innerHTML=`<div class="card"><div class="kicker"><span>Your orders are carried out</span></div><div id="oc" style="opacity:0;transition:opacity 1s"><div class="out">${x.o}${hm?"<br><i>"+hm+"</i>":""}</div><div class="delta"><span style="color:${R-R0<0?"var(--bad)":"var(--ok)"}">${B.rn} ${sg(Math.max(0,Math.min(100,R))-Math.max(0,Math.min(100,R0)))}</span><span style="color:${E-E0<0?"var(--ok)":"var(--bad)"}">${B.cn} ${sg(dispE()-dispE(E0))}</span></div></div><button class="primary" id="nx" disabled style="opacity:.5">Watching the battle…</button></div>`+(()=>{const w=scout;scout=false;const h=sit();scout=w;return h})();
  const QK=ATT.length>0,t0=performance.now();setTimeout(()=>{const o=$("oc");if(o)o.style.opacity=1},(QK?150:350)*SPD);
  // the next step is one tap away: the button, the result card or the battle map; the final blow plays out for a moment first
- const wait=fin?(QK?1600:2400)*SPD:350,b0=$("nx");let gone=false;const go=e=>{if(gone||performance.now()-t0<wait||(e&&e.target&&e.target.closest&&e.target.closest("a,input,select,details")))return;gone=true;STAGE_TAP=null;nxt()};
+ const wait=fin?(QK?1600:2400)*SPD:350,b0=$("nx");let gone=false,ready=false;const go=e=>{if(gone||!ready||(e&&e.target&&e.target.closest&&e.target.closest("a,input,select,details")))return;gone=true;STAGE_TAP=null;nxt()};
  STAGE_TAP=go;V.firstElementChild.onclick=go;
- setTimeout(()=>{const b=$("nx");if(!b||b!==b0)return;b.disabled=false;b.style.opacity=1;b.textContent=fin?"See the result ▸":"Next decision ▸";b.onclick=go;const t=document.createElement("div");t.className="sub";t.style.cssText="text-align:center;margin:6px 0 0;font-size:13px";t.textContent="or tap anywhere on the battle";b.after(t)},wait);
+ setTimeout(()=>{ready=true;const b=$("nx");if(!b||b!==b0)return;b.disabled=false;b.style.opacity=1;b.textContent=fin?"See the result ▸":"Next decision ▸";b.onclick=go;const t=document.createElement("div");t.className="sub";t.style.cssText="text-align:center;margin:6px 0 0;font-size:13px";t.textContent="or tap anywhere on the battle";b.after(t)},wait);
  hudScroll(document.querySelector(".stage"))}
 
 // ---------- SOUND (synthesised, no files) ----------
