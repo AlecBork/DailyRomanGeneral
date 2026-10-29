@@ -1,0 +1,1593 @@
+{
+ "id": "caesarpompey",
+ "name": "Caesar against Pompey",
+ "date": "49 BC",
+ "result": "win",
+ "loc": {
+  "lat": 40.3,
+  "lon": 19.5,
+  "place": "Italy, Illyria and Thessaly",
+  "short": "Caesar vs Pompey",
+  "x": 429,
+  "y": 140,
+  "span": 6
+ },
+ "names": {
+  "rome": "Caesar’s army",
+  "enemy": "Pompey’s army",
+  "commander": "Julius Caesar",
+  "foe": "Pompey"
+ },
+ "intro": "From the Rubicon to Pharsalus, January 49 to August 48 BC. The Senate has ordered you, Gaius Julius Caesar, conqueror of Gaul, to give up your army. Pompey the Great, once your ally and son-in-law, commands the Senate’s forces. This is the civil war that ends the Roman Republic.",
+ "debrief": "Caesar crossed the Rubicon in January 49 BC and swept through Italy. At Corfinium he pardoned his enemies. Pompey escaped from Brundisium to Greece. Caesar first beat Pompey’s legions in Spain at Ilerda, then crossed the Adriatic in winter. At Dyrrachium he tried to wall in Pompey’s larger army, but Pompey broke through and Caesar suffered his worst defeat. Retreating into Thessaly, he stormed Gomphi to feed his men. At Pharsalus, a hidden fourth line of cohorts routed Pompey’s cavalry and the Pompeian army broke. Pompey fled to Egypt and was murdered. The other choices are what-ifs.",
+ "terrain": {
+  "grass": "#7f9a4d",
+  "ground": "#b59a62",
+  "tree": "#3f5f32",
+  "trees": 60,
+  "river": {
+   "horizontal": true,
+   "y": 190,
+   "w": 20,
+   "color": "#5d7f94"
+  },
+  "hills": [
+   [
+    200,
+    40,
+    140,
+    14
+   ]
+  ]
+ },
+ "units": {
+  "leg": {
+   "x": 200,
+   "y": 215,
+   "w": 170,
+   "h": 14,
+   "side": "roman",
+   "name": "Caesar’s veteran legions",
+   "model": "legionary"
+  },
+  "x10": {
+   "x": 320,
+   "y": 215,
+   "w": 70,
+   "h": 12,
+   "side": "roman",
+   "name": "Tenth Legion",
+   "model": "veteran"
+  },
+  "cav": {
+   "x": 60,
+   "y": 225,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "German and Gallic horse",
+   "model": "cav_roman"
+  },
+  "fl": {
+   "x": 80,
+   "y": 245,
+   "w": 70,
+   "h": 8,
+   "side": "roman",
+   "name": "Transport ships",
+   "model": "galley_roman",
+   "hidden": true
+  },
+  "lines": {
+   "x": 200,
+   "y": 160,
+   "w": 300,
+   "h": 4,
+   "side": "roman",
+   "name": "Caesar’s siege lines",
+   "model": "levy",
+   "hidden": true
+  },
+  "pom": {
+   "x": 200,
+   "y": 90,
+   "w": 220,
+   "h": 14,
+   "side": "enemy",
+   "name": "Pompey’s legions",
+   "model": "legionary",
+   "scales": true,
+   "hidden": true
+  },
+  "pcav": {
+   "x": 330,
+   "y": 80,
+   "w": 90,
+   "h": 10,
+   "side": "enemy",
+   "name": "Labienus’s cavalry (7,000)",
+   "model": "cav_heavy",
+   "hidden": true
+  },
+  "pfl": {
+   "x": 300,
+   "y": 40,
+   "w": 120,
+   "h": 8,
+   "side": "enemy",
+   "name": "Pompeian fleet",
+   "model": "galley_greek",
+   "hidden": true
+  },
+  "town": {
+   "x": 200,
+   "y": 45,
+   "w": 120,
+   "h": 10,
+   "side": "enemy",
+   "name": "Town walls",
+   "model": "levy",
+   "hidden": true
+  }
+ },
+ "potential": [
+  {
+   "if": {
+    "_step": {
+     "gte": 10
+    }
+   },
+   "v": 0
+  },
+  {
+   "if": {
+    "_step": {
+     "lt": 2
+    }
+   },
+   "v": 10
+  },
+  {
+   "v": 8
+  }
+ ],
+ "climax": {
+  "win": [
+   "The fourth line routs the cavalry.",
+   "Pompey’s army breaks at Pharsalus.",
+   "Caesar is master of Rome."
+  ],
+  "lose": [
+   "Labienus’s horse rides round the legions.",
+   "Caesar is beaten at Pharsalus.",
+   "Pompey returns to Rome in triumph."
+  ],
+  "cams": [
+   "right",
+   "wide",
+   "wide"
+  ]
+ },
+ "status": [
+  {
+   "label": "Italy",
+   "decision": 0,
+   "options": [
+    {
+     "text": "Crossed",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    },
+    {
+     "text": "Refused",
+     "tone": "r"
+    }
+   ],
+   "default": {
+    "text": "The Rubicon",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Corfinium",
+   "decision": 1,
+   "options": [
+    {
+     "text": "Pardoned",
+     "tone": "g"
+    },
+    {
+     "text": "Assault failed",
+     "tone": "r"
+    },
+    {
+     "text": "Behind you",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Domitius",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Spain",
+   "decision": 3,
+   "options": [
+    {
+     "text": "Won",
+     "tone": "g"
+    },
+    {
+     "text": "Marching on Italy",
+     "tone": "r"
+    },
+    {
+     "text": "Waiting",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Pompey’s legions",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "The sea",
+   "decision": 4,
+   "options": [
+    {
+     "text": "Crossed",
+     "tone": "g"
+    },
+    {
+     "text": "Waiting",
+     "tone": "r"
+    },
+    {
+     "text": "Half caught",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Bibulus",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Dyrrachium",
+   "decision": 6,
+   "options": [
+    {
+     "text": "Broken out",
+     "tone": "r"
+    },
+    {
+     "text": "Pulled back",
+     "tone": "g"
+    },
+    {
+     "text": "Pushed back",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Siege lines",
+    "tone": "n"
+   }
+  },
+  {
+   "label": "Cavalry",
+   "decision": 8,
+   "options": [
+    {
+     "text": "Fourth line hidden",
+     "tone": "g"
+    },
+    {
+     "text": "Outnumbered",
+     "tone": "r"
+    },
+    {
+     "text": "Rough ground",
+     "tone": "a"
+    }
+   ],
+   "default": {
+    "text": "Labienus",
+    "tone": "n"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "title": "The Rubicon",
+   "text": "January 49 BC. The Senate has ordered you to give up your army or be declared an enemy of the state. Pompey commands the Senate’s forces. You stand at the Rubicon, the border of Italy, with a single legion, the Thirteenth.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Pompey’s legions are scattered across Italy and Spain and not yet ready."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Speed is everything: Pompey is not ready."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cross the river tonight",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": 0,
+       "e": -7,
+       "set": {
+        "fast": 1
+       },
+       "text": "‘The die is cast.’ You cross with the Thirteenth and race south. Town after town opens its gates."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         160
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait in Gaul for all your legions to arrive",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -6,
+       "text": "Pompey uses the weeks to raise new levies."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Offer the Senate one last compromise and wait",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -3,
+       "e": 0,
+       "text": "The Senate refuses and calls up more troops."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Corfinium",
+   "text": "Lucius Domitius Ahenobarbus, your bitter enemy, holds the hill town of Corfinium with thirty cohorts, against Pompey’s advice.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Domitius’s own men doubt him."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Surround the town and wait."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Surround it, then pardon them all",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "fast": true
+       },
+       "r": -2,
+       "e": -9,
+       "text": "Trapped before help can come, Domitius’s soldiers hand him over. You let him and his officers go free and take his cohorts into your army. Italy hears of your mercy."
+      },
+      {
+       "r": -3,
+       "e": -6,
+       "text": "Corfinium surrenders after a siege. You pardon them all."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         110
+        ],
+        "town": [
+         200,
+         45,
+         0.3
+        ]
+       },
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Storm it before Pompey can send help",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": -1,
+       "text": "The walls are strong and your men die on them."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         80
+        ]
+       },
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Bypass it and chase Pompey to the coast",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -3,
+       "e": -8,
+       "text": "Domitius’s thirty cohorts stay behind you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         300,
+         140
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ],
+   "stage": "italy"
+  },
+  {
+   "title": "Brundisium",
+   "text": "Pompey has fallen back to the port of Brundisium to take his army across the sea to Greece, where his allies and ships wait.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Half his army has already sailed. The ships will come back for the rest."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Try to stop the ships."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Build moles to block the harbour mouth",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -9,
+       "text": "Your men push rafts and earth into the harbour mouth, but Pompey slips out by night with the rest of his army."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pfl": [
+         300,
+         40,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Storm the walls before the ships return",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "The walls hold and the ships return."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         80
+        ]
+       },
+       "f": [
+        "leg",
+        "town"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Let him go and secure Italy and Rome",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": 0,
+       "e": -6,
+       "text": "You let Pompey go and take Rome, its treasury and its grain."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ],
+   "stage": "port"
+  },
+  {
+   "title": "A leader without an army",
+   "text": "Italy is yours, but Pompey’s best legions are in Spain under his generals, and you have no fleet to follow him to Greece.",
+   "intel": {
+    "hint": [
+     {
+      "text": "You have a saying: first the army without a leader, then the leader without an army."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Deal with Spain first."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "March on Spain first",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -8,
+       "set": {
+        "spain": 1
+       },
+       "text": "You march to Spain and, at Ilerda, outmanoeuvre Pompey’s generals until their armies surrender without a battle."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Build a fleet and chase Pompey to Greece now",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "Spain’s legions march on Italy behind you."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold Italy and wait for Pompey to come back",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -2,
+       "e": -6,
+       "text": "Pompey grows stronger in the East every month."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "The winter sea",
+   "text": "January 48 BC. Pompey’s admiral Bibulus patrols the Adriatic with a great fleet. You have only enough ships for half your army. No one sails in winter.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Bibulus does not expect anyone to cross in winter."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Cross now, in winter."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Cross in winter with half the army",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "spain": true
+       },
+       "r": -2,
+       "e": -9,
+       "text": "With Spain safe behind you, you cross with seven legions and land on the coast of Epirus before Bibulus can react. Antony brings the rest months later."
+      },
+      {
+       "r": -4,
+       "e": -4,
+       "text": "You land in Epirus, but with enemies still behind you in the West."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "fl": [
+         80,
+         245,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Wait for spring and more ships",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -6,
+       "e": 0,
+       "text": "Pompey trains his army all winter."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Send Antony first with the other half",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -3,
+       "e": -8,
+       "text": "Bibulus catches part of the fleet."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pfl": [
+         300,
+         60,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Dyrrachium",
+   "text": "Pompey is camped on the coast near Dyrrachium with a larger army, supplied by sea. Your men are short of food, eating bread made from roots.",
+   "intel": {
+    "hint": [
+     {
+      "text": "His army is bigger, but his horses are starving for grass."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Wall him in."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Wall in his whole army with siege lines",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "hist": true,
+     "fx": [
+      {
+       "r": -3,
+       "e": -9,
+       "set": {
+        "lines": 1
+       },
+       "text": "Your men dig seventeen miles of lines around Pompey’s camp. His horses starve, but so do your men."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "lines": [
+         200,
+         160,
+         1
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "high"
+    },
+    {
+     "label": "Attack his camp at once",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "His camp is too strong."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "leg",
+        "pom"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "March inland and make him follow you",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -2,
+       "e": -6,
+       "set": {
+        "inland": 1
+       },
+       "text": "Pompey must leave the sea and his supplies to follow you."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         300,
+         200
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ],
+   "stage": "dyrr"
+  },
+  {
+   "title": "The breakthrough",
+   "text": "Deserters show Pompey a weak point at the southern end of your lines. At dawn his legions break through by land and sea.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Your men are scattered along miles of lines."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Pull back before you lose the army."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Counter-attack with thirty-three cohorts",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "lines": true
+       },
+       "r": -10,
+       "e": 0,
+       "text": "Your counter-attack gets lost in the old camps and ditches. Your men panic and flee. You lose a thousand men and thirty-two standards. Pompey does not follow up. ‘Today the victory would have been theirs, if they had a leader who knew how to win,’ you say."
+      },
+      {
+       "r": -4,
+       "e": -2,
+       "text": "Your counter-attack is beaten back."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         120
+        ]
+       },
+       "f": [
+        "leg",
+        "pom"
+       ]
+      }
+     ],
+     "cam": "front"
+    },
+    {
+     "label": "Fall back in good order",
+     "quality": 2,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -3,
+       "e": -6,
+       "text": "You pull your men back before Pompey can cut them off."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "leg": [
+         200,
+         230
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Hold every point on the lines",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -6,
+       "e": -6,
+       "text": "Your thin lines are pushed back."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ]
+  },
+  {
+   "title": "Into Thessaly",
+   "text": "You retreat east into Thessaly, short of food. Pompey follows, but the senators in his camp argue over who will hold which office after the war.",
+   "intel": {
+    "hint": [
+     {
+      "text": "The town of Gomphi has shut its gates on you."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Your men need food and heart."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Storm Gomphi",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -7,
+       "set": {
+        "fed": 1
+       },
+       "text": "You storm Gomphi in an afternoon. Your hungry men eat and drink their fill. Other towns open their gates."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Go round it and march on toward Pompey",
+     "quality": 1,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -3,
+       "e": -8,
+       "text": "Your men stay hungry."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    },
+    {
+     "label": "Ask Pompey for peace talks while you can",
+     "quality": 0,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": 0,
+       "text": "Pompey’s senators laugh."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "wide"
+    }
+   ],
+   "stage": "thessaly"
+  },
+  {
+   "title": "Pharsalus: the cavalry",
+   "text": "August 48 BC, the plain of Pharsalus. Pompey has 47,000 men to your 22,000, and 7,000 horse to your 1,000. Labienus will lead the cavalry round your right.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Pompey’s horsemen are young nobles who fear wounds to the face."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Hide a fourth line of cohorts behind your right."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Hide a fourth line behind the right",
+     "quality": 2,
+     "cost": 0,
+     "style": "M",
+     "hist": true,
+     "fx": [
+      {
+       "r": -2,
+       "e": -9,
+       "set": {
+        "fourth": 1
+       },
+       "text": "You take six cohorts from your third line and hide them behind the Tenth. They wait with their javelins."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "x10": [
+         340,
+         210
+        ]
+       },
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Mass your cavalry on the right",
+     "quality": 0,
+     "cost": 0,
+     "style": "A",
+     "fx": [
+      {
+       "r": -8,
+       "e": 0,
+       "text": "Your 1,000 horse cannot stop 7,000."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "cav": [
+         340,
+         180
+        ]
+       },
+       "f": [
+        "cav",
+        "pcav"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Anchor your right on rough ground",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -3,
+       "e": -8,
+       "text": "There is little rough ground on this plain."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    }
+   ],
+   "stage": "pharsalus"
+  },
+  {
+   "title": "Pharsalus: the charge",
+   "text": "Labienus’s horse sweeps round your right. Pompey’s infantry waits, ordered not to advance.",
+   "intel": {
+    "hint": [
+     {
+      "text": "Strike the cavalry at their faces."
+     }
+    ],
+    "scout": [
+     {
+      "text": "Unleash the fourth line."
+     }
+    ]
+   },
+   "choices": [
+    {
+     "label": "Unleash the fourth line at their faces",
+     "quality": 2,
+     "cost": 0,
+     "style": "A",
+     "hist": true,
+     "fx": [
+      {
+       "if": {
+        "fourth": true
+       },
+       "r": -2,
+       "e": -13,
+       "text": "Your hidden cohorts charge the horsemen, thrusting their javelins at their faces. The cavalry panics and flees. Your third line goes in, and Pompey’s army breaks. Pompey rides to his camp, then flees to Egypt, where he is murdered."
+      },
+      {
+       "r": -6,
+       "e": -6,
+       "text": "The cavalry is driven off at great cost."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pcav": [
+         330,
+         80,
+         0.2
+        ],
+        "pom": [
+         200,
+         60
+        ]
+       },
+       "f": [
+        "x10",
+        "pcav"
+       ]
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Pull the right back to face the cavalry",
+     "quality": 1,
+     "cost": 0,
+     "style": "C",
+     "fx": [
+      {
+       "r": -4,
+       "e": -8,
+       "text": "The cavalry is held, but Pompey’s legions advance."
+      }
+     ],
+     "move": [
+      {
+       "u": {},
+       "f": []
+      }
+     ],
+     "cam": "right"
+    },
+    {
+     "label": "Charge Pompey’s infantry before the cavalry strikes",
+     "quality": 0,
+     "cost": 0,
+     "style": "M",
+     "fx": [
+      {
+       "r": -9,
+       "e": 0,
+       "text": "Labienus’s horse falls on your rear."
+      }
+     ],
+     "move": [
+      {
+       "u": {
+        "pcav": [
+         330,
+         220,
+         1
+        ]
+       },
+       "f": [
+        "pcav",
+        "leg"
+       ]
+      }
+     ],
+     "cam": "right"
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "title": "Caesar%27s civil war (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Caesar%27s_civil_war"
+  }
+ ],
+ "epic": true,
+ "scouts": 3,
+ "stages": {
+  "italy": {
+   "label": "Weeks later",
+   "title": "Corfinium, in the hills of Italy",
+   "dir": 1,
+   "weather": null,
+   "terrain": {
+    "grass": "#7f9a4d",
+    "ground": "#b59a62",
+    "tree": "#3f5f32",
+    "trees": 60,
+    "hills": [
+     [
+      200,
+      45,
+      160,
+      26
+     ]
+    ],
+    "roads": [
+     [
+      0,
+      200,
+      400,
+      180,
+      10
+     ]
+    ]
+   },
+   "units": {
+    "leg": [
+     200,
+     200
+    ],
+    "x10": [
+     320,
+     210
+    ],
+    "cav": [
+     60,
+     220
+    ],
+    "town": [
+     200,
+     45,
+     1
+    ],
+    "pom": [
+     200,
+     90,
+     0
+    ]
+   }
+  },
+  "port": {
+   "label": "March 49 BC",
+   "title": "Brundisium",
+   "dir": 1,
+   "weather": null,
+   "cam": [
+    0,
+    200,
+    250,
+    0,
+    0,
+    -20
+   ],
+   "terrain": {
+    "grass": "#7f9a4d",
+    "ground": "#b59a62",
+    "tree": "#3f5f32",
+    "trees": 20,
+    "flat": true,
+    "lakes": [
+     [
+      200,
+      20,
+      260,
+      50
+     ]
+    ]
+   },
+   "units": {
+    "leg": [
+     200,
+     210
+    ],
+    "x10": [
+     320,
+     210
+    ],
+    "cav": [
+     60,
+     220
+    ],
+    "town": [
+     200,
+     110,
+     1
+    ],
+    "pom": [
+     200,
+     90,
+     0
+    ],
+    "pfl": [
+     300,
+     40,
+     1
+    ]
+   }
+  },
+  "dyrr": {
+   "label": "Spring 48 BC",
+   "title": "Dyrrachium, on the coast of Illyria",
+   "dir": 1,
+   "weather": "rain",
+   "terrain": {
+    "grass": "#6f8a4a",
+    "ground": "#8a7a52",
+    "tree": "#3f5f32",
+    "trees": 50,
+    "hills": [
+     [
+      80,
+      120,
+      80,
+      24
+     ],
+     [
+      320,
+      120,
+      80,
+      24
+     ]
+    ],
+    "lakes": [
+     [
+      200,
+      10,
+      300,
+      30
+     ]
+    ]
+   },
+   "units": {
+    "leg": [
+     200,
+     205
+    ],
+    "x10": [
+     330,
+     205
+    ],
+    "cav": [
+     60,
+     220
+    ],
+    "pom": [
+     200,
+     80,
+     1
+    ],
+    "town": [
+     200,
+     45,
+     0
+    ],
+    "pfl": [
+     300,
+     25,
+     1
+    ],
+    "fl": [
+     80,
+     245,
+     0
+    ]
+   }
+  },
+  "thessaly": {
+   "label": "Weeks later",
+   "title": "The march into Thessaly",
+   "dir": 1,
+   "weather": "heat",
+   "terrain": {
+    "grass": "#a8a163",
+    "ground": "#c4ad76",
+    "tree": "#4f6a3a",
+    "trees": 40,
+    "hills": [
+     [
+      200,
+      40,
+      200,
+      18
+     ]
+    ],
+    "roads": [
+     [
+      0,
+      200,
+      400,
+      190,
+      10
+     ]
+    ]
+   },
+   "units": {
+    "leg": [
+     200,
+     200
+    ],
+    "x10": [
+     320,
+     205
+    ],
+    "cav": [
+     60,
+     220
+    ],
+    "pom": [
+     200,
+     60,
+     0
+    ],
+    "lines": [
+     200,
+     160,
+     0
+    ],
+    "pfl": [
+     300,
+     40,
+     0
+    ]
+   }
+  },
+  "pharsalus": {
+   "label": "9 August 48 BC",
+   "title": "The plain of Pharsalus",
+   "dir": 1,
+   "weather": null,
+   "terrain": {
+    "grass": "#a8a163",
+    "ground": "#c4ad76",
+    "tree": "#4f6a3a",
+    "trees": 30,
+    "river": {
+     "x": -214,
+     "w": 24
+    },
+    "hills": [
+     [
+      200,
+      20,
+      200,
+      12
+     ]
+    ]
+   },
+   "units": {
+    "leg": [
+     200,
+     205
+    ],
+    "x10": [
+     320,
+     205
+    ],
+    "cav": [
+     340,
+     225
+    ],
+    "pom": [
+     200,
+     90,
+     1
+    ],
+    "pcav": [
+     330,
+     80,
+     1
+    ],
+    "lines": [
+     200,
+     160,
+     0
+    ],
+    "town": [
+     200,
+     45,
+     0
+    ],
+    "pfl": [
+     300,
+     40,
+     0
+    ],
+    "fl": [
+     80,
+     245,
+     0
+    ]
+   }
+  }
+ },
+ "ytax": 3,
+ "winAt": 46
+}

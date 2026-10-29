@@ -1665,6 +1665,16 @@
    "lon": 15.5,
    "result": "loss",
    "naval": false
+  },
+  {
+   "id": "caesarpompey",
+   "name": "Caesar vs Pompey",
+   "date": "49 BC",
+   "lat": 40.3,
+   "lon": 19.5,
+   "result": "win",
+   "naval": false,
+   "epic": true
   }
  ]
 }

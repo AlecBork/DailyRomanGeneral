@@ -141,7 +141,7 @@ const GAME_URL=SHARE_URL||(HOSTED?location.origin+location.pathname.replace(/ind
 const STATS_CODE="dailyromangeneral";
 function track(path,title){try{if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:"game/"+path,title:title||path,event:true})}catch(e){}}
 if(HOSTED&&STATS_CODE){const sc=document.createElement("script");sc.async=true;sc.src="https://gc.zgo.at/count.js";sc.dataset.goatcounter="https://"+STATS_CODE+".goatcounter.com/count";document.head.appendChild(sc)}
-const LEGENDARY_SUNDAYS=false;  // set true to make every Sunday’s battle legendary (no scouts, harder to win)
+const LEGENDARY_SUNDAYS=true;  // Sunday Epics (battles marked "epic" in the manifest) are played on Sundays, for double points
 let LEG=false;
 const ls={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 let FAST=ls.get("drg-fast","0")==="1",SPD=FAST?.5:1;   // "Fast battles": animations and pauses take half the time
@@ -257,7 +257,7 @@ const ACH=[
  ["teutoburg","🦅","Eagles saved","Win the Teutoburg Forest"],
  ["naval","⚓","Master of the sea","Win a sea battle"],
  ["vet10","🛡","Veteran","Fight 10 battles"],
- ["vet30","🏺","Old soldier","Fight 30 battles"]].concat(LEGENDARY_SUNDAYS?[["legend","🌟","Legend","Win a legendary Sunday battle"]]:[]);
+ ["vet30","🏺","Old soldier","Fight 30 battles"]].concat(LEGENDARY_SUNDAYS?[["legend","🌟","Legend","Win a Sunday Epic"]]:[]);
 function earned(){const R=Object.values(records()),st=store.get("drg-streak")||{n:0,max:0},best=Math.max(st.max||0,st.n||0),won=R.filter(r=>r.won),ch=won.filter(r=>r.real==="loss").length,e=new Set();
  if(won.length)e.add("first");if(ch>=1)e.add("change1");if(ch>=5)e.add("change5");if(ch>=10)e.add("change10");
  if(won.some(r=>r.atts.length===1))e.add("firsttry");if(won.some(r=>r.atts[r.atts.length-1].every(q=>q===2)))e.add("perfect");if(R.some(r=>r.tot&&r.hit===r.tot))e.add("historian");
@@ -313,7 +313,7 @@ async function lbPost(out){if(!lbOn()||PRACTICE||!out||!out.atts||ls.get("drg-lb
  try{await sb("results?on_conflict=player,day",{method:"POST",headers:{Prefer:"resolution=ignore-duplicates,return=minimal"},body:JSON.stringify(row)});ls.set("drg-lb-"+DK,"1")}catch(e){console.warn("leaderboard",e)}}
 // Points: a win scores 100 / 60 / 30 for the 1st / 2nd / 3rd attempt, +5 for each best call, plus a victory bonus that
 // grows faster the further the enemy is pushed below the win line (margin² / 4: 8 below = 16, 16 below = 64, 25 below = 156). A loss scores 0.
-function pointsFor(o){if(!o||!o.won)return{t:0,base:0,calls:0,bonus:0};const n=Math.min(3,(o.atts||[o]).length),base=[100,60,30][n-1],calls=5*(o.q||[]).filter(v=>v>=2).length,m=Math.max(0,WIN-Math.max(0,o.E||0)),bonus=Math.round(m*m/4);return{t:base+calls+bonus,base,calls,bonus}}
+function pointsFor(o){if(!o||!o.won)return{t:0,base:0,calls:0,bonus:0};const n=Math.min(3,(o.atts||[o]).length),base=[100,60,30][n-1],calls=5*(o.q||[]).filter(v=>v>=2).length,m=Math.max(0,WIN-Math.max(0,o.E||0)),bonus=Math.round(m*m/4);const k=LEG?2:1;return{t:k*(base+calls+bonus),base:k*base,calls:k*calls,bonus:k*bonus}}
 function lbLine(r){return r.won?`<b style="color:var(--ink)">${r.points||0}</b> pts · ${["1st","2nd","3rd"][r.attempts-1]} try`:`💀 lost · 0 pts`}
 async function lbRender(el,tab){if(!el)return;tab=tab||"all";const me=playerId();
  const head=`<div class="kicker" style="color:var(--gold)"><span>🏆 Leaderboard</span></div><div class="seg2" role="tablist"><a href="#" role="tab" data-t="all" class="${tab==="all"?"on":""}">All time</a><a href="#" role="tab" data-t="today" class="${tab==="today"?"on":""}">Today</a></div>`;
@@ -376,7 +376,7 @@ function end(r){
  const fresh=PRACTICE?[]:newHonours(),honHTML=(SAVED?`<div class="toast">🙏 <span>The gods were kind: one missed day this month was forgiven, and your streak lives on.</span></div>`:"")+fresh.map(a=>`<div class="toast"><span style="font-size:1.4rem">${a[1]}</span><span><b>New honour: ${a[2]}</b><br><span class="sub">${a[3]}</span></span></div>`).join("");
  const st=store.get("drg-streak")||{n:0,max:0},sx=stats(),hit=(r.p||[]).filter((v,k)=>v===B.hist[k]).length,tot=B.hist.length,real=B.result==="win";
  const verdict=r.won&&!real?"You changed history: Rome really lost this one.":!r.won&&real?`You lost a battle ${B.hn} won.`:r.won?`Like ${B.hn}, you won.`:`Like ${B.hn}, you lost. History repeats itself.`;
- const txt=`DailyRomanGeneral ${PRACTICE?"(practice)":"#"+BNUM}${LEG?" 🌟 Legendary":""}\n${LEGION} at ${B.name.replace(/^Battle of (the )?|^Siege of /,"")} (${B.date})\n${gs.map((a,i)=>gOf(a.q)+(i===gs.length-1&&r.won?" 🏆":" ❌")).join("\n")}\n${r.won?"Won on attempt "+gs.length+" of 3":"💀 Lost all 3 attempts"} · ${hit}/${tot} calls like ${B.hn}${PRACTICE?"":"\n🔥 Streak: "+st.n}`+(GAME_URL?"\n"+GAME_URL:"");
+ const txt=`DailyRomanGeneral ${PRACTICE?"(practice)":"#"+BNUM}${LEG?" 🌟 Sunday Epic":""}\n${LEGION} at ${B.name.replace(/^Battle of (the )?|^Siege of /,"")} (${B.date})\n${gs.map((a,i)=>gOf(a.q)+(i===gs.length-1&&r.won?" 🏆":" ❌")).join("\n")}\n${r.won?"Won on attempt "+gs.length+" of 3":"💀 Lost all 3 attempts"} · ${hit}/${tot} calls like ${B.hn}${PRACTICE?"":"\n🔥 Streak: "+st.n}`+(GAME_URL?"\n"+GAME_URL:"");
  hud("over",Object.assign((r.q||[]).slice(),{won:r.won}));
  V.innerHTML=`<div class="card res ${r.won?"win":"lose"}"><div class="kicker"><span>${PRACTICE?"Practice battle":"Battle #"+BNUM}</span><span class="cpw">${B.date}</span></div><div class="big">${head}</div><p class="verdict">${verdict}</p>${gh}<p class="sub" style="margin:10px 0 0">You made the same call as ${B.hn} in ${hit} of ${tot} decisions.</p>
  <div class="stat" style="margin:14px 0 4px"><div><b>${sx.played}</b>played</div><div><b>${sx.played?Math.round(100*sx.won/sx.played):0}%</b>won</div><div><b>${st.n||0}</b>streak</div><div><b>${Math.max(st.max||0,st.n||0)}</b>best</div></div>
@@ -450,8 +450,8 @@ function landDev(){const el=document.getElementById("ldev");if(!el)return;if(!DE
 function landing(){const ov=document.createElement("div");ov.id="intro";const first=ATT.length===0,loc=B.loc;
  ov.innerHTML=`<canvas id="globe"></canvas><canvas id="flat"></canvas><div id="site"><div id="tilt"><img id="simg" alt=""><img id="dimg" alt=""></div><div class="vign"></div><div id="pin"><div class="ring"></div><div class="stick">${PIN}<div class="lb">${loc.short}</div></div></div></div>
  <div id="ttl" class="glass"><div class="lg" style="cursor:pointer" onclick="window.devTap&&devTap()">DAILY ROMAN<br>GENERAL</div><div class="tg">One battle of ancient Rome, every day. Command the legions. Change history, or repeat it.</div>
- <div class="meta"><span>${PRACTICE?"PRACTICE":"BATTLE #"+BNUM}</span>${LEG?'<span style="border-color:#b05ad0;color:#e2b6f0">LEGENDARY SUNDAY · NO SCOUTS</span>':""}<span>${first?"3 ATTEMPTS":"ATTEMPT "+(ATT.length+1)+" OF 3"}</span></div>
- <button class="primary" id="go">${first?"Begin today’s battle":"Continue the battle"}</button><div id="ldev"></div><div class="fine">About five minutes. ${SCOUTS} scout report${SCOUTS===1?"":"s"} this battle. Tap \u{1F50A} for sound.</div></div>
+ <div class="meta"><span>${PRACTICE?"PRACTICE":"BATTLE #"+BNUM}</span>${LEG?'<span style="border-color:#b05ad0;color:#e2b6f0">🌟 SUNDAY EPIC · DOUBLE POINTS</span>':""}<span>${first?"3 ATTEMPTS":"ATTEMPT "+(ATT.length+1)+" OF 3"}</span></div>
+ <button class="primary" id="go">${first?"Begin today’s battle":"Continue the battle"}</button><div id="ldev"></div><div class="fine">${LEG?"A Sunday Epic: "+B.turns.length+" decisions, about ten minutes.":"About five minutes."} ${SCOUTS} scout report${SCOUTS===1?"":"s"} this battle. Tap \u{1F50A} for sound.</div></div>
  <div class="wheel glass" id="wh" style="display:none"></div><div id="cap" class="glass"><div class="cn">${B.name}</div><div class="cd">${B.date} · ${loc.place}</div></div>
  <button id="skip">SKIP ▸</button><div id="credit">Imagery: NASA Blue Marble · Natural Earth</div>`;
  document.body.appendChild(ov);landDev();requestAnimationFrame(()=>ov.style.opacity=1);
@@ -773,11 +773,13 @@ async function boot(){
  try{
   MF=await getJSON("battles/manifest.json");
   const [y,m,d]=(MF.start||"2026-01-01").split("-").map(Number),sd=Math.floor((Date.UTC(y,m-1,d)-Date.UTC(2026,0,1))/864e5),n=MF.battles.length;
-  let bid=MF.battles[(((dayNum-sd)%n)+n)%n].id;DAILY=bid;BNUM=Math.max(1,dayNum-sd+1);  // battle #1 = launch day (manifest "start")
+  // Sundays from 1 Nov 2026 bring a Sunday Epic (manifest entries marked "epic"); the daily rotation skips them and carries on next day.
+  const rot=MF.battles.filter(b=>!b.epic),eps=MF.battles.filter(b=>b.epic),s0=Math.round((Date.UTC(2026,10,1)-Date.UTC(2026,0,1))/864e5),suns=d=>d<s0?0:Math.floor((d-s0)/7)+1,isSun=dayNum>=s0&&(dayNum-s0)%7===0;
+  let bid=isSun&&eps.length?eps[(suns(dayNum)-1)%eps.length].id:rot[((((dayNum-sd)-suns(dayNum))%rot.length)+rot.length)%rot.length].id;DAILY=bid;BNUM=Math.max(1,dayNum-sd+1);  // battle #1 = launch day (manifest "start")
 
   try{const t=localStorage.getItem("drg-test-b");if(t&&MF.battles.some(b=>b.id===t)){bid=t;PRACTICE=true}}catch(e){}
   B=normalize(await getJSON("battles/"+bid+".json"));
-  DK=dayNum+"b"+B.id;U=B.units;WIN=B.winAt||45;CPMAX=99;SCOUTS=B.scouts!=null?B.scouts:(B.decisions.length>=7?2:1);LEG=LEGENDARY_SUNDAYS&&!PRACTICE&&new Date().getDay()===0;if(LEG){SCOUTS=0;WIN-=5}
+  DK=dayNum+"b"+B.id;U=B.units;WIN=B.winAt||45;CPMAX=99;SCOUTS=B.scouts!=null?B.scouts:(B.decisions.length>=7?2:1);LEG=!!B.epic;
   document.querySelector(".tick").style.left=WIN+"%";
   $("brand").textContent="DAILY ROMAN GENERAL";$("bname").innerHTML=`${B.name.replace(/^Battle of (the )?/,"")}<small>${B.date} · ${PRACTICE?"practice":"#"+BNUM}</small>`;$("rn").textContent=B.rn;$("en").textContent=B.cn;
   renderDev();
