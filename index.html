@@ -148,7 +148,7 @@ let FAST=ls.get("drg-fast","0")==="1",SPD=FAST?.5:1;   // "Fast battles": animat
 function hudScroll(el,gap){if(!el)return;const h=($("hud")||{}).offsetHeight||0,y=el.getBoundingClientRect().top+scrollY-h-(gap==null?10:gap);if(Math.abs(y-scrollY)>24)window.scrollTo({top:Math.max(0,y),behavior:"smooth"})}
 let LEGION=ls.get("drg-legion","Legio I"),VOICE=ls.get("drg-voice","0")==="1";
 let CB=(()=>{try{return localStorage.getItem("drg-cb")==="1"}catch(e){return false}})();document.documentElement.classList.toggle("cb",CB);
-var SITOPEN=false;let WIN=45,CPMAX=99,SCOUTS=3,SCN=3,SC=[],PREV=null;let S,step,R,E,quals,last,picks=[],CP=CPMAX,scout=false,ATT=[];
+var SITOPEN=false,SCOUT_AT=-1;let WIN=45,CPMAX=99,SCOUTS=3,SCN=3,SC=[],PREV=null;let S,step,R,E,quals,last,picks=[],CP=CPMAX,scout=false,ATT=[];
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 
 // Without a scout report the enemy bar is an estimate. The error stays the same all battle, so changes on the bar match the reported changes.
@@ -171,10 +171,10 @@ function start(){
  landing();
 }
 function turn(){
- if(scout){scout=false;bars()}let mvg=false;{const ns=stageFor(step);if(ns!==STG){goStage(ns);mvg=ok}}
+ if(scout&&SCOUT_AT!==step){scout=false;bars()}let mvg=false;/* a scout report lasts for the decision it was bought for */{const ns=stageFor(step);if(ns!==STG){goStage(ns);mvg=ok}}
  const T=B.turns[step],ev=B.decisions[step].event;hud("play");speak(T.h+". "+T.t);
  V.innerHTML=prevNote()+`<div class="card"><div class="kicker"><span>${ev?"⚡ Turn of fortune":"Decision "+(step+1)}</span><span class="cpw">🔭 ${SCN} scout${SCN===1?"":"s"} left</span></div><h2>${T.h}</h2><p>${T.t}</p>${ord(step).map(i=>`<button class="ch" data-i="${i}"><span class="l">${T.c[i].l}</span></button>`).join("")}${scout?"":SCN>0?`<button class="scout" id="sc">🔭 Send scouts (${SCN} of ${SCOUTS} left)</button>`:'<div class="sub" style="margin:10px 0 0;text-align:center">No scouts left this battle.</div>'}</div>`+intel()+sit();
- {const bs=V.querySelectorAll("button[data-i]");bs.forEach(b=>{b.onclick=()=>pick(+b.dataset.i);if(mvg)b.disabled=true});if(mvg)setTimeout(()=>bs.forEach(b=>b.disabled=false),2100*SPD)}STAGE_TAP=null;FOCUS=null;if(!mvg&&step>0){clearTimeout(camT);CT.splice(0,6,...OV)}if(step>0)hudScroll(document.querySelector(".stage"));const sc=$("sc");if(sc)sc.onclick=()=>{SCN--;scout=true;SFX.click();bars();turn()};
+ {const bs=V.querySelectorAll("button[data-i]");bs.forEach(b=>{b.onclick=()=>pick(+b.dataset.i);if(mvg)b.disabled=true});if(mvg)setTimeout(()=>bs.forEach(b=>b.disabled=false),2100*SPD)}STAGE_TAP=null;FOCUS=null;if(!mvg&&step>0){clearTimeout(camT);CT.splice(0,6,...OV)}if(step>0)hudScroll(document.querySelector(".stage"));const sc=$("sc");if(sc)sc.onclick=()=>{SCN--;scout=true;SCOUT_AT=step;SFX.click();bars();turn()};
 }
 // Choices are shown in a shuffled order that is fixed for each battle, so their position gives nothing away.
 function ord(k){const n=B.turns[k].c.length,a=[...Array(n).keys()];let h=2166136261;for(const ch of B.id+":"+k){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}
